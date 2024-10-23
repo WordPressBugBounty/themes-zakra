@@ -200,6 +200,27 @@ $options = array(
 					'section'   => 'zakra_footer_builder_main_area',
 					'transport' => 'postMessage',
 				),
+				'zakra_footer_main_inner_element_layout_divider' => array(
+					'type'    => 'customind-divider',
+					'variant' => 'dashed',
+					'section' => 'zakra_footer_builder_main_area',
+					'tab'     => 'general',
+				),
+				'zakra_footer_main_inner_element_layout_heading' => array(
+					'type'    => 'customind-title',
+					'title'   => esc_html__( 'Inner Elements', 'zakra' ),
+					'section' => 'zakra_footer_builder_main_area',
+				),
+				'zakra_footer_main_inner_element_layout'  => array(
+					'type'      => 'customind-toggle-button',
+					'title'     => esc_html__( ' Layout', 'zakra' ),
+					'section'   => 'zakra_footer_builder_main_area',
+					'transport' => 'postMessage',
+					'choices'   => array(
+						'column' => esc_html__( 'Stack', 'zakra' ),
+						'row'    => esc_html__( 'Inline', 'zakra' ),
+					),
+				),
 			)
 		),
 		'collapsible'  => apply_filters( 'zakra_footer_main_area_background_accordion_collapsible', false ),

@@ -1,4 +1,9 @@
 == Changelog ==
+= 4.0.2 - 2024-10-23 =
+* Added - Option to change footer builder component alignment.
+* Added - Option to change footer builder component layout.
+* Fix   - Mobile view search issue.
+
 = 4.0.1 - 2024-09-20 =
 * Fix - Menu color issue.
 * Fix - WooCommerce page sidebar issue.

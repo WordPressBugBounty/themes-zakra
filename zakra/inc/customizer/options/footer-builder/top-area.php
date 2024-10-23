@@ -7,7 +7,7 @@ $options = array(
 		'sub_controls' => apply_filters(
 			'zakra_footer_top_area_sub_controls',
 			array(
-				'zakra_footer_top_area_cols'         => array(
+				'zakra_footer_top_area_cols'            => array(
 					'type'        => 'customind-slider',
 					'title'       => 'Top row cols',
 					'default'     => 4,
@@ -19,7 +19,7 @@ $options = array(
 						'step' => 1,
 					),
 				),
-				'zakra_footer_top_area_container'    => array(
+				'zakra_footer_top_area_container'       => array(
 					'default'     => array(
 						'size' => '',
 						'unit' => 'px',
@@ -36,7 +36,7 @@ $options = array(
 						'step' => 1,
 					),
 				),
-				'zakra_footer_top_area_height'       => array(
+				'zakra_footer_top_area_height'          => array(
 					'default'     => array(
 						'size' => '',
 						'unit' => 'px',
@@ -53,14 +53,14 @@ $options = array(
 						'step' => 1,
 					),
 				),
-				'zakra_footer_top_area_color'        => array(
+				'zakra_footer_top_area_color'           => array(
 					'title'     => esc_html__( 'Color', 'zakra' ),
 					'default'   => '',
 					'type'      => 'customind-color',
 					'section'   => 'zakra_footer_builder_top_area',
 					'transport' => 'postMessage',
 				),
-				'zakra_footer_top_area_background'   => array(
+				'zakra_footer_top_area_background'      => array(
 					'default'   => array(
 						'background-color'      => '',
 						'background-image'      => '',
@@ -75,7 +75,7 @@ $options = array(
 					'section'   => 'zakra_footer_builder_top_area',
 				),
 
-				'zakra_footer_top_area_padding'      => array(
+				'zakra_footer_top_area_padding'         => array(
 					'default'     => array(
 						'top'    => '20',
 						'right'  => '',
@@ -91,7 +91,7 @@ $options = array(
 					'defaultUnit' => 'px',
 				),
 
-				'zakra_footer_top_area_margin'       => array(
+				'zakra_footer_top_area_margin'          => array(
 					'default'     => array(
 						'top'    => '',
 						'right'  => '',
@@ -107,7 +107,7 @@ $options = array(
 					'defaultUnit' => 'px',
 				),
 
-				'zakra_footer_top_area_border_width' => array(
+				'zakra_footer_top_area_border_width'    => array(
 					'default'     => array(
 						'top'    => '0',
 						'right'  => '0',
@@ -123,12 +123,33 @@ $options = array(
 					'defaultUnit' => 'px',
 				),
 
-				'zakra_footer_top_area_border_color' => array(
+				'zakra_footer_top_area_border_color'    => array(
 					'title'     => esc_html__( 'Border Color', 'zakra' ),
 					'default'   => '',
 					'type'      => 'customind-color',
 					'section'   => 'zakra_footer_builder_top_area',
 					'transport' => 'postMessage',
+				),
+				'zakra_footer_top_inner_element_layout_divider' => array(
+					'type'    => 'customind-divider',
+					'variant' => 'dashed',
+					'section' => 'zakra_footer_builder_top_area',
+					'tab'     => 'general',
+				),
+				'zakra_footer_top_inner_element_layout_heading' => array(
+					'type'    => 'customind-title',
+					'title'   => esc_html__( 'Inner Elements', 'zakra' ),
+					'section' => 'zakra_footer_builder_top_area',
+				),
+				'zakra_footer_top_inner_element_layout' => array(
+					'type'      => 'customind-toggle-button',
+					'title'     => esc_html__( ' Layout', 'zakra' ),
+					'section'   => 'zakra_footer_builder_top_area',
+					'transport' => 'postMessage',
+					'choices'   => array(
+						'column' => esc_html__( 'Stack', 'zakra' ),
+						'row'    => esc_html__( 'Inline', 'zakra' ),
+					),
 				),
 
 			)

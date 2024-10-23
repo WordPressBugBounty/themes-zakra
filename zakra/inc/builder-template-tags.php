@@ -223,7 +223,7 @@ function zakra_footer_get_area_class( $id ) {
 }
 
 function zakra_render_footer_cols( $cols, $cols_area ) {
-	echo '<div class="zak-footer-' . esc_attr( zakra_footer_get_area_class( $cols_area ) ) . '-col">';
+	echo '<div class="zak-footer-col zak-footer-' . esc_attr( zakra_footer_get_area_class( $cols_area ) ) . '-col">';
 	foreach ( $cols as $element ) {
 		get_template_part( "template-parts/footer-builder-elements/$element", '' );
 	}

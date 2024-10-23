@@ -84,26 +84,6 @@ function customind_get_header_components() {
 						'id'      => 'logo',
 					),
 					array(
-						'name'    => __( 'Primary Menu', 'zakra' ),
-						'section' => 'zakra_header_builder_primary_menu',
-						'id'      => 'primary-menu',
-					),
-					array(
-						'name'    => __( 'Secondary Menu', 'zakra' ),
-						'section' => 'zakra_header_builder_secondary_menu',
-						'id'      => 'secondary-menu',
-					),
-					array(
-						'name'    => __( 'Tertiary Menu', 'zakra' ),
-						'section' => 'zakra_header_builder_tertiary_menu',
-						'id'      => 'tertiary-menu',
-					),
-					array(
-						'name'    => __( 'Quaternary Menu', 'zakra' ),
-						'section' => 'zakra_header_builder_quaternary_menu',
-						'id'      => 'quaternary-menu',
-					),
-					array(
 						'name'    => __( 'Mobile Menu', 'zakra' ),
 						'section' => 'zakra_header_builder_mobile_menu',
 						'id'      => 'mobile-menu',
@@ -112,11 +92,6 @@ function customind_get_header_components() {
 						'name'    => __( 'Button', 'zakra' ),
 						'section' => 'zakra_header_builder_button_1',
 						'id'      => 'button',
-					),
-					array(
-						'name'    => __( 'Search', 'zakra' ),
-						'section' => 'zakra_header_builder_search',
-						'id'      => 'search',
 					),
 					array(
 						'name'    => __( 'HTML 1', 'zakra' ),

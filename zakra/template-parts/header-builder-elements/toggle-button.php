@@ -15,6 +15,9 @@ defined( 'ABSPATH' ) || exit;
 $mobile_menu_label      = get_theme_mod( 'zakra_mobile_menu_text', '' );
 $enable_header_button   = get_theme_mod( 'zakra_enable_mobile_header_button', '' );
 $enable_header_button_2 = get_theme_mod( 'zakra_enable_mobile_header_button_2', '' );
+$builder                = get_theme_mod( 'zakra_header_builder', zakra_header_default_builder() );
+$enable_builder         = get_theme_mod( 'zakra_enable_builder', false );
+$enable_search          = get_theme_mod( 'zakra_enable_header_search', true );
 
 ?>
 
@@ -32,13 +35,14 @@ $enable_header_button_2 = get_theme_mod( 'zakra_enable_mobile_header_button_2', 
 			aria-label="<?php esc_attr_e( 'Primary Menu', 'zakra' ); ?>" >
 
 		<?php
-		if ( get_theme_mod( 'zakra_enable_header_search', true ) ) {
-
+		if ( $enable_builder || zakra_maybe_enable_builder() ) {
+			zakra_get_icon( 'bars' );
+		} elseif ( $enable_search ) {
 			zakra_get_icon( 'magnifying-glass-bars' );
 		} else {
-
 			zakra_get_icon( 'bars' );
 		}
+
 
 		?>
 
@@ -49,17 +53,27 @@ $enable_header_button_2 = get_theme_mod( 'zakra_enable_mobile_header_button_2', 
 		<?php echo wp_kses_post( apply_filters( 'zakra_nav_data_attrs', '' ) ); ?>>
 
 		<div class="zak-mobile-nav__header">
-			<?php if ( get_theme_mod( 'zakra_enable_header_search', true ) ) : ?>
-				<?php get_search_form(); // Header search. ?>
-			<?php endif; ?>
-
+			<?php
+			if ( $enable_builder || zakra_maybe_enable_builder() ) {
+				foreach ( $builder['desktop'] as $area => $cols ) {
+					foreach ( $cols as $element => $value ) {
+						foreach ( $value as $key ) {
+							if ( 'search' === $key ) {
+								get_search_form();
+							}
+						}
+					}
+				}
+			} elseif ( $enable_search ) {
+					get_search_form();
+			}
+			?>
 			<!-- Mobile nav close icon. -->
 			<button id="zak-mobile-nav-close" class="zak-mobile-nav-close" aria-label="<?php esc_attr_e( 'Close Button', 'zakra' ); ?>">
 				<?php zakra_get_icon( 'x-mark' ); ?>
 			</button>
 		</div> <!-- /.zak-mobile-nav__header -->
 			<?php
-			$builder = get_theme_mod( 'zakra_header_builder', zakra_header_default_builder() );
 			echo '<div class="zak-mobile-header-row">';
 			foreach ( $builder['offset'] as $cols ) {
 

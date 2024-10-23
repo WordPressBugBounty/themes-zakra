@@ -1618,7 +1618,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 				'background-attachment' => 'scroll',
 			);
 			$outside_container_background          = get_theme_mod( 'zakra_outside_container_background', $outside_container_background_defaults );
-			$parse_css                          .= zakra_parse_background_css( $outside_container_background_defaults, $outside_container_background, apply_filters( 'zakra_outside_container_background', 'body' ) );
+			$parse_css                          .= zakra_parse_background_css( $outside_container_background_defaults, $outside_container_background, apply_filters( 'zakra_outside_container_background', 'body,body.page-template-pagebuilder' ) );
 
 
 			/**
@@ -5097,6 +5097,87 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 				),
 			);
 			$parse_builder_css                      .= zakra_parse_css( '', $footer_widgets_title_color, $footer_widgets_title_color_css );
+
+			// Footer bottom layout alignment.
+			$footer_builder_bottom_layout = get_theme_mod('zakra_footer_bottom_inner_element_layout', 'column');
+
+			if ( ! empty( $footer_builder_bottom_layout ) ) {
+				$parse_builder_css .= ".zak-footer-builder .zak-footer-bottom-row .zak-footer-col{flex-direction: $footer_builder_bottom_layout;}";
+			}
+
+			// Footer main layout alignment.
+			$footer_builder_main_layout = get_theme_mod('zakra_footer_main_inner_element_layout', 'column');
+
+			if ( ! empty( $footer_builder_main_layout ) ) {
+				$parse_builder_css .= ".zak-footer-builder .zak-footer-main-row .zak-footer-col{flex-direction: $footer_builder_main_layout;}";
+			}
+
+			// Footer top layout alignment.
+			$footer_builder_top_layout = get_theme_mod('zakra_footer_top_inner_element_layout', 'column');
+
+			if ( ! empty( $footer_builder_top_layout ) ) {
+				$parse_builder_css .= ".zak-footer-builder .zak-footer-top-row .zak-footer-col{flex-direction: $footer_builder_top_layout;}";
+			}
+
+			// Copyright alignment.
+			$copyright_alignment = get_theme_mod('zakra_copyright_alignment', 'center');
+
+			$parse_builder_css .= ".zak-footer-builder .zak-copyright{text-align: $copyright_alignment;}";
+
+			// Footer menu alignment.
+			$footer_menu_alignment = get_theme_mod('zakra_footer_menu_alignment', 'center');
+
+			$parse_builder_css .= ".zak-footer-builder .zak-footer-nav{display: flex; justify-content: $footer_menu_alignment;}";
+
+			// Footer menu 2 alignment.
+			$footer_menu_alignment_2 = get_theme_mod('zakra_footer_menu_2_alignment', 'center');
+
+			$parse_builder_css .= ".zak-footer-builder .zak-footer-nav-2{display: flex; justify-content: $footer_menu_alignment_2;}";
+
+			// Html alignment.
+			$html_alignment = get_theme_mod('zakra_html_1_alignment', 'center');
+
+			$parse_builder_css .= ".zak-footer-builder .zak-html-1{text-align: $html_alignment;}";
+
+			// Html 2 alignment.
+			$html_alignment_2 = get_theme_mod('zakra_html_2_alignment', 'center');
+
+			$parse_builder_css .= ".zak-footer-builder .zak-html-2{text-align: $html_alignment_2;}";
+
+			// Social alignment.
+			$social_alignment = get_theme_mod('zakra_socials_alignment', '');
+
+			$parse_builder_css .= ".zak-footer-builder .footer-social-icons{text-align: $social_alignment;}";
+
+			// Widget alignment.
+			$widget_1_alignment = get_theme_mod('zakra_footer_widget_1_alignment', '');
+
+			$parse_builder_css .= ".zak-footer-builder .widget-footer-sidebar-1{text-align: $widget_1_alignment;}";
+
+			// Widget 2 alignment.
+			$widget_2_alignment = get_theme_mod('zakra_footer_widget_2_alignment', '');
+
+			$parse_builder_css .= ".zak-footer-builder .widget-footer-sidebar-2{text-align: $widget_2_alignment;}";
+
+			// Widget 3 alignment.
+			$widget_3_alignment = get_theme_mod('zakra_footer_widget_3_alignment', '');
+
+			$parse_builder_css .= ".zak-footer-builder .widget-footer-sidebar-3{text-align: $widget_3_alignment;}";
+
+			// Widget 4 alignment.
+			$widget_4_alignment = get_theme_mod('zakra_footer_widget_4_alignment', '');
+
+			$parse_builder_css .= ".zak-footer-builder .widget-footer-sidebar-4{text-align: $widget_4_alignment;}";
+
+			// Widget 5 alignment.
+			$widget_5_alignment = get_theme_mod('zakra_footer_widget_5_alignment', '');
+
+			$parse_builder_css .= ".zak-footer-builder .widget-footer-bar-col-1-sidebar{text-align: $widget_5_alignment;}";
+
+			// Widget 6 alignment.
+			$widget_6_alignment = get_theme_mod('zakra_footer_widget_6_alignment', '');
+
+			$parse_builder_css .= ".zak-footer-builder .widget-footer-bar-col-2-sidebar{text-align: $widget_6_alignment;}";
 
 			$parse_builder_css .= $dynamic_css;
 

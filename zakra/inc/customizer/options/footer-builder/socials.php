@@ -8,7 +8,7 @@ $options = array(
 		'sub_controls' => apply_filters(
 			'zakra_footer_builder_social_sub_controls',
 			array(
-				'zakra_footer_socials' => array(
+				'zakra_footer_socials'            => array(
 					'type'    => 'customind-socials',
 					'title'   => esc_html__( 'Social', 'zakra' ),
 					'section' => 'zakra_footer_builder_socials',
@@ -31,6 +31,23 @@ $options = array(
 							'url'   => '#',
 							'icon'  => 'fa-brands fa-square-instagram',
 						),
+					),
+				),
+				'zakra_socials_alignment_divider' => array(
+					'type'    => 'customind-divider',
+					'variant' => 'dashed',
+					'section' => 'zakra_footer_builder_socials',
+				),
+				'zakra_socials_alignment'         => array(
+					'default'   => '',
+					'type'      => 'customind-toggle-button',
+					'title'     => esc_html__( 'Alignment', 'zakra' ),
+					'section'   => 'zakra_footer_builder_socials',
+					'transport' => 'postMessage',
+					'choices'   => array(
+						'left'   => esc_html__( 'Left', 'zakra' ),
+						'center' => esc_html__( 'Center', 'zakra' ),
+						'right'  => esc_html__( 'Right', 'zakra' ),
 					),
 				),
 			)

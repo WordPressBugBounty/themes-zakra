@@ -13,14 +13,14 @@ $options = array(
 		'sub_controls' => apply_filters(
 			'zakra_footer_menu_2_sub_controls',
 			array(
-				'zakra_footer_menu_2'             => array(
+				'zakra_footer_menu_2'                   => array(
 					'default' => 'none',
 					'type'    => 'customind-select',
 					'title'   => esc_html__( 'Select a Menu', 'zakra' ),
 					'section' => 'zakra_footer_builder_footer_menu_2',
 					'choices' => zakra_get_menu_options(),
 				),
-				'zakra_footer_menu_2_color_group' => array(
+				'zakra_footer_menu_2_color_group'       => array(
 					'type'         => 'customind-color-group',
 					'title'        => 'Color',
 					'section'      => 'zakra_footer_builder_footer_menu_2',
@@ -41,7 +41,7 @@ $options = array(
 						),
 					),
 				),
-				'zakra_footer_menu_2_typography'  => array(
+				'zakra_footer_menu_2_typography'        => array(
 					'default'   => array(
 						'font-family'    => 'Default',
 						'font-weight'    => 'regular',
@@ -80,6 +80,22 @@ $options = array(
 					'title'     => esc_html__( 'Typography', 'zakra' ),
 					'transport' => 'postMessage',
 					'section'   => 'zakra_footer_builder_footer_menu_2',
+				),
+				'zakra_footer_menu_2_alignment_divider' => array(
+					'type'    => 'customind-divider',
+					'variant' => 'dashed',
+					'section' => 'zakra_footer_builder_footer_menu_2',
+				),
+				'zakra_footer_menu_2_alignment'         => array(
+					'default' => 'center',
+					'type'    => 'customind-toggle-button',
+					'title'   => esc_html__( 'Alignment', 'zakra' ),
+					'section' => 'zakra_footer_builder_footer_menu_2',
+					'choices' => array(
+						'left'   => esc_html__( 'Left', 'zakra' ),
+						'center' => esc_html__( 'Center', 'zakra' ),
+						'right'  => esc_html__( 'Right', 'zakra' ),
+					),
 				),
 			)
 		),

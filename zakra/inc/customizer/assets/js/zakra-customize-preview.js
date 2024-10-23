@@ -280,6 +280,14 @@
 		return `${selector}{ ${property} : ${topCSS + unit + ' ' + rightCSS + unit + ' ' + bottomCSS + unit + ' ' + leftCSS + unit}}`;
 	}
 
+	function zakraElementLayoutCSS(selector, property, value) {
+		return `${selector} {${property}: ${value};}`;
+	}
+
+	function zakraAlignmentCSS(selector, property, value) {
+		return `${selector} {${property}: ${value};}`;
+	}
+
 	wp.hooks.addFilter(
 		'customind.dynamic.css',
 		'customind',
@@ -2288,6 +2296,110 @@
 					css = zakraGenerateTypographyCSS(
 						id,
 						'.zak-header-builder .zak-mobile-menu a',
+						value,
+					);
+					break;
+
+				case 'zakra_footer_bottom_inner_element_layout':
+					css = zakraElementLayoutCSS(
+						'.zak-footer-builder .zak-footer-bottom-row .zak-footer-col',
+						'flex-direction',
+						value,
+					);
+					break;
+
+				case 'zakra_footer_main_inner_element_layout':
+					css = zakraElementLayoutCSS(
+						'.zak-footer-builder .zak-footer-main-row .zak-footer-col',
+						'flex-direction',
+						value,
+					);
+					break;
+
+				case 'zakra_footer_top_inner_element_layout':
+					css = zakraElementLayoutCSS(
+						'.zak-footer-builder .zak-footer-top-row .zak-footer-col',
+						'flex-direction',
+						value,
+					);
+					break;
+
+				case 'zakra_copyright_alignment':
+					css = zakraAlignmentCSS(
+						'.zak-footer-builder .zak-copyright',
+						'text-align',
+						value,
+					);
+					break;
+
+				case 'zakra_html_1_alignment':
+					css = zakraAlignmentCSS(
+						'.zak-footer-builder .zak-html-1',
+						'text-align',
+						value,
+					);
+					break;
+
+				case 'zakra_html_2_alignment':
+					css = zakraAlignmentCSS(
+						'.zak-footer-builder .zak-html-2',
+						'text-align',
+						value,
+					);
+					break;
+
+				case 'zakra_socials_alignment':
+					css = zakraAlignmentCSS(
+						'.zak-footer-builder .footer-social-icons',
+						'text-align',
+						value,
+					);
+					break;
+
+				case 'zakra_footer_widget_1_alignment':
+					css = zakraAlignmentCSS(
+						'.zak-footer-builder .widget-footer-sidebar-1',
+						'text-align',
+						value,
+					);
+					break;
+
+				case 'zakra_footer_widget_2_alignment':
+					css = zakraAlignmentCSS(
+						'.zak-footer-builder .widget-footer-sidebar-2',
+						'text-align',
+						value,
+					);
+					break;
+
+				case 'zakra_footer_widget_3_alignment':
+					css = zakraAlignmentCSS(
+						'.zak-footer-builder .widget-footer-sidebar-3',
+						'text-align',
+						value,
+					);
+					break;
+
+				case 'zakra_footer_widget_4_alignment':
+					css = zakraAlignmentCSS(
+						'.zak-footer-builder .widget-footer-sidebar-4',
+						'text-align',
+						value,
+					);
+					break;
+
+				case 'zakra_footer_widget_5_alignment':
+					css = zakraAlignmentCSS(
+						'.zak-footer-builder .widget-footer-bar-col-1-sidebar',
+						'text-align',
+						value,
+					);
+					break;
+
+				case 'zakra_footer_widget_6_alignment':
+					css = zakraAlignmentCSS(
+						'.zak-footer-builder .widget-footer-bar-col-2-sidebar',
+						'text-align',
 						value,
 					);
 					break;

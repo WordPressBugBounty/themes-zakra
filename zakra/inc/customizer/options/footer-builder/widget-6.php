@@ -119,6 +119,23 @@ $options = array(
 					'title'     => esc_html__( 'Content Typography', 'zakra' ),
 					'section'   => 'zakra_footer_builder_widget_6',
 				),
+				'zakra_footer_widget_6_alignment_divider'  => array(
+					'type'    => 'customind-divider',
+					'variant' => 'dashed',
+					'section' => 'zakra_footer_builder_widget_6',
+				),
+				'zakra_footer_widget_6_alignment'          => array(
+					'default'   => '',
+					'type'      => 'customind-toggle-button',
+					'title'     => esc_html__( 'Alignment', 'zakra' ),
+					'section'   => 'zakra_footer_builder_widget_6',
+					'transport' => 'postMessage',
+					'choices'   => array(
+						'left'   => esc_html__( 'Left', 'zakra' ),
+						'center' => esc_html__( 'Center', 'zakra' ),
+						'right'  => esc_html__( 'Right', 'zakra' ),
+					),
+				),
 			)
 		),
 		'collapsible'  => apply_filters( 'zakra_footer_builder_widget_6_accordion_collapsible', false ),

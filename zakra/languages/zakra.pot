@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: team@zakratheme.com\n"
-"POT-Creation-Date: 2024-09-20 08:37+0000\n"
+"POT-Creation-Date: 2024-10-23 05:03+0000\n"
 "Report-Msgid-Bugs-To: team@zakratheme.com\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -108,7 +108,7 @@ msgstr ""
 msgid "Top Bar"
 msgstr ""
 
-#: inc/admin/class-zakra-dashboard.php:423, inc/core/class-zakra-after-setup-theme.php:96, inc/customizer/options/header-builder/header-builder.php:16, inc/customizer/options/header-builder/header-builder.php:87, inc/customizer/options/header-builder/primary-menu.php:11, inc/customizer/options/header/primary-menu.php:8, inc/customizer/panels-sections/panels-sections.php:96, inc/customizer/panels-sections/panels-sections.php:191, inc/meta-boxes/class-zakra-meta-box-page-settings.php:89
+#: inc/admin/class-zakra-dashboard.php:423, inc/core/class-zakra-after-setup-theme.php:96, inc/customizer/options/header-builder/header-builder.php:16, inc/customizer/options/header-builder/primary-menu.php:11, inc/customizer/options/header/primary-menu.php:8, inc/customizer/panels-sections/panels-sections.php:96, inc/customizer/panels-sections/panels-sections.php:191, inc/meta-boxes/class-zakra-meta-box-page-settings.php:89
 msgid "Primary Menu"
 msgstr ""
 
@@ -124,7 +124,7 @@ msgstr ""
 msgid "Footer Bar"
 msgstr ""
 
-#: inc/admin/class-zakra-dashboard.php:443, inc/core/class-zakra-after-setup-theme.php:102, inc/customizer/options/header-builder/header-builder.php:107, inc/customizer/options/header-builder/mobile-menu.php:11, inc/customizer/options/header/primary-menu.php:292, inc/customizer/panels-sections/panels-sections.php:211
+#: inc/admin/class-zakra-dashboard.php:443, inc/core/class-zakra-after-setup-theme.php:102, inc/customizer/options/header-builder/header-builder.php:87, inc/customizer/options/header-builder/mobile-menu.php:11, inc/customizer/options/header/primary-menu.php:292, inc/customizer/panels-sections/panels-sections.php:211
 msgid "Mobile Menu"
 msgstr ""
 
@@ -605,7 +605,7 @@ msgstr ""
 msgid "View your shopping cart"
 msgstr ""
 
-#: inc/core/class-zakra-after-setup-theme.php:101, inc/customizer/options/header-builder/header-builder.php:21, inc/customizer/options/header-builder/header-builder.php:92, inc/customizer/options/header-builder/secondary-menu.php:11, inc/customizer/panels-sections/panels-sections.php:196
+#: inc/core/class-zakra-after-setup-theme.php:101, inc/customizer/options/header-builder/header-builder.php:21, inc/customizer/options/header-builder/secondary-menu.php:11, inc/customizer/panels-sections/panels-sections.php:196
 msgid "Secondary Menu"
 msgstr ""
 
@@ -669,19 +669,19 @@ msgstr ""
 msgid "Customizing &#9656; %s"
 msgstr ""
 
-#: inc/customizer/options/additional/additional.php:6, inc/customizer/options/header-builder/toggle-button.php:6
+#: inc/customizer/options/additional/additional.php:6
 msgid "Load Google fonts locally"
 msgstr ""
 
-#: inc/customizer/options/additional/additional.php:13, inc/customizer/options/content/blog.php:188, inc/customizer/options/footer/footer-column.php:14, inc/customizer/options/footer/footer-column.php:223, inc/customizer/options/footer/scroll-to-top.php:12, inc/customizer/options/global/builder.php:13, inc/customizer/options/header-builder/logo.php:66, inc/customizer/options/header-builder/toggle-button.php:13, inc/customizer/options/header/breadcrumb.php:19, inc/customizer/options/header/header-button.php:20, inc/customizer/options/header/header-search.php:14, inc/customizer/options/header/page-header.php:11, inc/customizer/options/header/primary-menu.php:19, inc/customizer/options/header/site-identity.php:68, inc/customizer/options/header/top-bar.php:20, inc/meta-boxes/class-zakra-meta-box-page-settings.php:225
+#: inc/customizer/options/additional/additional.php:13, inc/customizer/options/content/blog.php:188, inc/customizer/options/footer/footer-column.php:14, inc/customizer/options/footer/footer-column.php:223, inc/customizer/options/footer/scroll-to-top.php:12, inc/customizer/options/global/builder.php:13, inc/customizer/options/header-builder/logo.php:66, inc/customizer/options/header/breadcrumb.php:19, inc/customizer/options/header/header-button.php:20, inc/customizer/options/header/header-search.php:14, inc/customizer/options/header/page-header.php:11, inc/customizer/options/header/primary-menu.php:19, inc/customizer/options/header/site-identity.php:68, inc/customizer/options/header/top-bar.php:20, inc/meta-boxes/class-zakra-meta-box-page-settings.php:225
 msgid "Enable"
 msgstr ""
 
-#: inc/customizer/options/additional/additional.php:26, inc/customizer/options/content/blog-meta.php:40, inc/customizer/options/content/blog-sidebar.php:127, inc/customizer/options/content/blog.php:237, inc/customizer/options/content/single-post.php:72, inc/customizer/options/footer-builder/copyright.php:128, inc/customizer/options/footer-builder/footer-menu-2.php:93, inc/customizer/options/footer-builder/footer-menu.php:93, inc/customizer/options/footer-builder/html-1.php:90, inc/customizer/options/footer-builder/html-2.php:90, inc/customizer/options/footer-builder/socials.php:45, inc/customizer/options/footer-builder/widget-1.php:131, inc/customizer/options/footer-builder/widget-2.php:131, inc/customizer/options/footer-builder/widget-3.php:131, inc/customizer/options/footer-builder/widget-4.php:131, inc/customizer/options/footer-builder/widget-5.php:131, inc/customizer/options/footer-builder/widget-6.php:131, inc/customizer/options/footer/footer-bar.php:318, inc/customizer/options/footer/footer-column.php:304, inc/customizer/options/footer/scroll-to-top.php:90, inc/customizer/options/global/button.php:116, inc/customizer/options/global/colors.php:176, inc/customizer/options/global/container.php:112, inc/customizer/options/global/content-area.php:77, inc/customizer/options/global/sidebar.php:137, inc/customizer/options/global/typography.php:404, inc/customizer/options/header-builder/bottom-area.php:130, inc/customizer/options/header-builder/cart.php:26, inc/customizer/options/header-builder/header-button.php:137, inc/customizer/options/header-builder/html-1.php:90, inc/customizer/options/header-builder/html-2.php:90, inc/customizer/options/header-builder/logo.php:220, inc/customizer/options/header-builder/main-area.php:130, inc/customizer/options/header-builder/mobile-menu.php:68, inc/customizer/options/header-builder/offset-area.php:27, inc/customizer/options/header-builder/primary-menu.php:249, inc/customizer/options/header-builder/quaternary-menu.php:107, inc/customizer/options/header-builder/search.php:58, inc/customizer/options/header-builder/secondary-menu.php:194, inc/customizer/options/header-builder/socials.php:45, inc/customizer/options/header-builder/tertiary-menu.php:195, inc/customizer/options/header-builder/toggle-button.php:28, inc/customizer/options/header-builder/top-area.php:116, inc/customizer/options/header-builder/widget-1.php:131, inc/customizer/options/header-builder/widget-2.php:131, inc/customizer/options/header/breadcrumb.php:159, inc/customizer/options/header/header-button.php:178, inc/customizer/options/header/header-media.php:18, inc/customizer/options/header/header-search.php:35, inc/customizer/options/header/main-header.php:190, inc/customizer/options/header/page-header.php:217, inc/customizer/options/header/primary-menu.php:354, inc/customizer/options/header/site-identity.php:224, inc/customizer/options/header/top-bar.php:215, inc/customizer/options/woocommerce/woocommerce.php:103
+#: inc/customizer/options/additional/additional.php:26, inc/customizer/options/content/blog-meta.php:40, inc/customizer/options/content/blog-sidebar.php:127, inc/customizer/options/content/blog.php:237, inc/customizer/options/content/single-post.php:72, inc/customizer/options/footer-builder/copyright.php:145, inc/customizer/options/footer-builder/footer-menu-2.php:109, inc/customizer/options/footer-builder/footer-menu.php:109, inc/customizer/options/footer-builder/html-1.php:107, inc/customizer/options/footer-builder/html-2.php:107, inc/customizer/options/footer-builder/socials.php:62, inc/customizer/options/footer-builder/widget-1.php:148, inc/customizer/options/footer-builder/widget-2.php:148, inc/customizer/options/footer-builder/widget-3.php:148, inc/customizer/options/footer-builder/widget-4.php:148, inc/customizer/options/footer-builder/widget-5.php:148, inc/customizer/options/footer-builder/widget-6.php:148, inc/customizer/options/footer/footer-bar.php:318, inc/customizer/options/footer/footer-column.php:304, inc/customizer/options/footer/scroll-to-top.php:90, inc/customizer/options/global/button.php:116, inc/customizer/options/global/colors.php:176, inc/customizer/options/global/container.php:112, inc/customizer/options/global/content-area.php:77, inc/customizer/options/global/sidebar.php:137, inc/customizer/options/global/typography.php:404, inc/customizer/options/header-builder/bottom-area.php:130, inc/customizer/options/header-builder/cart.php:26, inc/customizer/options/header-builder/header-button.php:137, inc/customizer/options/header-builder/html-1.php:90, inc/customizer/options/header-builder/html-2.php:90, inc/customizer/options/header-builder/logo.php:220, inc/customizer/options/header-builder/main-area.php:130, inc/customizer/options/header-builder/mobile-menu.php:68, inc/customizer/options/header-builder/offset-area.php:27, inc/customizer/options/header-builder/primary-menu.php:249, inc/customizer/options/header-builder/quaternary-menu.php:107, inc/customizer/options/header-builder/search.php:58, inc/customizer/options/header-builder/secondary-menu.php:194, inc/customizer/options/header-builder/socials.php:45, inc/customizer/options/header-builder/tertiary-menu.php:195, inc/customizer/options/header-builder/toggle-button.php:8, inc/customizer/options/header-builder/top-area.php:116, inc/customizer/options/header-builder/widget-1.php:131, inc/customizer/options/header-builder/widget-2.php:131, inc/customizer/options/header/breadcrumb.php:159, inc/customizer/options/header/header-button.php:178, inc/customizer/options/header/header-media.php:18, inc/customizer/options/header/header-search.php:35, inc/customizer/options/header/main-header.php:190, inc/customizer/options/header/page-header.php:217, inc/customizer/options/header/primary-menu.php:354, inc/customizer/options/header/site-identity.php:224, inc/customizer/options/header/top-bar.php:215, inc/customizer/options/woocommerce/woocommerce.php:103
 msgid "Unlock more features available in Pro version."
 msgstr ""
 
-#: inc/customizer/options/additional/additional.php:27, inc/customizer/options/content/blog-meta.php:41, inc/customizer/options/content/blog-sidebar.php:128, inc/customizer/options/content/blog.php:238, inc/customizer/options/content/single-post.php:73, inc/customizer/options/footer-builder/copyright.php:129, inc/customizer/options/footer-builder/footer-menu-2.php:94, inc/customizer/options/footer-builder/footer-menu.php:94, inc/customizer/options/footer-builder/html-1.php:91, inc/customizer/options/footer-builder/html-2.php:91, inc/customizer/options/footer-builder/socials.php:46, inc/customizer/options/footer-builder/widget-1.php:132, inc/customizer/options/footer-builder/widget-2.php:132, inc/customizer/options/footer-builder/widget-3.php:132, inc/customizer/options/footer-builder/widget-4.php:132, inc/customizer/options/footer-builder/widget-5.php:132, inc/customizer/options/footer-builder/widget-6.php:132, inc/customizer/options/footer/footer-bar.php:319, inc/customizer/options/footer/footer-column.php:305, inc/customizer/options/footer/scroll-to-top.php:91, inc/customizer/options/global/button.php:117, inc/customizer/options/global/colors.php:177, inc/customizer/options/global/container.php:113, inc/customizer/options/global/content-area.php:78, inc/customizer/options/global/sidebar.php:138, inc/customizer/options/global/typography.php:405, inc/customizer/options/header-builder/bottom-area.php:131, inc/customizer/options/header-builder/cart.php:27, inc/customizer/options/header-builder/header-button.php:138, inc/customizer/options/header-builder/html-1.php:91, inc/customizer/options/header-builder/html-2.php:91, inc/customizer/options/header-builder/logo.php:221, inc/customizer/options/header-builder/main-area.php:131, inc/customizer/options/header-builder/mobile-menu.php:69, inc/customizer/options/header-builder/offset-area.php:28, inc/customizer/options/header-builder/primary-menu.php:250, inc/customizer/options/header-builder/quaternary-menu.php:108, inc/customizer/options/header-builder/search.php:56, inc/customizer/options/header-builder/secondary-menu.php:195, inc/customizer/options/header-builder/socials.php:46, inc/customizer/options/header-builder/tertiary-menu.php:196, inc/customizer/options/header-builder/toggle-button.php:29, inc/customizer/options/header-builder/top-area.php:117, inc/customizer/options/header-builder/widget-1.php:132, inc/customizer/options/header-builder/widget-2.php:132, inc/customizer/options/header/breadcrumb.php:160, inc/customizer/options/header/header-button.php:179, inc/customizer/options/header/header-media.php:19, inc/customizer/options/header/header-search.php:36, inc/customizer/options/header/main-header.php:191, inc/customizer/options/header/page-header.php:218, inc/customizer/options/header/primary-menu.php:355, inc/customizer/options/header/site-identity.php:225, inc/customizer/options/header/top-bar.php:216, inc/customizer/options/woocommerce/woocommerce.php:104
+#: inc/customizer/options/additional/additional.php:27, inc/customizer/options/content/blog-meta.php:41, inc/customizer/options/content/blog-sidebar.php:128, inc/customizer/options/content/blog.php:238, inc/customizer/options/content/single-post.php:73, inc/customizer/options/footer-builder/copyright.php:146, inc/customizer/options/footer-builder/footer-menu-2.php:110, inc/customizer/options/footer-builder/footer-menu.php:110, inc/customizer/options/footer-builder/html-1.php:108, inc/customizer/options/footer-builder/html-2.php:108, inc/customizer/options/footer-builder/socials.php:63, inc/customizer/options/footer-builder/widget-1.php:149, inc/customizer/options/footer-builder/widget-2.php:149, inc/customizer/options/footer-builder/widget-3.php:149, inc/customizer/options/footer-builder/widget-4.php:149, inc/customizer/options/footer-builder/widget-5.php:149, inc/customizer/options/footer-builder/widget-6.php:149, inc/customizer/options/footer/footer-bar.php:319, inc/customizer/options/footer/footer-column.php:305, inc/customizer/options/footer/scroll-to-top.php:91, inc/customizer/options/global/button.php:117, inc/customizer/options/global/colors.php:177, inc/customizer/options/global/container.php:113, inc/customizer/options/global/content-area.php:78, inc/customizer/options/global/sidebar.php:138, inc/customizer/options/global/typography.php:405, inc/customizer/options/header-builder/bottom-area.php:131, inc/customizer/options/header-builder/cart.php:27, inc/customizer/options/header-builder/header-button.php:138, inc/customizer/options/header-builder/html-1.php:91, inc/customizer/options/header-builder/html-2.php:91, inc/customizer/options/header-builder/logo.php:221, inc/customizer/options/header-builder/main-area.php:131, inc/customizer/options/header-builder/mobile-menu.php:69, inc/customizer/options/header-builder/offset-area.php:28, inc/customizer/options/header-builder/primary-menu.php:250, inc/customizer/options/header-builder/quaternary-menu.php:108, inc/customizer/options/header-builder/search.php:56, inc/customizer/options/header-builder/secondary-menu.php:195, inc/customizer/options/header-builder/socials.php:46, inc/customizer/options/header-builder/tertiary-menu.php:196, inc/customizer/options/header-builder/toggle-button.php:9, inc/customizer/options/header-builder/top-area.php:117, inc/customizer/options/header-builder/widget-1.php:132, inc/customizer/options/header-builder/widget-2.php:132, inc/customizer/options/header/breadcrumb.php:160, inc/customizer/options/header/header-button.php:179, inc/customizer/options/header/header-media.php:19, inc/customizer/options/header/header-search.php:36, inc/customizer/options/header/main-header.php:191, inc/customizer/options/header/page-header.php:218, inc/customizer/options/header/primary-menu.php:355, inc/customizer/options/header/site-identity.php:225, inc/customizer/options/header/top-bar.php:216, inc/customizer/options/woocommerce/woocommerce.php:104
 msgid "Learn more"
 msgstr ""
 
@@ -793,11 +793,11 @@ msgstr ""
 msgid "Full Content"
 msgstr ""
 
-#: inc/customizer/options/content/blog.php:181, inc/customizer/options/global/button.php:6, inc/customizer/options/header-builder/header-builder.php:112, inc/customizer/panels-sections/panels-sections.php:66
+#: inc/customizer/options/content/blog.php:181, inc/customizer/options/global/button.php:6, inc/customizer/options/header-builder/header-builder.php:92, inc/customizer/panels-sections/panels-sections.php:66
 msgid "Button"
 msgstr ""
 
-#: inc/customizer/options/content/blog.php:199
+#: inc/customizer/options/content/blog.php:199, inc/customizer/options/footer-builder/copyright.php:127, inc/customizer/options/footer-builder/footer-menu-2.php:92, inc/customizer/options/footer-builder/footer-menu.php:92, inc/customizer/options/footer-builder/html-1.php:89, inc/customizer/options/footer-builder/html-2.php:89, inc/customizer/options/footer-builder/socials.php:44, inc/customizer/options/footer-builder/widget-1.php:130, inc/customizer/options/footer-builder/widget-2.php:130, inc/customizer/options/footer-builder/widget-3.php:130, inc/customizer/options/footer-builder/widget-4.php:130, inc/customizer/options/footer-builder/widget-5.php:130, inc/customizer/options/footer-builder/widget-6.php:130
 msgid "Alignment"
 msgstr ""
 
@@ -817,7 +817,7 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: inc/customizer/options/footer-builder/bottom-area.php:73, inc/customizer/options/footer-builder/main-area.php:97, inc/customizer/options/footer-builder/top-area.php:73, inc/customizer/options/footer/footer-bar.php:64, inc/customizer/options/footer/footer-column.php:83, inc/customizer/options/footer/scroll-to-top.php:20, inc/customizer/options/global/button.php:41, inc/customizer/options/global/container.php:68, inc/customizer/options/header-builder/bottom-area.php:61, inc/customizer/options/header-builder/header-builder.php:318, inc/customizer/options/header-builder/header-button.php:55, inc/customizer/options/header-builder/main-area.php:61, inc/customizer/options/header-builder/offset-area.php:14, inc/customizer/options/header-builder/search.php:42, inc/customizer/options/header-builder/top-area.php:64, inc/customizer/options/header/header-button.php:93, inc/customizer/options/header/main-header.php:121, inc/customizer/options/header/page-header.php:77, inc/customizer/options/header/top-bar.php:65
+#: inc/customizer/options/footer-builder/bottom-area.php:73, inc/customizer/options/footer-builder/main-area.php:97, inc/customizer/options/footer-builder/top-area.php:73, inc/customizer/options/footer/footer-bar.php:64, inc/customizer/options/footer/footer-column.php:83, inc/customizer/options/footer/scroll-to-top.php:20, inc/customizer/options/global/button.php:41, inc/customizer/options/global/container.php:68, inc/customizer/options/header-builder/bottom-area.php:61, inc/customizer/options/header-builder/header-builder.php:293, inc/customizer/options/header-builder/header-button.php:55, inc/customizer/options/header-builder/main-area.php:61, inc/customizer/options/header-builder/offset-area.php:14, inc/customizer/options/header-builder/search.php:42, inc/customizer/options/header-builder/top-area.php:64, inc/customizer/options/header/header-button.php:93, inc/customizer/options/header/main-header.php:121, inc/customizer/options/header/page-header.php:77, inc/customizer/options/header/top-bar.php:65
 msgid "Background"
 msgstr ""
 
@@ -829,12 +829,28 @@ msgstr ""
 msgid "Margin"
 msgstr ""
 
-#: inc/customizer/options/footer-builder/bottom-area.php:119, inc/customizer/options/footer-builder/main-area.php:143, inc/customizer/options/footer-builder/top-area.php:119, inc/customizer/options/header-builder/bottom-area.php:107, inc/customizer/options/header-builder/header-builder.php:331, inc/customizer/options/header-builder/header-button.php:98, inc/customizer/options/header-builder/main-area.php:107, inc/customizer/options/header-builder/top-area.php:92
+#: inc/customizer/options/footer-builder/bottom-area.php:119, inc/customizer/options/footer-builder/main-area.php:143, inc/customizer/options/footer-builder/top-area.php:119, inc/customizer/options/header-builder/bottom-area.php:107, inc/customizer/options/header-builder/header-builder.php:306, inc/customizer/options/header-builder/header-button.php:98, inc/customizer/options/header-builder/main-area.php:107, inc/customizer/options/header-builder/top-area.php:92
 msgid "Border Width"
 msgstr ""
 
-#: inc/customizer/options/footer-builder/bottom-area.php:127, inc/customizer/options/footer-builder/main-area.php:151, inc/customizer/options/footer-builder/top-area.php:127, inc/customizer/options/header-builder/bottom-area.php:115, inc/customizer/options/header-builder/header-builder.php:340, inc/customizer/options/header-builder/header-button.php:107, inc/customizer/options/header-builder/main-area.php:115, inc/customizer/options/header-builder/top-area.php:100
+#: inc/customizer/options/footer-builder/bottom-area.php:127, inc/customizer/options/footer-builder/main-area.php:151, inc/customizer/options/footer-builder/top-area.php:127, inc/customizer/options/header-builder/bottom-area.php:115, inc/customizer/options/header-builder/header-builder.php:315, inc/customizer/options/header-builder/header-button.php:107, inc/customizer/options/header-builder/main-area.php:115, inc/customizer/options/header-builder/top-area.php:100
 msgid "Border Color"
+msgstr ""
+
+#: inc/customizer/options/footer-builder/bottom-area.php:140, inc/customizer/options/footer-builder/main-area.php:211, inc/customizer/options/footer-builder/top-area.php:141
+msgid "Inner Elements"
+msgstr ""
+
+#: inc/customizer/options/footer-builder/bottom-area.php:145, inc/customizer/options/footer-builder/main-area.php:216, inc/customizer/options/footer-builder/top-area.php:146
+msgid " Layout"
+msgstr ""
+
+#: inc/customizer/options/footer-builder/bottom-area.php:149, inc/customizer/options/footer-builder/main-area.php:220, inc/customizer/options/footer-builder/top-area.php:150
+msgid "Stack"
+msgstr ""
+
+#: inc/customizer/options/footer-builder/bottom-area.php:150, inc/customizer/options/footer-builder/main-area.php:221, inc/customizer/options/footer-builder/top-area.php:151
+msgid "Inline"
 msgstr ""
 
 #: inc/customizer/options/footer-builder/copyright.php:6, inc/customizer/options/footer-builder/footer-builder.php:71, inc/customizer/panels-sections/panels-sections.php:136
@@ -866,19 +882,31 @@ msgstr ""
 msgid "Hover"
 msgstr ""
 
-#: inc/customizer/options/footer-builder/footer-builder.php:10, inc/customizer/options/footer-builder/html-1.php:6, inc/customizer/options/header-builder/header-builder.php:46, inc/customizer/options/header-builder/header-builder.php:122, inc/customizer/options/header-builder/html-1.php:6, inc/customizer/panels-sections/panels-sections.php:241, inc/customizer/panels-sections/panels-sections.php:331
+#: inc/customizer/options/footer-builder/copyright.php:131, inc/customizer/options/footer-builder/footer-menu-2.php:95, inc/customizer/options/footer-builder/footer-menu.php:95, inc/customizer/options/footer-builder/html-1.php:93, inc/customizer/options/footer-builder/html-2.php:93, inc/customizer/options/footer-builder/socials.php:48, inc/customizer/options/footer-builder/widget-1.php:134, inc/customizer/options/footer-builder/widget-2.php:134, inc/customizer/options/footer-builder/widget-3.php:134, inc/customizer/options/footer-builder/widget-4.php:134, inc/customizer/options/footer-builder/widget-5.php:134, inc/customizer/options/footer-builder/widget-6.php:134
+msgid "Left"
+msgstr ""
+
+#: inc/customizer/options/footer-builder/copyright.php:132, inc/customizer/options/footer-builder/footer-menu-2.php:96, inc/customizer/options/footer-builder/footer-menu.php:96, inc/customizer/options/footer-builder/html-1.php:94, inc/customizer/options/footer-builder/html-2.php:94, inc/customizer/options/footer-builder/socials.php:49, inc/customizer/options/footer-builder/widget-1.php:135, inc/customizer/options/footer-builder/widget-2.php:135, inc/customizer/options/footer-builder/widget-3.php:135, inc/customizer/options/footer-builder/widget-4.php:135, inc/customizer/options/footer-builder/widget-5.php:135, inc/customizer/options/footer-builder/widget-6.php:135
+msgid "Center"
+msgstr ""
+
+#: inc/customizer/options/footer-builder/copyright.php:133, inc/customizer/options/footer-builder/footer-menu-2.php:97, inc/customizer/options/footer-builder/footer-menu.php:97, inc/customizer/options/footer-builder/html-1.php:95, inc/customizer/options/footer-builder/html-2.php:95, inc/customizer/options/footer-builder/socials.php:50, inc/customizer/options/footer-builder/widget-1.php:136, inc/customizer/options/footer-builder/widget-2.php:136, inc/customizer/options/footer-builder/widget-3.php:136, inc/customizer/options/footer-builder/widget-4.php:136, inc/customizer/options/footer-builder/widget-5.php:136, inc/customizer/options/footer-builder/widget-6.php:136
+msgid "Right"
+msgstr ""
+
+#: inc/customizer/options/footer-builder/footer-builder.php:10, inc/customizer/options/footer-builder/html-1.php:6, inc/customizer/options/header-builder/header-builder.php:46, inc/customizer/options/header-builder/header-builder.php:97, inc/customizer/options/header-builder/html-1.php:6, inc/customizer/panels-sections/panels-sections.php:241, inc/customizer/panels-sections/panels-sections.php:331
 msgid "HTML 1"
 msgstr ""
 
-#: inc/customizer/options/footer-builder/footer-builder.php:15, inc/customizer/options/footer-builder/html-2.php:6, inc/customizer/options/header-builder/header-builder.php:51, inc/customizer/options/header-builder/header-builder.php:127, inc/customizer/options/header-builder/html-2.php:6, inc/customizer/panels-sections/panels-sections.php:246, inc/customizer/panels-sections/panels-sections.php:336
+#: inc/customizer/options/footer-builder/footer-builder.php:15, inc/customizer/options/footer-builder/html-2.php:6, inc/customizer/options/header-builder/header-builder.php:51, inc/customizer/options/header-builder/header-builder.php:102, inc/customizer/options/header-builder/html-2.php:6, inc/customizer/panels-sections/panels-sections.php:246, inc/customizer/panels-sections/panels-sections.php:336
 msgid "HTML 2"
 msgstr ""
 
-#: inc/customizer/options/footer-builder/footer-builder.php:20, inc/customizer/options/footer-builder/widget-1.php:6, inc/customizer/options/header-builder/header-builder.php:56, inc/customizer/options/header-builder/header-builder.php:132, inc/customizer/options/header-builder/widget-1.php:6, inc/customizer/panels-sections/panels-sections.php:251, inc/customizer/panels-sections/panels-sections.php:261
+#: inc/customizer/options/footer-builder/footer-builder.php:20, inc/customizer/options/footer-builder/widget-1.php:6, inc/customizer/options/header-builder/header-builder.php:56, inc/customizer/options/header-builder/header-builder.php:107, inc/customizer/options/header-builder/widget-1.php:6, inc/customizer/panels-sections/panels-sections.php:251, inc/customizer/panels-sections/panels-sections.php:261
 msgid "Widget 1"
 msgstr ""
 
-#: inc/customizer/options/footer-builder/footer-builder.php:26, inc/customizer/options/footer-builder/widget-2.php:6, inc/customizer/options/header-builder/header-builder.php:62, inc/customizer/options/header-builder/header-builder.php:138, inc/customizer/options/header-builder/widget-2.php:6, inc/customizer/panels-sections/panels-sections.php:256, inc/customizer/panels-sections/panels-sections.php:266
+#: inc/customizer/options/footer-builder/footer-builder.php:26, inc/customizer/options/footer-builder/widget-2.php:6, inc/customizer/options/header-builder/header-builder.php:62, inc/customizer/options/header-builder/header-builder.php:113, inc/customizer/options/header-builder/widget-2.php:6, inc/customizer/panels-sections/panels-sections.php:256, inc/customizer/panels-sections/panels-sections.php:266
 msgid "Widget 2"
 msgstr ""
 
@@ -1166,7 +1194,7 @@ msgstr ""
 msgid "H6"
 msgstr ""
 
-#: inc/customizer/options/header-builder/cart.php:6, inc/customizer/options/header-builder/header-builder.php:73, inc/customizer/options/header-builder/header-builder.php:149, inc/customizer/panels-sections/panels-sections.php:291
+#: inc/customizer/options/header-builder/cart.php:6, inc/customizer/options/header-builder/header-builder.php:73, inc/customizer/options/header-builder/header-builder.php:124, inc/customizer/panels-sections/panels-sections.php:291
 msgid "Cart"
 msgstr ""
 
@@ -1174,11 +1202,11 @@ msgstr ""
 msgid "Site Title & Logo"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:26, inc/customizer/options/header-builder/header-builder.php:97, inc/customizer/options/header-builder/tertiary-menu.php:11, inc/customizer/panels-sections/panels-sections.php:201
+#: inc/customizer/options/header-builder/header-builder.php:26, inc/customizer/options/header-builder/tertiary-menu.php:11, inc/customizer/panels-sections/panels-sections.php:201
 msgid "Tertiary Menu"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:31, inc/customizer/options/header-builder/header-builder.php:102, inc/customizer/options/header-builder/quaternary-menu.php:11, inc/customizer/panels-sections/panels-sections.php:206
+#: inc/customizer/options/header-builder/header-builder.php:31, inc/customizer/options/header-builder/quaternary-menu.php:11, inc/customizer/panels-sections/panels-sections.php:206
 msgid "Quaternary Menu"
 msgstr ""
 
@@ -1186,7 +1214,7 @@ msgstr ""
 msgid "Button 1"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:41, inc/customizer/options/header-builder/header-builder.php:117, inc/customizer/options/header-builder/search.php:6, inc/customizer/options/header/header-search.php:8, inc/customizer/panels-sections/panels-sections.php:236
+#: inc/customizer/options/header-builder/header-builder.php:41, inc/customizer/options/header-builder/search.php:6, inc/customizer/options/header/header-search.php:8, inc/customizer/panels-sections/panels-sections.php:236
 msgid "Search"
 msgstr ""
 
@@ -1194,67 +1222,67 @@ msgstr ""
 msgid "Logo"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:144, inc/customizer/panels-sections/panels-sections.php:296
+#: inc/customizer/options/header-builder/header-builder.php:119, inc/customizer/panels-sections/panels-sections.php:296
 msgid "Toggle Button"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:162
+#: inc/customizer/options/header-builder/header-builder.php:137
 msgid "Builder Component"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:224
+#: inc/customizer/options/header-builder/header-builder.php:199
 msgid "Builder area top"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:229
+#: inc/customizer/options/header-builder/header-builder.php:204
 msgid "Builder area top left"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:234
+#: inc/customizer/options/header-builder/header-builder.php:209
 msgid "Builder area top middle"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:239
+#: inc/customizer/options/header-builder/header-builder.php:214
 msgid "Builder area top right"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:246
+#: inc/customizer/options/header-builder/header-builder.php:221
 msgid "Builder Main area"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:251
+#: inc/customizer/options/header-builder/header-builder.php:226
 msgid "Builder area middle left"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:256
+#: inc/customizer/options/header-builder/header-builder.php:231
 msgid "Main center"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:261
+#: inc/customizer/options/header-builder/header-builder.php:236
 msgid "Main right"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:268
+#: inc/customizer/options/header-builder/header-builder.php:243
 msgid "Bottom"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:273
+#: inc/customizer/options/header-builder/header-builder.php:248
 msgid "Bottom left"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:278
+#: inc/customizer/options/header-builder/header-builder.php:253
 msgid "Bottom center"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:283
+#: inc/customizer/options/header-builder/header-builder.php:258
 msgid "Bottom right"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:291, inc/customizer/options/header-builder/offset-area.php:6, inc/customizer/panels-sections/panels-sections.php:226
+#: inc/customizer/options/header-builder/header-builder.php:266, inc/customizer/options/header-builder/offset-area.php:6, inc/customizer/panels-sections/panels-sections.php:226
 msgid "Offset Area"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:305
+#: inc/customizer/options/header-builder/header-builder.php:280
 msgid "Global Header"
 msgstr ""
 

@@ -78,6 +78,23 @@ $options = array(
 					'units'       => array( 'px', 'em', '%', 'rem' ),
 					'defaultUnit' => 'px',
 				),
+				'zakra_html_1_alignment_divider'       => array(
+					'type'    => 'customind-divider',
+					'variant' => 'dashed',
+					'section' => 'zakra_footer_builder_html_1',
+				),
+				'zakra_html_1_alignment'               => array(
+					'default'   => '',
+					'type'      => 'customind-toggle-button',
+					'title'     => esc_html__( 'Alignment', 'zakra' ),
+					'section'   => 'zakra_footer_builder_html_1',
+					'transport' => 'postMessage',
+					'choices'   => array(
+						'left'   => esc_html__( 'Left', 'zakra' ),
+						'center' => esc_html__( 'Center', 'zakra' ),
+						'right'  => esc_html__( 'Right', 'zakra' ),
+					),
+				),
 			)
 		),
 		'collapsible'  => apply_filters( 'zakra_footer_html_1_accordion_collapsible', false ),
