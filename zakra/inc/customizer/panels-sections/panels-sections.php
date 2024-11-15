@@ -169,7 +169,7 @@ $section_option_id = array(
 	),
 	'zakra_footer_scroll_to_top'           => array(
 		'title'    => esc_html__( 'Scroll to Top', 'zakra' ),
-		'panel'    => 'zakra_footer',
+		'panel'    => 'zakra_additional',
 		'priority' => 15,
 	),
 	'zakra_optimization'                   => array(

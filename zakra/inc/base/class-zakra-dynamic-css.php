@@ -1608,7 +1608,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 			$parse_css                           .= zakra_parse_css( '', $footer_widgets_link_hover_color, $footer_widgets_link_hover_color_css );
 
-			// Footer background.
+			// Outside background.
 			$outside_container_background_defaults = array(
 				'background-color'      => '',
 				'background-image'      => '',
@@ -1619,7 +1619,6 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 			$outside_container_background          = get_theme_mod( 'zakra_outside_container_background', $outside_container_background_defaults );
 			$parse_css                          .= zakra_parse_background_css( $outside_container_background_defaults, $outside_container_background, apply_filters( 'zakra_outside_container_background', 'body,body.page-template-pagebuilder' ) );
-
 
 			/**
 			 * Footer widgets border top width.
@@ -4495,7 +4494,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 				'text-transform' => 'none',
 			);
 
-			$footer_copyright_typography = get_theme_mod( 'zakra_footer_menu_typography', $footer_copyright_typography_default );
+			$footer_copyright_typography = get_theme_mod( 'zakra_footer_copyright_typography', $footer_copyright_typography_default );
 
 			$parse_builder_css .= zakra_parse_typography_css(
 				$footer_copyright_typography_default,

@@ -23,6 +23,7 @@ $options = apply_filters(
 					),
 					'zakra_breadcrumbs_style_divider'   => array(
 						'type'     => 'customind-divider',
+						'variant'  => 'dashed',
 						'section'  => 'zakra_breadcrumb',
 						'priority' => 30,
 					),

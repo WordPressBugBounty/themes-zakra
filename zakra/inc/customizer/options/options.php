@@ -11,6 +11,7 @@ require __DIR__ . '/content/single-post.php';
 require __DIR__ . '/content/blog-sidebar.php';
 require __DIR__ . '/additional/additional.php';
 require __DIR__ . '/woocommerce/woocommerce.php';
+require __DIR__ . '/footer/scroll-to-top.php';
 
 $enable_builder = get_theme_mod( 'zakra_enable_builder', false );
 
@@ -59,7 +60,6 @@ if ( $enable_builder || zakra_maybe_enable_builder() ) {
 	require __DIR__ . '/header/header-button.php';
 	require __DIR__ . '/header/header-search.php';
 	require __DIR__ . '/footer/footer-column.php';
-	require __DIR__ . '/footer/scroll-to-top.php';
 	require __DIR__ . '/footer/footer-bar.php';
 }
 if ( ! zakra_maybe_enable_builder() ) {

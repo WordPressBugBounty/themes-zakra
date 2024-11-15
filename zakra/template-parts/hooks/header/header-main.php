@@ -111,7 +111,8 @@ if ( ! function_exists( 'zakra_change_logo_attr' ) ) :
 			}         if ( isset( $retina_logo_src ) ) {
 				$attr['srcset'] = $custom_logo_url . ' 1x, ' . $retina_logo_src . ' 2x';
 			}
-		}    return $attr;}
+		}    return $attr;
+	}
 endif;
 
 add_filter( 'wp_get_attachment_image_attributes', 'zakra_change_logo_attr', 10, 3 );

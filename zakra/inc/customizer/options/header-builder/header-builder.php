@@ -179,7 +179,7 @@ $options = array(
 					'left'   => array(
 						'logo',
 					),
-					'centre' => array(),
+					'center' => array(),
 					'right'  => array(
 						'toggle-button',
 					),

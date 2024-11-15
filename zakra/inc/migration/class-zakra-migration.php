@@ -1988,6 +1988,26 @@ if ( ! class_exists( 'Zakra_Migration' ) ) {
 			update_option( 'zakra_builder_migration', true );
 		}
 
+		/**
+		 * Migrates outside background settings to a new theme mod.
+		 *
+		 * This function handles the migration of various background-related theme mods
+		 * to a single, consolidated theme mod. It performs the following operations:
+		 *
+		 * 1. Checks if the migration has already been performed to avoid duplicate migrations.
+		 * 2. Retrieves individual background-related theme mods (color, image, preset, position, size, repeat, attachment).
+		 * 3. If any of these theme mods exist, it consolidates them into a single array.
+		 * 4. Sets the new consolidated theme mod 'elearning_outside_container_background'.
+		 * 5. Removes the old individual theme mods.
+		 * 6. Updates an option to mark the migration as complete.
+		 *
+		 * This migration is necessary to update the theme's handling of background settings,
+		 * moving from individual settings to a more flexible, consolidated approach.
+		 *
+		 * @return void
+		 *
+		 * @since 4.0.0
+		 */
 		public function zakra_outside_background_migration() {
 
 			if ( get_option( 'zakra_outside_background_migration' ) ) {
@@ -2025,6 +2045,24 @@ if ( ! class_exists( 'Zakra_Migration' ) ) {
 			update_option( 'zakra_outside_background_migration', true );
 		}
 
+		/**
+		 * Recursively removes a specified component from an array.
+		 *
+		 * This static function traverses through a multidimensional array and removes
+		 * all occurrences of a specified component. It performs the following operations:
+		 *
+		 * 1. Iterates through each element of the input array.
+		 * 2. If an element is an array, it recursively calls itself on that sub-array.
+		 * 3. If an element matches the component to remove, it unsets that element.
+		 * 4. After processing, if the array keys are sequential integers, it reindexes the array.
+		 *
+		 * @param mixed $component_to_remove The component to be removed from the array.
+		 * @param array &$_array             The array to remove the component from (passed by reference).
+		 *
+		 * @return void The function modifies the input array directly.
+		 *
+		 * @since 4.0.0
+		 */
 		public static function remove_component( $component_to_remove, &$_array ) {
 			foreach ( $_array as $key => &$value ) {
 				if ( is_array( $value ) ) {
@@ -2040,6 +2078,24 @@ if ( ! class_exists( 'Zakra_Migration' ) ) {
 			}
 		}
 
+		/**
+		 * Recursively fixes the indices of components in a multidimensional array.
+		 *
+		 * This static function traverses through a multidimensional array and ensures
+		 * that any sub-arrays with numeric keys are reindexed to have sequential integer keys.
+		 * It performs the following operations:
+		 *
+		 * 1. Iterates through each element of the input array.
+		 * 2. If an element is an array, it recursively calls itself on that sub-array.
+		 * 3. Checks if the current sub-array has all numeric keys.
+		 * 4. If all keys are numeric, it reindexes the array using array_values().
+		 *
+		 * @param array &$_array The array to fix indices for (passed by reference).
+		 *
+		 * @return bool Returns true if any changes were made, false otherwise.
+		 *
+		 * @since 4.0.0
+		 */
 		public static function fix_components_indices( &$_array ) {
 			$fixed = false;
 
@@ -2102,7 +2158,22 @@ if ( ! class_exists( 'Zakra_Migration' ) ) {
 		}
 
 		/**
-		 * @return bool
+		 * Determines whether to run the customizer migration.
+		 *
+		 * This static function checks if the customizer migration needs to be executed.
+		 * It performs the following checks:
+		 *
+		 * 1. Verifies if the migration has already been run by checking a specific option.
+		 * 2. If the migration has been run before, it returns false.
+		 * 3. If not previously migrated, it checks for the presence of old theme mods.
+		 * 4. Specifically looks for theme mods with the 'elearning_' prefix.
+		 *
+		 * The function is designed to prevent unnecessary migrations and ensure
+		 * that the migration only runs when old theme data is present.
+		 *
+		 * @return bool Returns true if migration should be run, false otherwise.
+		 *
+		 * @since 3.0.0
 		 */
 		public static function zakra_maybe_enable_builder() {
 
