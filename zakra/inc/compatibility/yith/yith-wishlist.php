@@ -17,7 +17,7 @@ if ( class_exists( 'woocommerce' ) && defined( 'YITH_WCWL' ) ) {
 	// Filter to change markup of wishlist after add to cart to before image.
 	add_filter(
 		'yith_wcwl_add_to_wishlisth_button_html',
-		function( $template, $wishlist_url, $product_type, $exists, $atts ) {
+		function ( $template, $wishlist_url, $product_type, $exists, $atts ) {
 
 			$atts['is_single'] = null;
 
@@ -32,7 +32,7 @@ if ( class_exists( 'woocommerce' ) && defined( 'YITH_WCWL' ) ) {
 	// Filter to add custom class zak-add-to-wishlist-{yith_wcwl_loop_position} to wishlist div.
 	add_filter(
 		'woocommerce_post_class',
-		function( $classes ) {
+		function ( $classes ) {
 
 			$prop = wc_get_loop_prop( 'name' );
 
@@ -105,7 +105,6 @@ if ( class_exists( 'woocommerce' ) && defined( 'YITH_WCWL' ) ) {
 
 			// return item.
 			return $item_html;
-
 		}
 	} else {
 

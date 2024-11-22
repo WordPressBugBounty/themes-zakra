@@ -16,14 +16,12 @@ $options = array(
 			'zakra_header_site_logo_sub_controls',
 			array(
 				'custom_logo'                   => array(
-					'type'        => 'customind-image',
-					'title'       => esc_html__( 'Logo', 'zakra' ),
-					'section'     => 'zakra_header_builder_logo',
-					'input_attrs' => array(
-						'crop' => array(
-							'width'  => 170,
-							'height' => 60,
-						),
+					'type'    => 'customind-image',
+					'title'   => esc_html__( 'Logo', 'zakra' ),
+					'section' => 'zakra_header_builder_logo',
+					'crop'    => array(
+						'width'  => 170,
+						'height' => 60,
 					),
 				),
 				'zakra_retina_logo'             => array(

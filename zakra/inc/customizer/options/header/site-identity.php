@@ -18,14 +18,12 @@ $options = apply_filters(
 				'zakra_site_logo_sub_controls',
 				array(
 					'custom_logo'            => array(
-						'type'        => 'customind-image',
-						'title'       => esc_html__( 'Logo', 'zakra' ),
-						'section'     => 'title_tagline',
-						'input_attrs' => array(
-							'crop' => array(
-								'width'  => 170,
-								'height' => 60,
-							),
+						'type'    => 'customind-image',
+						'title'   => esc_html__( 'Logo', 'zakra' ),
+						'section' => 'title_tagline',
+						'crop'    => array(
+							'width'  => 170,
+							'height' => 60,
 						),
 					),
 					'zakra_retina_logo'      => array(

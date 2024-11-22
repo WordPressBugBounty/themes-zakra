@@ -2,11 +2,11 @@
 
 Contributors: themegrill
 Author: ThemeGrill
-Version: 4.0.3
+Version: 4.0.4
 Tested up to: 6.7
 Requires PHP: 7.4
 Requires at least: 4.7
-Stable tag: 4.0.3
+Stable tag: 4.0.4
 
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -62,8 +62,13 @@ License: GNU GPL, Version 3, https://www.gnu.org/licenses/gpl-3.0.html
 Unless otherwise specified, all the theme files, scripts and images including the screenshot image are licensed under [GNU GPL] (http://www.gnu.org/licenses/gpl-3.0.txt), version 3 or later.
 
 == Changelog ==
+= Version 4.0.4 - 2024-11-22 =
+* Updated - Compatibility with YITH WooCommerce Wishlist and YITH WooCommerce Quick View.
+* Fix     - Customizer section padding issue.
+
 = Version 4.0.3 - 2024-11-15 =
 * Fix   - WordPress 6.7 customizer css issue.
+
 
 = Version 4.0.2 - 2024-10-23 =
 * Added - Option to change footer builder component alignment.

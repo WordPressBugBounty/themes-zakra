@@ -131,7 +131,6 @@ li.product .woocommerce-LoopProduct-link {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	margin-top: 16px;
 }
 
 li.product img {
@@ -3272,7 +3271,7 @@ table.shop_table_responsive tr td.download-actions .button {
 
 .woocommerce-page .zak-add-to-wishlist-after_add_to_cart .button,
 .woocommerce-page .zak-add-to-wishlist-before_add_to_cart .button {
-	padding: 6px;
+	padding: 5px;
 	width: calc(100% - 48px);
 }
 
@@ -3301,6 +3300,35 @@ table.shop_table_responsive tr td.download-actions .button {
 	font-weight: 600;
 	padding: 10px;
 	border-radius: 100%;
+}
+
+.woocommerce-page.archive .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a,
+.woocommerce-page.archive .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a,
+.woocommerce-page.archive .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a,
+.woocommerce-page .related .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a,
+.woocommerce-page .related .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a,
+.woocommerce-page .related .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a,
+.woocommerce-page .upsells .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a,
+.woocommerce-page .upsells .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a,
+.woocommerce-page .upsells .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a {
+	display: block;
+	padding: 8px;
+	background-color: #FFF;
+	border-radius: 100%;
+	width: 36px;
+}
+
+.woocommerce-page.archive .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-add-button svg,
+.woocommerce-page.archive .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse svg,
+.woocommerce-page.archive .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse svg,
+.woocommerce-page .related .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-add-button svg,
+.woocommerce-page .related .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse svg,
+.woocommerce-page .related .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse svg,
+.woocommerce-page .upsells .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-add-button svg,
+.woocommerce-page .upsells .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse svg,
+.woocommerce-page .upsells .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse svg {
+	margin-right: 0;
+	width: 20px;
 }
 
 .woocommerce-page.archive .products .product.add-to-wishlist-before_image .yith-wcwl-add-to-wishlist .add_to_wishlist.button,
@@ -3398,6 +3426,113 @@ table.shop_table_responsive tr td.download-actions .button {
 .woocommerce-page .upsells .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse i:hover:before,
 .woocommerce-page .upsells .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse i:hover:before {
 	color: #FFF;
+}
+
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a, .woocommerce-page.archive .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a {
+	padding: 8px;
+	border: 1px solid #D4D4D8;
+	border-radius: 4px;
+}
+
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover, .woocommerce-page.archive .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover {
+	background-color: #027ABB;
+	cursor: pointer;
+}
+
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover > svg,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover > svg,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover > svg, .woocommerce-page.archive .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover > svg,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover > svg,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover > svg,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover > svg,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover > svg,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover > svg,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover > svg,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover > svg,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover > svg,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover > svg,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover > svg,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover > svg,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover > svg,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover > svg,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover > svg {
+	fill: #FFF;
+}
+
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover:before,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover:before,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover:before, .woocommerce-page.archive .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover:before,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover:before,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover:before,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover:before,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover:before,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover:before,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover:before,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover:before,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover:before,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover:before,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover:before,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover:before,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover:before,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover:before,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover:before {
+	color: #FFF;
+}
+
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button svg,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse svg,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse svg, .woocommerce-page.archive .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button svg,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse svg,
+.woocommerce-page.archive .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse svg,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button svg,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse svg,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse svg,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button svg,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse svg,
+.woocommerce-page .related .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse svg,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button svg,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse svg,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse svg,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button svg,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse svg,
+.woocommerce-page .upsells .products .product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse svg {
+	margin: 0;
+	width: 20px;
+	vertical-align: bottom;
+	transition: all 0.3s ease-in-out;
+	color: #3F3F46;
 }
 
 .woocommerce-page.archive .products .product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button span,
@@ -3722,6 +3857,53 @@ table.shop_table_responsive tr td.download-actions .button {
 	color: #FFF;
 }
 
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a, .wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a {
+	padding: 8px;
+	border: 1px solid #D4D4D8;
+	border-radius: 4px;
+}
+
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover, .wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover {
+	background-color: #027ABB;
+	cursor: pointer;
+}
+
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover > svg,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover > svg,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover > svg, .wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover > svg,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover > svg,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover > svg {
+	fill: #FFF;
+}
+
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover:before,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover:before,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover:before, .wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button a:hover:before,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a:hover:before,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a:hover:before {
+	color: #FFF;
+}
+
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button svg,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse svg,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse svg, .wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button svg,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse svg,
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse svg {
+	margin: 0;
+	width: 20px;
+	vertical-align: bottom;
+	transition: all 0.3s ease-in-out;
+	color: #3F3F46;
+}
+
 .wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button span,
 .wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse span,
 .wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-before_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse span, .wc-block-grid .wc-block-grid__products .wc-block-grid__product.zak-add-to-wishlist-after_add_to_cart .yith-wcwl-add-to-wishlist .yith-wcwl-add-button span,
@@ -3862,8 +4044,9 @@ table.shop_table_responsive tr td.download-actions .button {
 li.product .yith-wcqv-button {
 	position: absolute;
 	top: 4px;
-	right: 6px;
-	width: unset;
+	right: 4px;
+	width: 36px;
+	height: 36px;
 	padding: 8px;
 	border-radius: 100%;
 	background-color: #FFF;
@@ -3875,7 +4058,7 @@ li.product .yith-wcqv-button svg {
 }
 
 li.product.zak-add-to-wishlist-before_image .yith-wcqv-button {
-	top: 44px;
+	top: 45px;
 }
 
 #yith-quick-view-modal .yith-wcqv-wrapper .yith-wcqv-head .yith-wcqv-close {

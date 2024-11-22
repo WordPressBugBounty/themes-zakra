@@ -119,7 +119,7 @@ if ( defined( 'AMP__VERSION' ) && ( ! version_compare( AMP__VERSION, '1.0.0', '<
 // Wishlist.
 if ( class_exists( 'woocommerce' ) && defined( 'YITH_WCWL' ) ) {
 
-	require ZAKRA_PARENT_INC_DIR . '/compatibility/yith/yith-wishlist.php';
+		require ZAKRA_PARENT_INC_DIR . '/compatibility/yith/yith-wishlist.php';
 }
 
 // QuickView.
