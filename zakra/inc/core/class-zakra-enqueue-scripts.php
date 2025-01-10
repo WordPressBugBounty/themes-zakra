@@ -279,6 +279,12 @@ if ( ! class_exists( 'Zakra_Enqueue_Scripts' ) ) {
 				    padding: 0 !important;
 				    margin: 0;
 				}
+
+				.customize-control-customind-upsell a:focus{
+				color:white;
+				box-shadow: none;
+				outline: none;
+				}
 		    '
 			);
 		}

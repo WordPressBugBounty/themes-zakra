@@ -171,7 +171,7 @@ class Zakra_Meta_Box {
 			array(
 				'show_in_rest'  => true,
 				'single'        => true,
-				'default'       => 'zakra_menu_active_style',
+				'default'       => '',
 				'type'          => 'string',
 				'auth_callback' => '__return_true',
 			)

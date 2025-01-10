@@ -232,11 +232,12 @@ $options = apply_filters(
 );
 
 if ( ! zakra_is_zakra_pro_active() ) {
-	$options['zakra_blog_upgrade'] = array(
+	$options['zakra_blog_upgrade_to_pro'] = array(
 		'type'        => 'customind-upsell',
 		'description' => esc_html__( 'Unlock more features available in Pro version.', 'zakra' ),
 		'title'       => esc_html__( 'Learn more', 'zakra' ),
-		'url'         => esc_url( 'https://zakratheme.com/pricing/?utm_source=zakra-theme&utm_medium=customizer-option-name&utm_campaign=zakra-customizer+&utm_content=Learn+More' ),
+		'section'     => 'zakra_blog',
+		'url'         => esc_url( 'https://zakratheme.com/pricing/?utm_medium=dash-customizer-learn-more&utm_source=zakra-theme&utm_campaign=customizer-upgrade-button&utm_content=learn-more' ),
 		'priority'    => 100,
 	);
 }

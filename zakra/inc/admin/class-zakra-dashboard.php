@@ -237,7 +237,7 @@ class Zakra_Dashboard {
 	public function remove_tab( $id ) {
 		$this->tabs = array_filter(
 			$this->tabs,
-			function( $tab ) use ( $id ) {
+			function ( $tab ) use ( $id ) {
 				return $tab['id'] !== $id;
 			}
 		);
@@ -350,11 +350,12 @@ class Zakra_Dashboard {
 	 * @return array
 	 */
 	public function get_dashboard_quick_settings() {
+		$enable_builder = zakra_maybe_enable_builder();
 		$settings_items = array(
 			array(
 				'title' => esc_html__( 'Site Identity', 'zakra' ),
 				'type'  => 'section',
-				'id'    => 'title_tagline',
+				'id'    => $enable_builder ? 'zakra_header_builder_logo' : 'title_tagline',
 				'icon'  => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 						  <path d="M17 22H5a2.982 2.982 0 0 1-2.121-.879A2.978 2.978 0 0 1 2 19v-4c0-.801.312-1.555.879-2.121a2.98 2.98 0 0 1 2.046-.878l-.288-.288a2.98 2.98 0 0 1-.879-2.121c0-.801.312-1.554.879-2.121l2.828-2.828c1.133-1.133 3.109-1.133 4.242 0l.293.294a2.984 2.984 0 0 1 .878-2.058A2.982 2.982 0 0 1 15 2h4c.801 0 1.555.312 2.121.879.567.566.879 1.32.879 2.121v12c0 1.335-.521 2.591-1.465 3.535S18.335 22 17 22zm0-2c.789 0 1.563-.32 2.121-.879S20 17.789 20 17V5a1.003 1.003 0 0 0-1-1h-4a1.003 1.003 0 0 0-1 1v12c0 .789.32 1.563.879 2.121S16.211 20 17 20zM5 14a1.003 1.003 0 0 0-1 1v4a1.003 1.003 0 0 0 1 1h7.924l-6-6H5zm4.586-8.235a.996.996 0 0 0-.707.292L6.051 8.885a.993.993 0 0 0-.293.707c0 .263.107.521.293.707L12 16.248V7.764l-1.707-1.707a.996.996 0 0 0-.707-.292zM17 18.01a1.003 1.003 0 0 1 0-2.005c.553 0 1 .442 1 .995v.01a1 1 0 0 1-1 1z"/>
 						</svg>',
@@ -362,7 +363,7 @@ class Zakra_Dashboard {
 			array(
 				'title' => esc_html__( 'Main Header', 'zakra' ),
 				'type'  => 'section',
-				'id'    => 'zakra_main_header',
+				'id'    => $enable_builder ? 'zakra_header_builder_main_area' : 'zakra_main_header',
 				'icon'  => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 				  <path fill-rule="evenodd" d="M3.763 3.268A1.75 1.75 0 0 1 5 2.755h14a1.75 1.75 0 0 1 1.75 1.75v5a.75.75 0 0 1-.75.75H4a.75.75 0 0 1-.75-.75v-5c0-.464.184-.91.513-1.237ZM5 4.255a.25.25 0 0 0-.25.25v4.25h14.5v-4.25a.25.25 0 0 0-.25-.25H5Zm-1 9.49a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-1.5 0v-.01a.75.75 0 0 1 .75-.75Zm16 0a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-1.5 0v-.01a.75.75 0 0 1 .75-.75Zm-16 5a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-1.5 0v-.01a.75.75 0 0 1 .75-.75Zm5 0a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-1.5 0v-.01a.75.75 0 0 1 .75-.75Zm6 0a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-1.5 0v-.01a.75.75 0 0 1 .75-.75Zm5 0a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-1.5 0v-.01a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"/>
 				</svg>',
@@ -370,7 +371,7 @@ class Zakra_Dashboard {
 			array(
 				'title' => esc_html__( 'Footer Column', 'zakra' ),
 				'type'  => 'section',
-				'id'    => 'zakra_footer_column',
+				'id'    => $enable_builder ? 'zakra_footer_builder_main_area' : 'zakra_footer_column',
 				'icon'  => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 							  <path fill-rule="evenodd" d="M4 3.25a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-1.5 0V4A.75.75 0 0 1 4 3.25Zm5 0a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-1.5 0V4A.75.75 0 0 1 9 3.25Zm6 0a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75Zm5 0a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75Zm-16 5a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-1.5 0V9A.75.75 0 0 1 4 8.25Zm16 0a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75ZM3.25 14a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 .75.75v5A1.75 1.75 0 0 1 19 20.75H5A1.75 1.75 0 0 1 3.25 19v-5Zm1.5.75V19a.25.25 0 0 0 .25.25h14a.25.25 0 0 0 .25-.25v-4.25H4.75Z" clip-rule="evenodd"/>
 							</svg>',

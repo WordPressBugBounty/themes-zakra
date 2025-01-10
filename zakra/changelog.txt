@@ -1,4 +1,9 @@
 == Changelog ==
+= 4.0.5 - 2025-01-10 =
+* Fix     - Primary menu active style issue.
+* Fix     - Footer misalignment on empty pages.
+* Fix     - Mobile sub menu collapse issue.
+
 = 4.0.4 - 2024-11-22 =
 * Updated - Compatibility with YITH WooCommerce Wishlist and YITH WooCommerce Quick View.
 * Fix     - Customizer section padding issue.

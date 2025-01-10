@@ -352,7 +352,7 @@ if ( ! zakra_is_zakra_pro_active() ) {
 		'zakra_customize_upsell_section' => array(
 			'type'             => 'upsell-section',
 			'title'            => esc_html__( 'View Pro Version', 'zakra' ),
-			'url'              => 'https://zakratheme.com/pricing/?utm_source=zakra-customizer&utm_medium=view-pro-link&utm_campaign=pricing',
+			'url'              => 'https://zakratheme.com/pricing/?utm_medium=dash-customizer&utm_source=zakra-theme&utm_campaign=top-view-pro-btn&utm_content=view-pro-version',
 			'section_callback' => \Customind\Core\Types\UpsellSection::class,
 			'priority'         => 1,
 		),

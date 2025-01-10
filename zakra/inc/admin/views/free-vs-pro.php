@@ -197,8 +197,8 @@ $cross_mark = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" vi
 				<tr class="fvp-heading" >
 					<td ><?php echo esc_html( $category ); ?></td>
 					<?php if ( $show_free_pro ) : ?>
-						<td><?php esc_html_e( 'Free','zakra' ); ?></td>
-						<td><?php esc_html_e( 'Pro','zakra' ); ?></td>
+						<td><?php esc_html_e( 'Free', 'zakra' ); ?></td>
+						<td><?php esc_html_e( 'Pro', 'zakra' ); ?></td>
 					<?php endif; ?>
 				</tr>
 
@@ -269,7 +269,7 @@ $cross_mark = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" vi
 							fill="#4A7EEE"/>
 				</svg>
 			</div>
-			<h3><?php esc_html_e( 'Upgrade Now','zakra' ); ?></h3>
+			<h3><?php esc_html_e( 'Upgrade Now', 'zakra' ); ?></h3>
 			<p>
 			<?php
 			printf(
@@ -279,7 +279,7 @@ $cross_mark = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" vi
 			);
 			?>
 					</p>
-			<a  href="<?php echo esc_url( 'https://zakratheme.com/pricing/?utm_source=zakra-theme&utm_medium=upgrade-now-banner&utm_campaign=zakra-free-vs-pro&utm_content=Get+Zakra+Pro+Now' ); ?>" target="_blank"><span><?php esc_html_e( 'Get Zakra Pro Now','zakra' ); ?></span></a>
+			<a  href="<?php echo esc_url( 'https://zakratheme.com/pricing/?utm_medium=dash-free-vs-pro&utm_source=zakra-theme&utm_campaign=footer-upgrade-btn&utm_content=get-zakra-pro-now' ); ?>" target="_blank"><span><?php esc_html_e( 'Get Zakra Pro Now', 'zakra' ); ?></span></a>
 		</div>
 		<?php endif; ?>
 	</div>

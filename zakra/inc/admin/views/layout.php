@@ -35,7 +35,7 @@ $dashboard = Zakra_Dashboard::instance();
 							);
 							$class   = array_filter(
 								$class,
-								function( $c ) {
+								function ( $c ) {
 									return ! empty( $c );
 								}
 							);
@@ -66,7 +66,7 @@ $dashboard = Zakra_Dashboard::instance();
 					</span>
 					<?php else : ?>
 					<a class="zakra-pro-version"
-						href="<?php echo esc_url( 'https://zakratheme.com/pricing/?utm_source=zakra-theme&utm_medium=header&utm_campaign=zakra-dashboard&utm_content=Upgrade+to+Pro ' ); ?>"
+						href="<?php echo esc_url( 'https://zakratheme.com/pricing/?utm_medium=dash-header&utm_source=zakra-theme&utm_campaign=header-upgrade-btn&utm_content=upgrade-to-pro' ); ?>"
 						target="_blank">
 						<span class="zak-upgrade-to-pro">
 							<?php esc_html_e( 'Upgrade to Pro', 'zakra' ); ?>

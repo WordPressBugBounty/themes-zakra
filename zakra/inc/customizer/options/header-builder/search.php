@@ -54,7 +54,7 @@ if ( ! zakra_is_zakra_pro_active() ) {
 	$options['zakra_header_search_upgrade'] = array(
 		'type'        => 'customind-upsell',
 		'label'       => esc_html__( 'Learn more', 'zakra' ),
-		'url'         => esc_url( 'https://zakratheme.com/pricing/?utm_source=zakra-theme&utm_medium=customizer-option-name&utm_campaign=zakra-customizer+&utm_content=Learn+More' ),
+		'url'         => esc_url( 'https://zakratheme.com/pricing/?utm_medium=dash-customizer-learn-more&utm_source=zakra-theme&utm_campaign=customizer-upgrade-button&utm_content=learn-more' ),
 		'description' => esc_html__( 'Unlock more features available in Pro version.', 'zakra' ),
 		'section'     => 'zakra_header_builder_search',
 		'priority'    => 100,
