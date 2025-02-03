@@ -1418,6 +1418,11 @@ if ( ! class_exists( 'Zakra_Migration' ) ) {
 				return;
 			}
 
+			if ( ( doing_action( 'themegrill_ajax_demo_imported' ) && get_theme_mod( 'demo_migrated_to_builder' ) ) || get_option( 'zakra_free_demo_migrated_to_builder' ) ) {
+				update_option( 'zakra_free_demo_migrated_to_builder', true );
+				return;
+			}
+
 			// Save old data.
 			$theme_mods = get_theme_mods();
 

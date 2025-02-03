@@ -18,6 +18,23 @@ $options = array(
 		),
 		'collapsible'  => apply_filters( 'zakra_load_google_fonts_locally_accordion_collapsible', false ),
 	),
+//  'zakra_demo_migrated_heading'             => array(
+//      'type'         => 'customind-accordion',
+//      'title'        => esc_html__( 'Demo Migrated', 'zakra' ),
+//      'section'      => 'zakra_optimization',
+//      'sub_controls' => apply_filters(
+//          'zakra_demo_migrated_sub_controls',
+//          array(
+//              'demo_migrated_to_builder' => array(
+//                  'default' => 0,
+//                  'title'   => esc_html__( 'Demo migrated', 'zakra' ),
+//                  'type'    => 'customind-toggle',
+//                  'section' => 'zakra_optimization',
+//              ),
+//          ),
+//      ),
+//      'collapsible'  => apply_filters( 'zakra_demo_migrated_accordion_collapsible', false ),
+//  ),
 );
 
 if ( ! zakra_is_zakra_pro_active() ) {
