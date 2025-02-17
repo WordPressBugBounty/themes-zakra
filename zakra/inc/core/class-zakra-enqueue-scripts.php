@@ -116,6 +116,17 @@ if ( ! class_exists( 'Zakra_Enqueue_Scripts' ) ) {
 					'zakra_widget_title_typography',
 					'zakra_widget_content_typography',
 					'zakra_header_drawer_menu_typography',
+					'zakra_header_main_menu_typography',
+					'zakra_header_sub_menu_typography',
+					'zakra_header_site_title_typography',
+					'zakra_header_site_tagline_typography',
+					'zakra_header_secondary_menu_typography',
+					'zakra_header_secondary_sub_menu_typography',
+					'zakra_header_tertiary_menu_typography',
+					'zakra_header_tertiary_sub_menu_typography',
+					'zakra_header_quaternary_menu_typography',
+					'zakra_button_typography',
+					'zakra_header_button_typography',
 				)
 			);
 

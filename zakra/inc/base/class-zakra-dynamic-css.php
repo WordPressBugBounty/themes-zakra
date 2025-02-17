@@ -291,7 +291,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$parse_css                           .= zakra_parse_background_css( $inside_container_background_default, $inside_container_background, '.zak-content' );
 
 			$body_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -340,7 +340,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$heading_typography_default = apply_filters(
 				'zakra_heading_typography_filter',
 				array(
-					'font-family'    => 'default',
+					'font-family'    => 'Default',
 					'font-weight'    => '400',
 					'line-height'    => array(
 						'desktop' => array(
@@ -376,7 +376,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$h1_typography_default = apply_filters(
 				'zakra_h1_typography_filter',
 				array(
-					'font-family'    => 'default',
+					'font-family'    => 'Default',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -427,7 +427,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$h2_typography_default = apply_filters(
 				'zakra_h2_typography_filter',
 				array(
-					'font-family'    => 'default',
+					'font-family'    => 'Default',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -478,7 +478,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$h3_typography_default = apply_filters(
 				'zakra_h3_typography_filter',
 				array(
-					'font-family'    => 'default',
+					'font-family'    => 'Default',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -529,7 +529,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$h4_typography_default = apply_filters(
 				'zakra_h4_typography_filter',
 				array(
-					'font-family'    => 'default',
+					'font-family'    => 'Default',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -580,7 +580,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$h5_typography_default = apply_filters(
 				'zakra_h5_typography_filter',
 				array(
-					'font-family'    => 'default',
+					'font-family'    => 'Default',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -631,7 +631,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$h6_typography_default = apply_filters(
 				'zakra_h6_typography_filter',
 				array(
-					'font-family'    => 'default',
+					'font-family'    => 'Default',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -695,6 +695,53 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 				$button_padding,
 				'button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span, .wp-block-button .wp-block-button__link',
 				'padding'
+			);
+
+			// Button typography.
+			$button_typography_default = array(
+				'font-family'    => 'default',
+				'font-weight'    => '400',
+				'subsets'        => array( 'latin' ),
+				'font-size'      => array(
+					'desktop' => array(
+						'size' => '1.6',
+						'unit' => 'rem',
+					),
+					'tablet'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+					'mobile'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+				),
+				'line-height'    => array(
+					'desktop' => array(
+						'size' => '1.8',
+						'unit' => '-',
+					),
+					'tablet'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+					'mobile'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+				),
+				'font-style'     => 'normal',
+				'text-transform' => 'none',
+			);
+			$button_typography         = get_theme_mod( 'zakra_button_typography', $button_typography_default );
+			$parse_css                .= zakra_parse_typography_css(
+				$button_typography_default,
+				$button_typography,
+				'button, input[type="button"], input[type="reset"], input[type="submit"], .wp-block-button .wp-block-button__link',
+				array(
+					'tablet' => 768,
+					'mobile' => 600,
+				)
 			);
 
 			// Button color.
@@ -792,7 +839,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 
 			$typography_site_title_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => 'regular',
 				'subsets'        => array( 'latin' ),
 				'font-size'      => array(
@@ -849,7 +896,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$parse_css              .= zakra_parse_css( '#54595f', $site_tagline_color, $site_tagline_color_css );
 
 			$site_tagline_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => 'regular',
 				'subsets'        => array( 'latin' ),
 				'font-size'      => array(
@@ -990,6 +1037,53 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 				'padding'
 			);
 
+			// Header Button typography.
+			$header_button_typography_default = array(
+				'font-family'    => 'default',
+				'font-weight'    => '400',
+				'subsets'        => array( 'latin' ),
+				'font-size'      => array(
+					'desktop' => array(
+						'size' => '1.6',
+						'unit' => 'rem',
+					),
+					'tablet'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+					'mobile'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+				),
+				'line-height'    => array(
+					'desktop' => array(
+						'size' => '1.8',
+						'unit' => '-',
+					),
+					'tablet'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+					'mobile'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+				),
+				'font-style'     => 'normal',
+				'text-transform' => 'none',
+			);
+			$header_button_typography         = get_theme_mod( 'zakra_header_button_typography', $header_button_typography_default );
+			$parse_css                .= zakra_parse_typography_css(
+				$header_button_typography_default,
+				$header_button_typography,
+				$button1_combine_class,
+				array(
+					'tablet' => 768,
+					'mobile' => 600,
+				)
+			);
+
 			// Header builder button text color.
 			$header_button_text_color     = get_theme_mod( 'zakra_header_button_color', '#ffffff' );
 			$header_button_text_color_css = array(
@@ -1112,7 +1206,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$parse_css                          .= zakra_parse_css( '', $primary_menu_item_color_active, $primary_menu_item_color_active_css );
 
 			$main_menu_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -1159,7 +1253,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 
 			$sub_menu_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -1206,7 +1300,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 
 			$mobile_menu_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -1272,7 +1366,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Breadcrumbs font size.
 			$breadcrumb_typography_default = array(
-				'font-family' => 'default',
+				'font-family' => 'Default',
 				'font-weight' => '500',
 				'font-size'   => array(
 					'desktop' => array(
@@ -1362,7 +1456,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$page_title_typography_default = apply_filters(
 				'zakra_post_page_title_typography_filter',
 				array(
-					'font-family'    => 'default',
+					'font-family'    => 'Default',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -1411,7 +1505,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 
 			$blog_post_title_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '500',
 				'subsets'        => array( 'latin' ),
 				'font-size'      => array(
@@ -1461,7 +1555,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$widget_title_typography_default = apply_filters(
 				'zakra_widget_title_typography_filter',
 				array(
-					'font-family'    => 'default',
+					'font-family'    => 'Default',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -1512,7 +1606,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$widget_content_typography_default = apply_filters(
 				'zakra_widget_content_typography_filter',
 				array(
-					'font-family'    => 'default',
+					'font-family'    => 'Default',
 					'font-weight'    => 'regular',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -3403,7 +3497,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder mobile menu typography.
 			$header_mobile_menu_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3478,7 +3572,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder widget title typography.
 			$header_widget_1_title_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3526,7 +3620,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder widget content typography.
 			$header_widget_1_content_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3601,7 +3695,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder widget title typography.
 			$header_widget_2_title_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3649,7 +3743,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder widget content typography.
 			$header_widget_2_content_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3844,7 +3938,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget title typography.
 			$footer_widget_1_title_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3890,7 +3984,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget content typography.
 			$footer_widget_1_content_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3963,7 +4057,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 2 title typography.
 			$footer_widget_2_title_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4009,7 +4103,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 2 content typography.
 			$footer_widget_2_content_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4082,7 +4176,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 3 title typography.
 			$footer_widget_3_title_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4130,7 +4224,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 3 content typography.
 			$footer_widget_3_content_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4205,7 +4299,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 4 title typography.
 			$footer_widget_4_title_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4253,7 +4347,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 4 content typography.
 			$footer_widget_4_content_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4319,7 +4413,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder footer menu typography.
 			$footer_menu_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4385,7 +4479,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder footer menu 2 typography.
 			$footer_menu_2_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4804,7 +4898,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 5 title typography.
 			$footer_widget_5_title_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4850,7 +4944,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 5 content typography.
 			$footer_widget_5_content_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4923,7 +5017,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 6 title typography.
 			$footer_widget_6_title_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4969,7 +5063,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 6 content typography.
 			$footer_widget_6_content_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -5015,7 +5109,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder mobile menu typography.
 			$header_builder_mobile_menu_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'Default',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(

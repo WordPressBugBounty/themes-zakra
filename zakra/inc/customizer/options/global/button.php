@@ -58,6 +58,48 @@ $options = array(
 						),
 					),
 				),
+				'zakra_button_typography'             => array(
+					'default'   => array(
+						'font-family'    => 'default',
+						'font-weight'    => '400',
+						'subsets'        => array( 'latin' ),
+						'font-size'      => array(
+							'desktop' => array(
+								'size' => '1.6',
+								'unit' => 'rem',
+							),
+							'tablet'  => array(
+								'size' => '',
+								'unit' => '',
+							),
+							'mobile'  => array(
+								'size' => '',
+								'unit' => '',
+							),
+						),
+						'line-height'    => array(
+							'desktop' => array(
+								'size' => '1.8',
+								'unit' => '-',
+							),
+							'tablet'  => array(
+								'size' => '',
+								'unit' => '',
+							),
+							'mobile'  => array(
+								'size' => '',
+								'unit' => '',
+							),
+						),
+						'font-style'     => 'normal',
+						'text-transform' => 'none',
+					),
+					'type'      => 'customind-typography',
+					'transport' => 'postMessage',
+					'title'     => esc_html__( 'Typography', 'zakra' ),
+					'section'   => 'zakra_button',
+					'priority'  => 15,
+				),
 				'zakra_button_padding'                => array(
 					'default'     => array(
 						'top'    => '10',

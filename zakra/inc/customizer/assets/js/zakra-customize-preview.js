@@ -192,8 +192,11 @@
 				fontFamily = typography['font-family'].split(',')[0];
 				fontFamily = fontFamily.replace(/'/g, '');
 
+				console.log(fontFamily.includes('default'));
+
 				if (
 					fontFamily.includes('default') ||
+					fontFamily.includes('Default') ||
 					fontFamily.includes('-apple-system')
 				) {
 					fontFamily =
@@ -411,6 +414,14 @@
 					css = zakraGenerateCommonCSS(
 						`button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span, .wp-block-button .wp-block-button__link`,
 						'color',
+						value,
+					);
+					break;
+
+				case 'zakra_button_typography':
+					css = zakraGenerateTypographyCSS(
+						id,
+						`button, input[type="button"], input[type="reset"], input[type="submit"], .wp-block-button .wp-block-button__link`,
 						value,
 					);
 					break;
@@ -1310,6 +1321,14 @@
 					css = zakraGenerateDimensionCSS(
 						'.zak-header-builder .zak-header-buttons .zak-header-button .zak-button',
 						'padding',
+						value,
+					);
+					break;
+
+				case 'zakra_header_button_typography':
+					css = zakraGenerateTypographyCSS(
+						id,
+						`.zak-header-builder .zak-header-buttons .zak-header-button .zak-button`,
 						value,
 					);
 					break;

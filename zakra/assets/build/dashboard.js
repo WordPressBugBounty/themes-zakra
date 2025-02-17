@@ -3122,11 +3122,14 @@ var Header = () => {
     className: "header__menu"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", {
     className: "flex items-center gap-4"
-  }, _constants__WEBPACK_IMPORTED_MODULE_4__.ROUTES.map(route => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", {
+  }, _constants__WEBPACK_IMPORTED_MODULE_4__.ROUTES.map(route => route.enable && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", {
     className: "m-0 text-sm font-semibold ".concat(location.pathname === route.route ? 'active' : '')
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+  }, route.route && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
     className: "no-underline px-2 text-[#383838] focus:outline-0 hover:text-primary-500 focus:shadow-none",
     to: route.route
+  }, route.label), route.href && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
+    className: "no-underline px-2 text-[#383838] focus:outline-0 hover:text-primary-500 focus:shadow-none",
+    href: route.href
   }, route.label)))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "flex gap-4 items-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
@@ -3302,19 +3305,32 @@ __webpack_require__.r(__webpack_exports__);
 
 var ROUTES = [{
   route: '/dashboard',
-  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Dashboard', 'zakra')
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Dashboard', 'zakra'),
+  enable: true
+}, {
+  href: _utils_global__WEBPACK_IMPORTED_MODULE_7__.localized.adminUrl + 'themes.php?page=demo-importer&browse=all',
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Starter Templates', 'zakra'),
+  enable: _utils_global__WEBPACK_IMPORTED_MODULE_7__.localized.demoImporter === 'active' ? true : false
+}, {
+  route: '/demo-importer',
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Starter Templates', 'zakra'),
+  enable: 'inactive' === _utils_global__WEBPACK_IMPORTED_MODULE_7__.localized.demoImporter ? true : false
 }, {
   route: '/settings',
-  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Settings', 'zakra')
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Settings', 'zakra'),
+  enable: true
 }, {
   route: '/products',
-  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Products', 'zakra')
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Products', 'zakra'),
+  enable: true
 }, {
   route: '/free-vs-pro',
-  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Free vs Pro', 'zakra')
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Free vs Pro', 'zakra'),
+  enable: true
 }, {
   route: '/help',
-  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Help', 'zakra')
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Help', 'zakra'),
+  enable: true
 }];
 var QUICK_SETTINGS = [{
   title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Site Identity', 'zakra'),
@@ -3528,15 +3544,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/.pnpm/@chakra-ui+toast@7.0.2_@chakra-ui+system@2.6.2_@emotion+react@11.13.3_@types+react@18.3.5_rea_jkkiokoupwdczs7bavhrrsex2q/node_modules/@chakra-ui/toast/dist/chunk-6RSEZNRH.mjs");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-query */ "./node_modules/.pnpm/react-query@3.39.3_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-query/es/index.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../store */ "./assets/js/dashboard/store/index.ts");
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/.pnpm/@babel+runtime@7.25.6/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/.pnpm/@chakra-ui+toast@7.0.2_@chakra-ui+system@2.6.2_@emotion+react@11.13.3_@types+react@18.3.5_rea_jkkiokoupwdczs7bavhrrsex2q/node_modules/@chakra-ui/toast/dist/chunk-6RSEZNRH.mjs");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-query */ "./node_modules/.pnpm/react-query@3.39.3_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-query/es/index.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store */ "./assets/js/dashboard/store/index.ts");
+
 
 
 
@@ -3547,16 +3565,16 @@ var usePluginInstallActivate = _ref => {
   var {
     pluginsStatus
   } = _ref;
-  var toast = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.useToast)();
+  var toast = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.useToast)();
   var {
     setPluginsStatus
-  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.useDispatch)(_store__WEBPACK_IMPORTED_MODULE_4__.ZAKRA_DASHBOARD_STORE);
-  var activatePlugin = (0,react_query__WEBPACK_IMPORTED_MODULE_3__.useMutation)(_ref2 => {
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useDispatch)(_store__WEBPACK_IMPORTED_MODULE_5__.ZAKRA_DASHBOARD_STORE);
+  var activatePlugin = (0,react_query__WEBPACK_IMPORTED_MODULE_4__.useMutation)(_ref2 => {
     var {
       slug,
       file
     } = _ref2;
-    return _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default()({
+    return _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default()({
       path: "wp/v2/plugins/".concat(slug),
       method: 'POST',
       data: {
@@ -3571,7 +3589,7 @@ var usePluginInstallActivate = _ref => {
       });
       toast({
         status: 'success',
-        description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('%s plugin activated successfully', 'blockart'), data.name),
+        description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('%s plugin activated successfully', 'blockart'), data.name),
         isClosable: true
       });
 
@@ -3585,7 +3603,7 @@ var usePluginInstallActivate = _ref => {
       });
     }
   });
-  var installPlugin = (0,react_query__WEBPACK_IMPORTED_MODULE_3__.useMutation)(plugin => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default()({
+  var installPlugin = (0,react_query__WEBPACK_IMPORTED_MODULE_4__.useMutation)(plugin => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default()({
     path: 'wp/v2/plugins',
     method: 'POST',
     data: {
@@ -3599,7 +3617,7 @@ var usePluginInstallActivate = _ref => {
       });
       toast({
         status: 'success',
-        description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('%s plugin installed and activated successfully', 'blockart'), data.name),
+        description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('%s plugin installed and activated successfully', 'blockart'), data.name),
         isClosable: true
       });
       // window.location.reload();
@@ -3612,17 +3630,22 @@ var usePluginInstallActivate = _ref => {
       });
     }
   });
-  var performPluginAction = pluginFile => {
-    var slug = pluginFile.split('/')[0];
-    if (pluginsStatus[pluginFile] === 'not-installed') {
-      installPlugin.mutate(slug);
-    } else if (pluginsStatus[pluginFile] === 'inactive') {
-      activatePlugin.mutate({
-        slug: slug,
-        file: pluginFile
-      });
-    }
-  };
+  var performPluginAction = /*#__PURE__*/function () {
+    var _ref3 = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (pluginFile) {
+      var slug = pluginFile.split('/')[0];
+      if (pluginsStatus[pluginFile] === 'not-installed') {
+        yield installPlugin.mutateAsync(slug);
+      } else if (pluginsStatus[pluginFile] === 'inactive') {
+        yield activatePlugin.mutateAsync({
+          slug: slug,
+          file: pluginFile
+        });
+      }
+    });
+    return function performPluginAction(_x) {
+      return _ref3.apply(this, arguments);
+    };
+  }();
   return {
     installPlugin,
     activatePlugin,
@@ -3869,12 +3892,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/.pnpm/react-router@7.0.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router/dist/development/chunk-WFMEQ3WA.mjs");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/.pnpm/react-router@7.0.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router/dist/development/chunk-WFMEQ3WA.mjs");
 /* harmony import */ var _screens_dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../screens/dashboard/Dashboard */ "./assets/js/dashboard/screens/dashboard/Dashboard.tsx");
 /* harmony import */ var _screens_free_vs_pro_FreeVsPro__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../screens/free-vs-pro/FreeVsPro */ "./assets/js/dashboard/screens/free-vs-pro/FreeVsPro.tsx");
 /* harmony import */ var _screens_help_Help__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../screens/help/Help */ "./assets/js/dashboard/screens/help/Help.tsx");
 /* harmony import */ var _screens_products_Products__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../screens/products/Products */ "./assets/js/dashboard/screens/products/Products.tsx");
 /* harmony import */ var _screens_settings_Settings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../screens/settings/Settings */ "./assets/js/dashboard/screens/settings/Settings.tsx");
+/* harmony import */ var _screens_starter_templates_StarterTemplates__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../screens/starter-templates/StarterTemplates */ "./assets/js/dashboard/screens/starter-templates/StarterTemplates.tsx");
+
 
 
 
@@ -3885,7 +3910,7 @@ __webpack_require__.r(__webpack_exports__);
 var Router = () => {
   var {
     pathname
-  } = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useLocation)();
+  } = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useLocation)();
   react__WEBPACK_IMPORTED_MODULE_0___default().useLayoutEffect(() => {
     var _submenu$parentElemen;
     var submenu = document.querySelector(".wp-submenu a[href=\"admin.php?page=zakra#".concat(pathname, "\"]"));
@@ -3896,22 +3921,25 @@ var Router = () => {
       (_submenu$parentElemen2 = submenu.parentElement) === null || _submenu$parentElemen2 === void 0 || (_submenu$parentElemen2 = _submenu$parentElemen2.classList) === null || _submenu$parentElemen2 === void 0 || _submenu$parentElemen2.remove('current');
     };
   }, [pathname]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
     path: "/",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_screens_dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_1__["default"], null)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
     path: "/settings",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_screens_settings_Settings__WEBPACK_IMPORTED_MODULE_5__["default"], null)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
+    path: "/demo-importer",
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_screens_starter_templates_StarterTemplates__WEBPACK_IMPORTED_MODULE_6__.StarterTemplates, null)
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
     path: "/products",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_screens_products_Products__WEBPACK_IMPORTED_MODULE_4__["default"], null)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
     path: "/free-vs-pro",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_screens_free_vs_pro_FreeVsPro__WEBPACK_IMPORTED_MODULE_2__["default"], null)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
     path: "/help",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_screens_help_Help__WEBPACK_IMPORTED_MODULE_3__["default"], null)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
     path: "*",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_screens_dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_1__["default"], null)
   }));
@@ -3974,7 +4002,7 @@ var Dashboard = () => {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", {
     className: "text-2xl font-semibold text-[#383838] relative w-fit"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Welcome to Zakra', 'zakra'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
-    className: "absolute right-[-30px] top-[-10px] text-[10px] px-[6px] py-[4px] rounded-bl-sm bg-[#207daf1a] text-[#2563EB] leading-3"
+    className: "absolute right-[-30px] top-[-10px] text-[10px] px-[6px] py-[4px] rounded-bl-sm bg-[#207DAF1A] text-[#2563EB] leading-3"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Free', 'zakra'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
     className: "text-[#383838] text-sm font-normal mb-5"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Create websites of different niches with very little effort with Zakra. Loaded with powerful features and demos for every kind of website, you can get started immediately!', 'zakra')), 'active' !== pluginsStatus['themegrill-demo-importer/themegrill-demo-importer.php'] && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
@@ -3984,6 +4012,7 @@ var Dashboard = () => {
     "data-slug": "themegrill-demo-importer",
     "aria-label": "Install ThemeGrill Demo Importer Plugin"
   }, 'inactive' === pluginsStatus['themegrill-demo-importer/themegrill-demo-importer.php'] ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Activate ThemeGrill Demo Importer Plugin', 'zakra') : 'not-installed' === pluginsStatus['themegrill-demo-importer/themegrill-demo-importer.php'] ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Install ThemeGrill Demo Importer Plugin ') : ''), 'active' === pluginsStatus['themegrill-demo-importer/themegrill-demo-importer.php'] && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement((react__WEBPACK_IMPORTED_MODULE_1___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
+    className: "text-[#2563EB] hover:text-[#2563EB] no-underline",
     href: _utils_global__WEBPACK_IMPORTED_MODULE_10__.localized.demoUrl
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('View Starter Template', 'zakra')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "px-6 pt-6 pb-4 bg-white rounded-lg shadow-sm mb-4"
@@ -3994,7 +4023,7 @@ var Dashboard = () => {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", {
     className: "m-0"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Quick Settings', 'zakra')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
-    className: "text-[#2563EB] text-sm font-semibold",
+    className: "text-[#2563EB] hover:text-[#2563EB] text-sm font-medium",
     href: "https://expresswool.s4-tastewp.com/wp-admin/customize.php",
     target: "_blank"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Go to Customizer', 'zakra'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
@@ -4009,7 +4038,7 @@ var Dashboard = () => {
     className: "mb-2 mt-0 px-0"
   }, quick.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: _utils_global__WEBPACK_IMPORTED_MODULE_10__.localized.customizerUrl + '?autofocus[section]=' + quick.id,
-    className: "m-0 flex gap-1 items-center cursor-pointer text-[#7A7A7A] hover:text-[#2563EB]"
+    className: "m-0 no-underline flex gap-1 items-center cursor-pointer text-[#7A7A7A] hover:text-[#2563EB]"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("svg", {
     width: "13",
     height: "13",
@@ -4031,7 +4060,9 @@ var Dashboard = () => {
     "clip-rule": "evenodd",
     d: "M11.3536 1.64645C11.5489 1.84171 11.5489 2.15829 11.3536 2.35355L5.8536 7.85355C5.65834 8.04882 5.34175 8.04882 5.14649 7.85355C4.95123 7.65829 4.95123 7.34171 5.14649 7.14645L10.6465 1.64645C10.8418 1.45118 11.1583 1.45118 11.3536 1.64645Z",
     fill: "#7A7A7A"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Customize'))))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
+    className: "text-[13px]"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Customize'))))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "px-6 pt-6 pb-4 bg-white rounded-lg shadow-sm mb-4 sticky top-0 w-auto"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "zak-quick-settings-title "
@@ -4040,7 +4071,7 @@ var Dashboard = () => {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", {
     className: "m-0"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Premium Features', 'zakra')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
-    className: "text-[#2563EB] text-sm font-semibold",
+    className: "text-[#2563EB] text-sm font-medium hover:text-[#2563EB]",
     href: "https://expresswool.s4-tastewp.com/wp-admin/customize.php",
     target: "_blank"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Upgrade Now', 'zakra'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
@@ -4054,7 +4085,9 @@ var Dashboard = () => {
   }, premium_setting.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: premium_setting.link,
     className: "zak-feature-icon m-0 flex gap-1 items-center cursor-pointer text-[#7A7A7A] hover:text-[#2563EB] no-underline"
-  }, _icons_icons__WEBPACK_IMPORTED_MODULE_3__.documentIcon, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Doc')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+  }, _icons_icons__WEBPACK_IMPORTED_MODULE_3__.documentIcon, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
+    className: "text-[13px]"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Document')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "zak-quick-settings-item-icon flex items-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", {
     src: _inc_admin_images_zak_premium_png__WEBPACK_IMPORTED_MODULE_5__,
@@ -4098,6 +4131,7 @@ var Dashboard = () => {
     "data-slug": "themegrill-demo-importer",
     "aria-label": "Install ThemeGrill Demo Importer Plugin"
   }, 'inactive' === pluginsStatus['themegrill-demo-importer/themegrill-demo-importer.php'] ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Activate ThemeGrill Demo Importer Plugin', 'zakra') : 'not-installed' === pluginsStatus['themegrill-demo-importer/themegrill-demo-importer.php'] ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Install ThemeGrill Demo Importer Plugin ') : ''), 'active' === pluginsStatus['themegrill-demo-importer/themegrill-demo-importer.php'] && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement((react__WEBPACK_IMPORTED_MODULE_1___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
+    className: "text-[#2563EB] active:text-[#2563EB] text-[13px] hover:text-[#2563EB] no-underline",
     href: _utils_global__WEBPACK_IMPORTED_MODULE_10__.localized.demoUrl
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('View Starter Template', 'zakra')))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "p-4 bg-white rounded-lg shadow-sm border border-solid roundens border-[#F4F4F4] mb-5"
@@ -4146,7 +4180,7 @@ var Dashboard = () => {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
     className: "text-[#6B6B6B]"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Stuck due to an issue? Our detailed documentation will surely clear up any confusions you have!', 'zakra')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
-    className: "text-[#2563EB] hover:text-[#2563EB]",
+    className: "text-[#2563EB] active:text-[#2563EB] hover:text-[#2563EB] text-[13px]",
     href: "https://docs.zakratheme.com/"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Documentation', 'zakra'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "p-4 bg-white rounded-lg shadow-sm border border-solid roundens border-[#F4F4F4] mb-5"
@@ -4173,7 +4207,7 @@ var Dashboard = () => {
     viewBox: "0 0 76 11",
     fill: "#FFB900",
     width: "76px",
-    height: "12px"
+    height: "14px"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("path", {
     d: "m4.121 3.669-3.19.462-.056.012a.5.5 0 0 0-.22.842l2.31 2.25-.544 3.177-.007.055a.5.5 0 0 0 .732.472L6 9.439l2.847 1.5.05.023a.5.5 0 0 0 .676-.55l-.546-3.178 2.312-2.25.04-.042a.5.5 0 0 0-.317-.81l-3.19-.463L6.445.779a.5.5 0 0 0-.897 0L4.12 3.669Zm16 0-3.19.462-.056.012a.5.5 0 0 0-.22.842l2.31 2.25-.544 3.177-.007.055a.5.5 0 0 0 .732.472L22 9.439l2.847 1.5.05.023a.5.5 0 0 0 .676-.55l-.546-3.178 2.312-2.25.04-.042a.5.5 0 0 0-.317-.81l-3.19-.463-1.426-2.89a.5.5 0 0 0-.897 0l-1.427 2.89Zm16 0-3.19.462-.056.012a.5.5 0 0 0-.22.842l2.31 2.25-.544 3.177-.007.055a.5.5 0 0 0 .732.472L38 9.439l2.847 1.5.05.023a.5.5 0 0 0 .676-.55l-.546-3.178 2.312-2.25.04-.042a.5.5 0 0 0-.317-.81l-3.19-.463-1.426-2.89a.5.5 0 0 0-.897 0l-1.427 2.89Zm16 0-3.19.462-.056.012a.5.5 0 0 0-.22.842l2.31 2.25-.544 3.177-.007.055a.5.5 0 0 0 .732.472L54 9.439l2.847 1.5.05.023a.5.5 0 0 0 .676-.55l-.546-3.178 2.312-2.25.04-.042a.5.5 0 0 0-.317-.81l-3.19-.463-1.426-2.89a.5.5 0 0 0-.897 0l-1.427 2.89Zm16 0-3.19.462-.056.012a.5.5 0 0 0-.22.842l2.31 2.25-.544 3.177-.007.055a.5.5 0 0 0 .732.472L70 9.439l2.847 1.5.05.023a.5.5 0 0 0 .676-.55l-.546-3.178 2.312-2.25.04-.042a.5.5 0 0 0-.317-.81l-3.19-.463-1.426-2.89a.5.5 0 0 0-.897 0l-1.427 2.89Z"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
@@ -4183,7 +4217,7 @@ var Dashboard = () => {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
     className: "text-[#6B6B6B]"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('What do you think of our theme? Was it a good experience and did it match your expectations? Let us know so we can improve!', 'zakra')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
-    className: "text-[#2563EB] hover:text-[#2563EB]",
+    className: "text-[#2563EB] active:text-[#2563EB] hover:text-[#2563EB] text-[13px]",
     href: "https://wordpress.org/support/theme/zakra/reviews/?rate=5#new-post",
     target: "_blank"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Submit a Review', 'zakra'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
@@ -4221,7 +4255,7 @@ var Dashboard = () => {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
     className: "text-[#6B6B6B]"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please take a moment to suggest any features that could enhance our product.', 'zakra')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
-    className: "text-[#2563EB] hover:text-[#2563EB]",
+    className: "text-[#2563EB] active:text-[#2563EB] hover:text-[#2563EB] text-[13px]",
     href: "https://zakra.feedbear.com/boards/feature-requests",
     target: "_blank"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Request a Feature', 'zakra'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
@@ -4247,7 +4281,7 @@ var Dashboard = () => {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
     className: "text-[#6B6B6B]"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('We would be happy to guide you through any issues and queries you have regarding Zakra!', 'zakra')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
-    className: "text-[#2563EB] hover:text-[#2563EB]",
+    className: "text-[#2563EB] active:text-[#2563EB] hover:text-[#2563EB] text-[13px]",
     href: "https://zakratheme.com/support/",
     target: "_blank"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Create a Ticket', 'zakra'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
@@ -4297,7 +4331,7 @@ var Dashboard = () => {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
     className: "text-[#6B6B6B]"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Join our Facebook group filled with ThemeGrill themes users, including Zakra users to discuss anything about the theme!', 'zakra')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
-    className: "text-[#2563EB] hover:text-[#2563EB]",
+    className: "text-[#2563EB] active:text-[#2563EB] hover:text-[#2563EB] text-[13px]",
     href: "https://www.facebook.com/groups/themegrill",
     target: "_blank"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Join our Facebook Group', 'zakra'))))))));
@@ -4844,6 +4878,118 @@ var Settings = () => {
   }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Settings);
+
+/***/ }),
+
+/***/ "./assets/js/dashboard/screens/starter-templates/StarterTemplates.tsx":
+/*!****************************************************************************!*\
+  !*** ./assets/js/dashboard/screens/starter-templates/StarterTemplates.tsx ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   StarterTemplates: () => (/* binding */ StarterTemplates)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/.pnpm/@babel+runtime@7.25.6/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _hook_usePluginInstallActivate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../hook/usePluginInstallActivate */ "./assets/js/dashboard/hook/usePluginInstallActivate.ts");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../store */ "./assets/js/dashboard/store/index.ts");
+/* harmony import */ var _utils_global__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/global */ "./assets/js/dashboard/utils/global.ts");
+
+
+
+
+
+
+
+var StarterTemplates = () => {
+  var pluginsStatus = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.useSelect)(select => {
+    return select(_store__WEBPACK_IMPORTED_MODULE_5__.ZAKRA_DASHBOARD_STORE).getPluginsStatus();
+  }, []);
+  var {
+    performPluginAction
+  } = (0,_hook_usePluginInstallActivate__WEBPACK_IMPORTED_MODULE_4__["default"])({
+    pluginsStatus: _utils_global__WEBPACK_IMPORTED_MODULE_6__.localized.plugins
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", {
+    className: "wrap demo-importer"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", {
+    className: "themegrill-demo-importer-BlankState flex justify-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", {
+    className: "themegrill-demo-importer-BlankState-info w-2/5 m-auto p-[80px]"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "120",
+    height: "106",
+    viewBox: "0 0 120 106",
+    fill: "none"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", {
+    d: "M92.2813 12.7843L59.7221 0.790039L27.4741 12.6263C23.3563 14.6181 19.746 15.8152 19.746 19.7462V39.3488C19.6789 53.0679 23.3521 66.5458 30.3709 78.3337C36.3848 88.3457 45.6929 98.6545 60.0573 105.209C73.239 100.819 83.0786 89.1118 89.0925 79.0951C96.1117 67.3091 99.785 53.8326 99.7173 40.1149V22.485C99.6934 16.8734 96.7966 14.1345 92.2813 12.7843Z",
+    fill: "#4A7EEE"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("g", {
+    opacity: "0.8"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", {
+    d: "M92.2813 12.7843L59.7221 0.790039L27.4741 12.6263C23.3563 14.6181 19.746 15.8152 19.746 19.7462V39.3488C19.6789 53.0679 23.3521 66.5458 30.3709 78.3337C36.3848 88.3457 45.6929 98.6545 60.0573 105.209C73.239 100.819 83.0786 89.1118 89.0925 79.095C96.1117 67.3091 99.785 53.8326 99.7173 40.1149V22.485C99.6934 16.8734 96.7966 14.1345 92.2813 12.7843Z",
+    fill: "white"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", {
+    d: "M79.6026 36.77H73.6174V29.8108C73.6174 26.1236 72.1527 22.5875 69.5455 19.9803C66.9383 17.3731 63.4022 15.9084 59.7151 15.9084C56.0279 15.9084 52.4918 17.3731 49.8846 19.9803C47.2775 22.5875 45.8127 26.1236 45.8127 29.8108V62.37H39.8276V29.8108C39.7867 27.1731 40.2708 24.5537 41.2519 22.105C42.233 19.6563 43.6913 17.4272 45.5421 15.5474C47.3929 13.6677 49.5991 12.1749 52.0323 11.156C54.4655 10.137 57.0771 9.6123 59.7151 9.6123C62.353 9.6123 64.9646 10.137 67.3978 11.156C69.831 12.1749 72.0372 13.6677 73.888 15.5474C75.7388 17.4272 77.1972 19.6563 78.1782 22.105C79.1593 24.5537 79.6435 27.1731 79.6026 29.8108V36.77Z",
+    fill: "#4A7EEE"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("g", {
+    opacity: "0.4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", {
+    d: "M79.6026 36.77H73.6174V29.8108C73.6174 26.1236 72.1527 22.5875 69.5455 19.9803C66.9383 17.3731 63.4022 15.9084 59.7151 15.9084C56.0279 15.9084 52.4918 17.3731 49.8846 19.9803C47.2775 22.5875 45.8127 26.1236 45.8127 29.8108V62.37H39.8276V29.8108C39.7867 27.1731 40.2708 24.5537 41.2519 22.105C42.233 19.6563 43.6913 17.4272 45.5421 15.5474C47.3929 13.6677 49.5991 12.1749 52.0323 11.156C54.4655 10.137 57.0771 9.6123 59.7151 9.6123C62.353 9.6123 64.9646 10.137 67.3978 11.156C69.831 12.1749 72.0372 13.6677 73.888 15.5474C75.7388 17.4272 77.1972 19.6563 78.1782 22.105C79.1593 24.5537 79.6435 27.1731 79.6026 29.8108V36.77Z",
+    fill: "black"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", {
+    d: "M83.735 47.8809H35.6957C34.1593 47.8809 32.9138 49.1264 32.9138 50.6628V79.4873C32.9138 81.0237 34.1593 82.2692 35.6957 82.2692H83.735C85.2714 82.2692 86.5169 81.0237 86.5169 79.4873V50.6628C86.5169 49.1264 85.2714 47.8809 83.735 47.8809Z",
+    fill: "#4A7EEE"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("g", {
+    opacity: "0.5"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", {
+    d: "M64.1943 60.5988C64.1949 59.7649 63.9627 58.9473 63.524 58.2382C63.0853 57.529 62.4574 56.9563 61.7109 56.5844C60.9645 56.2126 60.1291 56.0564 59.2988 56.1334C58.4684 56.2104 57.676 56.5176 57.0107 57.0204C56.3454 57.5231 55.8335 58.2015 55.5327 58.9793C55.2319 59.7571 55.154 60.6034 55.3079 61.423C55.4618 62.2426 55.8413 63.003 56.4038 63.6187C56.9662 64.2344 57.6893 64.6809 58.4917 64.9081V71.6115H60.9384V64.9081C61.8771 64.6437 62.7034 64.0793 63.2913 63.3012C63.8792 62.5231 64.1964 61.574 64.1943 60.5988Z",
+    fill: "black"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", {
+    d: "M35.7723 79.009C35.6478 79.009 35.552 73.2633 35.552 66.2008C35.552 59.1383 35.6478 53.3926 35.7723 53.3926C35.8967 53.3926 35.9973 59.1383 35.9973 66.2008C35.9973 73.2633 35.8967 79.009 35.7723 79.009Z",
+    fill: "#FAFAFA"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", {
+    d: "M56.2081 66.3397C56.2081 66.3397 55.9974 66.2726 55.6814 66.0428C55.2385 65.7119 54.8492 65.3146 54.5274 64.8649C53.9686 64.1274 53.5797 63.2754 53.3887 62.37C53.1976 61.4645 53.2091 60.528 53.4223 59.6276C53.6355 58.7271 54.0452 57.8849 54.622 57.1613C55.1988 56.4377 55.9285 55.8505 56.7587 55.4419C57.2554 55.1856 57.7882 55.0064 58.3388 54.9104C58.5352 54.8566 58.7409 54.8452 58.9421 54.8769C58.9421 54.9631 58.0946 55.0445 56.9311 55.7196C56.1716 56.1395 55.5084 56.7136 54.9839 57.405C54.4595 58.0963 54.0854 58.8897 53.8856 59.7342C53.6859 60.5787 53.6649 61.4557 53.8241 62.3087C53.9833 63.1618 54.3191 63.9721 54.8099 64.6878C55.2302 65.2756 55.6978 65.8281 56.2081 66.3397Z",
+    fill: "#FAFAFA"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", {
+    d: "M2.06393 87.0668C3.20367 87.0668 4.12761 86.1429 4.12761 85.0031C4.12761 83.8634 3.20367 82.9395 2.06393 82.9395C0.924185 82.9395 0.000244141 83.8634 0.000244141 85.0031C0.000244141 86.1429 0.924185 87.0668 2.06393 87.0668Z",
+    fill: "#4A7EEE"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", {
+    d: "M120 19.5743C119.999 19.9823 119.877 20.3808 119.65 20.7195C119.422 21.0583 119.1 21.322 118.723 21.4775C118.345 21.633 117.931 21.6731 117.531 21.593C117.131 21.5128 116.763 21.3159 116.475 21.0271C116.187 20.7383 115.991 20.3706 115.912 19.9704C115.833 19.5702 115.874 19.1555 116.03 18.7787C116.186 18.4019 116.451 18.0799 116.79 17.8533C117.129 17.6268 117.528 17.5059 117.936 17.5059C118.208 17.5059 118.476 17.5594 118.727 17.6634C118.978 17.7674 119.205 17.9198 119.397 18.112C119.589 18.3041 119.741 18.5322 119.844 18.7831C119.948 19.034 120.001 19.3029 120 19.5743Z",
+    fill: "#4A7EEE"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", {
+    d: "M16.5575 90.3324C16.5575 90.4368 16.5265 90.5388 16.4684 90.6255C16.4103 90.7122 16.3278 90.7797 16.2313 90.8194C16.1348 90.8591 16.0286 90.8693 15.9263 90.8486C15.824 90.8279 15.7302 90.7772 15.6567 90.7031C15.5833 90.6289 15.5335 90.5347 15.5137 90.4322C15.4939 90.3297 15.505 90.2236 15.5456 90.1275C15.5862 90.0313 15.6545 89.9494 15.7417 89.8921C15.829 89.8348 15.9313 89.8047 16.0356 89.8057C16.1745 89.8069 16.3072 89.863 16.405 89.9616C16.5027 90.0603 16.5575 90.1935 16.5575 90.3324Z",
+    fill: "#4A7EEE"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", {
+    d: "M27.757 32.4828C27.757 32.5869 27.7261 32.6888 27.6682 32.7754C27.6104 32.862 27.5281 32.9295 27.4319 32.9694C27.3356 33.0092 27.2297 33.0196 27.1276 32.9993C27.0254 32.979 26.9315 32.9288 26.8579 32.8552C26.7842 32.7815 26.7341 32.6877 26.7137 32.5855C26.6934 32.4833 26.7038 32.3774 26.7437 32.2812C26.7836 32.185 26.8511 32.1027 26.9377 32.0448C27.0243 31.9869 27.1261 31.9561 27.2303 31.9561C27.37 31.9561 27.504 32.0115 27.6027 32.1103C27.7015 32.2091 27.757 32.3431 27.757 32.4828Z",
+    fill: "#4A7EEE"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", {
+    d: "M116.922 40.1411C116.922 40.2456 116.892 40.3481 116.835 40.4355C116.777 40.5228 116.695 40.5911 116.599 40.6315C116.502 40.672 116.396 40.6828 116.293 40.6626C116.191 40.6425 116.096 40.5922 116.022 40.5183C115.948 40.4443 115.898 40.35 115.878 40.2474C115.858 40.1448 115.869 40.0385 115.909 39.9421C115.95 39.8456 116.018 39.7634 116.105 39.7059C116.193 39.6484 116.295 39.6182 116.4 39.6192C116.538 39.6192 116.671 39.6741 116.769 39.772C116.867 39.8699 116.922 40.0026 116.922 40.1411Z",
+    fill: "#4A7EEE"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("h2", {
+    className: "themegrill-demo-importer-BlankState-message my-[30px] w-[68%] mx-auto"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('In order to be able to import any starter sites for Zakra you need to install ThemeGrill demo importer plugin active.', 'zakra')), 'active' !== pluginsStatus['themegrill-demo-importer/themegrill-demo-importer.php'] && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("button", {
+    onClick: /*#__PURE__*/(0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+      yield performPluginAction('themegrill-demo-importer/themegrill-demo-importer.php');
+      window.location.href = _utils_global__WEBPACK_IMPORTED_MODULE_6__.localized.adminUrl + 'admin.php?page=demo-importer&browse=all';
+    }),
+    className: "border-none rounded-[4px] text-[16px] w-9/12 p-[16px] text-[#FFFFFF] bg-[#2563EB] cursor-pointer",
+    "data-name": "themegrill-demo-importer",
+    "data-slug": "themegrill-demo-importer",
+    "aria-label": "Install ThemeGrill Demo Importer Plugin"
+  }, 'inactive' === pluginsStatus['themegrill-demo-importer/themegrill-demo-importer.php'] ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Activate ThemeGrill Demo Importer Plugin', 'zakra') : 'not-installed' === pluginsStatus['themegrill-demo-importer/themegrill-demo-importer.php'] ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Install ThemeGrill Demo Importer Plugin ') : 'View Starter Template')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", {
+    className: "starter-template-overlay"
+  }))));
+};
 
 /***/ }),
 

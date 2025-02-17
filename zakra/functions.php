@@ -154,8 +154,23 @@ require_once ZAKRA_PARENT_INC_DIR . '/class-zakra-svg-icons.php';
 // Load customind.
 require_once ZAKRA_PARENT_INC_DIR . '/customizer/customind/init.php';
 
+/**
+ * @var \Customind\Core\Customind
+ */
 global $customind;
 $customind->set_css_var_prefix( 'zakra' );
+$customind->set_i18n_data(
+	[
+		'domain' => 'zakra',
+	]
+);
+$customind->set_section_i18n(
+	[
+		/* Translators: 1: Panel Title. */
+		'customizing-action' => __( 'Customizing &#9656; %s', 'zakra' ),
+		'customizing'        => __( 'Customizing', 'zakra' ),
+	]
+);
 
 require ZAKRA_PARENT_INC_DIR . '/meta-boxes/class-zakra-meta-box.php';
 

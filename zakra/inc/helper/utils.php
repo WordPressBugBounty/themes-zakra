@@ -611,7 +611,9 @@ if ( ! function_exists( 'zakra_parse_typography_css' ) ) :
 		// For font family.
 		$default_value_font_family = isset( $default_value['font-family'] ) ? $default_value['font-family'] : '';
 		if ( isset( $output_value['font-family'] ) && ! empty( $output_value['font-family'] ) && ( $output_value['font-family'] !== $default_value_font_family ) ) {
-			$parse_css .= 'font-family:' . $output_value['font-family'] . ';';
+			if ( 'default' !== $output_value['font-family'] || 'Default' !== $output_value['font-family'] ) {
+				$parse_css .= 'font-family:' . $output_value['font-family'] . ';';
+			}
 		}
 
 		// For font style.
@@ -634,7 +636,7 @@ if ( ! function_exists( 'zakra_parse_typography_css' ) ) :
 
 		// For font weight.
 		$default_value_font_weight = isset( $default_value['font-weight'] ) ? $default_value['font-weight'] : '';
-		if ( isset( $output_value['font-weight'] ) && ! empty( $output_value['font-weight'] ) && ( $output_value['font-weight'] !== $default_value_font_weight ) ) {
+		if ( isset( $output_value['font-weight'] ) && ! empty( $output_value['font-weight'] ) ) {
 			$font_weight_value = $output_value['font-weight'];
 
 			if ( 'italic' === $font_weight_value || 'regular' === $font_weight_value ) {
