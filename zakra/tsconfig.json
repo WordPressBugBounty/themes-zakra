@@ -17,9 +17,9 @@
     "jsx": "react",
     "suppressImplicitAnyIndexErrors": true,
     "ignoreDeprecations": "5.0",
-    "baseUrl": "src/",
-    "types": ["node", "./assets/js/meta/types"]
+    "baseUrl": "assets/",
+    "types": ["node"],
   },
   "exclude": ["node_modules"],
-  "include": ["./assets/js/meta"]
+  "include": ["./assets/js/meta","./assets/js/dashboard","./assets/js/dashboard/utils/index.d.ts"]
 }

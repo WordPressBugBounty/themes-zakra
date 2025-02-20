@@ -108,7 +108,31 @@ $options = apply_filters(
 			'sub_controls' => apply_filters(
 				'zakra_blog_post_title_sub_controls',
 				array(
-					'zakra_blog_post_title_typography' => array(
+					'zakra_blog_post_title_color_group' => array(
+						'type'         => 'customind-color-group',
+						'title'        => esc_html__( 'Color', 'zakra' ),
+						'section'      => 'zakra_blog',
+						'sub_controls' => apply_filters(
+							'zakra_blog_post_title_color_sub_controls',
+							array(
+								'zakra_blog_post_title_color' => array(
+									'default'   => '',
+									'type'      => 'customind-color',
+									'title'     => esc_html__( 'Normal', 'zakra' ),
+									'transport' => 'postMessage',
+									'section'   => 'zakra_blog',
+								),
+								'zakra_blog_post_title_hover_color' => array(
+									'default'   => '',
+									'type'      => 'customind-color',
+									'title'     => esc_html__( 'Hover', 'zakra' ),
+									'transport' => 'postMessage',
+									'section'   => 'zakra_blog',
+								),
+							)
+						),
+					),
+					'zakra_blog_post_title_typography'  => array(
 						'default'   => array(
 							'font-family'    => 'Default',
 							'font-weight'    => '500',

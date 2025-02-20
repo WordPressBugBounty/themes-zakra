@@ -1869,6 +1869,24 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 			$parse_css            .= zakra_parse_css( '#ffffff', $scroll_to_top_hover_color, $scroll_to_top_hover_color_css );
 
+			// Blog post title color.
+			$blog_post_title_color     = get_theme_mod( 'zakra_blog_post_title_color', '' );
+			$blog_post_title_color_css = array(
+				'.entry-title a' => array(
+					'color' => esc_html( $blog_post_title_color ),
+				),
+			);
+			$parse_css                .= zakra_parse_css( '', $blog_post_title_color, $blog_post_title_color_css );
+
+			// Blog post title hover color.
+			$blog_post_title_hover_color     = get_theme_mod( 'zakra_blog_post_title_hover_color', '' );
+			$blog_post_title_hover_color_css = array(
+				'.entry-title a:hover' => array(
+					'color' => esc_html( $blog_post_title_hover_color ),
+				),
+			);
+			$parse_css                      .= zakra_parse_css( '', $blog_post_title_hover_color, $blog_post_title_hover_color_css );
+
 			$parse_css .= $dynamic_css;
 
 			return apply_filters( 'zakra_theme_dynamic_css', $parse_css );

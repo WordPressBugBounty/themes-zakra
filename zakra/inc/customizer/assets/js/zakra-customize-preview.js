@@ -2422,6 +2422,14 @@
 						value,
 					);
 					break;
+
+				case 'zakra_blog_post_title_color':
+					css = zakraGenerateCommonCSS('.entry-title a', 'color', value);
+					break;
+
+				case 'zakra_blog_post_title_hover_color':
+					css = zakraGenerateCommonCSS('.entry-title a:hover', 'color', value);
+					break;
 			}
 			return css;
 		},

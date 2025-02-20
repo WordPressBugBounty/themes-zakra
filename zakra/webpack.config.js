@@ -10,6 +10,7 @@ module.exports = {
 	},
 	entry: {
 		meta: resolve(process.cwd(), 'assets/js/meta', 'meta.tsx'),
+		dashboard: resolve(process.cwd(), 'assets/js/dashboard', 'index.tsx'),
 	},
 	plugins: [...defaults.plugins, new ForkTsCheckerPlugin()],
 	module: {

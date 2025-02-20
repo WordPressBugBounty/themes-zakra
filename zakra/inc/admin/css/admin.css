@@ -1,9 +1,22 @@
 @charset "UTF-8";
 /* Dashboard */
+#menu-appearance a[href="themes.php?page=zakra-starter-templates"] {
+	display: none !important;
+}
+
+/* Also hide the parent li element to remove any spacing */
+#menu-appearance li a[href="themes.php?page=zakra-starter-templates"].wp-first-item {
+	display: none !important;
+}
+
 .zak-wrap .zakra-header {
 	background-color: #fff;
 	padding: 0;
 	border-bottom: 1px solid #E9E9E9;
+}
+
+.zakra-pro-version {
+	text-decoration: none;
 }
 
 .zak-wrap.overlay {
@@ -39,11 +52,11 @@
 	margin: 0 0 0 0;
 }
 
-.appearance_page_zakra #wpcontent, .appearance_page_zakra #wpbody-content .zak-metabox-holder {
+.zakra_page_zakra-starter-templates #wpcontent, .toplevel_page_zakra #wpcontent{
 	padding: 0;
 }
 
-.appearance_page_zakra #wpbody-content {
+#wpbody-content {
 	background: #FAFAFC;
 }
 
@@ -51,7 +64,6 @@
 	max-width: 1280px;
 	margin: 0 auto;
 	padding: 0 20px;
-	box-sizing: border-box;
 }
 
 .zak-container a {
@@ -100,13 +112,13 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
+	gap: 32px;
 }
 
 .zakra-header .zak-dashboard-menu-container ul {
 	display: flex;
 	flex-wrap: wrap;
-	margin-left: 26px;
-	gap: 32px;
+	gap: 24px;
 }
 
 .zakra-header .zak-dashboard-menu-container ul li {
@@ -116,7 +128,6 @@
 
 .zakra-header .zak-dashboard-menu-container ul li a {
 	color: #383838;
-	margin: 0 8px;
 	text-align: center;
 	font-size: 14px;
 	font-weight: 600;
@@ -126,15 +137,15 @@
 	color: #2563EB;
 }
 
-.zakra-header .zak-dashboard-menu-container ul li.active::before {
-	height: 3px;
-	width: 100%;
-	bottom: 0;
-	background-color: #2563EB;
-	content: "";
-	position: absolute;
-	top: 40px;
-}
+/*.zakra-header .zak-dashboard-menu-container ul li.active::before {*/
+/*	height: 3px;*/
+/*	width: 100%;*/
+/*	bottom: 0;*/
+/*	background-color: #2563EB;*/
+/*	content: "";*/
+/*	position: absolute;*/
+/*	top: 40px;*/
+/*}*/
 
 .zakra-header .zak-dashboard-head-left {
 	display: flex;
@@ -163,7 +174,6 @@
 
 .zakra-header .zak-title + div a {
 	display: inline-block;
-	margin: 0 10px;
 	vertical-align: middle;
 }
 
@@ -364,7 +374,7 @@ h1.hndle {
 	color: #2563EB;
 	font-size: 13px;
 	font-style: normal;
-	font-weight: 600;
+	font-weight: 500;
 	line-height: 20px;
 	text-decoration-line: underline;
 }
@@ -409,7 +419,7 @@ h1.hndle {
 	color: #2563EB;
 	font-size: 13px;
 	font-style: normal;
-	font-weight: 600;
+	font-weight: 500;
 	line-height: 20px;
 	text-decoration-line: underline;
 }
@@ -465,7 +475,7 @@ h1.hndle {
 }
 
 .zak-icon {
-	height: 38px;
+	height: 32px;
 }
 
 .zak-version {
@@ -998,7 +1008,6 @@ h1.hndle {
 	position: sticky;
 	top: calc(var(--wp-admin--admin-bar--height));
 	width: 100%;
-	z-index: 1000;
 }
 
 .zak-dialog .zak-dialog-head .zak-dialog-close:hover {
@@ -1185,32 +1194,32 @@ h1.hndle {
 }
 
 /* Starter Templates */
-.appearance_page_zakra .demo-importer {
+.appearance_page_zakra-starter-templates .demo-importer {
 	max-width: 1280px;
 	margin: 0 auto;
 }
 
-.appearance_page_zakra .demo-importer .wp-filter {
+.appearance_page_zakra-starter-templates .demo-importer .wp-filter {
 	padding: 0 20px;
 }
 
-.appearance_page_zakra .demo-importer .wp-filter .search-form {
+.appearance_page_zakra-starter-templates .demo-importer .wp-filter .search-form {
 	margin-left: 1em;
 }
 
-.appearance_page_zakra .demo-importer .wp-filter .filter-section {
+.appearance_page_zakra-starter-templates .demo-importer .wp-filter .filter-section {
 	float: left;
 }
 
-.appearance_page_zakra .demo-importer .wp-filter .filter-section.right {
+.appearance_page_zakra-starter-templates .demo-importer .wp-filter .filter-section.right {
 	float: right;
 }
 
-.appearance_page_zakra .demo-importer .wp-filter .filter-links li > a:focus {
+.appearance_page_zakra-starter-templates .demo-importer .wp-filter .filter-links li > a:focus {
 	box-shadow: none;
 }
 
-.appearance_page_zakra .demo-importer .theme-browser .theme .premium-demo-banner {
+.appearance_page_zakra-starter-templates .demo-importer .theme-browser .theme .premium-demo-banner {
 	position: absolute;
 	top: 15px;
 	right: -16px;
@@ -1223,19 +1232,19 @@ h1.hndle {
 	text-transform: uppercase;
 }
 
-.appearance_page_zakra .demo-importer .theme-browser .theme .premium-demo-banner::before, .appearance_page_zakra .demo-importer .theme-browser .theme .premium-demo-banner::after {
+.appearance_page_zakra-starter-templates .demo-importer .theme-browser .theme .premium-demo-banner::before, .appearance_page_zakra-starter-templates .demo-importer .theme-browser .theme .premium-demo-banner::after {
 	content: '';
 	position: absolute;
 }
 
-.appearance_page_zakra .demo-importer .theme-browser .theme .premium-demo-banner::before {
+.appearance_page_zakra-starter-templates .demo-importer .theme-browser .theme .premium-demo-banner::before {
 	left: -15px;
 	color: #fff;
 	border: 15px solid #5fbd0a;
 	border-left-color: transparent;
 }
 
-.appearance_page_zakra .demo-importer .theme-browser .theme .premium-demo-banner::after {
+.appearance_page_zakra-starter-templates .demo-importer .theme-browser .theme .premium-demo-banner::after {
 	top: 30px;
 	right: 0;
 	border: 8px solid #478d07;
@@ -1243,29 +1252,29 @@ h1.hndle {
 	border-bottom-color: transparent;
 }
 
-.appearance_page_zakra .demo-importer .theme-browser .theme .theme-screenshot img {
+.appearance_page_zakra-starter-templates .demo-importer .theme-browser .theme .theme-screenshot img {
 	object-fit: cover;
 }
 
-.appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-header {
+.appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-header {
 	background-color: #eee;
 }
 
-.appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content {
+.appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content {
 	z-index: 1;
 	bottom: 132px;
 }
 
-.appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info .theme-version {
+.appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info .theme-version {
 	margin-top: 0;
 }
 
-.appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info .theme-screenshot {
+.appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info .theme-screenshot {
 	width: 100%;
 	box-sizing: border-box;
 }
 
-.appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info .premium-demo-tag {
+.appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info .premium-demo-tag {
 	color: #fff;
 	font-size: 13px;
 	font-weight: 400;
@@ -1277,15 +1286,15 @@ h1.hndle {
 	display: inline-block;
 }
 
-.appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info table.plugins-list-table {
+.appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info table.plugins-list-table {
 	margin-bottom: 1em;
 }
 
-.appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info table.plugins-list-table .plugin-status {
+.appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info table.plugins-list-table .plugin-status {
 	float: right;
 }
 
-.appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info table.plugins-list-table .plugin-status span {
+.appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info table.plugins-list-table .plugin-status span {
 	width: 20px;
 	height: 20px;
 	overflow: hidden;
@@ -1298,11 +1307,11 @@ h1.hndle {
 	border: 2px solid #bfbfbf;
 }
 
-.appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info table.plugins-list-table .plugin-status span.active {
+.appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info table.plugins-list-table .plugin-status span.active {
 	border-color: #5cb85c;
 }
 
-.appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info table.plugins-list-table .plugin-status span.active::after {
+.appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info table.plugins-list-table .plugin-status span.active::after {
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -1316,35 +1325,35 @@ h1.hndle {
 	transform: scaleX(-1) rotate(135deg) translate(-58%, -40%);
 }
 
-.appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info table.plugins-list-table .plugin-status span.updating-message {
+.appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-sidebar-content .install-theme-info table.plugins-list-table .plugin-status span.updating-message {
 	border-left-color: #5cb85c;
 	animation: spin .75s linear infinite;
 }
 
-.appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-footer {
+.appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-footer {
 	height: 132px;
 }
 
-.appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-footer .devices button:hover, .appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-footer .devices button:focus {
+.appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-footer .devices button:hover, .appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-footer .devices button:focus {
 	background-color: transparent;
 }
 
-.appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-footer .demo-import-actions {
+.appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-footer .demo-import-actions {
 	padding: 20px;
 	background: #fff;
 	border-bottom: 1px solid #ddd;
 }
 
-.appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-footer .demo-import-actions .button {
+.appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-footer .demo-import-actions .button {
 	width: 100%;
 	text-align: center;
 }
 
-.appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-footer .demo-import-actions .button.updated-message::before, .appearance_page_zakra .demo-importer .theme-install-overlay .wp-full-overlay-footer .demo-import-actions .button.updating-message::before {
+.appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-footer .demo-import-actions .button.updated-message::before, .appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay .wp-full-overlay-footer .demo-import-actions .button.updating-message::before {
 	margin-top: 11px;
 }
 
-.appearance_page_zakra .demo-importer .theme-install-overlay.expanded .wp-full-overlay-footer {
+.appearance_page_zakra-starter-templates .demo-importer .theme-install-overlay.expanded .wp-full-overlay-footer {
 	left: initial;
 }
 
@@ -1529,6 +1538,20 @@ body.demo-import-message-popup {
 	background: #2563EB;
 }
 
+.zak-starter-templates-active a {
+	position: relative;
+}
+
+.zak-starter-templates-active a:after {
+	content: "";
+	position: absolute;
+	bottom: -12px;
+	right: 0;
+	width: 100%;
+	height: 2px;
+	background: #3858e9;
+}
+
 /* Responsive */
 @media (min-width: 768px) {
 	.themegrill-demo-importer-BlankState {
@@ -1587,7 +1610,6 @@ body.demo-import-message-popup {
 	}
 	.zakra-header .zak-title + div a {
 		display: inline-block;
-		margin: 0 10px;
 		vertical-align: middle;
 	}
 	.zakra-header .zak-dashboard-menu-container {
@@ -1598,8 +1620,8 @@ body.demo-import-message-popup {
 	.zakra-header .zak-dashboard-menu-container ul {
 		display: flex;
 		flex-wrap: wrap;
-		margin-left: 26px;
-		gap: 16px;
+		margin-left: 40px;
+		gap: 32px;
 	}
 	.zakra-header .zak-dashboard-menu-container ul li {
 		position: relative;
@@ -1607,23 +1629,23 @@ body.demo-import-message-popup {
 	}
 	.zakra-header .zak-dashboard-menu-container ul li a {
 		color: #383838;
-		margin: 0 8px;
 		text-align: center;
 		font-size: 14px;
 		font-weight: 600;
+		padding: 14px 0;
 	}
 	.zakra-header .zak-dashboard-menu-container ul li.active a {
 		color: #2563EB;
 	}
-	.zakra-header .zak-dashboard-menu-container ul li.active::before {
-		height: 3px;
-		width: 100%;
-		bottom: 0;
-		background-color: #2563EB;
-		content: "";
-		position: absolute;
-		top: 44px;
-	}
+	/*.zakra-header .zak-dashboard-menu-container ul li.active::before {*/
+	/*	height: 3px;*/
+	/*	width: 100%;*/
+	/*	bottom: 0;*/
+	/*	background-color: #2563EB;*/
+	/*	content: "";*/
+	/*	position: absolute;*/
+	/*	top: 44px;*/
+	/*}*/
 	.zakra-header .zak-dashboard-head-left {
 		display: flex;
 		align-items: center;
@@ -1643,7 +1665,6 @@ body.demo-import-message-popup {
 	}
 	.zakra-header .zak-title + div a {
 		display: inline-block;
-		margin: 0 10px;
 		vertical-align: middle;
 	}
 	.col-70 {
@@ -1691,7 +1712,6 @@ body.demo-import-message-popup {
 		font-style: normal;
 		font-weight: 400;
 		line-height: 26px;
-		margin: 30px 0;
 	}
 	.themegrill-demo-importer-BlankState span {
 		color: #fff;
@@ -1747,7 +1767,7 @@ body.demo-import-message-popup {
 /* Notices. */
 .zakra-notice {
 	position: relative;
-	padding: 0 20px;
+	padding: 20px 20px 0 20px;
 	border-left-color: #2563EB;
 }
 
@@ -2067,7 +2087,8 @@ a.zakra-message-close:before {
 }
 
 .demo-importer {
-	padding: 0 20px;
+	padding: 0;
+	margin: 0;
 }
 
 @media (min-width: 1236px) {

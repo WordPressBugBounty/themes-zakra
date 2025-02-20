@@ -175,19 +175,19 @@ $customind->set_section_i18n(
 require ZAKRA_PARENT_INC_DIR . '/meta-boxes/class-zakra-meta-box.php';
 
 // Admin screen.
+require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-changelog-controller.php';
+require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-admin.php';
 if ( is_admin() ) {
 
 	// Meta boxes.
 	require ZAKRA_PARENT_INC_DIR . '/meta-boxes/class-zakra-meta-box-page-settings.php';
 
 	// Theme options page.
-	require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-admin.php';
 	require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-notice.php';
 	require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-welcome-notice.php';
 	require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-upgrade-notice.php';
 	require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-dashboard.php';
 	require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-theme-review-notice.php';
-	require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-changelog-parser.php';
 	require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-demo-import-migration-notice.php';
 	require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-pro-minimum-version-notice.php';
 }
@@ -245,94 +245,6 @@ function zakra_content_width_rdr() {
 
 add_action( 'template_redirect', 'zakra_content_width_rdr' );
 
-add_filter( 'themegrill_demo_importer_show_main_menu', '__return_false' );
-
-add_filter( 'themegrill_demo_importer_routes', 'zakra_demo_importer_routes', 10, 1 );
-
-function zakra_demo_importer_routes( $routes ) {
-	// Remove the existing routes from the TDI
-	unset( $routes['themes.php?page=demo-importer&demo=:slug'] );
-	unset( $routes['themes.php?page=demo-importer&browse=:sort'] );
-	unset( $routes['themes.php?page=demo-importer&search=:query'] );
-	unset( $routes['themes.php?page=demo-importer'] );
-
-	// Add the new routes
-	$routes['themes.php?page=zakra&tab=starter-templates&demo=:slug']    = 'preview';
-	$routes['themes.php?page=zakra&tab=starter-templates&browse=:sort']  = 'sort';
-	$routes['themes.php?page=zakra&tab=starter-templates&search=:query'] = 'search';
-	$routes['themes.php?page=zakra&tab=starter-templates']               = 'sort';
-
-	return $routes;
-}
-
-add_filter( 'themegrill_demo_importer_baseURL', 'zakra_demo_importer_baseURL', 10, 1 );
-
-function zakra_demo_importer_baseURL( $base_url ) {
-	// Update the base URL in the demo importer.
-	$base_url = 'themes.php?page=zakra&tab=starter-templates';
-
-	return $base_url;
-}
-
-add_filter( 'themegrill_demo_importer_redirect_link', 'zakra_demo_importer_redirect_url' );
-
-function zakra_demo_importer_redirect_url( $redirect_url ) {
-	// Update the base URL in the demo importer.
-	$redirect_url = admin_url( 'themes.php?page=zakra&tab=starter-templates&browse=all' );
-
-	return $redirect_url;
-}
-
-add_action( 'wp_ajax_install_plugin', 'zakra_plugin_action_callback' );
-add_action( 'wp_ajax_activate_plugin', 'zakra_plugin_action_callback' );
-
-function zakra_plugin_action_callback() {
-
-	if ( ! isset( $_POST['security'] ) || ! wp_verify_nonce( $_POST['security'], 'zakra_demo_import_nonce' ) ) {
-		wp_send_json_error( [ 'message' => 'Security check failed.' ] );
-	}
-	if ( ! current_user_can( 'install_plugins' ) ) {
-		wp_send_json_error( [ 'message' => 'You are not allowed to perform this action.' ] );
-	}
-
-	$plugin      = sanitize_text_field( $_POST['plugin'] );
-	$plugin_slug = sanitize_text_field( $_POST['slug'] );
-
-	if ( zakra_is_plugin_installed( $plugin ) ) {
-		if ( is_plugin_active( $plugin ) ) {
-			wp_send_json_success( [ 'message' => 'Plugin is already activated.' ] );
-		} else {
-			// Activate the plugin
-			$result = activate_plugin( $plugin );
-
-			if ( is_wp_error( $result ) ) {
-				wp_send_json_error( [ 'message' => 'Error activating the plugin.' ] );
-			} else {
-				wp_send_json_success( [ 'message' => 'Plugin activated successfully!' ] );
-			}
-		}
-	} else {
-		// Install and activate the plugin
-		include_once ABSPATH . 'wp-admin/includes/plugin-install.php';
-		include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
-		$plugin_info = plugins_api( 'plugin_information', [ 'slug' => $plugin_slug ] );
-		$upgrader    = new Plugin_Upgrader( new WP_Ajax_Upgrader_Skin() );
-		$result      = $upgrader->install( $plugin_info->download_link );
-
-		if ( is_wp_error( $result ) ) {
-			wp_send_json_error( [ 'message' => 'Error installing the plugin.' ] );
-		}
-
-		$result = activate_plugin( $plugin );
-
-		if ( is_wp_error( $result ) ) {
-			wp_send_json_error( [ 'message' => 'Error activating the plugin.' ] );
-		} else {
-			wp_send_json_success( [ 'message' => 'Plugin installed and activated successfully!' ] );
-		}
-	}
-}
-
 function zakra_is_plugin_installed( $plugin_path ) {
 	$plugins = get_plugins();
 	return isset( $plugins[ $plugin_path ] );
@@ -349,4 +261,48 @@ function zakra_maybe_enable_builder() {
 	}
 
 	return true;
+}
+
+
+function zakra_demo_importer_route_url() {
+	return ( zakra_is_zakra_pro_active() && zakra_plugin_version_compare( 'zakra-pro/zakra-pro.php', '3.1.0', '>=' ) )
+		? 'admin.php?page=zakra-starter-templates'
+		: 'themes.php?page=zakra-starter-templates';
+}
+
+add_filter( 'themegrill_demo_importer_routes', 'zakra_demo_importer_routes', 10, 1 );
+function zakra_demo_importer_routes( $routes ) {
+	$base_url = zakra_demo_importer_route_url();
+
+	// Remove the existing routes from the TDI
+	$routes_to_remove = [
+		'themes.php?page=zakra-starter-templates&demo=:slug',
+		'themes.php?page=zakra-starter-templates&browse=:sort',
+		'themes.php?page=zakra-starter-templates&search=:query',
+		'themes.php?page=zakra-starter-templates',
+	];
+	foreach ( $routes_to_remove as $route ) {
+		unset( $routes[ $route ] );
+	}
+
+	// Add the new routes
+	$new_routes = [
+		"$base_url&demo=:slug"    => 'preview',
+		"$base_url&browse=:sort"  => 'sort',
+		"$base_url&search=:query" => 'search',
+		$base_url                 => 'sort',
+	];
+	$routes     = array_merge( $routes, $new_routes );
+
+	return $routes;
+}
+
+add_filter( 'themegrill_demo_importer_baseURL', 'zakra_demo_importer_baseURL', 10, 1 );
+function zakra_demo_importer_baseURL( $base_url ) {
+	return zakra_demo_importer_route_url();
+}
+
+add_filter( 'themegrill_demo_importer_redirect_link', 'zakra_demo_importer_redirect_url' );
+function zakra_demo_importer_redirect_url( $redirect_url ) {
+	return admin_url( zakra_demo_importer_route_url() . '&browse=all' );
 }

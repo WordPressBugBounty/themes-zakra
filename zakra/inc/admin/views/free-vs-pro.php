@@ -279,7 +279,7 @@ $cross_mark = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" vi
 			);
 			?>
 					</p>
-			<a  href="<?php echo esc_url( 'https://zakratheme.com/pricing/?utm_medium=dash-free-vs-pro&utm_source=zakra-theme&utm_campaign=footer-upgrade-btn&utm_content=get-zakra-pro-now' ); ?>" target="_blank"><span><?php esc_html_e( 'Get Zakra Pro Now', 'zakra' ); ?></span></a>
+			<a  href="<?php echo esc_url( 'https://zakratheme.com/pricing/?utm_source=zakra-theme&utm_medium=upgrade-now-banner&utm_campaign=zakra-free-vs-pro&utm_content=Get+Zakra+Pro+Now' ); ?>" target="_blank"><span><?php esc_html_e( 'Get Zakra Pro Now', 'zakra' ); ?></span></a>
 		</div>
 		<?php endif; ?>
 	</div>

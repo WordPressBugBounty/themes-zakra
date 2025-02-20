@@ -2,11 +2,11 @@
 
 Contributors: themegrill
 Author: ThemeGrill
-Version: 4.0.7
+Version: 4.1.1
 Tested up to: 6.7
 Requires PHP: 7.4
 Requires at least: 4.7
-Stable tag: 4.0.7
+Stable tag: 4.1.1
 
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -62,13 +62,20 @@ License: GNU GPL, Version 3, https://www.gnu.org/licenses/gpl-3.0.html
 Unless otherwise specified, all the theme files, scripts and images including the screenshot image are licensed under [GNU GPL] (http://www.gnu.org/licenses/gpl-3.0.txt), version 3 or later.
 
 == Changelog ==
+= Version 4.1.1 - 2025-02-20 =
+* Updated - Zakra Dashboard.
+
+= Version 4.1.0 - 2025-02-20 =
+* Updated - Zakra Dashboard.
+* Added - Option to change blog title color.
+
 = Version 4.0.7 - 2025-02-17 =
 * Added - Option to change global button typography.
 * Added - Option to change header button typography.
 * Fix   - Plugin conflict with Classic Widgets.
 
 = Version 4.0.6 - 2025-02-03 =
-* Fix     - Fresh install demo import issue.
+* Fix     - Fresh installation demo import issue.
 
 = Version 4.0.5 - 2025-01-10 =
 * Fix     - Primary menu active style issue.
