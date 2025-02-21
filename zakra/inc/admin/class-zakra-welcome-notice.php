@@ -226,7 +226,7 @@ class Zakra_Welcome_Notice {
 			$response['errorCode']    = $state->get_error_code();
 			$response['errorMessage'] = $state->get_error_message();
 		} else {
-			$response['redirect'] = admin_url( '/themes.php?page=zakra&tab=starter-templates' );
+			$response['redirect'] = zakra_is_zakra_pro_active() && zakra_plugin_version_compare( 'zakra-pro/zakra-pro.php', '3.1.0', '>=' ) ? admin_url( 'admin.php?page=zakra' ) : admin_url( 'themes.php?page=zakra' );
 		}
 
 		wp_send_json( $response );
