@@ -56,7 +56,7 @@
 	padding: 0;
 }
 
-#wpbody-content {
+.zakra_page_zakra-starter-templates #wpbody-content, .appearance_page_zakra #wpbody-content, .toplevel_page_zakra #wpbody-content, .appearance_page_zakra-starter-templates #wpbody-content {
 	background: #FAFAFC;
 }
 

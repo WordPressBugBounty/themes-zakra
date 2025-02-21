@@ -185,7 +185,7 @@ if ( is_admin() ) {
 	// Theme options page.
 	require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-notice.php';
 	require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-welcome-notice.php';
-	require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-upgrade-notice.php';
+//	require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-upgrade-notice.php';
 	require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-dashboard.php';
 	require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-theme-review-notice.php';
 	require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-demo-import-migration-notice.php';
