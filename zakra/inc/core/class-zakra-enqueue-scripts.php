@@ -296,6 +296,10 @@ if ( ! class_exists( 'Zakra_Enqueue_Scripts' ) ) {
 				box-shadow: none;
 				outline: none;
 				}
+
+				#customize-control-zakra_demo_migrated_heading {
+				display: none;
+				}
 		    '
 			);
 		}

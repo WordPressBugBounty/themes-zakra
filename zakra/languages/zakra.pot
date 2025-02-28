@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: team@zakratheme.com\n"
-"POT-Creation-Date: 2025-02-21 14:00+0000\n"
+"POT-Creation-Date: 2025-02-28 07:02+0000\n"
 "Report-Msgid-Bugs-To: team@zakratheme.com\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -542,6 +542,14 @@ msgstr ""
 
 #: inc/customizer/options/additional/additional.php:13, inc/customizer/options/content/blog.php:212, inc/customizer/options/footer/footer-column.php:14, inc/customizer/options/footer/footer-column.php:223, inc/customizer/options/footer/scroll-to-top.php:12, inc/customizer/options/global/builder.php:13, inc/customizer/options/header-builder/logo.php:66, inc/customizer/options/header/breadcrumb.php:19, inc/customizer/options/header/header-button.php:20, inc/customizer/options/header/header-search.php:14, inc/customizer/options/header/page-header.php:11, inc/customizer/options/header/primary-menu.php:19, inc/customizer/options/header/site-identity.php:66, inc/customizer/options/header/top-bar.php:20, inc/meta-boxes/class-zakra-meta-box-page-settings.php:225
 msgid "Enable"
+msgstr ""
+
+#: inc/customizer/options/additional/additional.php:23
+msgid "Demo Migrated"
+msgstr ""
+
+#: inc/customizer/options/additional/additional.php:30
+msgid "Demo migrated"
 msgstr ""
 
 #: inc/customizer/options/additional/additional.php:43, inc/customizer/options/content/blog-meta.php:40, inc/customizer/options/content/blog-sidebar.php:127, inc/customizer/options/content/blog.php:261, inc/customizer/options/content/single-post.php:72, inc/customizer/options/footer-builder/copyright.php:145, inc/customizer/options/footer-builder/footer-menu-2.php:109, inc/customizer/options/footer-builder/footer-menu.php:109, inc/customizer/options/footer-builder/html-1.php:107, inc/customizer/options/footer-builder/html-2.php:107, inc/customizer/options/footer-builder/socials.php:62, inc/customizer/options/footer-builder/widget-1.php:148, inc/customizer/options/footer-builder/widget-2.php:148, inc/customizer/options/footer-builder/widget-3.php:148, inc/customizer/options/footer-builder/widget-4.php:148, inc/customizer/options/footer-builder/widget-5.php:148, inc/customizer/options/footer-builder/widget-6.php:148, inc/customizer/options/footer/footer-bar.php:318, inc/customizer/options/footer/footer-column.php:304, inc/customizer/options/footer/scroll-to-top.php:90, inc/customizer/options/global/button.php:158, inc/customizer/options/global/colors.php:176, inc/customizer/options/global/container.php:112, inc/customizer/options/global/content-area.php:77, inc/customizer/options/global/sidebar.php:137, inc/customizer/options/global/typography.php:404, inc/customizer/options/header-builder/bottom-area.php:130, inc/customizer/options/header-builder/cart.php:26, inc/customizer/options/header-builder/header-button.php:177, inc/customizer/options/header-builder/html-1.php:90, inc/customizer/options/header-builder/html-2.php:90, inc/customizer/options/header-builder/logo.php:221, inc/customizer/options/header-builder/main-area.php:130, inc/customizer/options/header-builder/mobile-menu.php:68, inc/customizer/options/header-builder/offset-area.php:27, inc/customizer/options/header-builder/primary-menu.php:248, inc/customizer/options/header-builder/quaternary-menu.php:107, inc/customizer/options/header-builder/search.php:58, inc/customizer/options/header-builder/secondary-menu.php:194, inc/customizer/options/header-builder/socials.php:45, inc/customizer/options/header-builder/tertiary-menu.php:195, inc/customizer/options/header-builder/toggle-button.php:8, inc/customizer/options/header-builder/top-area.php:116, inc/customizer/options/header-builder/widget-1.php:131, inc/customizer/options/header-builder/widget-2.php:131, inc/customizer/options/header/breadcrumb.php:160, inc/customizer/options/header/header-button.php:178, inc/customizer/options/header/header-media.php:18, inc/customizer/options/header/header-search.php:35, inc/customizer/options/header/main-header.php:190, inc/customizer/options/header/page-header.php:217, inc/customizer/options/header/primary-menu.php:354, inc/customizer/options/header/site-identity.php:222, inc/customizer/options/header/top-bar.php:215, inc/customizer/options/woocommerce/woocommerce.php:103
