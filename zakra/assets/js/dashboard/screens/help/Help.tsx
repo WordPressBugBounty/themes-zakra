@@ -142,7 +142,7 @@ const Help: React.FC = () => {
 									</p>
 									<a
 										className="bg-[#2563EB] text-[#FFFFFF] rounded py-2 px-3 no-underline hover:text-white focus:text-white"
-										href="https://www.facebook.com/groups/themegrill/"
+										href="https://twitter.com/themegrill"
 										target="_blank"
 									>
 										<span>{__('Join us on Twitter', 'zakra')}</span>
@@ -165,7 +165,7 @@ const Help: React.FC = () => {
 									</p>
 									<a
 										className="bg-[#2563EB] text-[#FFFFFF] rounded py-2 px-3 no-underline hover:text-white focus:text-white"
-										href="https://www.facebook.com/groups/themegrill/"
+										href="https://www.youtube.com/@ThemeGrillOfficial"
 										target="_blank"
 									>
 										<span>{__('Visit us on YouTube', 'zakra')}</span>

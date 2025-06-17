@@ -5194,7 +5194,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			// Header cart color.
 			$header_cart_color     = get_theme_mod( 'zakra_cart_color', '' );
 			$header_cart_color_css = array(
-				'.zak-header-builder .zakra-icon--cart' => array(
+				'.zak-header-builder .zakra-icon--cart,.zak-mini-cart .zak-icon' => array(
 					'fill' => esc_html( $header_cart_color ),
 				),
 			);

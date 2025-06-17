@@ -164,13 +164,15 @@ $customind->set_i18n_data(
 		'domain' => 'zakra',
 	]
 );
-$customind->set_section_i18n(
-	[
-		/* Translators: 1: Panel Title. */
-		'customizing-action' => __( 'Customizing &#9656; %s', 'zakra' ),
-		'customizing'        => __( 'Customizing', 'zakra' ),
-	]
-);
+add_action( 'after_setup_theme', function() use ( $customind ) {
+	$customind->set_section_i18n(
+		[
+			/* Translators: 1: Panel Title. */
+			'customizing-action' => __( 'Customizing ▶ %s', 'zakra' ),
+			'customizing'        => __( 'Customizing', 'zakra' ),
+		]
+	);
+} );
 
 require ZAKRA_PARENT_INC_DIR . '/meta-boxes/class-zakra-meta-box.php';
 

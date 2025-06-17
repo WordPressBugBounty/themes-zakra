@@ -300,6 +300,10 @@ if ( ! class_exists( 'Zakra_Enqueue_Scripts' ) ) {
 				#customize-control-zakra_demo_migrated_heading {
 				display: none;
 				}
+
+				#customize-theme-controls .control-section-customind-upsell-section .accordion-section-title {
+				    padding: 16px 8px;
+				}
 		    '
 			);
 		}
