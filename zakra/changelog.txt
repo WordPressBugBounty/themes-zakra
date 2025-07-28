@@ -1,4 +1,9 @@
 == Changelog ==
+= 4.1.6 - 2025-07-28 =
+* Updated - Full width on fresh setup.
+
+= 4.1.5 - 2025-06-17 =
+* Enhancement - Introduced `zakra_woocommerce_cart_icon` hook.
 = 4.1.4 - 2025-02-28 =
 * Fix   - Option to enable Header Footer Builder.
 

@@ -43,17 +43,31 @@ class Zakra_Admin {
 	 */
 	public function update_settings( $request ) {
 		$params = $request->get_params();
-		if ( isset( $params['enable_mega_menu'] ) ) {
-			$params['enable_mega_menu'] = filter_var( $params['enable_mega_menu'], FILTER_VALIDATE_BOOLEAN );
+		
+		// Validate and sanitize input parameters
+		$validated_params = array();
+		
+		// Only allow specific settings to be updated
+		$allowed_settings = array( 'enable_mega_menu' );
+		
+		foreach ( $allowed_settings as $setting ) {
+			if ( isset( $params[ $setting ] ) ) {
+				if ( 'enable_mega_menu' === $setting ) {
+					$validated_params[ $setting ] = filter_var( $params[ $setting ], FILTER_VALIDATE_BOOLEAN );
+				}
+			}
 		}
 
+		// Get existing settings
 		$settings = get_option( '_zakra_settings', array() );
 
-		$settings = wp_parse_args( $params, $settings );
+		// Merge only validated parameters
+		$settings = wp_parse_args( $validated_params, $settings );
 
+		// Update settings
 		update_option( '_zakra_settings', $settings );
 
-		return rest_ensure_response( $request->get_params() );
+		return rest_ensure_response( $validated_params );
 	}
 
 	/**
@@ -64,13 +78,18 @@ class Zakra_Admin {
 		wp_enqueue_style( 'zakra-admin-style', get_template_directory_uri() . '/inc/admin/css/admin.css', array(), ZAKRA_THEME_VERSION );
 		wp_enqueue_script( 'zakra-plugin-install-helper', ZAKRA_PARENT_INC_URI . '/admin/js/admin.js', array( 'jquery' ), ZAKRA_THEME_VERSION, true );
 
+		// Only expose the nonce and AJAX functionality to users with appropriate capabilities
 		$welcome_data = array(
 			'uri'       => esc_url( zakra_is_zakra_pro_active() && zakra_plugin_version_compare( 'zakra-pro/zakra-pro.php', '3.1.0', '>=' ) ? admin_url( 'admin.php?page=zakra' ) : admin_url( 'themes.php?page=zakra' ), ),
 			'btn_text'  => esc_html__( 'Processing...', 'zakra' ),
-			'nonce'     => wp_create_nonce( 'zakra_demo_import_nonce' ),
 			'admin_url' => esc_url( admin_url() ),
-			'ajaxurl'   => admin_url( 'admin-ajax.php' ), // Include this line for using admin-ajax.php
 		);
+
+		// Only add nonce and ajaxurl if user has appropriate capabilities
+		if ( current_user_can( 'install_plugins' ) || current_user_can( 'activate_plugins' ) ) {
+			$welcome_data['nonce'] = wp_create_nonce( 'zakra_demo_import_nonce' );
+			$welcome_data['ajaxurl'] = admin_url( 'admin-ajax.php' );
+		}
 
 		wp_localize_script( 'zakra-plugin-install-helper', 'zakraRedirectDemoPage', $welcome_data );
 

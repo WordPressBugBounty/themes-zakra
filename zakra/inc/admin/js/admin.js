@@ -11,6 +11,14 @@ jQuery(document).ready(function ($) {
 	$('.btn-get-started').click(function (e) {
 		e.preventDefault();
 
+		// Check if user has permissions (nonce and ajaxurl should only be available to authorized users)
+		if (typeof zakraRedirectDemoPage === 'undefined' || 
+			!zakraRedirectDemoPage.nonce || 
+			!zakraRedirectDemoPage.ajaxurl) {
+			console.log('Insufficient permissions to perform this action.');
+			return;
+		}
+
 		// Show updating gif icon and update button text.
 		$(this).addClass('updating-message').text(zakraRedirectDemoPage.btn_text);
 
@@ -21,7 +29,7 @@ jQuery(document).ready(function ($) {
 
 		$.ajax({
 			type: 'POST',
-			url: ajaxurl, // URL to "wp-admin/admin-ajax.php"
+			url: zakraRedirectDemoPage.ajaxurl, // Use the localized ajaxurl
 			data: btnData,
 			success: function (response) {
 				var redirectUri,
@@ -36,12 +44,22 @@ jQuery(document).ready(function ($) {
 					extraUri = '&_zakra_notice_nonce=' + dismissNonce;
 				}
 
-				redirectUri = response.redirect;
+				if (response.success && response.data && response.data.redirect) {
+					redirectUri = response.data.redirect;
+				} else if (response.redirect) {
+					redirectUri = response.redirect;
+				} else {
+					console.log('No redirect URL provided');
+					return;
+				}
+
 				console.log(redirectUri);
 				window.location.href = redirectUri;
 			},
 			error: function (xhr, ajaxOptions, thrownError) {
-				console.log(thrownError);
+				console.log('Error:', thrownError);
+				// Restore button text on error
+				$('.btn-get-started').removeClass('updating-message').text('Get started');
 			},
 		});
 	});
@@ -103,6 +121,15 @@ jQuery(document).ready(function ($) {
 jQuery(document).ready(function ($) {
 	$('.install-plugin, .activate-plugin').on('click', function (e) {
 		e.preventDefault();
+		
+		// Check if user has permissions (nonce and ajaxurl should only be available to authorized users)
+		if (typeof zakraRedirectDemoPage === 'undefined' || 
+			!zakraRedirectDemoPage.nonce || 
+			!zakraRedirectDemoPage.ajaxurl) {
+			console.log('Insufficient permissions to perform this action.');
+			return;
+		}
+
 		var button = $(this);
 		var plugin = button.data('plugin');
 		var pluginSlug = button.data('slug');
@@ -140,7 +167,12 @@ jQuery(document).ready(function ($) {
 				}
 			} else {
 				// Handle the case when the response is not successful
+				console.log('Plugin operation failed:', response);
 			}
+		}).fail(function(xhr, status, error) {
+			// Handle AJAX errors
+			console.log('AJAX error:', error);
+			button.html(originalText); // Restore original text on error
 		});
 	});
 });
