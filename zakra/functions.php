@@ -257,13 +257,15 @@ function zakra_is_plugin_installed( $plugin_path ) {
 
 function zakra_maybe_enable_builder() {
 
-	if ( get_option( 'zakra_builder_migration' ) ) {
+	if ( get_option( 'zakra_builder_migration' ) || get_option( 'zakra_maybe_enable_builder' ) ) {
 		return true;
 	}
 
 	if ( get_option( 'zakra_stretched_style_transfer' ) || get_option( 'zakra_migrations' ) || get_option( 'zakra_customizer_migration_v3' ) ) {
 		return false;
 	}
+
+	update_option( 'zakra_maybe_enable_builder', true );
 
 	return true;
 }

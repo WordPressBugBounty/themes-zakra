@@ -36,6 +36,7 @@ class Zakra_Theme_Review_Notice {
 	public function review_notice() {
 		// Set the installed time in `zakra_theme_installed_time` option table.
 		if ( ! get_option( 'zakra_theme_installed_time' ) ) {
+			do_action( 'zakra_theme_review_notice_set_time' );
 			update_option( 'zakra_theme_installed_time', time() );
 		}
 	}

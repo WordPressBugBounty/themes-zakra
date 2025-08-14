@@ -3,10 +3,7 @@
 namespace Customind\Core\Factories;
 
 use Customind\Core\Types\Controls\BuilderMigration;
-use Customind\Core\Types\Controls\Preset;
 use Customind\Core\Types\Controls\Socials;
-use Customind\Core\Types\Controls\Upgrade;
-use Customind\Core\Types\Controls\VisibilityButton;
 use Customind\Core\Types\Panel;
 use Customind\Core\Types\Section;
 use Customind\Core\Types\Controls\Date;
@@ -38,7 +35,6 @@ use Customind\Core\Types\Controls\FooterBuilder;
 use Customind\Core\Types\Controls\ToggleButton;
 use Customind\Core\Types\Controls\HeaderBuilder;
 use Customind\Core\Types\Controls\Tabs;
-use Customind\Core\Types\UpgradeSection;
 use Customind\Core\Types\UpsellSection;
 
 class TypeFactory {
@@ -47,15 +43,12 @@ class TypeFactory {
 		'customind-panel'              => Panel::class,
 		'customind-section'            => Section::class,
 		'customind-upsell-section'     => UpsellSection::class,
-		'customind-upgrade-section'    => UpgradeSection::class,
 		'customind-textarea'           => Textarea::class,
 		'customind-title'              => Title::class,
 		'customind-toggle'             => Toggle::class,
 		'customind-toggle-button'      => ToggleButton::class,
-		'customind-visibility-button'      => VisibilityButton::class,
 		'customind-typography'         => Typography::class,
 		'customind-upsell'             => Upsell::class,
-		'customind-upgrade'            => Upgrade::class,
 		'customind-accordion'          => Accordion::class,
 		'customind-background'         => Background::class,
 		'customind-checkbox'           => Checkbox::class,
@@ -80,7 +73,6 @@ class TypeFactory {
 		'customind-footer-builder'     => FooterBuilder::class,
 		'customind-tabs'               => Tabs::class,
 		'customind-socials'            => Socials::class,
-		'customind-preset'             => Preset::class,
 		'customind-builder-migration'  => BuilderMigration::class,
 	];
 

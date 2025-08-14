@@ -450,27 +450,21 @@ class Zakra_Meta_Box_Page_Settings {
 	 * @param int $post_id Post ID.
 	 */
 	public static function save( $post_id ) {
-		// Nonce verification is handled in the parent class (Zakra_Meta_Box::save_meta_boxes)
-		// Additional security check - ensure user has permission to edit this post
-		if ( ! current_user_can( 'edit_post', $post_id ) ) {
-			return;
-		}
-
-		$layout                           = isset( $_POST['zakra_sidebar_layout'] ) ? sanitize_key( $_POST['zakra_sidebar_layout'] ) : 'default';
-		$remove_content_margin            = ( isset( $_POST['zakra_remove_content_margin'] ) && '1' === $_POST['zakra_remove_content_margin'] ) ? 1 : 0;
-		$sidebar                          = isset( $_POST['zakra_sidebar'] ) ? sanitize_key( $_POST['zakra_sidebar'] ) : 'default';
-		$transparent_header               = isset( $_POST['zakra_transparent_header'] ) ? sanitize_key( $_POST['zakra_transparent_header'] ) : 'customizer';
+		$layout                           = isset( $_POST['zakra_sidebar_layout'] ) ? sanitize_key( $_POST['zakra_sidebar_layout'] ) : 'default'; // phpcs:ignore WordPress.Security.NonceVerification
+		$remove_content_margin            = ( isset( $_POST['zakra_remove_content_margin'] ) && '1' === $_POST['zakra_remove_content_margin'] ) ? 1 : 0; // phpcs:ignore WordPress.Security.NonceVerification
+		$sidebar                          = isset( $_POST['zakra_sidebar'] ) ? sanitize_key( $_POST['zakra_sidebar'] ) : 'default'; // phpcs:ignore WordPress.Security.NonceVerification
+		$transparent_header               = isset( $_POST['zakra_transparent_header'] ) ? sanitize_key( $_POST['zakra_transparent_header'] ) : 'customizer'; // phpcs:ignore WordPress.Security.NonceVerification
 		$customize_menu_item_color        = get_theme_mod( 'zakra_main_menu_color', '#16181a' );
-		$menu_item_color                  = isset( $_POST['zakra_menu_item_color'] ) ? sanitize_hex_color( wp_unslash( $_POST['zakra_menu_item_color'] ) ) : $customize_menu_item_color;
+		$menu_item_color                  = isset( $_POST['zakra_menu_item_color'] ) ? sanitize_hex_color( wp_unslash( $_POST['zakra_menu_item_color'] ) ) : $customize_menu_item_color; // phpcs:ignore WordPress.Security.NonceVerification
 		$customize_menu_item_hover_color  = get_theme_mod( 'zakra_main_menu_hover_color', '#027abb' );
-		$menu_item_hover_color            = isset( $_POST['zakra_menu_item_hover_color'] ) ? sanitize_hex_color( wp_unslash( $_POST['zakra_menu_item_hover_color'] ) ) : $customize_menu_item_hover_color;
+		$menu_item_hover_color            = isset( $_POST['zakra_menu_item_hover_color'] ) ? sanitize_hex_color( wp_unslash( $_POST['zakra_menu_item_hover_color'] ) ) : $customize_menu_item_hover_color; // phpcs:ignore WordPress.Security.NonceVerification
 		$customize_menu_item_active_color = get_theme_mod( 'zakra_main_menu_active_color', '#027abb' );
-		$menu_item_active_color           = isset( $_POST['zakra_menu_item_active_color'] ) ? sanitize_hex_color( wp_unslash( $_POST['zakra_menu_item_active_color'] ) ) : $customize_menu_item_active_color;
-		$menu_item_active_style           = isset( $_POST['zakra_menu_active_style'] ) ? sanitize_key( $_POST['zakra_menu_active_style'] ) : '';
+		$menu_item_active_color           = isset( $_POST['zakra_menu_item_active_color'] ) ? sanitize_hex_color( wp_unslash( $_POST['zakra_menu_item_active_color'] ) ) : $customize_menu_item_active_color; // phpcs:ignore WordPress.Security.NonceVerification
+		$menu_item_active_style           = isset( $_POST['zakra_menu_active_style'] ) ? sanitize_key( $_POST['zakra_menu_active_style'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
 
-		$page_header  = ( isset( $_POST['zakra_page_header'] ) && '1' === $_POST['zakra_page_header'] ) ? 1 : 0;
-		$logo         = ( isset( $_POST['zakra_logo'] ) ) ? intval( $_POST['zakra_logo'] ) : '';
-		$header_style = isset( $_POST['zakra_main_header_style'] ) ? sanitize_key( $_POST['zakra_main_header_style'] ) : 'default';
+		$page_header  = ( isset( $_POST['zakra_page_header'] ) && '1' === $_POST['zakra_page_header'] ) ? 1 : 0; // phpcs:ignore WordPress.Security.NonceVerification
+		$logo         = ( isset( $_POST['zakra_logo'] ) ) ? intval( $_POST['zakra_logo'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
+		$header_style = isset( $_POST['zakra_main_header_style'] ) ? sanitize_key( $_POST['zakra_main_header_style'] ) : 'default'; // phpcs:ignore WordPress.Security.NonceVerification
 
 		// TODO: Refactor this array. Create a member variable for $sidebar_layout_choices and manipulate it here.
 		// LAYOUT.

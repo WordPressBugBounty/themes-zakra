@@ -142,15 +142,7 @@ class Zakra_Dashboard {
 		// Bail if we're not on a Zakra screen or page.
 		$_page = sanitize_text_field( $_GET['page'] ?? '' );
 
-		// Validate the page parameter to prevent unauthorized access
-		$allowed_pages = array( 'zakra', 'zakra-starter-templates' );
-		
-		if ( ! in_array( $_page, $allowed_pages, true ) ) {
-			return;
-		}
-
-		// Additional security check - ensure user has appropriate capabilities
-		if ( ! current_user_can( 'manage_options' ) ) {
+		if ( ! in_array( $_page, [ 'zakra', 'zakra-starter-templates' ], true ) ) {
 			return;
 		}
 

@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: team@zakratheme.com\n"
-"POT-Creation-Date: 2025-07-28 06:57+0000\n"
+"POT-Creation-Date: 2025-08-14 05:20+0000\n"
 "Report-Msgid-Bugs-To: team@zakratheme.com\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -53,7 +53,7 @@ msgstr ""
 msgid "Customizing"
 msgstr ""
 
-#: inc/admin/class-zakra-admin.php:84
+#: inc/admin/class-zakra-admin.php:69
 msgid "Processing..."
 msgstr ""
 
@@ -89,11 +89,11 @@ msgstr ""
 msgid "Contact Support"
 msgstr ""
 
-#: inc/admin/class-zakra-demo-import-migration-notice.php:80, inc/admin/class-zakra-notice.php:58, inc/admin/class-zakra-notice.php:77, inc/admin/class-zakra-pro-minimum-version-notice.php:80, inc/admin/class-zakra-theme-review-notice.php:156, inc/admin/class-zakra-theme-review-notice.php:174, inc/admin/class-zakra-welcome-notice.php:196, inc/migration/class-zakra-migration.php:2174
+#: inc/admin/class-zakra-demo-import-migration-notice.php:80, inc/admin/class-zakra-notice.php:58, inc/admin/class-zakra-notice.php:77, inc/admin/class-zakra-pro-minimum-version-notice.php:80, inc/admin/class-zakra-theme-review-notice.php:157, inc/admin/class-zakra-theme-review-notice.php:175, inc/admin/class-zakra-welcome-notice.php:195, inc/migration/class-zakra-migration.php:2170
 msgid "Action failed. Please refresh the page and retry."
 msgstr ""
 
-#: inc/admin/class-zakra-notice.php:62, inc/admin/class-zakra-notice.php:81, inc/admin/class-zakra-welcome-notice.php:200
+#: inc/admin/class-zakra-notice.php:62, inc/admin/class-zakra-notice.php:81, inc/admin/class-zakra-welcome-notice.php:199
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
@@ -102,42 +102,42 @@ msgstr ""
 msgid "Please update the %1$s plugin to latest version i.e %5$s3.1.0%6$s for %2$s to work properly. %5$s%3$sClick here to update Zakra Pro Plugin%4$s%6$s"
 msgstr ""
 
-#: inc/admin/class-zakra-theme-review-notice.php:79
+#: inc/admin/class-zakra-theme-review-notice.php:80
 msgid "Zakra Logo"
 msgstr ""
 
 #. translators: %s: Smile icon
-#: inc/admin/class-zakra-theme-review-notice.php:87
+#: inc/admin/class-zakra-theme-review-notice.php:88
 msgid "The above word is just to draw your attention. %s"
 msgstr ""
 
 #. translators: %1$s: Opening of strong tag, %2$s: Theme's Name, %3$s: Closing of strong tag
-#: inc/admin/class-zakra-theme-review-notice.php:96
+#: inc/admin/class-zakra-theme-review-notice.php:97
 msgid "Hope you are having a nice experience with %1$s %2$s %3$s theme. Please provide this theme a nice review."
 msgstr ""
 
-#: inc/admin/class-zakra-theme-review-notice.php:104
+#: inc/admin/class-zakra-theme-review-notice.php:105
 msgid "What benefit would you have?"
 msgstr ""
 
 #. translators: %s: Smiley icon
-#: inc/admin/class-zakra-theme-review-notice.php:110
+#: inc/admin/class-zakra-theme-review-notice.php:111
 msgid "Basically, it would encourage us to release updates regularly with new features & bug fixes so that you can keep on using the theme without any issues and also to provide free support like we have been doing. %s"
 msgstr ""
 
-#: inc/admin/class-zakra-theme-review-notice.php:119
+#: inc/admin/class-zakra-theme-review-notice.php:120
 msgid "Sure, I'd love to!"
 msgstr ""
 
-#: inc/admin/class-zakra-theme-review-notice.php:124
+#: inc/admin/class-zakra-theme-review-notice.php:125
 msgid "I already did!"
 msgstr ""
 
-#: inc/admin/class-zakra-theme-review-notice.php:129, inc/admin/class-zakra-upgrade-notice.php:100
+#: inc/admin/class-zakra-theme-review-notice.php:130, inc/admin/class-zakra-upgrade-notice.php:100
 msgid "Maybe later"
 msgstr ""
 
-#: inc/admin/class-zakra-theme-review-notice.php:134
+#: inc/admin/class-zakra-theme-review-notice.php:135
 msgid "I have a query"
 msgstr ""
 
@@ -171,40 +171,32 @@ msgid "FAQ"
 msgstr ""
 
 #. translators: %s: welcome page link starting username
-#: inc/admin/class-zakra-welcome-notice.php:88, inc/admin/class-zakra-welcome-notice.php:156
+#: inc/admin/class-zakra-welcome-notice.php:87, inc/admin/class-zakra-welcome-notice.php:155
 msgid "Welcome %s!"
 msgstr ""
 
-#: inc/admin/class-zakra-welcome-notice.php:96, inc/admin/class-zakra-welcome-notice.php:164
+#: inc/admin/class-zakra-welcome-notice.php:95, inc/admin/class-zakra-welcome-notice.php:163
 msgid "Start Building with Zakra!"
 msgstr ""
 
 #. translators: 1: welcome page link starting html tag, 2: welcome page link ending html tag.
-#: inc/admin/class-zakra-welcome-notice.php:104, inc/admin/class-zakra-welcome-notice.php:172
+#: inc/admin/class-zakra-welcome-notice.php:103, inc/admin/class-zakra-welcome-notice.php:171
 msgid "Welcome! Thank you for choosing Zakra! Let’s get you started right away with our visually appealing and attractive demos."
 msgstr ""
 
-#: inc/admin/class-zakra-welcome-notice.php:111
+#: inc/admin/class-zakra-welcome-notice.php:110
 msgid "Clicking this button will install and activate the ThemeGrill Demo Importer plugin allowing you to import the theme’s demos."
 msgstr ""
 
-#: inc/admin/class-zakra-welcome-notice.php:179
+#: inc/admin/class-zakra-welcome-notice.php:178
 msgid "Clicking this button will install and activate the ThemeGrill Demo Importer and BlockArt Blocks plugins allowing you to import the theme demos."
 msgstr ""
 
-#: inc/admin/class-zakra-welcome-notice.php:209
-msgid "Invalid notice type."
+#: inc/admin/class-zakra-welcome-notice.php:225
+msgid "You do not have permission to perform this action."
 msgstr ""
 
-#: inc/admin/class-zakra-welcome-notice.php:232
-msgid "Insufficient permissions to perform this action."
-msgstr ""
-
-#: inc/admin/class-zakra-welcome-notice.php:237
-msgid "Access denied."
-msgstr ""
-
-#: inc/admin/class-zakra-welcome-notice.php:312
+#: inc/admin/class-zakra-welcome-notice.php:303
 msgid "Plugin installation failed."
 msgstr ""
 

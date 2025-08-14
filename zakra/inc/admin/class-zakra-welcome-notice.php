@@ -58,7 +58,6 @@ class Zakra_Welcome_Notice {
 	 */
 
 	public function major_update_notice_markup() {
-
 		$dismiss_url = wp_nonce_url(
 			remove_query_arg( array( 'activated' ), add_query_arg( 'zakra-hide-notice', 'major_update' ) ),
 			'zakra_hide_notices_nonce',
@@ -193,26 +192,19 @@ class Zakra_Welcome_Notice {
 	public function hide_notices() {
 		if ( isset( $_GET['zakra-hide-notice'] ) && isset( $_GET['_zakra_notice_nonce'] ) ) { // WPCS: input var ok.
 			if ( ! wp_verify_nonce( wp_unslash( $_GET['_zakra_notice_nonce'] ), 'zakra_hide_notices_nonce' ) ) { // phpcs:ignore WordPress.VIP.ValidatedSanitizedInput.InputNotSanitized
-				wp_die( esc_html__( 'Action failed. Please refresh the page and retry.', 'zakra' ) );
+				wp_die( __( 'Action failed. Please refresh the page and retry.', 'zakra' ) ); // WPCS: xss ok.
 			}
 
 			if ( ! current_user_can( 'manage_options' ) ) {
-				wp_die( esc_html__( 'Cheatin&#8217; huh?', 'zakra' ) );
+				wp_die( __( 'Cheatin&#8217; huh?', 'zakra' ) ); // WPCS: xss ok.
 			}
 
 			$hide_notice = sanitize_text_field( wp_unslash( $_GET['zakra-hide-notice'] ) );
 
-			// Validate the notice type to prevent unauthorized option manipulation
-			$allowed_notices = array( 'welcome', 'major_update' );
-
-			if ( ! in_array( $hide_notice, $allowed_notices, true ) ) {
-				wp_die( esc_html__( 'Invalid notice type.', 'zakra' ) );
-			}
-
 			// Hide.
-			if ( 'welcome' === $hide_notice ) {
+			if ( 'welcome' === $_GET['zakra-hide-notice'] ) {
 				update_option( 'zakra_admin_notice_' . $hide_notice, 1 );
-			} elseif ( 'major_update' === $hide_notice ) {
+			} elseif ( 'major_update' === $_GET['zakra-hide-notice'] ) {
 				update_option( 'zakra_admin_notice_major_update', 1 );
 			} else { // Show.
 				delete_option( 'zakra_admin_notice_' . $hide_notice );
@@ -224,17 +216,16 @@ class Zakra_Welcome_Notice {
 	 * Handle the AJAX process while import or get started button clicked.
 	 */
 	public function welcome_notice_import_handler() {
-		// Check nonce first
 		check_ajax_referer( 'zakra_demo_import_nonce', 'security' );
 
-		// Check if user has appropriate capabilities
-		if ( ! current_user_can( 'install_plugins' ) && ! current_user_can( 'activate_plugins' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Insufficient permissions to perform this action.', 'zakra' ) ) );
-		}
-
-		// Additional security check - ensure user is logged in and has admin access
-		if ( ! is_user_logged_in() || ! current_user_can( 'manage_options' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Access denied.', 'zakra' ) ) );
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error(
+				array(
+					'errorCode'    => 'permission_denied',
+					'errorMessage' => __( 'You do not have permission to perform this action.', 'zakra' ),
+				)
+			);
+			exit;
 		}
 
 		$plugins = array(

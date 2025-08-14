@@ -33,11 +33,11 @@ if ( ! class_exists( 'Zakra_Migration' ) ) {
 				add_action( 'after_setup_theme', [ $this, 'customizer_migration_v3' ], 20 );
 			}
 
-			add_action( 'after_setup_theme', [ $this, 'zakra_sidebar_full_width' ] );
-
 			add_action( 'themegrill_ajax_demo_imported', [ $this, 'zakra_builder_migration' ], 25 );
 
 			$enable_builder = get_theme_mod( 'zakra_enable_builder', '' );
+
+			add_action( 'zakra_theme_review_notice_set_time', [ $this, 'zakra_sidebar_full_width' ] );
 
 			if ( $enable_builder ) {
 				add_action( 'after_setup_theme', [ $this, 'zakra_builder_migration' ], 25 );
@@ -53,14 +53,10 @@ if ( ! class_exists( 'Zakra_Migration' ) ) {
 				return;
 			}
 
-			$installed_time = get_option( 'zakra_theme_installed_time', '' );
-
-			if ( empty( $installed_time ) || strtotime( 'today' ) == $installed_time ) {
 				set_theme_mod( 'zakra_page_sidebar_layout', 'contained' );
 				set_theme_mod( 'zakra_archive_sidebar_layout', 'contained' );
-			}
+				update_option( 'zakra_sidebar_layout_migration', true );
 
-			update_option( 'zakra_sidebar_layout_migration', true );
 		}
 
 		/**
