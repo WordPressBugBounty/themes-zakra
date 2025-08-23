@@ -29,7 +29,7 @@ class Zakra_Notice {
 		$this->current_user_id       = get_current_user_id();
 
 		// Notice markup.
-		add_action( 'admin_notices', array( $this, 'notice' ) );
+//		add_action( 'admin_notices', array( $this, 'notice' ) );
 
 		$this->dismiss_notice();
 		$this->dismiss_notice_temporary();
