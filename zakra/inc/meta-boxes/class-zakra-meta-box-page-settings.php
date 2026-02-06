@@ -40,8 +40,8 @@ class Zakra_Meta_Box_Page_Settings {
 		$header_style = isset( $header_style[0] ) ? $header_style[0] : 'default';
 
 		$customize_menu_item_color        = get_theme_mod( 'zakra_main_menu_color', '#16181a' );
-		$customize_menu_item_hover_color  = get_theme_mod( 'zakra_main_menu_hover_color', '#027abb' );
-		$customize_menu_item_active_color = get_theme_mod( 'zakra_main_menu_active_color', '#027abb' );
+		$customize_menu_item_hover_color  = get_theme_mod( 'zakra_main_menu_hover_color', 'var(--zakra-color-1,#027abb)' );
+		$customize_menu_item_active_color = get_theme_mod( 'zakra_main_menu_active_color', 'var(--zakra-color-1,#027abb)' );
 
 		$menu_item_color = get_post_meta( get_the_ID(), 'zakra_menu_item_color' );
 		$menu_item_color = isset( $menu_item_color[0] ) ? $menu_item_color[0] : $customize_menu_item_color;
@@ -456,9 +456,9 @@ class Zakra_Meta_Box_Page_Settings {
 		$transparent_header               = isset( $_POST['zakra_transparent_header'] ) ? sanitize_key( $_POST['zakra_transparent_header'] ) : 'customizer'; // phpcs:ignore WordPress.Security.NonceVerification
 		$customize_menu_item_color        = get_theme_mod( 'zakra_main_menu_color', '#16181a' );
 		$menu_item_color                  = isset( $_POST['zakra_menu_item_color'] ) ? sanitize_hex_color( wp_unslash( $_POST['zakra_menu_item_color'] ) ) : $customize_menu_item_color; // phpcs:ignore WordPress.Security.NonceVerification
-		$customize_menu_item_hover_color  = get_theme_mod( 'zakra_main_menu_hover_color', '#027abb' );
+		$customize_menu_item_hover_color  = get_theme_mod( 'zakra_main_menu_hover_color', 'var(--zakra-color-1,#027abb)' );
 		$menu_item_hover_color            = isset( $_POST['zakra_menu_item_hover_color'] ) ? sanitize_hex_color( wp_unslash( $_POST['zakra_menu_item_hover_color'] ) ) : $customize_menu_item_hover_color; // phpcs:ignore WordPress.Security.NonceVerification
-		$customize_menu_item_active_color = get_theme_mod( 'zakra_main_menu_active_color', '#027abb' );
+		$customize_menu_item_active_color = get_theme_mod( 'zakra_main_menu_active_color', 'var(--zakra-color-1,#027abb)' );
 		$menu_item_active_color           = isset( $_POST['zakra_menu_item_active_color'] ) ? sanitize_hex_color( wp_unslash( $_POST['zakra_menu_item_active_color'] ) ) : $customize_menu_item_active_color; // phpcs:ignore WordPress.Security.NonceVerification
 		$menu_item_active_style           = isset( $_POST['zakra_menu_active_style'] ) ? sanitize_key( $_POST['zakra_menu_active_style'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
 

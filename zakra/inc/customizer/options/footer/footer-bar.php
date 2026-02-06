@@ -98,7 +98,7 @@ $options = apply_filters(
 					),
 					'zakra_footer_bar_border_top_color'   => array(
 						'title'     => esc_html__( 'Color', 'zakra' ),
-						'default'   => '#3f3f46',
+						'default'   => 'var(--zakra-color-6,#3F3F46)',
 						'type'      => 'customind-color',
 						'transport' => 'postMessage',
 						'priority'  => 50,

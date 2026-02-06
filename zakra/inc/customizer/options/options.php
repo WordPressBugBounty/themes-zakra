@@ -1,16 +1,20 @@
 <?php
 require __DIR__ . '/global/colors.php';
-require __DIR__ . '/global/container.php';
-require __DIR__ . '/global/content-area.php';
-require __DIR__ . '/global/sidebar.php';
+require __DIR__ . '/global/layout.php';
+//require __DIR__ . '/global/content-area.php';
+//require __DIR__ . '/global/sidebar.php';
 require __DIR__ . '/global/typography.php';
 require __DIR__ . '/global/button.php';
 require __DIR__ . '/content/blog.php';
 require __DIR__ . '/content/blog-meta.php';
 require __DIR__ . '/content/single-post.php';
+require __DIR__ . '/content/page.php';
 require __DIR__ . '/content/blog-sidebar.php';
 require __DIR__ . '/additional/additional.php';
-require __DIR__ . '/woocommerce/woocommerce.php';
+//require __DIR__ . '/woocommerce/woocommerce.php';
+require __DIR__ . '/woocommerce/woocommerce-page.php';
+require __DIR__ . '/woocommerce/single-product.php';
+require __DIR__ . '/woocommerce/layout.php';
 require __DIR__ . '/footer/scroll-to-top.php';
 
 $enable_builder = get_theme_mod( 'zakra_enable_builder', false );

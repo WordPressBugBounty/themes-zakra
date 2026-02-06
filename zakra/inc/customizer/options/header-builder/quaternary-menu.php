@@ -57,7 +57,7 @@ $options = array(
 				),
 				'zakra_header_quaternary_menu_typography'  => array(
 					'default'   => array(
-						'font-family'    => 'Default',
+						'font-family'    => 'inherit',
 						'font-weight'    => 'regular',
 						'font-size'      => array(
 							'desktop' => array(

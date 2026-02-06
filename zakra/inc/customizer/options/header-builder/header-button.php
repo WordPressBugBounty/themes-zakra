@@ -56,7 +56,7 @@ $options = array(
 					'section'      => 'zakra_header_builder_button_1',
 					'sub_controls' => array(
 						'zakra_header_button_background_color'       => array(
-							'default'   => '#027abb',
+							'default'   => 'var(--zakra-color-1)',
 							'type'      => 'customind-color',
 							'title'     => esc_html__( 'Normal', 'zakra' ),
 							'transport' => 'postMessage',
@@ -73,7 +73,7 @@ $options = array(
 				),
 				'zakra_header_button_typography'    => array(
 					'default'   => array(
-						'font-family'    => 'Default',
+						'font-family'    => 'inherit',
 						'font-weight'    => '400',
 						'font-size'      => array(
 							'desktop' => array(

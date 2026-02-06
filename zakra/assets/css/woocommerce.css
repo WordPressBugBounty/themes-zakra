@@ -33,22 +33,27 @@
 		flex: 1 0 calc(16.6666666667% - 2em);
 		max-width: 16.6666666667%;
 	}
+
 	.wc-block-grid.has-5-columns .wc-block-grid__product {
 		flex: 1 0 calc(20% - 2em);
 		max-width: 20%;
 	}
+
 	.wc-block-grid.has-4-columns .wc-block-grid__product {
 		flex: 1 0 calc(25% - 2em);
 		max-width: 25%;
 	}
+
 	.wc-block-grid.has-3-columns .wc-block-grid__product {
 		flex: 1 0 calc(33.3333333333% - 2em);
 		max-width: 33.3333333333%;
 	}
+
 	.wc-block-grid.has-2-columns .wc-block-grid__product {
 		flex: 1 0 calc(50% - 2em);
 		max-width: 50%;
 	}
+
 	.wc-block-grid.has-1-columns .wc-block-grid__product {
 		flex: 1 0 100%;
 		max-width: 100%;
@@ -67,6 +72,7 @@
 	.wc-block-grid.has-2-columns .wc-block-grid__products, .wc-block-grid.has-3-columns .wc-block-grid__products, .wc-block-grid.has-4-columns .wc-block-grid__products, .wc-block-grid.has-5-columns .wc-block-grid__products, .wc-block-grid.has-6-columns .wc-block-grid__products {
 		display: flex;
 	}
+
 	.wc-block-grid.has-2-columns .wc-block-grid__products:last-child, .wc-block-grid.has-3-columns .wc-block-grid__products:last-child, .wc-block-grid.has-4-columns .wc-block-grid__products:last-child, .wc-block-grid.has-5-columns .wc-block-grid__products:last-child, .wc-block-grid.has-6-columns .wc-block-grid__products:last-child {
 		margin-left: 0;
 	}
@@ -83,22 +89,27 @@
 		padding-right: 0;
 		padding-left: 0;
 	}
+
 	.wc-block-grid.has-2-columns .wc-block-grid__product:nth-child(even), .wc-block-grid.has-2-columns .wc-block-grid__product:nth-child(odd) {
 		padding-right: 0;
 		padding-left: 0;
 	}
+
 	.wc-block-grid.has-3-columns .wc-block-grid__product:nth-child(even), .wc-block-grid.has-3-columns .wc-block-grid__product:nth-child(odd) {
 		padding-right: 0;
 		padding-left: 0;
 	}
+
 	.wc-block-grid.has-4-columns .wc-block-grid__product:nth-child(even), .wc-block-grid.has-4-columns .wc-block-grid__product:nth-child(odd) {
 		padding-right: 0;
 		padding-left: 0;
 	}
+
 	.wc-block-grid.has-5-columns .wc-block-grid__product:nth-child(even), .wc-block-grid.has-5-columns .wc-block-grid__product:nth-child(odd) {
 		padding-right: 0;
 		padding-left: 0;
 	}
+
 	.wc-block-grid.has-6-columns .wc-block-grid__product:nth-child(even), .wc-block-grid.has-6-columns .wc-block-grid__product:nth-child(odd) {
 		padding-right: 0;
 		padding-left: 0;
@@ -128,11 +139,11 @@
 	margin: 0;
 	padding: 0.5em 0;
 	font-size: 1.2em;
-	color: #3F3F46;
+	color: var(--zakra-color-6, #3F3F46);
 }
 
 .wc-block-grid__product .wc-block-grid__product-title:hover {
-	color: #027ABB;
+	color: var(--zakra-color-1, #027abb);
 }
 
 .wc-block-grid__product .wc-block-grid__product-price {
@@ -154,7 +165,7 @@
 .wc-block-grid__product .wc-block-grid__product-add-to-cart .wp-block-button__link {
 	padding: 0.7rem 1rem;
 	text-align: left;
-	border: 0 solid #027ABB;
+	border: 0 solid var(--zakra-color-1, #027abb);
 }
 
 .wc-block-grid__product .wc-block-grid__product-add-to-cart .wp-block-button__link:hover {
@@ -179,7 +190,7 @@
 	font-size: 1.1em;
 	border-radius: 100%;
 	text-transform: capitalize;
-	background: #027ABB;
+	background: var(--zakra-color-1, #027abb);
 	border: 0;
 	color: #FAFAFA;
 }
@@ -252,7 +263,7 @@
 }
 
 .single-product .product .woocommerce-product-gallery ol.flex-control-thumbs li img.flex-active {
-	border: 2px solid #027ABB;
+	border: 2px solid var(--zakra-color-1, #027abb);
 }
 
 .single-product .product .entry-summary {
@@ -272,7 +283,7 @@
 }
 
 .single-product .product .entry-summary .woocommerce-review-link:hover {
-	color: #027ABB;
+	color: var(--zakra-color-1, #027abb);
 }
 
 .single-product .product .entry-summary .woocommerce-review-link .count {
@@ -489,7 +500,7 @@
 }
 
 .stock.in-stock {
-	color: #027ABB;
+	color: var(--zakra-color-1, #027abb);
 }
 
 .stock.out-of-stock {
@@ -500,19 +511,24 @@
 	.single-product .product {
 		flex-direction: unset;
 	}
+
 	.single-product .product .woocommerce-product-gallery {
 		flex: 1 1 calc(var(--product-gallery-width, 50%) - 1em);
 	}
+
 	.single-product .product .product_title {
 		margin-top: 0;
 	}
+
 	.single-product .related,
 	.single-product .upsells {
 		margin: 60px 0;
 	}
+
 	.single-product .upsells + .related {
 		margin-top: 0;
 	}
+
 	.comment-respond {
 		width: 100%;
 	}

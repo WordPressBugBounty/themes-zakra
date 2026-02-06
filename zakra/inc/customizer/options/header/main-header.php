@@ -153,7 +153,7 @@ $options = apply_filters(
 					),
 					'zakra_main_header_border_bottom_color' => array(
 						'title'    => esc_html__( 'Color', 'zakra' ),
-						'default'  => '#E4E4E7',
+						'default'  => 'var(--zakra-color-9)',
 						'type'     => 'customind-color',
 						'section'  => 'zakra_main_header',
 						'priority' => 30,

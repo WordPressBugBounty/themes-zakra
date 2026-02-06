@@ -43,7 +43,7 @@ $options = array(
 				),
 				'zakra_footer_menu_2_typography'        => array(
 					'default'   => array(
-						'font-family'    => 'Default',
+						'font-family'    => 'inherit',
 						'font-weight'    => 'regular',
 						'font-size'      => array(
 							'desktop' => array(

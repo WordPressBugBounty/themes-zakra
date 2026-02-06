@@ -82,7 +82,6 @@ $options = apply_filters(
 	array(
 		'zakra_footer_builder_components' => array(
 			'type'    => 'customind-builder-components',
-			'title'   => esc_html__( 'Builder', 'zakra' ),
 			'choices' => customind_get_footer_components(),
 			'context' => 'footer',
 			'group'   => 'zakra_footer_builder',

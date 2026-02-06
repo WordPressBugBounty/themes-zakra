@@ -134,7 +134,6 @@ function customind_get_header_components() {
 $options = array(
 	'zakra_header_builder_components'    => array(
 		'type'    => 'customind-builder-components',
-		'title'   => esc_html__( 'Builder Component', 'zakra' ),
 		'choices' => customind_get_header_components(),
 		'context' => 'header',
 		'group'   => 'zakra_header_builder',
@@ -278,7 +277,7 @@ $options = array(
 	'zakra_header_builder_style_heading' => array(
 		'type'    => 'customind-title',
 		'title'   => esc_html__( 'Global Header', 'zakra' ),
-		'section' => 'zakra_header_builder_section',
+		'section' => 'zakra_global_header_option',
 	),
 	'zakra_header_builder_background'    => array(
 		'default'   => array(
@@ -292,7 +291,7 @@ $options = array(
 		'type'      => 'customind-background',
 		'title'     => esc_html__( 'Background', 'zakra' ),
 		'transport' => 'postMessage',
-		'section'   => 'zakra_header_builder_section',
+		'section'   => 'zakra_global_header_option',
 	),
 	'zakra_header_builder_border_width'  => array(
 		'default'     => array(
@@ -304,17 +303,17 @@ $options = array(
 		),
 		'type'        => 'customind-dimensions',
 		'title'       => esc_html__( 'Border Width', 'zakra' ),
-		'section'     => 'zakra_header_builder_section',
+		'section'     => 'zakra_global_header_option',
 		'units'       => array( 'px', 'em', 'rem', '%' ),
 		'transport'   => 'postMessage',
 		'defaultUnit' => 'px',
 	),
 	'zakra_header_builder_border_color'  => array(
-		'default'   => '#E4E4E7',
+		'default'   => 'var(--zakra-color-9)',
 		'type'      => 'customind-color',
 		'title'     => esc_html__( 'Border Color', 'zakra' ),
 		'transport' => 'postMessage',
-		'section'   => 'zakra_header_builder_section',
+		'section'   => 'zakra_global_header_option',
 	),
 );
 

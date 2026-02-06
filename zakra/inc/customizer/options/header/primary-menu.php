@@ -71,7 +71,7 @@ $options = apply_filters(
 					),
 					'zakra_primary_menu_border_bottom_color' => array(
 						'title'     => esc_html__( 'Color', 'zakra' ),
-						'default'   => '#e9ecef',
+						'default'   => 'var(--zakra-color-9)',
 						'type'      => 'customind-color',
 						'section'   => 'zakra_menu',
 						'priority'  => 40,
@@ -184,7 +184,7 @@ $options = apply_filters(
 					),
 					'zakra_main_menu_typography'     => array(
 						'default'   => array(
-							'font-family'    => 'Default',
+							'font-family'    => 'inherit',
 							'font-weight'    => 'regular',
 							'font-size'      => array(
 								'desktop' => array(
@@ -238,7 +238,7 @@ $options = apply_filters(
 				array(
 					'zakra_sub_menu_typography' => array(
 						'default'   => array(
-							'font-family'    => 'Default',
+							'font-family'    => 'inherit',
 							'font-weight'    => '400',
 							'font-size'      => array(
 								'desktop' => array(
@@ -296,7 +296,7 @@ $options = apply_filters(
 				array(
 					'zakra_mobile_menu_typography' => array(
 						'default'   => array(
-							'font-family'    => 'Default',
+							'font-family'    => 'inherit',
 							'font-weight'    => '400',
 							'font-size'      => array(
 								'desktop' => array(

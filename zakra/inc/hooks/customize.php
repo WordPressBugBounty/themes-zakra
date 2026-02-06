@@ -10,7 +10,7 @@
 add_action(
 	'customize_register',
 	function () {
-		if ( ! zakra_plugin_version_compare( 'zakra-pro/zakra-pro.php', '3.0.0', '<' ) ) {
+		if ( ! zakra_plugin_version_compare( 'zakra-pro/zakra-pro.php', '3.2.0', '<' ) ) {
 			return;
 		}
 
@@ -28,6 +28,8 @@ add_action(
 			remove_action( 'zakra_primary_menu_page_settings_before', 'zakra_pro_primary_menu_page_settings_before' );
 			remove_action( 'zakra_page_header_page_setting', 'zakra_pro_page_header_style' );
 			remove_action( 'zakra_page_settings_save', 'zakra_pro_page_settings_save' );
+			remove_action( 'zakra_customize_register', 'zakra_pro_customizer_register' );
+
 		}
 	},
 	1

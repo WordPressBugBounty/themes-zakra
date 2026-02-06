@@ -14,6 +14,7 @@ import {
 	ContainedSidebar,
 	Customizer,
 	LeftSidebar,
+	NoSidebar,
 	RightSidebar,
 	StretchedSidebar,
 } from './Icons';
@@ -26,27 +27,17 @@ const OPTIONS = applyFilters('zakra.meta.general.layout', [
 		value: 'customizer',
 	},
 	{
-		label: __('Left Sidebar', 'zakra'),
-		icon: LeftSidebar,
-		value: 'left',
-	},
-	{
-		label: __('Right Sidebar', 'zakra'),
-		icon: RightSidebar,
-		value: 'right',
-	},
-	{
-		label: __('Centered Sidebar', 'zakra'),
-		icon: CenteredSidebar,
-		value: 'centered',
-	},
-	{
-		label: __('Contained Sidebar', 'zakra'),
+		label: __('Normal', 'zakra'),
 		icon: ContainedSidebar,
 		value: 'contained',
 	},
 	{
-		label: __('Stretched  Sidebar', 'zakra'),
+		label: __('Narrow', 'zakra'),
+		icon: CenteredSidebar,
+		value: 'centered',
+	},
+	{
+		label: __('Full Width', 'zakra'),
 		icon: StretchedSidebar,
 		value: 'stretched',
 	},
@@ -56,8 +47,36 @@ const OPTIONS = applyFilters('zakra.meta.general.layout', [
 	value: string;
 }>;
 
+const SIDEBAR_OPTIONS = applyFilters('zakra.meta.general.sidebar', [
+	{
+		label: __('Customizer', 'zakra'),
+		icon: Customizer,
+		value: 'customizer',
+	},
+	{
+		label: __('No Sidebar', 'zakra'),
+		icon: NoSidebar,
+		value: 'no_sidebar',
+	},
+	{
+		label: __('Right Sidebar', 'zakra'),
+		icon: RightSidebar,
+		value: 'right',
+	},
+	{
+		label: __('Left Sidebar', 'zakra'),
+		icon: LeftSidebar,
+		value: 'left',
+	},
+]) as Array<{
+	label: string;
+	icon: React.ElementType;
+	value: string;
+}>;
+
 const GeneralPanel = ({ meta, updateMeta }: MetaProps) => {
-	const currentLayout = meta?.zakra_sidebar_layout ?? 'customizer';
+	const containerLayout = meta?.zakra_page_container_layout ?? 'customizer';
+	const currentLayout = meta?.zakra_page_sidebar_layout ?? 'customizer';
 
 	return (
 		<PanelRow>
@@ -71,10 +90,10 @@ const GeneralPanel = ({ meta, updateMeta }: MetaProps) => {
 								key={option.value}
 								style={{ width: 'calc(50% - 10px)' }}
 								data-state={
-									currentLayout === option.value ? 'active' : 'inactive'
+									containerLayout === option.value ? 'active' : 'inactive'
 								}
 								onClick={() => {
-									updateMeta?.('zakra_sidebar_layout', option.value);
+									updateMeta?.('zakra_page_container_layout', option.value);
 								}}
 							>
 								<Icon className={option.value} />
@@ -82,6 +101,39 @@ const GeneralPanel = ({ meta, updateMeta }: MetaProps) => {
 						);
 					})}
 				</Flex>
+				{'contained' === containerLayout && (
+					<>
+						<p>{__('Sidebar', 'zakra')}</p>
+						<Flex style={{ flex: 1, flexWrap: 'wrap', gap: 8 }}>
+							{SIDEBAR_OPTIONS?.map((option) => {
+								const Icon = option.icon;
+								return (
+									<Flex
+										key={option.value}
+										style={{ width: 'calc(50% - 10px)' }}
+										data-state={
+											currentLayout === option.value ? 'active' : 'inactive'
+										}
+										onClick={() => {
+											updateMeta?.('zakra_page_sidebar_layout', option.value);
+										}}
+										role="button"
+										tabIndex={0}
+										aria-label={option.label}
+										onKeyDown={(e) => {
+											if (e.key === 'Enter' || e.key === ' ') {
+												updateMeta?.('zakra_page_sidebar_layout', option.value);
+											}
+										}}
+									>
+										<Icon className={`${option.value} hover:cursor-pointer`} />
+									</Flex>
+								);
+							})}
+						</Flex>
+					</>
+				)}
+
 				<Flex className={'padding-section'} align="baseline">
 					<p>{__('Remove content padding', 'zakra')}</p>
 					<CheckboxControl

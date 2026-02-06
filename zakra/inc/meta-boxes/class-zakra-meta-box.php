@@ -68,14 +68,25 @@ class Zakra_Meta_Box {
 	private function register_meta_fields() {
 		register_post_meta(
 			'',
-			'zakra_sidebar_layout',
-			array(
+			'zakra_page_container_layout',
+			[
 				'show_in_rest'  => true,
 				'single'        => true,
 				'default'       => 'customizer',
 				'type'          => 'string',
 				'auth_callback' => '__return_true',
-			)
+			]
+		);
+		register_post_meta(
+			'',
+			'zakra_page_sidebar_layout',
+			[
+				'show_in_rest'  => true,
+				'single'        => true,
+				'default'       => 'customizer',
+				'type'          => 'string',
+				'auth_callback' => '__return_true',
+			]
 		);
 		register_post_meta(
 			'',

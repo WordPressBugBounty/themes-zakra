@@ -40,7 +40,7 @@ $options = array(
 				),
 				'zakra_header_tertiary_menu_border_bottom_color' => array(
 					'title'     => esc_html__( 'Border Bottom Color', 'zakra' ),
-					'default'   => '#e9ecef',
+					'default'   => 'var(--zakra-color-9)',
 					'type'      => 'customind-color',
 					'transport' => 'postMessage',
 					'section'   => 'zakra_header_builder_tertiary_menu',
@@ -93,7 +93,7 @@ $options = array(
 				),
 				'zakra_header_tertiary_menu_typography'  => array(
 					'default'   => array(
-						'font-family'    => 'Default',
+						'font-family'    => 'inherit',
 						'font-weight'    => 'regular',
 						'font-size'      => array(
 							'desktop' => array(
@@ -144,7 +144,7 @@ $options = array(
 			array(
 				'zakra_header_tertiary_sub_menu_typography' => array(
 					'default'   => array(
-						'font-family'    => 'Default',
+						'font-family'    => 'inherit',
 						'font-weight'    => '400',
 						'font-size'      => array(
 							'desktop' => array(

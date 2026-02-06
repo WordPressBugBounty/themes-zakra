@@ -4,32 +4,26 @@ $options = apply_filters(
 	'zakra_post_meta_options',
 	array(
 		'zakra_post_meta_heading' => array(
-			'type'         => 'customind-accordion',
-			'title'        => esc_html__( 'Meta', 'zakra' ),
-			'section'      => 'zakra_meta',
-			'sub_controls' => apply_filters(
-				'zakra_post_meta_sub_controls',
-				array(
-					'zakra_post_meta_style' => array(
-						'default' => 'style-1',
-						'type'    => 'customind-radio-image',
-						'title'   => esc_html__( 'Layout', 'zakra' ),
-						'section' => 'zakra_meta',
-						'choices' => array(
-							'style-1' => array(
-								'label' => '',
-								'url'   => ZAKRA_PARENT_INC_ICON_URI . '/meta-style-one.svg',
-							),
-							'style-2' => array(
-								'label' => '',
-								'url'   => ZAKRA_PARENT_INC_ICON_URI . '/meta-style-two.svg',
-							),
-						),
-						'columns' => 2,
-					),
-				)
+			'type'    => 'customind-heading',
+			'title'   => esc_html__( 'Meta', 'zakra' ),
+			'section' => 'zakra_post_meta_heading',
+		),
+		'zakra_post_meta_style'   => array(
+			'default' => 'style-1',
+			'type'    => 'customind-radio-image',
+			'title'   => esc_html__( 'Layout', 'zakra' ),
+			'section' => 'zakra_meta',
+			'choices' => array(
+				'style-1' => array(
+					'label' => '',
+					'url'   => ZAKRA_PARENT_INC_ICON_URI . '/meta-style-one.svg',
+				),
+				'style-2' => array(
+					'label' => '',
+					'url'   => ZAKRA_PARENT_INC_ICON_URI . '/meta-style-two.svg',
+				),
 			),
-			'collapsible'  => apply_filters( 'zakra_post_meta_accordion_collapsible', false ),
+			'columns' => 2,
 		),
 	)
 );

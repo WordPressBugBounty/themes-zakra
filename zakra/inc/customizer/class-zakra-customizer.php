@@ -26,12 +26,25 @@ if ( ! class_exists( 'Zakra_Customizer' ) ) :
 			add_filter( 'zakra_fontawesome_src', array( $this, 'fontawesome_src' ) );
 			add_action( 'customize_preview_init', array( $this, 'customize_preview_js' ), 11 );
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'customize_js' ), 11 );
+			add_filter( 'customize_controls_enqueue_scripts', [ $this, 'customize_controls_enqueue_scripts' ], 10, 3 );
 
 			$enable_builder = get_theme_mod( 'zakra_enable_builder', false );
 			if ( $enable_builder || zakra_maybe_enable_builder() ) {
 				add_filter( 'customizer_widgets_section_args', [ $this, 'modify_widgets_panel' ], 10, 3 );
 				add_filter( 'customize_section_active', [ $this, 'modify_widgets_section_state' ], 100, 2 );
 			}
+		}
+
+		public function customize_controls_enqueue_scripts() {
+			wp_enqueue_style( 'inter-font', 'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap', array(), ZAKRA_THEME_VERSION );
+
+			wp_enqueue_style( 'lato-font', 'https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap', array(), ZAKRA_THEME_VERSION );
+
+			wp_enqueue_style( 'roboto-font', 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap', array(), ZAKRA_THEME_VERSION );
+
+			wp_enqueue_style( 'nunito-font', 'https://fonts.googleapis.com/css2?family=Nunito:wght@100;200;300;400;500;600;700;800;900&display=swap', array(), ZAKRA_THEME_VERSION );
+
+			wp_enqueue_style( 'dm-sans-font', 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap', array(), ZAKRA_THEME_VERSION );
 		}
 
 		public function on_customizer_register( $wp_customize ) {

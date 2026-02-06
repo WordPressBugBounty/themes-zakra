@@ -129,7 +129,7 @@ $options = apply_filters(
 					),
 					'zakra_footer_column_border_top_color' => array(
 						'title'     => esc_html__( 'Color', 'zakra' ),
-						'default'   => '#e9ecef',
+						'default'   => 'var(--zakra-color-9)',
 						'type'      => 'customind-color',
 						'section'   => 'zakra_footer_column',
 						'transport' => 'postMessage',
@@ -280,7 +280,7 @@ $options = apply_filters(
 					),
 					'zakra_footer_widgets_item_border_bottom_color' => array(
 						'title'     => esc_html__( 'Border Bottom Color', 'zakra' ),
-						'default'   => '#e9ecef',
+						'default'   => 'var(--zakra-color-9)',
 						'type'      => 'customind-color',
 						'section'   => 'zakra_footer_column',
 						'priority'  => 15,

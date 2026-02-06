@@ -29,24 +29,10 @@ class Zakra_Notice {
 		$this->current_user_id       = get_current_user_id();
 
 		// Notice markup.
-//		add_action( 'admin_notices', array( $this, 'notice' ) );
+		add_action( 'admin_notices', array( $this, 'notice' ) );
 
 		$this->dismiss_notice();
 		$this->dismiss_notice_temporary();
-	}
-
-	public function notice() {
-		if ( ! $this->is_dismiss_notice() ) {
-			$this->notice_markup();
-		}
-	}
-
-	private function is_dismiss_notice() {
-		return apply_filters( 'zakra_' . $this->name . '_notice_dismiss', true );
-	}
-
-	public function notice_markup() {
-		echo '';
 	}
 
 	/**
@@ -88,5 +74,19 @@ class Zakra_Notice {
 				add_user_meta( get_current_user_id(), 'zakra_' . $dismiss_notice . '_notice_dismiss_temporary', 'yes', true );
 			}
 		}
+	}
+
+	public function notice() {
+		if ( ! $this->is_dismiss_notice() ) {
+			$this->notice_markup();
+		}
+	}
+
+	private function is_dismiss_notice() {
+		return apply_filters( 'zakra_' . $this->name . '_notice_dismiss', true );
+	}
+
+	public function notice_markup() {
+		echo '';
 	}
 }

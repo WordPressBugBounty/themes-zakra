@@ -225,6 +225,51 @@ if ( ! class_exists( 'Zakra_Enqueue_Scripts' ) ) {
 			wp_add_inline_style(
 				'customize-controls',
 				'
+				#accordion-section-title_tagline {
+				    margin-top: 40px;
+				        border-top: 1px solid #dcdcde !important;
+				}
+
+				#accordion-panel-zakra_global {
+				 border-top: 1px solid #dcdcde !important;
+				}
+
+				#customize-theme-controls .customize-pane-child#sub-accordion-section-zakra_header_builder_section {
+				height: 780px;
+				}
+
+				#customize-control-zakra_button_color_group,#customize-control-zakra_enable_scroll_to_top,#customize-control-zakra_load_google_fonts_locally,#customize-control-zakra_enable_breadcrumb,#customize-control-zakra_enable_page_header,.customize-section-title-nav_menus-heading {
+				 margin-top: 12px;
+				}
+
+				.customize-control-nav_menu_location select {
+				max-width: 100% !important;
+				}
+
+				#customize-control-zakra_body_typography .customind-typography-label,#customize-control-zakra_heading_typography .customind-typography-label,#customize-control-zakra_site_title_typography .customind-typography-label,#customize-control-zakra_site_tagline_typography .customind-typography-label,#customize-control-zakra_main_menu_typography .customind-typography-label,#customize-control-zakra_sub_menu_typography .customind-typography-label,#customize-control-zakra_mobile_menu_typography .customind-typography-label {
+				font-weight: 600;
+				}
+
+				#customize-control-site_icon .customize-control-title,#customize-control-site_icon .customize-control-description,#customize-control-zakra_header_media_heading {
+				display: none;
+				}
+
+				#customize-control-zakra_color_palette .customind-preset-1, #customize-control-zakra_color_palette .customind-preset-2, #customize-control-zakra_color_palette .customind-preset-3, #customize-control-zakra_color_palette .customind-preset-4 {
+				display:none
+				}
+
+				[data-customind-builder-panel="zakra_header_builder"].in-sub-panel:not(.section-open) #customize-theme-controls ul[id="sub-accordion-section-zakra_header_builder_section"],[data-customind-builder-panel="zakra_footer_builder"].in-sub-panel:not(.section-open) #customize-theme-controls ul[id="sub-accordion-section-zakra_footer_builder_section"] {
+                     background: #F0F0F1;
+				}
+
+				#customize-control-zakra_header_builder_components .customind-header-types,#sub-accordion-section-zakra_footer_builder_section .customind-footer-types {
+				display: none;
+				}
+
+				#customize-controls .customize-info {
+				margin-bottom: 0;
+				}
+
 		        #customize-control-zakra_site_identity_general_heading .customind-control .font-normal{
 		        font-weight: 600;
 		        }

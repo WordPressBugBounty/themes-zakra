@@ -17,7 +17,7 @@ $options = array(
 				),
 				'zakra_footer_widget_1_title_typography'   => array(
 					'default'   => array(
-						'font-family'    => 'default',
+						'font-family'    => 'inherit',
 						'font-weight'    => '400',
 						'font-size'      => array(
 							'desktop' => array(
@@ -81,7 +81,7 @@ $options = array(
 				),
 				'zakra_footer_widget_1_content_typography' => array(
 					'default'   => array(
-						'font-family'    => 'default',
+						'font-family'    => 'inherit',
 						'font-weight'    => '400',
 						'font-size'      => array(
 							'desktop' => array(

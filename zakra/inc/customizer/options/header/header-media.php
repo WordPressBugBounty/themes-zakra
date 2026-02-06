@@ -7,7 +7,7 @@ $options = apply_filters(
 			'type'     => 'customind-title',
 			'title'    => esc_html__( 'Header Media', 'zakra' ),
 			'section'  => 'header_image',
-			'priority' => 5,
+			'priority' => 30,
 		),
 	)
 );

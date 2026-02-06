@@ -80,8 +80,12 @@ if ( ! class_exists( 'Zakra_Css_Classes' ) ) :
 			$classes[] = zakra_get_current_layout();
 
 			// Container style.
-			$container_layout = get_theme_mod( 'zakra_container_layout', 'wide' );
-			$classes[]        = 'zak-container--' . $container_layout;
+			if ( get_theme_mod( 'zakra_enable_container_box_style', false ) ) {
+				$container_layout = 'boxed';
+			} else {
+				$container_layout = 'wide';
+			}
+			$classes[] = 'zak-container--' . $container_layout;
 
 			// Content area style.
 			$content_layout = get_theme_mod( 'zakra_content_area_layout', 'bordered' );
@@ -315,8 +319,8 @@ if ( ! class_exists( 'Zakra_Css_Classes' ) ) :
 
 			// Customizer.
 			$customize_zakra_menu_item_color        = get_theme_mod( 'zakra_main_menu_color', '#16181a' );
-			$customize_zakra_menu_item_hover_color  = get_theme_mod( 'zakra_main_menu_hover_color', '#027abb' );
-			$customize_zakra_menu_item_active_color = get_theme_mod( 'zakra_main_menu_active_color', '#027abb' );
+			$customize_zakra_menu_item_hover_color  = get_theme_mod( 'zakra_main_menu_hover_color', 'var(--zakra-color-1,#027abb)' );
+			$customize_zakra_menu_item_active_color = get_theme_mod( 'zakra_main_menu_active_color', 'var(--zakra-color-1,#027abb)' );
 
 			// Meta.
 			$zakra_menu_item_color        = get_post_meta( zakra_get_post_id(), 'zakra_menu_item_color', true );

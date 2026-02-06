@@ -35,18 +35,18 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$parse_css = '';
 
 			$color_palette_default = array(
-				'id'     => 'preset-1',
-				'name'   => 'Preset 1',
+				'id'     => 'preset-5',
+				'name'   => 'Preset 5',
 				'colors' => array(
-					'zakra-color-1' => '#eaf3fb',
-					'zakra-color-2' => '#bfdcf3',
-					'zakra-color-3' => '#94c4eb',
-					'zakra-color-4' => '#6aace2',
-					'zakra-color-5' => '#257bc1',
-					'zakra-color-6' => '#1d6096',
-					'zakra-color-7' => '#15446b',
-					'zakra-color-8' => '#0c2941',
-					'zakra-color-9' => '#040e16',
+					'zakra-color-1' => '#027ABB',
+					'zakra-color-2' => '#015EA0',
+					'zakra-color-3' => '#FFFFFF',
+					'zakra-color-4' => '#F6FEFC',
+					'zakra-color-5' => '#181818',
+					'zakra-color-6' => '#1F1F32',
+					'zakra-color-7' => '#3F3F46',
+					'zakra-color-8' => '#FFFFFF',
+					'zakra-color-9' => '#E4E4E7',
 				),
 			);
 
@@ -132,7 +132,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$parse_css .= '}';
 
 			// Primary color.
-			$primary_color     = get_theme_mod( 'zakra_primary_color', '#027abb' );
+			$primary_color     = get_theme_mod( 'zakra_primary_color', 'var(--zakra-color-1,#027abb)' );
 			$primary_color_css = array(
 				'a:hover, a:focus,
 				.zak-primary-nav ul li:hover > a,
@@ -220,16 +220,16 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 					'background-color' => esc_html( $primary_color ),
 				),
 			);
-			$parse_css         .= zakra_parse_css( '#027abb', $primary_color, $primary_color_css );
+			$parse_css         .= zakra_parse_css( 'var(--zakra-color-1,#027abb)', $primary_color, $primary_color_css );
 
 			// Text color.
-			$text_color     = get_theme_mod( 'zakra_base_color', '#3F3F46' );
+			$text_color     = get_theme_mod( 'zakra_base_color', 'var(--zakra-color-6,#3F3F46)' );
 			$text_color_css = array(
 				'body, .woocommerce-ordering select' => array(
 					'color' => esc_html( $text_color ),
 				),
 			);
-			$parse_css      .= zakra_parse_css( '#3F3F46', $text_color, $text_color_css );
+			$parse_css      .= zakra_parse_css( 'var(--zakra-color-6,#3F3F46)', $text_color, $text_color_css );
 
 			// Outside container background.
 			$container_background_color     = get_theme_mod( 'background_color', '' );
@@ -241,7 +241,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$parse_css      .= zakra_parse_css( '', $container_background_color, $container_background_color_css );
 
 			// Border color.
-			$border_color     = get_theme_mod( 'zakra_border_color', '#E4E4E7' );
+			$border_color     = get_theme_mod( 'zakra_border_color', 'var(--zakra-color-9,#E4E4E7)' );
 			$border_color_css = array(
 				'.zak-header, .zak-post, .zak-secondary, .zak-footer-bar, .zak-primary-nav .sub-menu, .zak-primary-nav .sub-menu li, .posts-navigation, #comments, .post-navigation, blockquote, .wp-block-quote, .zak-posts .zak-post, .zak-content-area--boxed .widget' => array(
 					'border-color' => esc_html( $border_color ),
@@ -251,19 +251,19 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 					'background-color' => esc_html( $border_color ),
 				),
 			);
-			$parse_css        .= zakra_parse_css( '#E4E4E7', $border_color, $border_color_css );
+			$parse_css        .= zakra_parse_css( 'var(--zakra-color-9,#E4E4E7)', $border_color, $border_color_css );
 
 			// Link colors.
-			$link_color_normal     = get_theme_mod( 'zakra_link_color', '#027abb' );
+			$link_color_normal     = get_theme_mod( 'zakra_link_color', 'var(--zakra-color-1,#027abb)' );
 			$link_color_normal_css = array(
 				'.entry-content a' => array(
 					'color' => esc_html( $link_color_normal ),
 				),
 			);
-			$parse_css             .= zakra_parse_css( '#027abb', $link_color_normal, $link_color_normal_css );
+			$parse_css             .= zakra_parse_css( 'var(--zakra-color-1,#027abb)', $link_color_normal, $link_color_normal_css );
 
 			// Link hover color.
-			$link_color_hover     = get_theme_mod( 'zakra_link_hover_color', '#027abb' );
+			$link_color_hover     = get_theme_mod( 'zakra_link_hover_color', 'var(--zakra-color-1,#027abb)' );
 			$link_color_hover_css = array(
 				'.zak-entry-footer a:hover,
 				.entry-button:hover,
@@ -276,7 +276,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 					'fill' => esc_html( $link_color_hover ),
 				),
 			);
-			$parse_css            .= zakra_parse_css( '#027abb', $link_color_hover, $link_color_hover_css );
+			$parse_css            .= zakra_parse_css( 'var(--zakra-color-1,#027abb)', $link_color_hover, $link_color_hover_css );
 
 			// Inside container background color.
 			$inside_container_background_default = array(
@@ -291,7 +291,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$parse_css                           .= zakra_parse_background_css( $inside_container_background_default, $inside_container_background, '.zak-content' );
 
 			$body_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -340,7 +340,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$heading_typography_default = apply_filters(
 				'zakra_heading_typography_filter',
 				array(
-					'font-family'    => 'Default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '400',
 					'line-height'    => array(
 						'desktop' => array(
@@ -376,7 +376,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$h1_typography_default = apply_filters(
 				'zakra_h1_typography_filter',
 				array(
-					'font-family'    => 'Default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -427,7 +427,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$h2_typography_default = apply_filters(
 				'zakra_h2_typography_filter',
 				array(
-					'font-family'    => 'Default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -478,7 +478,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$h3_typography_default = apply_filters(
 				'zakra_h3_typography_filter',
 				array(
-					'font-family'    => 'Default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -529,7 +529,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$h4_typography_default = apply_filters(
 				'zakra_h4_typography_filter',
 				array(
-					'font-family'    => 'Default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -580,7 +580,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$h5_typography_default = apply_filters(
 				'zakra_h5_typography_filter',
 				array(
-					'font-family'    => 'Default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -631,7 +631,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$h6_typography_default = apply_filters(
 				'zakra_h6_typography_filter',
 				array(
-					'font-family'    => 'Default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -699,7 +699,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Button typography.
 			$button_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'subsets'        => array( 'latin' ),
 				'font-size'      => array(
@@ -763,13 +763,13 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$parse_css              .= zakra_parse_css( '', $button_hover_color, $button_hover_color_css );
 
 			// Button background color.
-			$button_background_color     = get_theme_mod( 'zakra_button_background_color', '#027abb' );
+			$button_background_color     = get_theme_mod( 'zakra_button_background_color', 'var(--zakra-color-1,#027abb)' );
 			$button_background_color_css = array(
 				'button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span, .wp-block-button .wp-block-button__link' => array(
 					'background-color' => esc_html( $button_background_color ),
 				),
 			);
-			$parse_css                   .= zakra_parse_css( '#027abb', $button_background_color, $button_background_color_css );
+			$parse_css                   .= zakra_parse_css( 'var(--zakra-color-1,#027abb)', $button_background_color, $button_background_color_css );
 
 			// Button background hover color.
 			$button_background_hover_color     = get_theme_mod( 'zakra_button_background_hover_color', '#ffffff' );
@@ -839,7 +839,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 
 			$typography_site_title_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => 'regular',
 				'subsets'        => array( 'latin' ),
 				'font-size'      => array(
@@ -896,7 +896,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$parse_css              .= zakra_parse_css( '#54595f', $site_tagline_color, $site_tagline_color_css );
 
 			$site_tagline_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => 'regular',
 				'subsets'        => array( 'latin' ),
 				'font-size'      => array(
@@ -1039,7 +1039,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header Button typography.
 			$header_button_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'subsets'        => array( 'latin' ),
 				'font-size'      => array(
@@ -1103,13 +1103,13 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$parse_css                          .= zakra_parse_css( '#ffffff', $header_button_hover_text_color, $header_button_hover_text_color_css );
 
 			// Header builder background color.
-			$header_button_background_color     = get_theme_mod( 'zakra_header_button_background_color', '#027abb' );
+			$header_button_background_color     = get_theme_mod( 'zakra_header_button_background_color', 'var(--zakra-color-1,#027abb)' );
 			$header_button_background_color_css = array(
 				$button1_combine_class => array(
 					'background-color' => esc_html( $header_button_background_color ),
 				),
 			);
-			$parse_css                          .= zakra_parse_css( '#027abb', $header_button_background_color, $header_button_background_color_css );
+			$parse_css                          .= zakra_parse_css( 'var(--zakra-color-1,#027abb)', $header_button_background_color, $header_button_background_color_css );
 
 			// Header builder button hover background color.
 			$header_button_background_hover_color     = get_theme_mod( 'zakra_header_button_background_hover_color', '' );
@@ -1155,13 +1155,13 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 
 			// Primary menu border bottom.
-			$primary_menu_border_bottom_color     = get_theme_mod( 'zakra_primary_menu_border_bottom_color', '#e9ecef' );
+			$primary_menu_border_bottom_color     = get_theme_mod( 'zakra_primary_menu_border_bottom_color', 'var(--zakra-color-9, #e9ecef)' );
 			$primary_menu_border_bottom_color_css = array(
 				'.zak-header .main-navigation' => array(
 					'border-bottom-color' => esc_html( $primary_menu_border_bottom_color ),
 				),
 			);
-			$parse_css                            .= zakra_parse_css( '#e9ecef', $primary_menu_border_bottom_color, $primary_menu_border_bottom_color_css );
+			$parse_css                            .= zakra_parse_css( 'var(--zakra-color-9, #e9ecef)', $primary_menu_border_bottom_color, $primary_menu_border_bottom_color_css );
 
 			// Primary menu item color.
 			$primary_menu_item_color_normal     = get_theme_mod( 'zakra_main_menu_color', '' );
@@ -1206,7 +1206,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$parse_css                          .= zakra_parse_css( '', $primary_menu_item_color_active, $primary_menu_item_color_active_css );
 
 			$main_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -1253,7 +1253,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 
 			$sub_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -1300,7 +1300,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 
 			$mobile_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -1427,13 +1427,13 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$parse_css                 .= zakra_parse_css( '#16181a', $breadcrumb_text_color, $breadcrumb_text_color_css );
 
 			// Breadcrumbs separator color.
-			$breadcrumb_separator_color     = get_theme_mod( 'zakra_breadcrumb_separator_color', '#51585f' );
+			$breadcrumb_separator_color     = get_theme_mod( 'zakra_breadcrumb_separator_color', '#16181a' );
 			$breadcrumb_separator_color_css = array(
 				apply_filters( 'zakra_breadcrumb_separator_color_selector', '.zak-page-header .breadcrumb-trail ul li::after' ) => array(
 					'color' => esc_html( $breadcrumb_separator_color ),
 				),
 			);
-			$parse_css                      .= zakra_parse_css( '#51585f', $breadcrumb_separator_color, $breadcrumb_separator_color_css );
+			$parse_css                      .= zakra_parse_css( '#16181a', $breadcrumb_separator_color, $breadcrumb_separator_color_css );
 
 			// Breadcrumbs link color.
 			$breadcrumb_link_color     = get_theme_mod( 'zakra_breadcrumbs_link_color', '#16181a' );
@@ -1445,18 +1445,18 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$parse_css                 .= zakra_parse_css( '#16181a', $breadcrumb_link_color, $breadcrumb_link_color_css );
 
 			// Breadcrumbs link hover color.
-			$breadcrumb_link_hover_color     = get_theme_mod( 'zakra_breadcrumbs_link_hover_color', '#027abb' );
+			$breadcrumb_link_hover_color     = get_theme_mod( 'zakra_breadcrumbs_link_hover_color', 'var(--zakra-color-1,#027abb)' );
 			$breadcrumb_link_hover_color_css = array(
 				apply_filters( 'zakra_breadcrumbs_link_hover_color_selector', '.zak-page-header .breadcrumb-trail ul li a:hover ' ) => array(
 					'color' => esc_html( $breadcrumb_link_hover_color ),
 				),
 			);
-			$parse_css                       .= zakra_parse_css( '#027abb', $breadcrumb_link_hover_color, $breadcrumb_link_hover_color_css );
+			$parse_css                       .= zakra_parse_css( 'var(--zakra-color-1,#027abb)', $breadcrumb_link_hover_color, $breadcrumb_link_hover_color_css );
 
 			$page_title_typography_default = apply_filters(
 				'zakra_post_page_title_typography_filter',
 				array(
-					'font-family'    => 'Default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -1505,7 +1505,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 
 			$blog_post_title_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '500',
 				'subsets'        => array( 'latin' ),
 				'font-size'      => array(
@@ -1555,7 +1555,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$widget_title_typography_default = apply_filters(
 				'zakra_widget_title_typography_filter',
 				array(
-					'font-family'    => 'Default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -1606,7 +1606,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$widget_content_typography_default = apply_filters(
 				'zakra_widget_content_typography_filter',
 				array(
-					'font-family'    => 'Default',
+					'font-family'    => 'inherit',
 					'font-weight'    => 'regular',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -1732,13 +1732,13 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 
 			// Footer widgets border top color.
-			$footer_widgets_border_top_color     = get_theme_mod( 'zakra_footer_column_border_top_color', '#e9ecef' );
+			$footer_widgets_border_top_color     = get_theme_mod( 'zakra_footer_column_border_top_color', 'var(--zakra-color-9, #e9ecef)' );
 			$footer_widgets_border_top_color_css = array(
 				'.zak-footer-cols' => array(
 					'border-top-color' => esc_html( $footer_widgets_border_top_color ),
 				),
 			);
-			$parse_css                           .= zakra_parse_css( '#e9ecef', $footer_widgets_border_top_color, $footer_widgets_border_top_color_css );
+			$parse_css                           .= zakra_parse_css( 'var(--zakra-color-9, #e9ecef)', $footer_widgets_border_top_color, $footer_widgets_border_top_color_css );
 
 			/**
 			 * Footer widgets border bottom width.
@@ -1758,13 +1758,13 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 
 			// Footer widgets item border bottom color.
-			$footer_widgets_item_border_bottom__color     = get_theme_mod( 'zakra_footer_widgets_item_border_bottom_color', '#e9ecef' );
+			$footer_widgets_item_border_bottom__color     = get_theme_mod( 'zakra_footer_widgets_item_border_bottom_color', 'var(--zakra-color-9, #e9ecef)' );
 			$footer_widgets_item_border_bottom__color_css = array(
 				'.zak-footer-cols ul li' => array(
 					'border-bottom-color' => esc_html( $footer_widgets_item_border_bottom__color ),
 				),
 			);
-			$parse_css                                    .= zakra_parse_css( '#e9ecef', $footer_widgets_item_border_bottom__color, $footer_widgets_item_border_bottom__color_css );
+			$parse_css                                    .= zakra_parse_css( 'var(--zakra-color-9, #e9ecef)', $footer_widgets_item_border_bottom__color, $footer_widgets_item_border_bottom__color_css );
 
 			// Footer bottom bar background.
 			$footer_bar_background_defaults = array(
@@ -1797,13 +1797,13 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$parse_css                 .= zakra_parse_css( '#16181a', $footer_bar_link_color, $footer_bar_link_color_css );
 
 			// Footer bottom bar link hover color.
-			$footer_bar_link_hover_color     = get_theme_mod( 'zakra_footer_bar_link_hover_color', '#027abb' );
+			$footer_bar_link_hover_color     = get_theme_mod( 'zakra_footer_bar_link_hover_color', 'var(--zakra-color-1,#027abb)' );
 			$footer_bar_link_hover_color_css = array(
 				'.zak-footer-bar a:hover, .zak-footer-bar a:focus' => array(
 					'color' => esc_html( $footer_bar_link_hover_color ),
 				),
 			);
-			$parse_css                       .= zakra_parse_css( '#027abb', $footer_bar_link_hover_color, $footer_bar_link_hover_color_css );
+			$parse_css                       .= zakra_parse_css( 'var(--zakra-color-1,#027abb)', $footer_bar_link_hover_color, $footer_bar_link_hover_color_css );
 
 			/**
 			 * Footer bar border top width.
@@ -1823,13 +1823,13 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 
 			// Footer bar border top color.
-			$footer_bar_border_top_color     = get_theme_mod( 'zakra_footer_bar_border_top_color', '#3f3f46' );
+			$footer_bar_border_top_color     = get_theme_mod( 'zakra_footer_bar_border_top_color', 'var(--zakra-color-6,#3F3F46)' );
 			$footer_bar_border_top_color_css = array(
 				'.zak-footer-bar' => array(
 					'border-top-color' => esc_html( $footer_bar_border_top_color ),
 				),
 			);
-			$parse_css                       .= zakra_parse_css( '#3f3f46', $footer_bar_border_top_color, $footer_bar_border_top_color_css );
+			$parse_css                       .= zakra_parse_css( 'var(--zakra-color-6,#3F3F46)', $footer_bar_border_top_color, $footer_bar_border_top_color_css );
 
 			$scroll_to_top_normal_background_color     = get_theme_mod( 'zakra_scroll_to_top_background', '#16181a' );
 			$scroll_to_top_normal_background_color_css = array(
@@ -1839,13 +1839,13 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 			$parse_css                                 .= zakra_parse_css( '#16181a', $scroll_to_top_normal_background_color, $scroll_to_top_normal_background_color_css );
 
-			$scroll_to_top_hover_background_color     = get_theme_mod( 'zakra_scroll_to_top_hover_background', '#1e7ba6' );
+			$scroll_to_top_hover_background_color     = get_theme_mod( 'zakra_scroll_to_top_hover_background', 'var(--zakra-color-2,#1e7ba6)' );
 			$scroll_to_top_hover_background_color_css = array(
 				'.zak-scroll-to-top:hover' => array(
 					'background-color' => esc_html( $scroll_to_top_hover_background_color ),
 				),
 			);
-			$parse_css                                .= zakra_parse_css( '#1e7ba6', $scroll_to_top_hover_background_color, $scroll_to_top_hover_background_color_css );
+			$parse_css                                .= zakra_parse_css( 'var(--zakra-color-2,#1e7ba6)', $scroll_to_top_hover_background_color, $scroll_to_top_hover_background_color_css );
 
 			$scroll_to_top_normal_color     = get_theme_mod( 'zakra_scroll_to_top_icon_color', '#ffffff' );
 			$scroll_to_top_normal_color_css = array(
@@ -1904,7 +1904,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			$parse_wc_css = '';
 
-			$base_wc_primary_color     = get_theme_mod( 'zakra_primary_color', '#027abb' );
+			$base_wc_primary_color     = get_theme_mod( 'zakra_primary_color', 'var(--zakra-color-1,#027abb)' );
 			$base_wc_primary_color_css = array(
 				'.woocommerce-info::before,
 				.woocommerce ul.products li.product .woocommerce-loop-product__title:hover,
@@ -1950,15 +1950,15 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 					'background-color' => esc_html( $base_wc_primary_color ),
 				),
 			);
-			$parse_wc_css              .= zakra_parse_css( '#027abb', $base_wc_primary_color, $base_wc_primary_color_css );
+			$parse_wc_css              .= zakra_parse_css( 'var(--zakra-color-1,#027abb)', $base_wc_primary_color, $base_wc_primary_color_css );
 
-			$base_wc_text_color     = get_theme_mod( 'zakra_base_color', '#3F3F46' );
+			$base_wc_text_color     = get_theme_mod( 'zakra_base_color', 'var(--zakra-color-6,#3F3F46)' );
 			$base_wc_text_color_css = array(
 				'.woocommerce ul.products li.product .price, .woocommerce .star-rating span, ul li.product .price, .wc-block-components-formatted-money-amount, .wc-block-grid__products .wc-block-grid__product .wc-block-grid__product-price' => array(
 					'color' => esc_html( $base_wc_text_color ),
 				),
 			);
-			$parse_wc_css           .= zakra_parse_css( '#3F3F46', $base_wc_text_color, $base_wc_text_color_css );
+			$parse_wc_css           .= zakra_parse_css( 'var(--zakra-color-6,#3F3F46)', $base_wc_text_color, $base_wc_text_color_css );
 
 			$button_wc_text_color     = get_theme_mod( 'zakra_button_color', '' );
 			$button_wc_text_color_css = array(
@@ -1976,21 +1976,21 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 			$parse_wc_css                   .= zakra_parse_css( '', $button_wc_hover_text_color, $button_wc_hover_text_color_css );
 
-			$button_wc_bg_color     = get_theme_mod( 'zakra_button_background_color', '#027abb' );
+			$button_wc_bg_color     = get_theme_mod( 'zakra_button_background_color', 'var(--zakra-color-1,#027abb)' );
 			$button_wc_bg_color_css = array(
 				'.woocommerce a.button.alt, .woocommerce button.button, .woocommerce button.button.alt, .woocommerce ul.products a.button, .woocommerce div.product form.cart .button, .wp-block-button .wp-block-button__link, .tg-sticky-panel .tg-checkout-btn a' => array(
 					'background-color' => esc_html( $button_wc_bg_color ),
 				),
 			);
-			$parse_wc_css           .= zakra_parse_css( '#027abb', $button_wc_bg_color, $button_wc_bg_color_css );
+			$parse_wc_css           .= zakra_parse_css( 'var(--zakra-color-1,#027abb)', $button_wc_bg_color, $button_wc_bg_color_css );
 
-			$button_wc_bg_hover_color     = get_theme_mod( 'zakra_button_background_hover_color', '#027ABB' );
+			$button_wc_bg_hover_color     = get_theme_mod( 'zakra_button_background_hover_color', 'var(--zakra-color-1,#027abb)' );
 			$button_wc_bg_hover_color_css = array(
 				'.woocommerce a.button.alt:hover, .woocommerce button.button:hover, .woocommerce button.button.alt:hover, .woocommerce ul.products a.button:hover, .woocommerce div.product form.cart .button:hover, .product .wc-block-grid__product-add-to-cart .wp-block-button__link:hover, .tg-sticky-panel .tg-checkout-btn a:hover' => array(
 					'background-color' => esc_html( $button_wc_bg_hover_color ),
 				),
 			);
-			$parse_wc_css                 .= zakra_parse_css( '#027ABB', $button_wc_bg_hover_color, $button_wc_bg_hover_color_css );
+			$parse_wc_css                 .= zakra_parse_css( 'var(--zakra-color-1,#027abb)', $button_wc_bg_hover_color, $button_wc_bg_hover_color_css );
 
 			/**
 			 * Button border radius for WooCommerce button.
@@ -2415,31 +2415,31 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 
 			// Header builder primary menu border bottom.
-			$header_menu_border_bottom_color     = get_theme_mod( 'zakra_header_menu_border_bottom_color', '#e9ecef' );
+			$header_menu_border_bottom_color     = get_theme_mod( 'zakra_header_menu_border_bottom_color', 'var(--zakra-color-9, #e9ecef)' );
 			$header_menu_border_bottom_color_css = array(
 				'.zak-header-builder .zak-main-nav' => array(
 					'border-bottom-color' => esc_html( $header_menu_border_bottom_color ),
 				),
 			);
-			$parse_builder_css                            .= zakra_parse_css( '#e9ecef', $header_menu_border_bottom_color, $header_menu_border_bottom_color_css );
+			$parse_builder_css                            .= zakra_parse_css( 'var(--zakra-color-9, #e9ecef)', $header_menu_border_bottom_color, $header_menu_border_bottom_color_css );
 
 			// Header builder secondary menu border bottom.
-			$header_secondary_menu_border_bottom_color     = get_theme_mod( 'zakra_header_secondary_menu_border_bottom_color', '#e9ecef' );
+			$header_secondary_menu_border_bottom_color     = get_theme_mod( 'zakra_header_secondary_menu_border_bottom_color', 'var(--zakra-color-9, #e9ecef)' );
 			$header_secondary_menu_border_bottom_color_css = array(
 				'.zak-header-builder .zak-secondary-nav' => array(
 					'border-bottom-color' => esc_html( $header_secondary_menu_border_bottom_color ),
 				),
 			);
-			$parse_builder_css                            .= zakra_parse_css( '#e9ecef', $header_secondary_menu_border_bottom_color, $header_secondary_menu_border_bottom_color_css );
+			$parse_builder_css                            .= zakra_parse_css( 'var(--zakra-color-9, #e9ecef)', $header_secondary_menu_border_bottom_color, $header_secondary_menu_border_bottom_color_css );
 
 			// Header builder tertiary menu border bottom.
-			$header_tertiary_menu_border_bottom_color     = get_theme_mod( 'zakra_header_tertiary_menu_border_bottom_color', '#e9ecef' );
+			$header_tertiary_menu_border_bottom_color     = get_theme_mod( 'zakra_header_tertiary_menu_border_bottom_color', 'var(--zakra-color-9, #e9ecef)' );
 			$header_tertiary_menu_border_bottom_color_css = array(
 				'.zak-header-builder .zak-tertiary-menu' => array(
 					'border-bottom-color' => esc_html( $header_tertiary_menu_border_bottom_color ),
 				),
 			);
-			$parse_builder_css                            .= zakra_parse_css( '#e9ecef', $header_tertiary_menu_border_bottom_color, $header_tertiary_menu_border_bottom_color_css );
+			$parse_builder_css                            .= zakra_parse_css( 'var(--zakra-color-9, #e9ecef)', $header_tertiary_menu_border_bottom_color, $header_tertiary_menu_border_bottom_color_css );
 
 
 			// Header builder primary menu item color.
@@ -2588,7 +2588,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder primary menu typography.
 			$header_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => 'regular',
 				'font-size'      => array(
 					'desktop' => array(
@@ -2636,7 +2636,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder secondary menu typography.
 			$header_secondary_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => 'regular',
 				'font-size'      => array(
 					'desktop' => array(
@@ -2684,7 +2684,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder tertiary menu typography.
 			$header_tertiary_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => 'regular',
 				'font-size'      => array(
 					'desktop' => array(
@@ -2732,7 +2732,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder quaternary menu typography.
 			$header_quaternary_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => 'regular',
 				'font-size'      => array(
 					'desktop' => array(
@@ -2780,7 +2780,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder primary sub menu typography.
 			$header_sub_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -2828,7 +2828,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder secondary sub menu typography.
 			$header_secondary_sub_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -2929,13 +2929,13 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$parse_builder_css                          .= zakra_parse_css( '#ffffff', $header_button_hover_text_color, $header_button_hover_text_color_css );
 
 			// Header builder button background color.
-			$header_button_background_color     = get_theme_mod( 'zakra_header_button_background_color', '#027abb' );
+			$header_button_background_color     = get_theme_mod( 'zakra_header_button_background_color', 'var(--zakra-color-1,#027abb)' );
 			$header_button_background_color_css = array(
 				'.zak-header-builder .zak-header-buttons .zak-header-button .zak-button' => array(
 					'background-color' => esc_html( $header_button_background_color ),
 				),
 			);
-			$parse_builder_css                          .= zakra_parse_css( '#027abb', $header_button_background_color, $header_button_background_color_css );
+			$parse_builder_css                          .= zakra_parse_css( 'var(--zakra-color-1,#027abb)', $header_button_background_color, $header_button_background_color_css );
 
 			// Header builder button hover background color.
 			$header_button_background_hover_color     = get_theme_mod( 'zakra_header_button_background_hover_color', '' );
@@ -3515,7 +3515,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder mobile menu typography.
 			$header_mobile_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3590,7 +3590,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder widget title typography.
 			$header_widget_1_title_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3638,7 +3638,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder widget content typography.
 			$header_widget_1_content_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3713,7 +3713,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder widget title typography.
 			$header_widget_2_title_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3761,7 +3761,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder widget content typography.
 			$header_widget_2_content_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3956,7 +3956,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget title typography.
 			$footer_widget_1_title_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4002,7 +4002,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget content typography.
 			$footer_widget_1_content_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4075,7 +4075,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 2 title typography.
 			$footer_widget_2_title_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4121,7 +4121,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 2 content typography.
 			$footer_widget_2_content_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4194,7 +4194,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 3 title typography.
 			$footer_widget_3_title_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4242,7 +4242,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 3 content typography.
 			$footer_widget_3_content_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4317,7 +4317,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 4 title typography.
 			$footer_widget_4_title_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4365,7 +4365,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 4 content typography.
 			$footer_widget_4_content_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4431,7 +4431,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder footer menu typography.
 			$footer_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4497,7 +4497,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder footer menu 2 typography.
 			$footer_menu_2_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4572,7 +4572,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder copyright typography.
 			$footer_copyright_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => 'regular',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4662,7 +4662,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder site title typography.
 			$header_site_title_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => 'regular',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4719,7 +4719,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder site tagline typography.
 			$header_site_tagline_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => 'regular',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4879,13 +4879,13 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 
 			// Footer builder widgets item border bottom color.
-			$footer_widgets_item_border_bottom__color     = get_theme_mod( 'zakra_footer_widgets_item_border_bottom_color', '#e9ecef' );
+			$footer_widgets_item_border_bottom__color     = get_theme_mod( 'zakra_footer_widgets_item_border_bottom_color', 'var(--zakra-color-9, #e9ecef)' );
 			$footer_widgets_item_border_bottom__color_css = array(
 				'.zak-footer-builder .zak-footer-main-row ul li' => array(
 					'border-bottom-color' => esc_html( $footer_widgets_item_border_bottom__color ),
 				),
 			);
-			$parse_builder_css                                    .= zakra_parse_css( '#e9ecef', $footer_widgets_item_border_bottom__color, $footer_widgets_item_border_bottom__color_css );
+			$parse_builder_css                                    .= zakra_parse_css( 'var(--zakra-color-9, #e9ecef)', $footer_widgets_item_border_bottom__color, $footer_widgets_item_border_bottom__color_css );
 
 			// Footer builder widget 5 title color.
 			$footer_widget_5_title_color     = get_theme_mod( 'zakra_footer_widget_5_title_color', '' );
@@ -4916,7 +4916,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 5 title typography.
 			$footer_widget_5_title_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4962,7 +4962,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 5 content typography.
 			$footer_widget_5_content_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -5035,7 +5035,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 6 title typography.
 			$footer_widget_6_title_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -5081,7 +5081,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 6 content typography.
 			$footer_widget_6_content_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -5127,7 +5127,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			// Header builder mobile menu typography.
 			$header_builder_mobile_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(

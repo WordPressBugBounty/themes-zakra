@@ -33,27 +33,57 @@ if ( ! function_exists( 'zakra_get_sidebar' ) ) {
 
 		$current_layout = zakra_get_current_layout();
 
-		$sidebar_meta              = get_post_meta( zakra_get_post_id(), 'zakra_sidebar', true );
-		$customizer_sidebar_layout = get_theme_mod( 'zakra_page_sidebar_layout', 'right' );
+		preg_match( '/zak-site-layout--(no_sidebar|left|right|both)/', $current_layout, $m_sidebar );
+		$current_layout = $m_sidebar[0] ?? '';
 
-		if ( 'customizer' === $sidebar_meta || 'default' === $sidebar_meta ) {
+		$sidebar_meta              = get_post_meta( zakra_get_post_id(), 'zakra_page_sidebar_layout', true );
+		$single_page_layout        = get_theme_mod( 'zakra_single_page_sidebar_layout', 'default' );
+		$single_post_layout        = get_theme_mod( 'zakra_single_post_sidebar_layout', 'default' );
+		$blog_layout               = get_theme_mod( 'zakra_blog_sidebar_layout', 'default' );
+		$global_sidebar_layout     = get_theme_mod( 'zakra_global_sidebar_layout', 'default' );
+		$customizer_sidebar_layout = '';
+
+		if ( 'customizer' === $sidebar_meta || 'default' === $sidebar_meta || empty( $sidebar_meta ) ) {
+			if ( is_singular( 'page' ) || is_404() ) {
+				if ( 'default' === $single_page_layout ) {
+					$customizer_sidebar_layout = $global_sidebar_layout;
+				} else {
+					$customizer_sidebar_layout = $single_page_layout;
+				}
+			} elseif ( is_singular() ) {
+				if ( 'default' === $single_post_layout ) {
+					$customizer_sidebar_layout = $global_sidebar_layout;
+				} else {
+					$customizer_sidebar_layout = $single_post_layout;
+				}
+			} elseif ( is_archive() || is_home() ) {
+				if ( 'default' === $blog_layout ) {
+					$customizer_sidebar_layout = $global_sidebar_layout;
+				} else {
+					$customizer_sidebar_layout = $blog_layout;
+				}
+			}
+
 			if ( 'right' === $customizer_sidebar_layout ) {
 				$sidebar = 'sidebar-right';
-			} elseif ( 'left' === $customizer_sidebar_layout ) {
+			} elseif ( 'left' === $customizer_sidebar_layout || 'zak-site-layout--left' === $current_layout ) {
 				$sidebar = 'sidebar-left';
+			} elseif ( 'no_sidebar' === $customizer_sidebar_layout ) {
+				$sidebar = 'sidebar-none';
+			}
+			return $sidebar;
+
+		} else {
+			$sidebar = '';
+			if ( 'right' === $sidebar_meta ) {
+				$sidebar = 'sidebar-right';
+			} elseif ( 'left' === $sidebar_meta || 'zak-site-layout--left' === $current_layout ) {
+				$sidebar = 'sidebar-left';
+			} elseif ( 'no_sidebar' === $sidebar_meta ) {
+				$sidebar = 'sidebar-none';
 			}
 			return $sidebar;
 		}
-
-		if ( $sidebar_meta ) {
-			return $sidebar_meta;
-		} else { //phpcs:ignore Universal.ControlStructures.DisallowLonelyIf.Found
-			if ( 'zak-site-layout--left' === $current_layout ) {
-				return 'sidebar-left';
-			}
-		}
-
-		return $sidebar;
 	}
 }
 

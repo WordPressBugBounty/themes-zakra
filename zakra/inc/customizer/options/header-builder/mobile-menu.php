@@ -16,7 +16,7 @@ $options = array(
 			array(
 				'zakra_header_mobile_menu_typography' => array(
 					'default'   => array(
-						'font-family'    => 'Default',
+						'font-family'    => 'inherit',
 						'font-weight'    => '400',
 						'font-size'      => array(
 							'desktop' => array(

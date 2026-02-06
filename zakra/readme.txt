@@ -2,11 +2,11 @@
 
 Contributors: themegrill
 Author: ThemeGrill
-Version: 4.1.8
+Version: 4.2.0
 Tested up to: 6.8
 Requires PHP: 7.4
 Requires at least: 4.7
-Stable tag: 4.1.8
+Stable tag: 4.2.0
 
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -62,6 +62,35 @@ License: GNU GPL, Version 3, https://www.gnu.org/licenses/gpl-3.0.html
 Unless otherwise specified, all the theme files, scripts and images including the screenshot image are licensed under [GNU GPL] (http://www.gnu.org/licenses/gpl-3.0.txt), version 3 or later.
 
 == Changelog ==
+= Version 4.2.0 - 2025-11-10 =
+* Added - 6 new Typography Presets for font selection. 
+* Added - Option to add/delete custom color palettes. 
+* Added - "Header Media" as a top item in the customizer navigation. 
+* Added - "Site Identity" to the main customizer navigation list.
+* Renamed - "Header Builder" to "Header". 
+* Renamed - "Content" to "Post Content". 
+* Renamed - "Container" to "Layouts". 
+* Renamed - "Footer Builder" to "Footer". 
+* Renamed - "Sidebar Layout" in WooCommerce to "WooCommerce Layout". 
+* Moved - "Page Header" to "Post Content". 
+* Moved - "Breadcrumb" to "Additional". 
+* Moved - "Sidebar" from Content to Widget in Additional. 
+* Moved - "Inside Background" and "Outside Background" from Container to Colors in Global. 
+* Improved - Typography control design. 
+* Improved - Updated color palette design. 
+* Improved - Enhanced color palette presets. 
+* Improved - Set default colors for different sections to global colors. 
+* Improved - Global color handling in presets, color picker, and added tooltips for color names. 
+* Improved - Merged default layout from "Sidebar", "Content Area", and "Container" into "Layouts". 
+* Improved - Separated sidebar layout options into container and sidebar layout. 
+* Improved – Moved page-specific sidebar and container layout options to respective pages in "Post Content". 
+* Improved – Moved page-specific sidebar and container layout options in Sidebar Layout in WooCommerce to the respective page in WooCommerce. 
+* Improved – Renamed Container (Wide & Boxed) Layouts to "Box Style" as a toggle. 
+* Improved – Layouts and all Post Content child Items with tabbed design and layout options. 
+* Improved - Enhanced design of presets and tabs in "Page Header". 
+* Improved - Removed "Sidebar" in Global after moving its contents to respective places. 
+* Improved - Removed "Header & Navigation" after moving its items to respective places. 
+
 = Version 4.1.8 - 2025-08-22 =
 * Updated - Dashboard notice.
 

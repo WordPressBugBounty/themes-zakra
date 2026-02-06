@@ -91,7 +91,7 @@ $options = apply_filters(
 					),
 					'zakra_site_title_typography'     => array(
 						'default'   => array(
-							'font-family'    => 'Default',
+							'font-family'    => 'inherit',
 							'font-weight'    => '400',
 							'subsets'        => array( 'latin' ),
 							'font-size'      => array(
@@ -166,7 +166,7 @@ $options = apply_filters(
 					),
 					'zakra_site_tagline_typography' => array(
 						'default'   => array(
-							'font-family'    => 'Default',
+							'font-family'    => 'inherit',
 							'font-weight'    => '400',
 							'subsets'        => array( 'latin' ),
 							'font-size'      => array(

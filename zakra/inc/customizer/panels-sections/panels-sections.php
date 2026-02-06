@@ -10,11 +10,11 @@ $panel_options_id = array(
 		'priority' => 10,
 	),
 	'zakra_header_builder' => array(
-		'title'    => esc_html__( 'Header Builder', 'zakra' ),
+		'title'    => esc_html__( 'Header', 'zakra' ),
 		'priority' => 10,
 	),
 	'zakra_content'        => array(
-		'title'    => esc_html__( 'Content', 'zakra' ),
+		'title'    => esc_html__( 'Post Content', 'zakra' ),
 		'priority' => 10,
 	),
 	'zakra_footer'         => array(
@@ -22,13 +22,19 @@ $panel_options_id = array(
 		'priority' => 10,
 	),
 	'zakra_footer_builder' => array(
-		'title'    => esc_html__( 'Footer Builder', 'zakra' ),
+		'title'    => esc_html__( 'Footer', 'zakra' ),
 		'priority' => 10,
+	),
+	'title_tagline'        => array(
+		'title' => esc_html__( 'Site Identity', 'zakra' ),
+	),
+	'header_image'         => array(
+		'title' => esc_html__( 'Header Media', 'zakra' ),
 	),
 	'zakra_additional'     => array(
-		'title'    => esc_html__( 'Additional', 'zakra' ),
-		'priority' => 10,
+		'title' => esc_html__( 'Additional', 'zakra' ),
 	),
+
 );
 
 $section_option_id = array(
@@ -37,13 +43,18 @@ $section_option_id = array(
 		'panel'    => 'zakra_header',
 		'priority' => 1,
 	),
+	'zakra_typography'                     => array(
+		'title'    => esc_html__( 'Typography', 'zakra' ),
+		'panel'    => 'zakra_global',
+		'priority' => 4,
+	),
 	'zakra_colors'                         => array(
 		'title'    => esc_html__( 'Colors', 'zakra' ),
 		'panel'    => 'zakra_global',
 		'priority' => 5,
 	),
 	'zakra_container'                      => array(
-		'title'    => esc_html__( 'Container', 'zakra' ),
+		'title'    => esc_html__( 'Layouts', 'zakra' ),
 		'panel'    => 'zakra_global',
 		'priority' => 10,
 	),
@@ -57,11 +68,6 @@ $section_option_id = array(
 		'panel'    => 'zakra_global',
 		'priority' => 20,
 	),
-	'zakra_typography'                     => array(
-		'title'    => esc_html__( 'Typography', 'zakra' ),
-		'panel'    => 'zakra_global',
-		'priority' => 25,
-	),
 	'zakra_button'                         => array(
 		'title'    => esc_html__( 'Button', 'zakra' ),
 		'panel'    => 'zakra_global',
@@ -71,11 +77,6 @@ $section_option_id = array(
 		'title'    => esc_html__( 'Top Bar', 'zakra' ),
 		'panel'    => 'zakra_header',
 		'priority' => 5,
-	),
-	'title_tagline'                        => array(
-		'title'    => esc_html__( 'Site Identity', 'zakra' ),
-		'panel'    => 'zakra_header',
-		'priority' => 10,
 	),
 	'zakra_header_builder_section'         => array(
 		'title'    => esc_html__( 'Header Builder', 'zakra' ),
@@ -107,20 +108,20 @@ $section_option_id = array(
 		'panel'    => 'zakra_header',
 		'priority' => 30,
 	),
-	'header_image'                         => array(
-		'title'    => esc_html__( 'Header Media', 'zakra' ),
-		'panel'    => 'zakra_header',
-		'priority' => 35,
+	'zakra_breadcrumb'                     => array(
+		'title'    => esc_html__( 'Breadcrumb', 'zakra' ),
+		'panel'    => 'zakra_additional',
+		'priority' => 45,
+	),
+	'zakra_sidebar'                        => array(
+		'title'    => esc_html__( 'Widget', 'zakra' ),
+		'panel'    => 'zakra_additional',
+		'priority' => 45,
 	),
 	'zakra_page_header'                    => array(
 		'title'    => esc_html__( 'Page Header', 'zakra' ),
-		'panel'    => 'zakra_header',
-		'priority' => 40,
-	),
-	'zakra_breadcrumb'                     => array(
-		'title'    => esc_html__( 'Breadcrumb', 'zakra' ),
-		'panel'    => 'zakra_header',
-		'priority' => 45,
+		'panel'    => 'zakra_content',
+		'priority' => 90,
 	),
 	'zakra_header_builder_socials'         => array(
 		'title'    => esc_html__( 'Socials', 'zakra' ),
@@ -152,11 +153,6 @@ $section_option_id = array(
 		'panel'    => 'zakra_content',
 		'priority' => 15,
 	),
-	'zakra_sidebar'                        => array(
-		'title'    => esc_html__( 'Sidebar', 'zakra' ),
-		'panel'    => 'zakra_content',
-		'priority' => 20,
-	),
 	'zakra_footer_column'                  => array(
 		'title'    => esc_html__( 'Footer Column', 'zakra' ),
 		'panel'    => 'zakra_footer',
@@ -175,6 +171,21 @@ $section_option_id = array(
 	'zakra_optimization'                   => array(
 		'title'    => esc_html__( 'Optimization', 'zakra' ),
 		'panel'    => 'zakra_additional',
+		'priority' => 5,
+	),
+	'zakra_woocommerce_layout'             => array(
+		'title'    => esc_html__( 'WooCommerce Layout', 'zakra' ),
+		'panel'    => 'woocommerce',
+		'priority' => 5,
+	),
+	'zakra_woocommerce_page'               => array(
+		'title'    => esc_html__( 'WooCommerce Page', 'zakra' ),
+		'panel'    => 'woocommerce',
+		'priority' => 5,
+	),
+	'zakra_single_product'                 => array(
+		'title'    => esc_html__( 'Single Product', 'zakra' ),
+		'panel'    => 'woocommerce',
 		'priority' => 5,
 	),
 	'zakra_woocommerce_sidebar_layout'     => array(
@@ -322,6 +333,11 @@ $section_option_id = array(
 		'panel'    => 'zakra_footer_builder',
 		'priority' => 10,
 	),
+	'zakra_global_header_option'           => array(
+		'title'    => esc_html__( 'Global Option', 'zakra' ),
+		'panel'    => 'zakra_header_builder',
+		'priority' => 60,
+	),
 	'zakra_footer_builder_bottom_area'     => array(
 		'title'    => esc_html__( 'Bottom Area', 'zakra' ),
 		'panel'    => 'zakra_footer_builder',
@@ -336,6 +352,11 @@ $section_option_id = array(
 		'title'    => esc_html__( 'HTML 2', 'zakra' ),
 		'panel'    => 'zakra_footer_builder',
 		'priority' => 10,
+	),
+	'zakra_page'                           => array(
+		'title'    => esc_html__( 'Page', 'zakra' ),
+		'panel'    => 'zakra_content',
+		'priority' => 70,
 	),
 	'zakra_customize_review_link_section'  => array(
 		'type'             => 'upsell-section',

@@ -33,35 +33,6 @@ $sidebar_layout_choices = apply_filters(
 $options = apply_filters(
 	'zakra_sidebar_options',
 	array(
-		'zakra_sidebar'        => array(
-			'type'         => 'customind-accordion',
-			'title'        => esc_html__( 'Sidebar', 'zakra' ),
-			'section'      => 'zakra_sidebar_layout',
-			'sub_controls' => apply_filters(
-				'zakra_sidebar_sub_controls',
-				array(
-					'zakra_sidebar_width' => array(
-						'title'       => esc_html__( 'Width', 'zakra' ),
-						'default'     => array(
-							'size' => 30,
-							'unit' => '%',
-						),
-						'type'        => 'customind-slider',
-						'section'     => 'zakra_sidebar_layout',
-						'transport'   => 'postMessage',
-						'priority'    => 10,
-						'units'       => array( '%', 'em', 'rem' ),
-						'defaultUnit' => '%',
-						'input_attrs' => array(
-							'min'  => 15,
-							'max'  => 100,
-							'step' => 1,
-						),
-					),
-				)
-			),
-			'collapsible'  => apply_filters( 'zakra_sidebar_accordion_collapsible', false ),
-		),
 		'zakra_sidebar_layout' => array(
 			'type'         => 'customind-accordion',
 			'title'        => esc_html__( 'Layout', 'zakra' ),

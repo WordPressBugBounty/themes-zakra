@@ -1,24 +1,13 @@
 <?php
 
 $options = array(
-	'zakra_load_google_fonts_locally_heading' => array(
-		'type'         => 'customind-accordion',
-		'title'        => esc_html__( 'Load Google fonts locally', 'zakra' ),
-		'section'      => 'zakra_optimization',
-		'sub_controls' => apply_filters(
-			'zakra_load_google_fonts_locally_sub_controls',
-			array(
-				'zakra_load_google_fonts_locally' => array(
-					'default' => 0,
-					'title'   => esc_html__( 'Enable', 'zakra' ),
-					'type'    => 'customind-toggle',
-					'section' => 'zakra_optimization',
-				),
-			)
-		),
-		'collapsible'  => apply_filters( 'zakra_load_google_fonts_locally_accordion_collapsible', false ),
+	'zakra_load_google_fonts_locally' => array(
+		'default' => 0,
+		'title'   => esc_html__( 'Enable', 'zakra' ),
+		'type'    => 'customind-toggle',
+		'section' => 'zakra_optimization',
 	),
-	'zakra_demo_migrated_heading'             => array(
+	'zakra_demo_migrated_heading'     => array(
 		'type'         => 'customind-accordion',
 		'title'        => esc_html__( 'Demo Migrated', 'zakra' ),
 		'section'      => 'zakra_optimization',

@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 $sidebar = apply_filters( 'zakra_get_sidebar', 'sidebar-right' );
 
 // Hide sidebar when sidebar is not present.
-if ( in_array( zakra_get_current_layout(), array( 'zak-site-layout--no-sidebar', 'zak-site-layout--centered', 'zak-site-layout--default', 'zak-site-layout--contained', 'zak-site-layout--stretched' ), true ) ) {
+if ( in_array( zakra_get_current_sidebar_layout(), array( 'zak-site-layout--no_sidebar', 'zak-site-layout--centered', 'zak-site-layout--default', 'zak-site-layout--stretched' ), true ) ) {
 	return '';
 }
 ?>
@@ -25,16 +25,16 @@ if ( in_array( zakra_get_current_layout(), array( 'zak-site-layout--no-sidebar',
 		 *
 		 * @hooked zakra_sidebar_before_action - 10
 		 */
-		do_action( 'zakra_sidebar_before');
+		do_action( 'zakra_sidebar_before' );
 
 		if ( is_active_sidebar( $sidebar ) ) {
 			dynamic_sidebar( $sidebar );
 		} elseif ( current_user_can( 'edit_theme_options' ) ) {
 			?>
-            <section class="widget">
-                <h2 class="widget-title"><?php echo esc_html( zakra_get_sidebar_name_by_id( $sidebar ) ); ?></h2>
-                <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Click here to add widgets for this area', 'zakra' ); ?></a>
-            </section>
+			<section class="widget">
+				<h2 class="widget-title"><?php echo esc_html( zakra_get_sidebar_name_by_id( $sidebar ) ); ?></h2>
+				<a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Click here to add widgets for this area', 'zakra' ); ?></a>
+			</section>
 			<?php
 		} else {
 
@@ -44,9 +44,10 @@ if ( in_array( zakra_get_current_layout(), array( 'zak-site-layout--no-sidebar',
 					'title'  => esc_html__( 'Example Widget', 'zakra' ),
 					'text'   => sprintf(
 					/* Translators: 1. Label for Contact Page or Right sidebar area, 2. Opening of the link for widgets.php WordPress section, 3. Closing of the link for widgets.php WordPress section */
-						esc_html__( 'This is an example widget to show how the %s Sidebar looks by default. You can add custom widgets from the %swidgets screen%s in the admin. If custom widgets is added than this will be replaced by those widgets.', 'zakra' ),
+						esc_html__( 'This is an example widget to show how the %1$s Sidebar looks by default. You can add custom widgets from the %2$swidgets screen%3$s in the admin. If custom widgets is added than this will be replaced by those widgets.', 'zakra' ),
 						current_user_can( 'edit_theme_options' ) ? '<a href="' . admin_url( 'widgets.php' ) . '">' : '',
-						current_user_can( 'edit_theme_options' ) ? '</a>' : '', esc_html__( 'Example Widget', 'zakra' )
+						current_user_can( 'edit_theme_options' ) ? '</a>' : '',
+						esc_html__( 'Example Widget', 'zakra' )
 					),
 					'filter' => true,
 				),
@@ -65,7 +66,7 @@ if ( in_array( zakra_get_current_layout(), array( 'zak-site-layout--no-sidebar',
 		 *
 		 * @hooked zakra_sidebar_after_action - 10
 		 */
-		do_action( 'zakra_sidebar_after');
+		do_action( 'zakra_sidebar_after' );
 
 		?>
 

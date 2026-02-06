@@ -125,7 +125,7 @@ $options = array(
 
 				'zakra_footer_bottom_area_border_color'    => array(
 					'title'     => esc_html__( 'Border Color', 'zakra' ),
-					'default'   => '#3F3F46',
+					'default'   => 'var(--zakra-color-6)',
 					'type'      => 'customind-color',
 					'section'   => 'zakra_footer_builder_bottom_area',
 					'transport' => 'postMessage',

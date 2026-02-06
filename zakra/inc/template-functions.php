@@ -270,7 +270,7 @@ if ( ! function_exists( 'zakra_entry_title' ) ) :
 			elseif ( is_404() ) :
 				?>
 				<h1 class="page-title zak-page-content__title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'zakra' ); ?></h1>
-			<?php
+				<?php
 			else :
 
 				the_title( '<h2 class="entry-title zak-page-content__title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
@@ -288,29 +288,32 @@ if ( ! function_exists( 'zakra_get_current_layout' ) ) :
 	 */
 	function zakra_get_current_layout() {
 
-		$individual_layout = get_post_meta( zakra_get_post_id(), 'zakra_sidebar_layout', true );
+		$individual_container_layout = get_post_meta( zakra_get_post_id(), 'zakra_page_container_layout', true );
+		$individual_sidebar_layout   = get_post_meta( zakra_get_post_id(), 'zakra_page_sidebar_layout', true );
 
-		$default_layout    = get_theme_mod( 'zakra_default_sidebar_layout', 'right' );
-		$wc_default_layout = get_theme_mod( 'zakra_woocommerce_default_sidebar_layout', 'right' );
+		$global_container     = get_theme_mod( 'zakra_global_container_layout', 'contained' );
+		$global_sidebar       = get_theme_mod( 'zakra_global_sidebar_layout', 'no_sidebar' );
+		$wc_container_default = get_theme_mod( 'zakra_woocommerce_global_container_layout', 'contained' );
+		$wc_sidebar_default   = get_theme_mod( 'zakra_woocommerce_global_sidebar_layout', 'no_sidebar' );
 
-		if ( ! empty( $individual_layout ) && 'customizer' !== $individual_layout ) {
+		if ( ! empty( $individual_container_layout ) && 'customizer' !== $individual_container_layout ) {
 
-			$layout = $individual_layout;
-		} elseif ( apply_filters( 'zakra_pro_current_layout', '' ) ) {
+			$container_layout = $individual_container_layout;
+		} elseif ( apply_filters( 'zakra_pro_container_current_layout', '' ) ) {
 
-			$layout = apply_filters( 'zakra_pro_current_layout', '' );
+			$container_layout = apply_filters( 'zakra_pro_container_current_layout', '' );
 		} else {
 			switch ( true ) {
 
 				case ( is_singular( 'page' ) || is_404() ):
 					if ( zakra_is_woocommerce_active() && ( is_checkout() || is_cart() || is_account_page() ) ) {
 
-						$page_layout = get_theme_mod( 'zakra_woocommerce_sidebar_layout', 'right' );
-						$layout      = 'default' !== $page_layout ? $page_layout : $wc_default_layout;
+						$page_layout      = get_theme_mod( 'zakra_woocommerce_page_container_layout', 'default' );
+						$container_layout = 'default' !== $page_layout ? $page_layout : $wc_container_default;
 					} else {
 
-						$page_layout = get_theme_mod( 'zakra_page_sidebar_layout', 'right' );
-						$layout      = 'default' !== $page_layout ? $page_layout : $default_layout;
+						$page_layout      = get_theme_mod( 'zakra_single_page_container_layout', 'default' );
+						$container_layout = 'default' !== $page_layout ? $page_layout : $global_container;
 					}
 
 					break;
@@ -318,12 +321,12 @@ if ( ! function_exists( 'zakra_get_current_layout' ) ) :
 				case ( is_singular() ):
 					if ( zakra_is_woocommerce_active() && is_product() ) { // WC single product.
 
-						$page_layout = get_theme_mod( 'zakra_woocommerce_single_product_sidebar_layout', 'right' );
-						$layout      = 'default' !== $page_layout ? $page_layout : $wc_default_layout;
+						$page_layout      = get_theme_mod( 'zakra_single_product_container_layout', 'default' );
+						$container_layout = 'default' !== $page_layout ? $page_layout : $wc_container_default;
 					} else {
 
-						$page_layout = get_theme_mod( 'zakra_post_sidebar_layout', 'right' );
-						$layout      = 'default' !== $page_layout ? $page_layout : $default_layout;
+						$page_layout      = get_theme_mod( 'zakra_single_post_container_layout', 'default' );
+						$container_layout = 'default' !== $page_layout ? $page_layout : $global_container;
 					}
 
 					break;
@@ -331,31 +334,111 @@ if ( ! function_exists( 'zakra_get_current_layout' ) ) :
 				case ( is_archive() || is_home() ):
 					if ( zakra_is_woocommerce_active() && is_woocommerce() ) {
 
-						$page_layout = get_theme_mod( 'zakra_woocommerce_sidebar_layout', 'right' );
-						$layout      = 'default' !== $page_layout ? $page_layout : $wc_default_layout;
+						$page_layout      = get_theme_mod( 'zakra_woocommerce_page_container_layout', 'default' );
+						$container_layout = 'default' !== $page_layout ? $page_layout : $wc_container_default;
 					} else {
 
-						$page_layout = get_theme_mod( 'zakra_archive_sidebar_layout', 'right' );
-						$layout      = 'default' !== $page_layout ? $page_layout : $default_layout;
+						$page_layout      = get_theme_mod( 'zakra_blog_container_layout', 'default' );
+						$container_layout = 'default' !== $page_layout ? $page_layout : $global_container;
 					}
 
 					break;
 
 				case ( ! is_archive() || ! is_home() || ! is_singular() || ! is_404() || ! is_singular( 'page' ) ):
-					$page_layout = get_theme_mod( 'zakra_others_sidebar_layout', 'default' );
-					$layout      = 'default' !== $page_layout ? $page_layout : $default_layout;
+					$page_layout      = get_theme_mod( 'zakra_others_sidebar_layout', 'default' );
+					$container_layout = 'default' !== $page_layout ? $page_layout : $global_container;
 
 					break;
 
 				default:
-					$layout = get_theme_mod( 'zakra_default_sidebar_layout', 'right' );
+					$container_layout = get_theme_mod( 'zakra_default_sidebar_layout', 'right' );
 			}
 		}
 
-		$layout = 'zak-site-layout--' . $layout;
+		// For Sidebar layout class.
+		if ( ! empty( $individual_sidebar_layout ) && 'customizer' !== $individual_sidebar_layout ) {
+
+			$sidebar_layout = $individual_sidebar_layout;
+		} elseif ( apply_filters( 'zakra_pro_sidebar_current_layout', '' ) ) {
+
+			$sidebar_layout = apply_filters( 'zakra_pro_sidebar_current_layout', '' );
+		} else {
+			switch ( true ) {
+
+				case ( is_singular( 'page' ) || is_404() ):
+					if ( zakra_is_woocommerce_active() && ( is_checkout() || is_cart() || is_account_page() ) ) {
+
+						$sidebar_page_layout = get_theme_mod( 'zakra_woocommerce_page_sidebar_layout', 'default' );
+						$sidebar_layout      = 'default' !== $sidebar_page_layout ? $sidebar_page_layout : $wc_sidebar_default;
+					} else {
+
+						$sidebar_page_layout = get_theme_mod( 'zakra_single_page_sidebar_layout', 'default' );
+						$sidebar_layout      = 'default' !== $sidebar_page_layout ? $sidebar_page_layout : $global_sidebar;
+					}
+
+					break;
+
+				case ( is_singular() ):
+					if ( zakra_is_woocommerce_active() && is_product() ) { // WC single product.
+
+						$sidebar_page_layout = get_theme_mod( 'zakra_single_product_sidebar_layout', 'default' );
+						$sidebar_layout      = 'default' !== $sidebar_page_layout ? $sidebar_page_layout : $wc_sidebar_default;
+					} else {
+
+						$sidebar_page_layout = get_theme_mod( 'zakra_single_post_sidebar_layout', 'default' );
+						$sidebar_layout      = 'default' !== $sidebar_page_layout ? $sidebar_page_layout : $global_sidebar;
+					}
+
+					break;
+
+				case ( is_archive() || is_home() ):
+					if ( zakra_is_woocommerce_active() && is_woocommerce() ) {
+
+						$sidebar_page_layout = get_theme_mod( 'zakra_woocommerce_page_sidebar_layout', 'default' );
+						$sidebar_layout      = 'default' !== $sidebar_page_layout ? $sidebar_page_layout : $wc_sidebar_default;
+					} else {
+
+						$sidebar_page_layout = get_theme_mod( 'zakra_blog_sidebar_layout', 'default' );
+						$sidebar_layout      = 'default' !== $sidebar_page_layout ? $sidebar_page_layout : $global_sidebar;
+					}
+
+					break;
+
+				case ( ! is_archive() || ! is_home() || ! is_singular() || ! is_404() || ! is_singular( 'page' ) ):
+					$sidebar_page_layout = get_theme_mod( 'zakra_others_sidebar_layout', 'default' );
+					$sidebar_layout      = 'default' !== $sidebar_page_layout ? $sidebar_page_layout : $global_sidebar;
+
+					break;
+
+				default:
+					$sidebar_layout = '';
+			}
+		}
+		$container_layout = 'zak-site-layout--' . $container_layout;
+		$sidebar_layout   = 'zak-site-layout--' . $sidebar_layout;
+		$layout           = $container_layout . ' ' . $sidebar_layout;
 
 		return apply_filters( 'zakra_current_layout', $layout );
 	}
+endif;
+
+if ( ! function_exists( 'zakra_get_current_sidebar_layout' ) ) :
+
+	/**
+	 * Get the current layout of the page
+	 *
+	 * @return string layout.
+	 */
+	function zakra_get_current_sidebar_layout() {
+
+		$current_layout = zakra_get_current_layout();
+
+		preg_match( '/zak-site-layout--(no_sidebar|left|right|both)/', $current_layout, $m_sidebar );
+		$current_layout = $m_sidebar[0] ?? '';
+
+		return $current_layout;
+	}
+
 endif;
 
 if ( ! function_exists( 'zakra_insert_mod_hatom_data' ) ) :
@@ -377,7 +460,6 @@ if ( ! function_exists( 'zakra_insert_mod_hatom_data' ) ) :
 		}
 
 		return $content;
-
 	}
 
 	add_filter( 'the_content', 'zakra_insert_mod_hatom_data' );
@@ -399,11 +481,10 @@ if ( ! function_exists( 'zakra_get_image_by_id' ) ) :
 		$image_alt = get_post_meta( zakra_get_post_id(), '_wp_attachment_image_alt', true );
 
 		if ( empty( $image_alt ) && ! empty( $default_alt ) ) {
-			$attr[ 'alt' ] = $default_alt;
+			$attr['alt'] = $default_alt;
 		}
 
 		return wp_get_attachment_image( $id, 'full', false, $attr );
-
 	}
 
 endif;
