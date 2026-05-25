@@ -78,7 +78,7 @@ class Zakra_Notice {
 
 	public function notice() {
 		if ( ! $this->is_dismiss_notice() ) {
-			$this->notice_markup();
+			//          $this->notice_markup();
 		}
 	}
 

@@ -225,6 +225,16 @@ if ( ! class_exists( 'Zakra_Enqueue_Scripts' ) ) {
 			wp_add_inline_style(
 				'customize-controls',
 				'
+
+				#customize-control-zakra_content_area_heading {
+				display: inline-block;
+                 width: 100%;
+				}
+
+				#customize-control-external_header_video,#customize-control-header_image,#customize-control-header_video {
+				display: contents;
+				}
+
 				#accordion-section-title_tagline {
 				    margin-top: 40px;
 				        border-top: 1px solid #dcdcde !important;

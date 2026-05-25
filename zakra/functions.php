@@ -17,6 +17,9 @@ defined( 'ABSPATH' ) || exit;
  */
 require get_template_directory() . '/inc/base/class-zakra-constants.php';
 
+// Must load after class-zakra-constants.php defines ZAKRA_PARENT_INC_DIR.
+require_once ZAKRA_PARENT_INC_DIR . '/base/class-zakra-abilities.php';
+
 /**
  * Helpers functions.
  */

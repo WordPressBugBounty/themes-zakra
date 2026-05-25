@@ -1,4 +1,11 @@
 == Changelog ==
+= Version 4.2.1 - 2026-05-25 =
+* Fix - Header builder mobile component option issue. 
+* Fix - Background image control issue. 
+* Fix - Layout control image issue. 
+* Update - Compatibility with WPML plugin.
+* Update - Security fixes.
+
 = 4.2.0 - 2025-11-10 =
 * Added - 6 new Typography Presets for font selection. 
 * Added - Option to add/delete custom color palettes. 

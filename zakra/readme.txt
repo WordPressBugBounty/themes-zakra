@@ -2,11 +2,11 @@
 
 Contributors: themegrill
 Author: ThemeGrill
-Version: 4.2.0
+Version: 4.2.1
 Tested up to: 6.8
 Requires PHP: 7.4
 Requires at least: 4.7
-Stable tag: 4.2.0
+Stable tag: 4.2.1
 
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -62,6 +62,13 @@ License: GNU GPL, Version 3, https://www.gnu.org/licenses/gpl-3.0.html
 Unless otherwise specified, all the theme files, scripts and images including the screenshot image are licensed under [GNU GPL] (http://www.gnu.org/licenses/gpl-3.0.txt), version 3 or later.
 
 == Changelog ==
+= Version 4.2.1 - 2026-05-25 =
+* Fix - Header builder mobile component option issue. 
+* Fix - Background image control issue. 
+* Fix - Layout control image issue. 
+* Update - Compatibility with WPML plugin.
+* Update - Security fixes.
+
 = Version 4.2.0 - 2025-11-10 =
 * Added - 6 new Typography Presets for font selection. 
 * Added - Option to add/delete custom color palettes. 

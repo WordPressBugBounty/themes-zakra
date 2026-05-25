@@ -216,7 +216,7 @@ if ( ! class_exists( 'Zakra_WooCommerce' ) ) {
 		 */
 		public static function woocommerce_cart_link() {
 
-			$output = '<a class="' . (is_customize_preview() ? 'zak-cart-link' : 'cart-page-link') . '" href="' . esc_url( wc_get_cart_url() ) . '" title="' . __( 'View your shopping cart', 'zakra' ) . '">';
+			$output          = '<a class="' . ( is_customize_preview() ? 'zak-cart-link' : 'cart-page-link' ) . '" href="' . esc_url( wc_get_cart_url() ) . '" title="' . __( 'View your shopping cart', 'zakra' ) . '">';
 			$item_count_text = sprintf(
 				/* translators: number of items in the mini cart. */
 				'%d',
@@ -285,14 +285,14 @@ if ( ! class_exists( 'Zakra_WooCommerce' ) ) {
 
 			if (
 				( is_woocommerce() || is_cart() || is_checkout() ) &&
-				'zak-site-layout--left' === zakra_get_current_layout()
+				'zak-site-layout--left' === zakra_get_current_sidebar_layout()
 			) {
 				return 'wc-left-sidebar';
 			}
 
 			if (
-				( ( is_woocommerce() || is_cart() || is_checkout() ) && 'zak-site-layout--right' === zakra_get_current_layout() ) ||
-				( ( is_woocommerce() || is_cart() || is_checkout() ) && 'zak-site-layout--2-sidebars' === zakra_get_current_layout() )
+				( ( is_woocommerce() || is_cart() || is_checkout() ) && 'zak-site-layout--right' === zakra_get_current_sidebar_layout() ) ||
+				( ( is_woocommerce() || is_cart() || is_checkout() ) && 'zak-site-layout--2-sidebars' === zakra_get_current_sidebar_layout() )
 			) {
 				return 'wc-right-sidebar';
 			}

@@ -184,11 +184,9 @@ if ( ! class_exists( 'Zakra_Migration' ) ) {
 				set_theme_mod( 'zakra_enable_container_box_style', true );
 			}
 
-			$zakra_default_sidebar_layout = get_theme_mod( 'zakra_default_sidebar_layout', 'right' );
-				$zakra_page_layout        = get_theme_mod( 'zakra_page_sidebar_layout', 'right' );
-				$zakra_archive_layout     = get_theme_mod( 'zakra_archive_sidebar_layout', 'right' );
-			error_log( print_r( $zakra_page_layout, true ) );
-			error_log( print_r( $zakra_archive_layout, true ) );
+			$zakra_default_sidebar_layout     = get_theme_mod( 'zakra_default_sidebar_layout', 'right' );
+			$zakra_page_layout                = get_theme_mod( 'zakra_page_sidebar_layout', 'right' );
+			$zakra_archive_layout             = get_theme_mod( 'zakra_archive_sidebar_layout', 'right' );
 			$zakra_post_layout                = get_theme_mod( 'zakra_post_sidebar_layout', 'right' );
 			$zakra_post_other_layout          = get_theme_mod( 'zakra_others_sidebar_layout', 'right' );
 			$zakra_woocommerce_global         = get_theme_mod( 'zakra_woocommerce_default_sidebar_layout', 'right' );
@@ -535,8 +533,6 @@ if ( ! class_exists( 'Zakra_Migration' ) ) {
 			if ( get_option( 'zakra_sidebar_layout_migration' ) ) {
 				return;
 			}
-
-			error_log( print_r( 'zakra_sidebar_layout_migration', true ) );
 
 				set_theme_mod( 'zakra_page_sidebar_layout', 'contained' );
 				set_theme_mod( 'zakra_archive_sidebar_layout', 'contained' );
