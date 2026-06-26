@@ -1,5 +1,5 @@
 import { __ } from '@wordpress/i18n';
-import React from 'react';
+import React, { useState } from 'react';
 import { PREMIUM, QUICK_SETTINGS } from '../../constants';
 import { documentIcon } from '../../icons/icons';
 
@@ -10,6 +10,67 @@ import UsefulPlugins from '../../components/UsefulPlugins';
 import usePluginInstallActivate from '../../hook/usePluginInstallActivate';
 import { ZAKRA_DASHBOARD_STORE } from '../../store';
 import { localized } from '../../utils/global';
+
+const ContributingSection: React.FC = () => {
+	const [enabled, setEnabled] = useState<boolean>(localized.trackingEnabled ?? false);
+	const [saving, setSaving] = useState(false);
+
+	const handleChange = async (checked: boolean) => {
+		if (saving) return;
+		setSaving(true);
+		setEnabled(checked);
+		const fd = new FormData();
+		fd.append('action', 'zakra_save_tracking');
+		fd.append('nonce', localized.trackingNonce ?? '');
+		fd.append('enabled', checked ? '1' : '0');
+		await fetch(localized.ajaxUrl, { method: 'POST', body: fd });
+		setSaving(false);
+	};
+
+	return (
+		<div className="p-4 bg-white rounded-lg shadow-sm border border-solid border-[#F4F4F4] mb-5">
+			<h3 className="text-base font-semibold text-[#383838] m-0 mb-3">
+				{__('Contributing', 'zakra')}
+			</h3>
+			<p className="text-[#6B6B6B] text-sm mb-2">
+				{__(
+					'Become a contributor by opting in to our anonymous data tracking. We guarantee no sensitive data is collected.',
+					'zakra',
+				)}
+			</p>
+			<a
+				href="https://themegrill.com/privacy-policy/"
+				target="_blank"
+				className="text-[#2563EB] hover:text-[#2563EB] text-[13px] no-underline mb-3 inline-block"
+			>
+				{__('What do we track?', 'zakra')} ↗
+			</a>
+			<div className="flex items-center gap-2 mt-2">
+				<button
+					role="switch"
+					aria-checked={enabled}
+					disabled={saving}
+					onClick={() => handleChange(!enabled)}
+					className={`relative inline-flex items-center w-[30px] h-[17px] rounded-full border-none cursor-pointer transition-colors duration-200 p-0 ${enabled ? 'bg-[#2563EB]' : 'bg-[#ccc]'}`}
+					style={{ flexShrink: 0 }}
+				>
+					<span
+						className="absolute bg-white rounded-full transition-transform duration-200"
+						style={{
+							width: 11,
+							height: 11,
+							left: 3,
+							transform: enabled ? 'translateX(13px)' : 'translateX(0)',
+						}}
+					/>
+				</button>
+				<span className="text-[13px] font-medium text-[#383838]">
+					{__('Allow Anonymous Tracking', 'zakra')}
+				</span>
+			</div>
+		</div>
+	);
+};
 
 const Dashboard: React.FC = () => {
 	const pluginsStatus = useSelect((select) => {
@@ -198,6 +259,7 @@ const Dashboard: React.FC = () => {
 					</div>
 				</div>
 				<div className="lg:basis-3/12 basis-full">
+					<ContributingSection />
 					<div className="p-4 bg-white rounded-lg shadow-sm border border-solid roundenss border-[#2563EB] mb-5 ">
 						<div>
 							<h3 className="text-base font-semibold text-[#383838] flex gap-1 w-fit m-0 items-center">

@@ -12,13 +12,14 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+if ( file_exists( get_template_directory() . '/vendor/autoload.php' ) ) {
+	require_once get_template_directory() . '/vendor/autoload.php';
+}
+
 /**
  * Define constants.
  */
 require get_template_directory() . '/inc/base/class-zakra-constants.php';
-
-// Must load after class-zakra-constants.php defines ZAKRA_PARENT_INC_DIR.
-require_once ZAKRA_PARENT_INC_DIR . '/base/class-zakra-abilities.php';
 
 /**
  * Helpers functions.
@@ -154,6 +155,9 @@ require_once ZAKRA_PARENT_INC_DIR . '/class-breadcrumb-trail.php';
 // Svg icon class.
 require_once ZAKRA_PARENT_INC_DIR . '/class-zakra-svg-icons.php';
 
+// Starter content (Customizer / WordPress.org theme preview).
+require_once ZAKRA_PARENT_INC_DIR . '/class-zakra-starter-content.php';
+
 // Load customind.
 require_once ZAKRA_PARENT_INC_DIR . '/customizer/customind/init.php';
 
@@ -181,6 +185,9 @@ add_action(
 );
 
 require ZAKRA_PARENT_INC_DIR . '/meta-boxes/class-zakra-meta-box.php';
+
+require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-contribution.php';
+Zakra_Contribution::instance();
 
 // Admin screen.
 require ZAKRA_PARENT_INC_DIR . '/admin/class-zakra-changelog-controller.php';

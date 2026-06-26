@@ -18,7 +18,7 @@ $options = array(
 						'{wp-link}'
 					),
 					'type'        => 'customind-editor',
-					'title'       => esc_html__( 'Text/HTML for Column 1', 'zakra' ),
+					'title'       => esc_html__( 'Copyright Text/HTML', 'zakra' ),
 					'description' => wp_kses(
 						'<a href="' . esc_url( 'https://docs.zakratheme.com/en/article/dynamic-strings-for-footer-copyright-content-13empt5/' ) . '" target="_blank">' . esc_html__( 'Docs Link', 'zakra' ) . '</a>',
 						array(
@@ -110,7 +110,7 @@ $options = array(
 						'unit'   => 'px',
 					),
 					'type'        => 'customind-dimensions',
-					'title'       => 'Margin',
+					'title'       => esc_html__( 'Margin', 'zakra' ),
 					'section'     => 'zakra_footer_builder_copyright',
 					'transport'   => 'postMessage',
 					'units'       => array( 'px', 'em', '%', 'rem' ),
@@ -142,7 +142,7 @@ $options = array(
 if ( ! zakra_is_zakra_pro_active() ) {
 	$options['zakra_html_1_upgrade'] = array(
 		'type'        => 'customind-upsell',
-		'description' => esc_html__( 'Unlock more features available in Pro version.', 'zakra' ),
+		'description' => esc_html__( 'Unlock more features available in the Pro version.', 'zakra' ),
 		'title'       => esc_html__( 'Learn more', 'zakra' ),
 		'url'         => esc_url( 'https://zakratheme.com/pricing/?utm_medium=dash-customizer-learn-more&utm_source=zakra-theme&utm_campaign=customizer-upgrade-button&utm_content=learn-more' ),
 		'section'     => 'zakra_footer_builder_copyright',

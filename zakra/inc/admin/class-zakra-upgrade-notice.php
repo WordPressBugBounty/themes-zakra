@@ -78,7 +78,7 @@ class Zakra_Upgrade_Notice extends Zakra_Notice {
 				printf(
 					/* Translators: %1$s current user display name., %2$s this theme name., %3$s discount coupon code., %4$s discount percentage. */
 					esc_html__(
-						'Howdy, %1$s! You\'ve been using %2$s theme for a while now, and we hope you\'re happy with it. To access more premium features you can always upgrade to pro. All contents and settings will remain as it is after upgrading to pro, you basically start from where you left. Also, you can use the coupon code %3$s to get %4$s discount on Zakra Pro Plan (limited time offer) while making the purchase. Enjoy! ',
+						'Howdy, %1$s! You\'ve been using %2$s theme for a while now, and we hope you\'re happy with it. To access more premium features you can always upgrade to pro. All your content and settings will remain as they are after upgrading to Pro, so you simply continue from where you left off. Also, you can use the coupon code %3$s to get %4$s discount on Zakra Pro Plan (limited time offer) while making the purchase. Enjoy! ',
 						'zakra'
 					),
 					'<strong>' . esc_html( $current_user->display_name ) . '</strong>',
@@ -102,7 +102,7 @@ class Zakra_Upgrade_Notice extends Zakra_Notice {
 
 				<a href="https://zakratheme.com/support/?utm_source=zakra-dashboard-message&utm_medium=button-link&utm_campaign=pre-sales" class="button button-secondary" target="_blank">
 					<span class="dashicons dashicons-info"></span>
-					<span><?php esc_html_e( 'Got pre sales queries?', 'zakra' ); ?></span>
+					<span><?php esc_html_e( 'Have pre-sales questions?', 'zakra' ); ?></span>
 				</a>
 			</div>
 		</div> <!-- /.zakra-notice -->

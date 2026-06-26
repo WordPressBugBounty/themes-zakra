@@ -54,7 +54,7 @@ $enable_header_button_2 = get_theme_mod( 'zakra_enable_mobile_header_button_2', 
 			<?php endif; ?>
 
 			<!-- Mobile nav close icon. -->
-			<button id="zak-mobile-nav-close" class="zak-mobile-nav-close" aria-label="<?php esc_attr_e( 'Close Button', 'zakra' ); ?>">
+			<button id="zak-mobile-nav-close" class="zak-mobile-nav-close" aria-label="<?php esc_attr_e( 'Close menu', 'zakra' ); ?>">
 				<?php zakra_get_icon( 'x-mark' ); ?>
 			</button>
 		</div> <!-- /.zak-mobile-nav__header -->

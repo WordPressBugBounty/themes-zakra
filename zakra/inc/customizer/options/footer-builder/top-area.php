@@ -9,7 +9,7 @@ $options = array(
 			array(
 				'zakra_footer_top_area_cols'            => array(
 					'type'        => 'customind-slider',
-					'title'       => 'Top row cols',
+					'title'       => esc_html__( 'Top row columns', 'zakra' ),
 					'default'     => 4,
 					'priority'    => 7,
 					'section'     => 'zakra_footer_builder_top_area',
@@ -143,7 +143,7 @@ $options = array(
 				),
 				'zakra_footer_top_inner_element_layout' => array(
 					'type'      => 'customind-toggle-button',
-					'title'     => esc_html__( ' Layout', 'zakra' ),
+					'title'     => esc_html__( 'Layout', 'zakra' ),
 					'section'   => 'zakra_footer_builder_top_area',
 					'transport' => 'postMessage',
 					'choices'   => array(

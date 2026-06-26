@@ -32,7 +32,7 @@ get_header();
 
 			<div class="zak-page-content">
 				<p>
-					<?php esc_html_e( 'We’re sorry, the page you requested could not be found. Please go back to the homepage', 'zakra' ); ?>
+					<?php esc_html_e( 'We’re sorry, the page you requested could not be found. Please go back to the homepage.', 'zakra' ); ?>
 				</p>
 			</div><!-- .zak-page-content -->
 

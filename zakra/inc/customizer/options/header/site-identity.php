@@ -30,7 +30,7 @@ $options = apply_filters(
 						'type'        => 'customind-image',
 						'title'       => esc_html__( 'Retina Logo', 'zakra' ),
 						'section'     => 'title_tagline',
-						'description' => esc_html__( 'Upload 2X times the size of your current logo. Eg: If your current logo size is 120*60 then upload 240*120 sized logo.', 'zakra' ),
+						'description' => esc_html__( 'Upload a logo twice the size of your current one. For example, if your current logo is 120 x 60 pixels, upload one sized 240 x 120 pixels.', 'zakra' ),
 
 					),
 					'zakra_site_logo_height' => array(
@@ -219,7 +219,7 @@ $options = apply_filters(
 if ( ! zakra_is_zakra_pro_active() ) {
 	$options['zakra_site_identity_upgrade'] = array(
 		'type'        => 'customind-upsell',
-		'description' => esc_html__( 'Unlock more features available in Pro version.', 'zakra' ),
+		'description' => esc_html__( 'Unlock more features available in the Pro version.', 'zakra' ),
 		'title'       => esc_html__( 'Learn more', 'zakra' ),
 		'url'         => esc_url( 'https://zakratheme.com/pricing/?utm_medium=dash-customizer-learn-more&utm_source=zakra-theme&utm_campaign=customizer-upgrade-button&utm_content=learn-more' ),
 		'section'     => 'title_tagline',

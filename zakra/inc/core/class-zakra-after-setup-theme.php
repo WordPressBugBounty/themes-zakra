@@ -381,6 +381,11 @@ if ( ! class_exists( 'Zakra_After_Setup_Theme' ) ) {
 			// Add support for Block Styles.
 			add_theme_support( 'wp-block-styles' );
 
+			// Starter content for a designed front page on fresh sites / WordPress.org theme preview.
+			if ( class_exists( 'Zakra_Starter_Content' ) ) {
+				add_theme_support( 'starter-content', Zakra_Starter_Content::get() );
+			}
+
 			// AMP support.
 			if ( defined( 'AMP__VERSION' ) && ( ! version_compare( AMP__VERSION, '1.0.0', '<' ) ) ) {
 

@@ -45,7 +45,7 @@
 		elseif ( is_search() ) :
 			?>
 
-			<p><?php esc_html_e( 'We couldnt find any results for your search. Use more generic words or double check your spelling.', 'zakra' ); ?></p>
+			<p><?php esc_html_e( 'We couldn\'t find any results for your search. Use more generic words or double-check your spelling.', 'zakra' ); ?></p>
 			<?php
 			get_search_form();
 

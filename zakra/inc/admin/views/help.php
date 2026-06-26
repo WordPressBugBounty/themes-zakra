@@ -71,7 +71,7 @@ $star_icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 11" fill="
 					<img src="<?php echo esc_url( ZAKRA_PARENT_URI . '/inc/admin/images/youtube.webp' ); ?>" alt="<?php esc_attr_e( 'youtube', 'zakra' ); ?>">
 				</div>
 				<div class="zak-content">
-					<h3><?php esc_html_e( 'Youtube Community','zakra' ); ?></h3>
+					<h3><?php esc_html_e( 'YouTube Community','zakra' ); ?></h3>
 					<p><?php esc_html_e( 'Visit our YouTube channel for videos about tutorials, updates, and news on our products!','zakra' ); ?></p>
 					<a href="<?php echo esc_url( 'https://www.youtube.com/@ThemeGrillOfficial' ); ?>" target="_blank"><span><?php esc_html_e( 'Visit us on YouTube','zakra' ); ?></span></a>
 				</div>
@@ -148,7 +148,7 @@ $star_icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 11" fill="
 						'name'        => 'Everest Forms',
 						'file'        => 'everest-forms/everest-forms.php',
 						'slug'        => 'everest-forms',
-						'description' => 'Form Builder Plugin',
+						'description' => __( 'Form Builder Plugin', 'zakra' ),
 						'color'       => '#5317AA',
 						'svg'         => '<svg xmlns="http://www.w3.org/2000/svg" width="41" height="40" viewBox="0 0 41 40 fill="none">
                                             <rect x="0.5" width="40" height="40" rx="3.63636" fill="#5317AA"/>
@@ -165,7 +165,7 @@ $star_icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 11" fill="
 						'name'        => 'BlockArt',
 						'file'        => 'blockart-blocks/blockart.php',
 						'slug'        => 'blockart',
-						'description' => 'Page Builder Plugin',
+						'description' => __( 'Page Builder Plugin', 'zakra' ),
 						'color'       => '#2563EB',
 						'svg'         => '<svg xmlns="http://www.w3.org/2000/svg" width="41" height="40" viewBox="0 0 41 40" fill="none">
                                             <rect x="0.5" width="40" height="40" rx="3.63636" fill="#2563EB"/>

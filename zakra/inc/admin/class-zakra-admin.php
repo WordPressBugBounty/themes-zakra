@@ -153,6 +153,9 @@ class Zakra_Admin {
 						),
 					),
 					'adminUrl'             => admin_url(),
+					'ajaxUrl'              => admin_url( 'admin-ajax.php' ),
+					'trackingEnabled'      => 'yes' === get_option( 'zakra_logger_flag', 'no' ),
+					'trackingNonce'        => wp_create_nonce( 'zakra_tracking_nonce' ),
 				),
 			)
 		);

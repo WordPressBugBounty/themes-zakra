@@ -4,12 +4,12 @@
  * Contains the gulp commands to run repetitive tasks.
  */
 
+import { exec } from 'child_process';
 import browserSync from 'browser-sync';
 import { globbySync } from 'globby';
 import gulp from 'gulp';
 import autoprefixer from 'gulp-autoprefixer';
 import eslint from 'gulp-eslint';
-import imagemin from 'gulp-imagemin';
 import lec from 'gulp-line-ending-corrector';
 import notify from 'gulp-notify';
 import phpcs from 'gulp-phpcs';
@@ -21,7 +21,7 @@ import _uglify from 'gulp-uglify-es';
 import uglifycss from 'gulp-uglifycss';
 import wpPot from 'gulp-wp-pot';
 import zip from 'gulp-zip';
-import _sass from 'node-sass';
+import _sass from 'sass';
 import webfontgenerator from 'webfonts-generator';
 
 let uglify = _uglify.default;
@@ -142,8 +142,6 @@ let paths = {
 	zip: {
 		src: [
 			'**',
-			'!vendor',
-			'!vendor/**',
 			'!node_modules',
 			'!node_modules/**',
 			'!assets/sass',
@@ -237,7 +235,9 @@ let build = gulp.series(
 
 	// Create zip,
 	generatePotFile,
+	composerInstallNoDev,
 	compressZip,
+	composerInstall,
 );
 
 /**
@@ -424,7 +424,8 @@ function lintJS() {
 }
 
 // Minify image files.
-function minifyImg() {
+async function minifyImg() {
+	const { default: imagemin } = await import('gulp-imagemin');
 	return gulp
 		.src(paths.img.src)
 		.pipe(imagemin())
@@ -483,6 +484,16 @@ function generatePotFile() {
 		.on('error', notify.onError());
 }
 
+// Install production-only composer dependencies before zipping.
+function composerInstallNoDev(cb) {
+	exec('composer install --no-dev --optimize-autoloader', cb);
+}
+
+// Restore dev composer dependencies after zipping.
+function composerInstall(cb) {
+	exec('composer install', cb);
+}
+
 // Compress theme into a zip file.
 function compressZip() {
 	return gulp
@@ -533,6 +544,8 @@ export {
 	browserSyncReload,
 	browserSyncStart,
 	build,
+	composerInstall,
+	composerInstallNoDev,
 	compileAdminSass,
 	compileControlSass,
 	compileMetaboxSass,

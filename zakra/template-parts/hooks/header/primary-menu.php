@@ -117,7 +117,7 @@ if ( ! function_exists( 'zakra_add_submenu_icon' ) ) :
 					in_array( 'page_item_has_children', $item->classes, true )
 				) {
 
-				$submenu_toggle_markup = '<span role="button" tabindex="0" class="zak-submenu-toggle" onkeypress="">' .
+				$submenu_toggle_markup = '<span role="button" tabindex="0" class="zak-submenu-toggle">' .
 										'<svg class="zak-icon zak-dropdown-icon" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 24 24"><path d="M12 17.5c-.3 0-.5-.1-.7-.3l-9-9c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l8.3 8.3 8.3-8.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-9 9c-.2.2-.4.3-.7.3z"/></svg>' .
 										'</span>';
 

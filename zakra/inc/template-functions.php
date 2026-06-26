@@ -196,19 +196,19 @@ if ( ! function_exists( 'zakra_get_title' ) ) :
 				$page_title = post_type_archive_title( '', false );
 			elseif ( is_day() ) :
 
-				$day_title = apply_filters( 'zakra_day_title_prefix', 'Day:' );
+				$day_title = apply_filters( 'zakra_day_title_prefix', __( 'Day:', 'zakra' ) );
 
 				/* translators: %1$s: Day prefix, %2$s: Day. */
 				$page_title = sprintf( esc_html__( '%1$s %2$s', 'zakra' ), $day_title, '<span>' . get_the_date() . '</span>' );
 			elseif ( is_month() ) :
 
-				$month_title = apply_filters( 'zakra_month_title_prefix', 'Month:' );
+				$month_title = apply_filters( 'zakra_month_title_prefix', __( 'Month:', 'zakra' ) );
 
 				/* translators: %1$s: Month prefix, %2$s: Month. */
 				$page_title = sprintf( esc_html__( '%1$s %2$s', 'zakra' ), $month_title, '<span>' . get_the_date( 'F Y' ) . '</span>' );
 			elseif ( is_year() ) :
 
-				$year_title = apply_filters( 'zakra_year_title_prefix', 'Year:' );
+				$year_title = apply_filters( 'zakra_year_title_prefix', __( 'Year:', 'zakra' ) );
 
 				/* translators: %1$s: Year prefix, %2$s: Year. */
 				$page_title = sprintf( esc_html__( '%1$s %2$s', 'zakra' ), $year_title, '<span>' . get_the_date( 'Y' ) . '</span>' );

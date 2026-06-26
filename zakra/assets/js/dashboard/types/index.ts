@@ -51,6 +51,8 @@ export type zakraLocalized = {
 	nonce: string;
 	ajaxUrl: string;
 	popupEditUrl: string;
+	trackingEnabled?: boolean;
+	trackingNonce?: string;
 };
 
 export type EditorSettingsMap = {
