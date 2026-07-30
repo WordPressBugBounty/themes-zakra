@@ -35,6 +35,17 @@
 
 		$( '#customize-theme-controls' ).prepend( $card );
 
+		// Only show on the root ( first ) screen — hide as soon as the user
+		// navigates into any panel or section, and restore it when they go back.
+		var toggleCardVisibility = function () {
+			var expanded = api.state( 'expandedPanel' ).get() || api.state( 'expandedSection' ).get();
+			$card.toggle( ! expanded );
+		};
+
+		api.state( 'expandedPanel' ).bind( toggleCardVisibility );
+		api.state( 'expandedSection' ).bind( toggleCardVisibility );
+		toggleCardVisibility();
+
 		// Keep: simply dismiss. Starter content stays staged and publishes as usual.
 		$card.on( 'click', '.zakra-sc-keep', function () {
 			$card.slideUp( 150, function () {

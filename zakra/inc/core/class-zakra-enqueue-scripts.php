@@ -55,9 +55,16 @@ if ( ! class_exists( 'Zakra_Enqueue_Scripts' ) ) {
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
+			// Preload critical web fonts as early as possible in <head> to prevent the
+			// font-swap layout shift that happens while the CSS-referenced font file downloads.
+			add_action( 'wp_head', array( $this, 'preload_web_fonts' ), 1 );
+
 			add_action( 'enqueue_block_editor_assets', array( $this, 'block_editor_styles' ), 1 );
 
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'zakra_inline_customizer_css' ) );
+
+			// Bust the dynamic CSS cache whenever the Customizer settings are saved.
+			add_action( 'customize_save_after', array( $this, 'clear_dynamic_css_cache' ) );
 
 			if ( is_child_theme() ) {
 				add_action(
@@ -90,45 +97,7 @@ if ( ! class_exists( 'Zakra_Enqueue_Scripts' ) ) {
 			// Local Google fonts locally.
 			$host_fonts_locally = get_theme_mod( 'zakra_load_google_fonts_locally', false );
 
-			$typography_ids = apply_filters(
-				'zakra_enqueue_scripts_typography_ids',
-				array(
-					'zakra_body_typography',
-					'zakra_heading_typography',
-					'zakra_site_title_typography',
-					'zakra_site_tagline_typography',
-					'zakra_main_menu_typography',
-					'zakra_sub_menu_typography',
-					'zakra_mobile_menu_typography',
-					'zakra_breadcrumb_typography',
-					'zakra_shop_product_button_typography',
-					'zakra_shop_product_price_typography',
-					'zakra_shop_product_title_typography',
-					'zakra_shop_product_view_cart_typography',
-					'zakra_post_page_title_typography',
-					'zakra_blog_post_title_typography',
-					'zakra_h1_typography',
-					'zakra_h2_typography',
-					'zakra_h3_typography',
-					'zakra_h4_typography',
-					'zakra_h5_typography',
-					'zakra_h6_typography',
-					'zakra_widget_title_typography',
-					'zakra_widget_content_typography',
-					'zakra_header_drawer_menu_typography',
-					'zakra_header_main_menu_typography',
-					'zakra_header_sub_menu_typography',
-					'zakra_header_site_title_typography',
-					'zakra_header_site_tagline_typography',
-					'zakra_header_secondary_menu_typography',
-					'zakra_header_secondary_sub_menu_typography',
-					'zakra_header_tertiary_menu_typography',
-					'zakra_header_tertiary_sub_menu_typography',
-					'zakra_header_quaternary_menu_typography',
-					'zakra_button_typography',
-					'zakra_header_button_typography',
-				)
-			);
+			$typography_ids = $this->get_typography_control_ids();
 
 			$google_fonts_url = \Customind\Core\get_google_fonts_url_by_ids( $typography_ids, $host_fonts_locally );
 
@@ -152,12 +121,33 @@ if ( ! class_exists( 'Zakra_Enqueue_Scripts' ) ) {
 			/**
 			 * Dynamic CSS.
 			 */
-			// Dynamically generated styles from options.
-			add_filter( 'zakra_dynamic_theme_css', array( 'Zakra_Dynamic_CSS', 'render_output' ) );
-			add_filter( 'zakra_dynamic_theme_css', array( 'Zakra_Dynamic_CSS', 'render_builder_output' ) );
+			// Serve dynamic CSS from a transient cache unless inside the Customizer live preview,
+			// where edits need to reflect immediately.
+			$dynamic_css_fingerprint = ! is_customize_preview() ? md5( serialize( get_theme_mods() ) ) : ''; // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize
+			$cached_dynamic_css      = ! is_customize_preview() ? get_transient( 'zakra_dynamic_css_cache' ) : false;
 
-			// Generate dynamic CSS to add inline styles for the theme.
-			$theme_dynamic_css = apply_filters( 'zakra_dynamic_theme_css', '' );
+			if ( ! is_customize_preview() && false !== $cached_dynamic_css && isset( $cached_dynamic_css['hash'], $cached_dynamic_css['css'] ) && $cached_dynamic_css['hash'] === $dynamic_css_fingerprint ) {
+				$theme_dynamic_css = $cached_dynamic_css['css'];
+			} else {
+
+				// Dynamically generated styles from options.
+				add_filter( 'zakra_dynamic_theme_css', array( 'Zakra_Dynamic_CSS', 'render_output' ) );
+				add_filter( 'zakra_dynamic_theme_css', array( 'Zakra_Dynamic_CSS', 'render_builder_output' ) );
+
+				// Generate dynamic CSS to add inline styles for the theme.
+				$theme_dynamic_css = apply_filters( 'zakra_dynamic_theme_css', '' );
+
+				if ( ! is_customize_preview() ) {
+					set_transient(
+						'zakra_dynamic_css_cache',
+						array(
+							'hash' => $dynamic_css_fingerprint,
+							'css'  => $theme_dynamic_css,
+						),
+						DAY_IN_SECONDS
+					);
+				}
+			}
 
 			// Load dynamic CSS.
 			if ( zakra_is_zakra_pro_active() ) {
@@ -212,6 +202,109 @@ if ( ! class_exists( 'Zakra_Enqueue_Scripts' ) ) {
 		}
 
 		/**
+		 * Get the typography Customizer control IDs whose fonts get loaded via Google Fonts.
+		 *
+		 * Shared by `enqueue_scripts()` and `preload_web_fonts()` so both always resolve the
+		 * exact same font URL — `preload_web_fonts()` relies on this to hit the same font
+		 * cache `enqueue_scripts()` already populated, rather than triggering a second fetch.
+		 *
+		 * @return array
+		 */
+		private function get_typography_control_ids() {
+
+			return apply_filters(
+				'zakra_enqueue_scripts_typography_ids',
+				array(
+					'zakra_body_typography',
+					'zakra_heading_typography',
+					'zakra_site_title_typography',
+					'zakra_site_tagline_typography',
+					'zakra_main_menu_typography',
+					'zakra_sub_menu_typography',
+					'zakra_mobile_menu_typography',
+					'zakra_breadcrumb_typography',
+					'zakra_shop_product_button_typography',
+					'zakra_shop_product_price_typography',
+					'zakra_shop_product_title_typography',
+					'zakra_shop_product_view_cart_typography',
+					'zakra_post_page_title_typography',
+					'zakra_blog_post_title_typography',
+					'zakra_h1_typography',
+					'zakra_h2_typography',
+					'zakra_h3_typography',
+					'zakra_h4_typography',
+					'zakra_h5_typography',
+					'zakra_h6_typography',
+					'zakra_widget_title_typography',
+					'zakra_widget_content_typography',
+					'zakra_header_drawer_menu_typography',
+					'zakra_header_main_menu_typography',
+					'zakra_header_sub_menu_typography',
+					'zakra_header_site_title_typography',
+					'zakra_header_site_tagline_typography',
+					'zakra_header_secondary_menu_typography',
+					'zakra_header_secondary_sub_menu_typography',
+					'zakra_header_tertiary_menu_typography',
+					'zakra_header_tertiary_sub_menu_typography',
+					'zakra_header_quaternary_menu_typography',
+					'zakra_button_typography',
+					'zakra_header_button_typography',
+				)
+			);
+		}
+
+		/**
+		 * Preload the critical web font files.
+		 *
+		 * The Google Fonts stylesheet enqueued in `enqueue_scripts()` only points at the
+		 * font files via `@font-face src` — the browser can't start downloading them until
+		 * it has fetched and parsed that stylesheet. Meanwhile, `font-display: fallback`
+		 * paints text with a fallback font, then swaps to the web font once it arrives,
+		 * shifting layout as text metrics change. Preloading the font files directly lets
+		 * the browser fetch them in parallel with the stylesheet, closing that gap.
+		 *
+		 * Font files can only be preloaded when hosted locally, since remote Google Fonts
+		 * URLs aren't known ahead of the stylesheet request; in that case, preconnect to the
+		 * font host instead to reduce the connection latency for the eventual font request.
+		 *
+		 * @return void
+		 */
+		public function preload_web_fonts() {
+
+			if ( ! get_theme_mod( 'zakra_load_google_fonts_locally', false ) ) {
+
+				echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />' . "\n";
+
+				return;
+			}
+
+			$font_files = \Customind\Core\get_google_font_files_by_ids( $this->get_typography_control_ids() );
+
+			// Cap the number of preloaded files: preloading is meant for the handful of
+			// fonts needed for the very first paint, not every configured typeface/weight.
+			$font_files = apply_filters( 'zakra_preload_web_fonts_files', array_slice( $font_files, 0, 4 ) );
+
+			foreach ( $font_files as $font_file ) {
+
+				printf(
+					'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin />' . "\n",
+					esc_url( $font_file )
+				);
+			}
+		}
+
+		/**
+		 * Bust the dynamic CSS transient cache after a Customizer save,
+		 * so saved changes appear immediately on the next page load.
+		 *
+		 * @return void
+		 */
+		public function clear_dynamic_css_cache() {
+
+			delete_transient( 'zakra_dynamic_css_cache' );
+		}
+
+		/**
 		 * Enqueue block editor styles.
 		 *
 		 * TODO: @since.
@@ -222,9 +315,7 @@ if ( ! class_exists( 'Zakra_Enqueue_Scripts' ) ) {
 		}
 
 		public function zakra_inline_customizer_css() {
-			wp_add_inline_style(
-				'customize-controls',
-				'
+			$css = '
 
 				#customize-control-zakra_content_area_heading {
 				display: inline-block;
@@ -304,36 +395,40 @@ if ( ! class_exists( 'Zakra_Enqueue_Scripts' ) ) {
 		        height: 40px;
 		        }
 
-		        [data-zakra-header-panel="active"]{
-			    #sub-accordion-section-zakra_builder{
+		        /*
+		         * Also require #sub-accordion-panel-zakra_header.current-panel -- WP core own
+		         * reliable indicator of which panel is actually open -- alongside the data-attribute
+		         * above. That attribute is only ever toggled by our own JS bound to the classic
+		         * zakra_header panel, with no cross-check against which panel is truly current, so
+		         * if that gets stale this Enable Builder promo control can float over unrelated
+		         * panels, e.g. the Header Builder panel, instead of staying inside its own.
+		         */
+		        [data-zakra-header-panel="active"] #sub-accordion-panel-zakra_header.current-panel #sub-accordion-section-zakra_builder{
 			    top: 65px !important;
 			        left:2px !important;
 			    visibility: visible !important;
 			    height: auto !important;
 			    transform: none !important;
 			    z-index: 99999999;
-
-			    .section-meta{
-			        display:none !important;
-			    }
 			}
 
-			#accordion-section-zakra_builder {
+			[data-zakra-header-panel="active"] #sub-accordion-panel-zakra_header.current-panel #sub-accordion-section-zakra_builder .section-meta{
+			    display:none !important;
+			}
+
+			[data-zakra-header-panel="active"] #sub-accordion-panel-zakra_header.current-panel #accordion-section-zakra_builder {
 			    height:155px !important;
 			    visibility: hidden;
 			}
-			    [data-control-id="zakra_builder_heading"]{
-			        max-width: 310px !important;
-			    }
+			[data-zakra-header-panel="active"] #sub-accordion-panel-zakra_header.current-panel [data-control-id="zakra_builder_heading"]{
+			    max-width: 310px !important;
 			}
 
-			.section-open[data-zakra-header-panel="active"]{
-			    #sub-accordion-section-zakra_builder{
-			        visibility: hidden !important;
-			        height: auto !important;
-			        transform: none !important;
-			    }
-			    }
+			.section-open[data-zakra-header-panel="active"] #sub-accordion-panel-zakra_header.current-panel #sub-accordion-section-zakra_builder{
+			    visibility: hidden !important;
+			    height: auto !important;
+			    transform: none !important;
+			}
 
 			    #customize-control-zakra_header_builder_style_heading {
 			    margin-top: 20px;
@@ -359,8 +454,30 @@ if ( ! class_exists( 'Zakra_Enqueue_Scripts' ) ) {
 				#customize-theme-controls .control-section-customind-upsell-section .accordion-section-title {
 				    padding: 16px 8px;
 				}
-		    '
-			);
+
+				#customize-theme-controls #sub-accordion-panel-zakra_header_builder.current-panel{
+					height: auto !important;
+				}
+
+				#customize-theme-controls #sub-accordion-section-zakra_header_builder_section, #customize-theme-controls #sub-accordion-section-zakra_footer_builder_section{
+					background-color: #ffffff;
+				}
+		    ';
+
+			// These sections are real, functional Pro features once Zakra Pro is active,
+			// so their native accordion navigation must stay visible; only hide it in favor
+			// of the upsell entries above while Pro isn't active.
+			if ( ! zakra_is_zakra_pro_active() ) {
+				$css .= '
+				#accordion-section-zakra_sticky_header > .accordion-section-title,
+				#accordion-section-zakra_transparent_header > .accordion-section-title,
+				#accordion-section-zakra_header_action > .accordion-section-title {
+					display: none;
+				}
+				';
+			}
+
+			wp_add_inline_style( 'customize-controls', $css );
 		}
 
 		public function zakra_child_theme_inline_customizer_css() {

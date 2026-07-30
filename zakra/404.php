@@ -11,7 +11,7 @@ get_header();
 ?>
 
 	<main id="zak-primary" class="zak-primary">
-		<?php echo apply_filters( 'zakra_after_primary_start_filter', false ); // WPCS: XSS OK. ?>
+		<?php echo apply_filters( 'zakra_after_primary_start_filter', false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- trusted extension point; only site-installed code can hook this filter, never visitor input. ?>
 
 		<section class="zak-error-404 not-found">
 			<?php if ( 'page-header' !== zakra_page_title_position() ) : ?>
@@ -44,7 +44,7 @@ get_header();
 			</a><!-- .button -->
 		</section><!-- .zak-error-404 -->
 
-		<?php echo apply_filters( 'zakra_after_primary_end_filter', false ); // WPCS: XSS OK. ?>
+		<?php echo apply_filters( 'zakra_after_primary_end_filter', false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- trusted extension point; only site-installed code can hook this filter, never visitor input. ?>
 	</main><!-- /.zak-primary -->
 
 <?php

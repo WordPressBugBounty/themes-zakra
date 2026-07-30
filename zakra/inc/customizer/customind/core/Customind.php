@@ -7,6 +7,7 @@ namespace Customind\Core;
 
 use Customind\Core\Factories\TypeFactory;
 use Customind\Core\Traits\Hook;
+use Customind\Core\Types\LockedSection;
 use Customind\Core\Types\UpgradeSection;
 use Customind\Core\Types\UpsellSection;
 
@@ -299,6 +300,7 @@ class Customind {
 		$this->register_items( $wp_customize, 'control' );
 		$wp_customize->register_section_type( UpsellSection::class );
 		$wp_customize->register_section_type( UpgradeSection::class );
+		$wp_customize->register_section_type( LockedSection::class );
 		$this->process_typography_controls();
 	}
 
@@ -523,6 +525,7 @@ class Customind {
 					'cssVarPrefix'          => $this->get_css_var_prefix(),
 					'colorPaletteControlId' => $this->get_color_palette_control_id(),
 					'tabs'                  => $this->tabs,
+					'proName'               => apply_filters( 'customind_pro_name', wp_get_theme()->get( 'Name' ) . ' Pro' ),
 				]
 			)
 		);

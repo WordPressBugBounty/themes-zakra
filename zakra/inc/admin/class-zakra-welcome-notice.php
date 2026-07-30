@@ -202,9 +202,9 @@ class Zakra_Welcome_Notice {
 			$hide_notice = sanitize_text_field( wp_unslash( $_GET['zakra-hide-notice'] ) );
 
 			// Hide.
-			if ( 'welcome' === $_GET['zakra-hide-notice'] ) {
+			if ( 'welcome' === $hide_notice ) {
 				update_option( 'zakra_admin_notice_' . $hide_notice, 1 );
-			} elseif ( 'major_update' === $_GET['zakra-hide-notice'] ) {
+			} elseif ( 'major_update' === $hide_notice ) {
 				update_option( 'zakra_admin_notice_major_update', 1 );
 			} else { // Show.
 				delete_option( 'zakra_admin_notice_' . $hide_notice );

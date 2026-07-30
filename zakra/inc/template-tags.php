@@ -125,24 +125,32 @@ if ( ! function_exists( 'zakra_posted_on' ) ) :
 		/* translators: %s: post date. */
 		$date_text = ( 'style-1' === $meta_style ) ? esc_html_x( 'Posted on %s', 'post date', 'zakra' ) : '%s';
 
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		/* translators: %s: post modified date. */
+		$updated_text = ( 'style-1' === $meta_style ) ? esc_html_x( 'Updated on %s', 'post date', 'zakra' ) : '%s';
 
-		if ( ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) && 'modified-date' === get_theme_mod( 'zakra_blog_post_date_type', 'published-date' ) ) {
-			$time_string = '<time class="updated" datetime="%3$s">%4$s</time>';
-		}
-
-		$time_string = sprintf(
-			$time_string,
+		$published_time = sprintf(
+			'<time class="entry-date published" datetime="%1$s">%2$s</time>',
 			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() ),
+			esc_html( get_the_date() )
+		);
+
+		$modified_time = sprintf(
+			'<time class="updated" datetime="%1$s">%2$s</time>',
 			esc_attr( get_the_modified_date( DATE_W3C ) ),
 			esc_html( get_the_modified_date() )
 		);
 
-		$posted_on = sprintf(
-			$date_text,
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-		);
+		$date_type = get_theme_mod( 'zakra_blog_post_date_type', 'published-date' );
+
+		if ( 'both-date' === $date_type ) {
+			$time_string = sprintf( $date_text, $published_time ) . ' | ' . sprintf( $updated_text, $modified_time );
+		} elseif ( 'modified-date' === $date_type ) {
+			$time_string = sprintf( $date_text, $modified_time );
+		} else {
+			$time_string = sprintf( $date_text, $published_time );
+		}
+
+		$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
 		echo '<span class="zak-posted-on">' . $catgories_icon . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}

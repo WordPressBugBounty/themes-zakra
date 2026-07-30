@@ -37,8 +37,18 @@ class Zakra_Upgrade_Notice extends Zakra_Notice {
 	}
 
 	private function set_temporary_dismiss_notice_time() {
-		if ( isset( $_GET['zakra_notice_dismiss_temporary'] ) && 'upgrade' === $_GET['zakra_notice_dismiss_temporary'] ) {
-			update_user_meta( $this->current_user_id, 'zakra_upgrade_notice_dismiss_temporary_start_time', time() );
+		if ( isset( $_GET['zakra_notice_dismiss_temporary'] ) && isset( $_GET['_zakra_upgrade_notice_dismiss_temporary_nonce'] ) ) { // WPCS: input var ok.
+			if ( ! wp_verify_nonce( wp_unslash( $_GET['_zakra_upgrade_notice_dismiss_temporary_nonce'] ), 'zakra_upgrade_notice_dismiss_temporary_nonce' ) ) { // phpcs:ignore WordPress.VIP.ValidatedSanitizedInput.InputNotSanitized
+				wp_die( __( 'Action failed. Please refresh the page and retry.', 'zakra' ) ); // WPCS: xss ok.
+			}
+
+			if ( ! current_user_can( 'publish_posts' ) ) {
+				wp_die( __( 'Cheatin&#8217; huh?', 'zakra' ) ); // WPCS: xss ok.
+			}
+
+			if ( 'upgrade' === $_GET['zakra_notice_dismiss_temporary'] ) {
+				update_user_meta( $this->current_user_id, 'zakra_upgrade_notice_dismiss_temporary_start_time', time() );
+			}
 		}
 	}
 

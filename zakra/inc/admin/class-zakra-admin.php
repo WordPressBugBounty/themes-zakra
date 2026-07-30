@@ -89,7 +89,7 @@ class Zakra_Admin {
 		if ( file_exists( $dashboard_asset_file ) ) {
 			$dashboard_asset = require $dashboard_asset_file;
 			wp_enqueue_script( 'zakra-dashboard', $build_dir_uri . 'dashboard.js', $dashboard_asset['dependencies'], $dashboard_asset['version'], true );
-			wp_enqueue_style( 'zakra-dashboard', $build_dir_uri . 'dashboard.css', array( 'wp-components' ), time() );
+			wp_enqueue_style( 'zakra-dashboard', $build_dir_uri . 'dashboard.css', array( 'wp-components' ), ZAKRA_THEME_VERSION );
 		}
 
 		//Dashboard script localization.

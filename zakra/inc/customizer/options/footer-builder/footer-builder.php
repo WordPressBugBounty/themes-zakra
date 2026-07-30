@@ -86,6 +86,14 @@ $options = apply_filters(
 			'context' => 'footer',
 			'group'   => 'zakra_footer_builder',
 			'section' => 'zakra_footer_builder_section',
+			'type_items' => array(
+				array(
+					'label'   => __( 'Footer Widget', 'zakra' ),
+					'pro'   => ! is_plugin_active( 'zakra-pro/zakra-pro.php' ),
+					'section'      => 'zakra_footer_global_widget_options',
+					'url'   => esc_url_raw( 'https://zakratheme.com/pricing/?utm_source=zakra-theme&utm_medium=dash-customizer-footer&utm_campaign=ui-footer-builder-1' ),
+				),
+			),
 		),
 		'zakra_footer_builder'            => array(
 			'section'             => 'zakra_footer_builder_section',

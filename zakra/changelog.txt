@@ -1,4 +1,29 @@
 == Changelog ==
+= Version 4.3.0 - 2026-07-30 =
+* Enhance - Smoother theme switching on sites with a large number of users.
+* Enhance - The search box now responds instantly when you click the search icon.
+* Enhance - Pages now load faster by reusing saved styles instead of rebuilding them on every visit.
+* Tweak - Added step increments to range slider controls in the Customizer.
+* Tweak - Clearer, less technical Customizer labels and refined info-text design.
+* Tweak - Used theme version instead of timestamp for dashboard and meta box stylesheet cache-busting.
+* Dev - Security audit of the codebase.
+* Fix - Mobile menu could not be closed using the Escape key.
+* Fix - Logo width slider was mislabeled "Height" in Header Builder.
+* Fix - Slider and dimension controls output invalid CSS for empty values.
+* Fix - Removed a broken Google Fonts request for the font-family "inherit".
+* Fix - Added a missing accessible label to the search overlay's close button.
+* Fix - WooCommerce extension styles broke when all WC stylesheets were dequeued.
+* Fix - Mobile menu toggle now announces its open/closed state to screen readers.
+* Fix - Social icons (X, Instagram) not displayed with their official brand icons.
+* Fix - Starter-content homepage layout overflowed horizontally on mobile devices.
+* Fix - Footer widget and social alignment settings output invalid CSS when left unset.
+* Fix - Typing a hex color code in the Customizer color picker didn't update the selected color.
+* Fix - Self-hosted web fonts now preload to prevent a layout shift (CLS) when text first renders.
+* Fix - Post Meta heading didn't render in Post Content > Meta due to an invalid section reference.
+* Fix - Header and Footer Builder Custom HTML fields lost embedded images, icons, and scripts after saving.
+* Fix - Color picker Hex field showed black instead of the actual color for swatches linked to the Global Palette.
+* Fix - Global Palette colors could disappear site-wide when the saved palette data was empty or corrupted.
+
 = Version 4.2.2 - 2026-06-24 =
 * Tweak - Added missing translation wrappers.
 * Tweak - Improve clarity on user facing texts.

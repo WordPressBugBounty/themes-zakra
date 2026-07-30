@@ -6,7 +6,7 @@ $options = apply_filters(
 		'zakra_post_meta_heading' => array(
 			'type'    => 'customind-heading',
 			'title'   => esc_html__( 'Meta', 'zakra' ),
-			'section' => 'zakra_post_meta_heading',
+			'section' => 'zakra_meta',
 		),
 		'zakra_post_meta_style'   => array(
 			'default' => 'style-1',

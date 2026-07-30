@@ -5,7 +5,7 @@ $typography_preset_choices = apply_filters(
 		'preset-1' => array(
 			'label'              => '',
 			'body_typography'    => array(
-				'font-family'    => 'Segoe UI',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -53,7 +53,7 @@ $typography_preset_choices = apply_filters(
 				'text-transform' => 'none',
 			),
 			'heading_typography' => array(
-				'font-family'    => 'Segoe UI',
+				'font-family'    => 'inherit',
 				'font-weight'    => '600',
 				'line-height'    => array(
 					'desktop' => array(

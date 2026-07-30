@@ -22,7 +22,7 @@ if ( $header_search || class_exists( 'WooCommerce' ) ) {
 
 	<div class="<?php zakra_css_class( 'zakra_header_action_class' ); ?> <?php echo esc_attr( $desktop_class ); ?>">
 
-		<?php echo apply_filters( 'zakra_header_search', zakra_search_icon_menu_item() ); ?>
+		<?php echo apply_filters( 'zakra_header_search', zakra_search_icon_menu_item() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- trusted extension point; default value is WP core's own get_search_form() output. ?>
 
 		<?php if ( class_exists( 'WooCommerce' ) ) : ?>
 
@@ -36,7 +36,7 @@ if ( $header_search || class_exists( 'WooCommerce' ) ) {
 					do_action( 'yith_wcwl_items_count' );
 				}
 				?>
-				<?php echo apply_filters( 'zakra_woocommerce_header_cart', '' ); ?>
+				<?php echo apply_filters( 'zakra_woocommerce_header_cart', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- trusted extension point; only site-installed code can hook this filter, never visitor input. ?>
 			</div>
 		<?php endif; ?>
 	</div> <!-- #zak-header-actions -->

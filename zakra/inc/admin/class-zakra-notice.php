@@ -51,7 +51,7 @@ class Zakra_Notice {
 			$dismiss_notice = sanitize_text_field( wp_unslash( $_GET['zakra_notice_dismiss'] ) );
 
 			// Hide.
-			if ( $dismiss_notice === $_GET['zakra_notice_dismiss'] ) {
+			if ( ! empty( $dismiss_notice ) ) {
 				add_user_meta( get_current_user_id(), 'zakra_' . $dismiss_notice . '_notice_dismiss', 'yes', true );
 			}
 		}
@@ -70,7 +70,7 @@ class Zakra_Notice {
 			$dismiss_notice = sanitize_text_field( wp_unslash( $_GET['zakra_notice_dismiss_temporary'] ) );
 
 			// Hide.
-			if ( $dismiss_notice === $_GET['zakra_notice_dismiss_temporary'] ) {
+			if ( ! empty( $dismiss_notice ) ) {
 				add_user_meta( get_current_user_id(), 'zakra_' . $dismiss_notice . '_notice_dismiss_temporary', 'yes', true );
 			}
 		}

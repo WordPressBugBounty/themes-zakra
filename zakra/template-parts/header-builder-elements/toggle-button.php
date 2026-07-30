@@ -26,13 +26,13 @@ $enable_search          = get_theme_mod( 'zakra_enable_header_search', true );
 	<?php echo wp_kses_post( apply_filters( 'zakra_nav_toggle_data_attrs', '' ) ); ?>>
 
 	<?php
-	// @codingStandardsIgnoreStart
-	echo apply_filters( 'zakra_before_mobile_menu_toggle', '' ); // WPCS: CSRF ok.
-	// @codingStandardsIgnoreEnd
+	echo apply_filters( 'zakra_before_mobile_menu_toggle', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- trusted extension point; only site-installed code can hook this filter, never visitor input.
 	?>
 
 	<button class="zak-menu-toggle"
-			aria-label="<?php esc_attr_e( 'Primary Menu', 'zakra' ); ?>" >
+			aria-label="<?php esc_attr_e( 'Primary Menu', 'zakra' ); ?>"
+			aria-expanded="false"
+			aria-controls="zak-mobile-nav" >
 
 		<?php
 		if ( $enable_builder || zakra_maybe_enable_builder() ) {

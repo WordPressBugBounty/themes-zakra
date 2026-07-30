@@ -4,7 +4,7 @@ Theme URI: https://zakratheme.com/
 Author: ThemeGrill
 Author URI: https://themegrill.com
 Description: Zakra is a powerful and versatile multipurpose theme that makes it easy to create beautiful and professional websites. With over free 40 pre-designed starter demo sites to choose from, you can quickly build a unique and functional site that fits your specific needs. Whether you're launching a blog, news site, e-commerce store, showcasing your portfolio, building a business site, LMS, or niche-specific site (such as a cafe, spa, charity, yoga studio, wedding venue, dental practice, photography, restaurant, or educational institution), Zakra has everything you need to succeed. The theme integrates seamlessly with popular page builders like Elementor, Brizy, BlockArt, and the Gutenberg editor, giving you complete freedom to create any layout you can imagine. Importantly, Zakra is optimized for speed, features a mobile-first responsive design, is built with block-based technology, and is optimized for search engines. It is also compatible with a wide range of popular WordPress plugins, allowing you to extend its functionality as needed. Build your next project with Zakra today and see the difference for yourself. Check out all the starter sites at https://zakratheme.com/demos!
-Version: 4.2.2
+Version: 4.3.0
 Tested up to: 7.0
 Requires PHP: 7.4
 License: GPLv3 or later
@@ -2205,6 +2205,14 @@ hr,
 	max-height: 100vh;
 	overflow-y: auto;
 }
+.admin-bar .zak-mobile-nav {
+	top: 46px;
+}
+@media screen and (min-width: 783px) {
+	.admin-bar .zak-mobile-nav {
+		top: 32px;
+	}
+}
 .zak-mobile-nav .zak-icon {
 	fill: #FAFAFA;
 }
@@ -2862,11 +2870,12 @@ body:not(.has-page-header) .zak-page-header.zak-style-5 .zak-row {
 }
 .zak-breadcrumbs .trail-items a,
 .breadcrumbs .trail-items a {
-	color: var(--zakra-color-1, #027abb);
+	color: #16181a;
 	text-decoration: underline;
 }
 .zak-breadcrumbs .trail-items a:hover,
 .breadcrumbs .trail-items a:hover {
+	color: var(--zakra-color-1, #027abb);
 	text-decoration: none;
 }
 

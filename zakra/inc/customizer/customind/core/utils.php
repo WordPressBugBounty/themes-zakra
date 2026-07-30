@@ -98,6 +98,45 @@ function get_custom_fonts_css() {
 	return $css;
 }
 
+/**
+ * Get the resolved font file URLs referenced by the fonts for the given typography controls.
+ *
+ * Reuses the same cached, self-hosted stylesheet written by `get_google_fonts_url_by_ids()`
+ * (when local hosting is enabled) so this doesn't trigger an extra remote fetch, and is meant
+ * to be used for preloading a handful of critical font files to avoid font-swap layout shift.
+ *
+ * @param array  $typography_controls_ids Typography control IDs to resolve fonts for.
+ * @param string $format                  Font format.
+ * @return array List of unique font file URLs, in stylesheet order.
+ */
+function get_google_font_files_by_ids( $typography_controls_ids, $format = 'woff2' ) {
+	$fonts_url = get_google_fonts_url_by_ids( $typography_controls_ids, false );
+
+	if ( ! $fonts_url ) {
+		return [];
+	}
+
+	$webfont_loader = new WebFontLoader( $fonts_url );
+	$webfont_loader->set_font_format( $format );
+
+	$css = $webfont_loader->get_styles();
+
+	preg_match_all( '/url\((.*?)\)/i', $css, $matches );
+
+	if ( empty( $matches[1] ) ) {
+		return [];
+	}
+
+	$urls = array_map(
+		function ( $url ) {
+			return trim( $url, '"\'' );
+		},
+		$matches[1]
+	);
+
+	return array_values( array_unique( $urls ) );
+}
+
 function get_google_fonts_url_by_ids( $typography_controls_ids, $local = false, $format = 'woff2' ) {
 	$fonts = [];
 	foreach ( $typography_controls_ids as $id ) {
@@ -107,7 +146,7 @@ function get_google_fonts_url_by_ids( $typography_controls_ids, $local = false, 
 			continue;
 		}
 		$value = apply_filters( 'customind:typography:value', $value ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
-		if ( empty( $value['font-family'] ) || 'default' === strtolower( $value['font-family'] ) ) {
+		if ( empty( $value['font-family'] ) || in_array( strtolower( $value['font-family'] ), array( 'default', 'inherit' ), true ) ) {
 			continue;
 		}
 		$family           = $value['font-family'];

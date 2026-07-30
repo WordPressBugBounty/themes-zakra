@@ -51,12 +51,22 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			);
 
 			// Color palette.
-			$color_palette = get_theme_mod('zakra_color_palette', $color_palette_default );
-			$parse_css .= sprintf(' :root{%s}', array_reduce( array_keys($color_palette['colors'] ?? []), function($acc, $curr) use ($color_palette) {
-				$acc .= "--{$curr}: {$color_palette['colors'][$curr]};";
-
-				return $acc;
-			}, '' ));
+			$color_palette  = get_theme_mod( 'zakra_color_palette', $color_palette_default );
+			$palette_colors = array_intersect_key(
+				! empty( $color_palette['colors'] ) ? $color_palette['colors'] : $color_palette_default['colors'],
+				$color_palette_default['colors']
+			);
+			$parse_css .= sprintf( ' :root{%s}', array_reduce(
+				array_keys( $palette_colors ),
+				function ( $acc, $curr ) use ( $palette_colors ) {
+					$sanitized = \Customind\Core\Sanitization::sanitize_color( $palette_colors[ $curr ] );
+					if ( $sanitized ) {
+						$acc .= "--{$curr}: {$sanitized};";
+					}
+					return $acc;
+				},
+				''
+			) );
 
 			// Breakpoint media.
 			$breakpoint_media_default = array(
@@ -142,8 +152,6 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 				.pagebuilder-content a, .zak-style-2 .zak-entry-meta span,
 				.zak-style-2 .zak-entry-meta a,
 				.entry-title:hover a,
-				.zak-breadcrumbs .trail-items a,
-				.breadcrumbs .trail-items a,
 				.entry-content a,
 				.edit-link a,
 				.zak-footer-bar a:hover,
@@ -5258,37 +5266,51 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			// Social alignment.
 			$social_alignment = get_theme_mod('zakra_socials_alignment', '');
 
-			$parse_builder_css .= ".zak-footer-builder .footer-social-icons{text-align: $social_alignment;}";
+			if ( ! empty( $social_alignment ) ) {
+				$parse_builder_css .= ".zak-footer-builder .footer-social-icons{text-align: $social_alignment;}";
+			}
 
 			// Widget alignment.
 			$widget_1_alignment = get_theme_mod('zakra_footer_widget_1_alignment', '');
 
-			$parse_builder_css .= ".zak-footer-builder .widget-footer-sidebar-1{text-align: $widget_1_alignment;}";
+			if ( ! empty( $widget_1_alignment ) ) {
+				$parse_builder_css .= ".zak-footer-builder .widget-footer-sidebar-1{text-align: $widget_1_alignment;}";
+			}
 
 			// Widget 2 alignment.
 			$widget_2_alignment = get_theme_mod('zakra_footer_widget_2_alignment', '');
 
-			$parse_builder_css .= ".zak-footer-builder .widget-footer-sidebar-2{text-align: $widget_2_alignment;}";
+			if ( ! empty( $widget_2_alignment ) ) {
+				$parse_builder_css .= ".zak-footer-builder .widget-footer-sidebar-2{text-align: $widget_2_alignment;}";
+			}
 
 			// Widget 3 alignment.
 			$widget_3_alignment = get_theme_mod('zakra_footer_widget_3_alignment', '');
 
-			$parse_builder_css .= ".zak-footer-builder .widget-footer-sidebar-3{text-align: $widget_3_alignment;}";
+			if ( ! empty( $widget_3_alignment ) ) {
+				$parse_builder_css .= ".zak-footer-builder .widget-footer-sidebar-3{text-align: $widget_3_alignment;}";
+			}
 
 			// Widget 4 alignment.
 			$widget_4_alignment = get_theme_mod('zakra_footer_widget_4_alignment', '');
 
-			$parse_builder_css .= ".zak-footer-builder .widget-footer-sidebar-4{text-align: $widget_4_alignment;}";
+			if ( ! empty( $widget_4_alignment ) ) {
+				$parse_builder_css .= ".zak-footer-builder .widget-footer-sidebar-4{text-align: $widget_4_alignment;}";
+			}
 
 			// Widget 5 alignment.
 			$widget_5_alignment = get_theme_mod('zakra_footer_widget_5_alignment', '');
 
-			$parse_builder_css .= ".zak-footer-builder .widget-footer-bar-col-1-sidebar{text-align: $widget_5_alignment;}";
+			if ( ! empty( $widget_5_alignment ) ) {
+				$parse_builder_css .= ".zak-footer-builder .widget-footer-bar-col-1-sidebar{text-align: $widget_5_alignment;}";
+			}
 
 			// Widget 6 alignment.
 			$widget_6_alignment = get_theme_mod('zakra_footer_widget_6_alignment', '');
 
-			$parse_builder_css .= ".zak-footer-builder .widget-footer-bar-col-2-sidebar{text-align: $widget_6_alignment;}";
+			if ( ! empty( $widget_6_alignment ) ) {
+				$parse_builder_css .= ".zak-footer-builder .widget-footer-bar-col-2-sidebar{text-align: $widget_6_alignment;}";
+			}
 
 			$parse_builder_css .= $dynamic_css;
 

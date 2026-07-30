@@ -39,7 +39,7 @@ $options = apply_filters(
 							'units' => 'px',
 						),
 						'type'        => 'customind-slider',
-						'title'       => esc_html__( 'Height', 'zakra' ),
+						'title'       => esc_html__( 'Width', 'zakra' ),
 						'transport'   => 'postMessage',
 						'section'     => 'zakra_header_builder_logo',
 						'units'       => array( 'px' ),

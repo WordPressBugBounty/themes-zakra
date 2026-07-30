@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: team@zakratheme.com\n"
-"POT-Creation-Date: 2026-06-25 03:02+0000\n"
+"POT-Creation-Date: 2026-07-30 03:03+0000\n"
 "Report-Msgid-Bugs-To: team@zakratheme.com\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -125,11 +125,11 @@ msgstr ""
 msgid "Contact Support"
 msgstr ""
 
-#: inc/admin/class-zakra-demo-import-migration-notice.php:80, inc/admin/class-zakra-notice.php:44, inc/admin/class-zakra-notice.php:63, inc/admin/class-zakra-pro-minimum-version-notice.php:80, inc/admin/class-zakra-theme-review-notice.php:157, inc/admin/class-zakra-theme-review-notice.php:175, inc/admin/class-zakra-welcome-notice.php:195, inc/migration/class-zakra-migration.php:2650
+#: inc/admin/class-zakra-demo-import-migration-notice.php:80, inc/admin/class-zakra-notice.php:44, inc/admin/class-zakra-notice.php:63, inc/admin/class-zakra-pro-minimum-version-notice.php:80, inc/admin/class-zakra-theme-review-notice.php:157, inc/admin/class-zakra-theme-review-notice.php:175, inc/admin/class-zakra-upgrade-notice.php:42, inc/admin/class-zakra-welcome-notice.php:195, inc/migration/class-zakra-migration.php:2650
 msgid "Action failed. Please refresh the page and retry."
 msgstr ""
 
-#: inc/admin/class-zakra-notice.php:48, inc/admin/class-zakra-notice.php:67, inc/admin/class-zakra-welcome-notice.php:199
+#: inc/admin/class-zakra-notice.php:48, inc/admin/class-zakra-notice.php:67, inc/admin/class-zakra-upgrade-notice.php:46, inc/admin/class-zakra-welcome-notice.php:199
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
@@ -169,7 +169,7 @@ msgstr ""
 msgid "I already did!"
 msgstr ""
 
-#: inc/admin/class-zakra-theme-review-notice.php:130, inc/admin/class-zakra-upgrade-notice.php:100
+#: inc/admin/class-zakra-theme-review-notice.php:130, inc/admin/class-zakra-upgrade-notice.php:110
 msgid "Maybe later"
 msgstr ""
 
@@ -178,15 +178,15 @@ msgid "I have a query"
 msgstr ""
 
 #. translators: %1$s current user display name., %2$s this theme name., %3$s discount coupon code., %4$s discount percentage.
-#: inc/admin/class-zakra-upgrade-notice.php:80
+#: inc/admin/class-zakra-upgrade-notice.php:90
 msgid "Howdy, %1$s! You've been using %2$s theme for a while now, and we hope you're happy with it. To access more premium features you can always upgrade to pro. All your content and settings will remain as they are after upgrading to Pro, so you simply continue from where you left off. Also, you can use the coupon code %3$s to get %4$s discount on Zakra Pro Plan (limited time offer) while making the purchase. Enjoy! "
 msgstr ""
 
-#: inc/admin/class-zakra-upgrade-notice.php:95
+#: inc/admin/class-zakra-upgrade-notice.php:105
 msgid "Upgrade to pro"
 msgstr ""
 
-#: inc/admin/class-zakra-upgrade-notice.php:105
+#: inc/admin/class-zakra-upgrade-notice.php:115
 msgid "Have pre-sales questions?"
 msgstr ""
 
@@ -825,11 +825,11 @@ msgstr ""
 msgid "Container"
 msgstr ""
 
-#: inc/customizer/options/footer-builder/bottom-area.php:45, inc/customizer/options/footer-builder/main-area.php:45, inc/customizer/options/footer-builder/top-area.php:45, inc/customizer/options/header-builder/bottom-area.php:33, inc/customizer/options/header-builder/logo.php:42, inc/customizer/options/header-builder/main-area.php:33, inc/customizer/options/header-builder/top-area.php:35, inc/customizer/options/header/site-identity.php:42
+#: inc/customizer/options/footer-builder/bottom-area.php:45, inc/customizer/options/footer-builder/main-area.php:45, inc/customizer/options/footer-builder/top-area.php:45, inc/customizer/options/header-builder/bottom-area.php:33, inc/customizer/options/header-builder/main-area.php:33, inc/customizer/options/header-builder/top-area.php:35, inc/customizer/options/header/site-identity.php:42
 msgid "Height"
 msgstr ""
 
-#: inc/customizer/options/footer-builder/bottom-area.php:73, inc/customizer/options/footer-builder/main-area.php:97, inc/customizer/options/footer-builder/top-area.php:73, inc/customizer/options/footer/footer-bar.php:64, inc/customizer/options/footer/footer-column.php:83, inc/customizer/options/footer/scroll-to-top.php:15, inc/customizer/options/global/button.php:30, inc/customizer/options/header-builder/bottom-area.php:61, inc/customizer/options/header-builder/header-builder.php:292, inc/customizer/options/header-builder/header-button.php:55, inc/customizer/options/header-builder/main-area.php:61, inc/customizer/options/header-builder/offset-area.php:14, inc/customizer/options/header-builder/search.php:42, inc/customizer/options/header-builder/top-area.php:64, inc/customizer/options/header/header-button.php:93, inc/customizer/options/header/main-header.php:121, inc/customizer/options/header/page-header.php:70, inc/customizer/options/header/top-bar.php:65
+#: inc/customizer/options/footer-builder/bottom-area.php:73, inc/customizer/options/footer-builder/main-area.php:97, inc/customizer/options/footer-builder/top-area.php:73, inc/customizer/options/footer/footer-bar.php:64, inc/customizer/options/footer/footer-column.php:83, inc/customizer/options/footer/scroll-to-top.php:15, inc/customizer/options/global/button.php:30, inc/customizer/options/header-builder/bottom-area.php:61, inc/customizer/options/header-builder/header-builder.php:327, inc/customizer/options/header-builder/header-button.php:55, inc/customizer/options/header-builder/main-area.php:61, inc/customizer/options/header-builder/offset-area.php:14, inc/customizer/options/header-builder/search.php:42, inc/customizer/options/header-builder/top-area.php:64, inc/customizer/options/header/header-button.php:93, inc/customizer/options/header/main-header.php:121, inc/customizer/options/header/page-header.php:70, inc/customizer/options/header/top-bar.php:65
 msgid "Background"
 msgstr ""
 
@@ -841,11 +841,11 @@ msgstr ""
 msgid "Margin"
 msgstr ""
 
-#: inc/customizer/options/footer-builder/bottom-area.php:119, inc/customizer/options/footer-builder/main-area.php:143, inc/customizer/options/footer-builder/top-area.php:119, inc/customizer/options/header-builder/bottom-area.php:107, inc/customizer/options/header-builder/header-builder.php:305, inc/customizer/options/header-builder/header-button.php:138, inc/customizer/options/header-builder/main-area.php:107, inc/customizer/options/header-builder/top-area.php:92
+#: inc/customizer/options/footer-builder/bottom-area.php:119, inc/customizer/options/footer-builder/main-area.php:143, inc/customizer/options/footer-builder/top-area.php:119, inc/customizer/options/header-builder/bottom-area.php:107, inc/customizer/options/header-builder/header-builder.php:340, inc/customizer/options/header-builder/header-button.php:138, inc/customizer/options/header-builder/main-area.php:107, inc/customizer/options/header-builder/top-area.php:92
 msgid "Border Width"
 msgstr ""
 
-#: inc/customizer/options/footer-builder/bottom-area.php:127, inc/customizer/options/footer-builder/main-area.php:151, inc/customizer/options/footer-builder/top-area.php:127, inc/customizer/options/header-builder/bottom-area.php:115, inc/customizer/options/header-builder/header-builder.php:314, inc/customizer/options/header-builder/header-button.php:147, inc/customizer/options/header-builder/main-area.php:115, inc/customizer/options/header-builder/top-area.php:100
+#: inc/customizer/options/footer-builder/bottom-area.php:127, inc/customizer/options/footer-builder/main-area.php:151, inc/customizer/options/footer-builder/top-area.php:127, inc/customizer/options/header-builder/bottom-area.php:115, inc/customizer/options/header-builder/header-builder.php:349, inc/customizer/options/header-builder/header-button.php:147, inc/customizer/options/header-builder/main-area.php:115, inc/customizer/options/header-builder/top-area.php:100
 msgid "Border Color"
 msgstr ""
 
@@ -938,6 +938,10 @@ msgstr ""
 msgid "Socials"
 msgstr ""
 
+#: inc/customizer/options/footer-builder/footer-builder.php:91
+msgid "Footer Widget"
+msgstr ""
+
 #: inc/customizer/options/footer-builder/footer-menu-2.php:11, inc/customizer/options/footer-builder/footer-menu.php:11
 msgid "Footer Menu"
 msgstr ""
@@ -1026,7 +1030,7 @@ msgstr ""
 msgid "Border Top"
 msgstr ""
 
-#: inc/customizer/options/footer/footer-bar.php:87, inc/customizer/options/global/layout.php:73, inc/customizer/options/global/layout.php:156, inc/customizer/options/header/main-header.php:143, inc/customizer/options/header/primary-menu.php:57
+#: inc/customizer/options/footer/footer-bar.php:87, inc/customizer/options/global/layout.php:73, inc/customizer/options/global/layout.php:156, inc/customizer/options/header-builder/logo.php:42, inc/customizer/options/header/main-header.php:143, inc/customizer/options/header/primary-menu.php:57
 msgid "Width"
 msgstr ""
 
@@ -1034,7 +1038,7 @@ msgstr ""
 msgid "Content Type"
 msgstr ""
 
-#: inc/customizer/options/footer/footer-bar.php:127, inc/customizer/options/footer/footer-bar.php:210, inc/customizer/options/header/top-bar.php:90, inc/customizer/options/header/top-bar.php:155, inc/helper/utils.php:438, inc/meta-boxes/class-zakra-meta-box-page-settings.php:369
+#: inc/customizer/options/footer/footer-bar.php:127, inc/customizer/options/footer/footer-bar.php:210, inc/customizer/options/header/top-bar.php:90, inc/customizer/options/header/top-bar.php:155, inc/helper/utils.php:438, inc/meta-boxes/class-zakra-meta-box-page-settings.php:368
 msgid "None"
 msgstr ""
 
@@ -1174,7 +1178,7 @@ msgstr ""
 msgid "Sidebar"
 msgstr ""
 
-#: inc/customizer/options/global/sidebar.php:46, inc/customizer/options/woocommerce/woocommerce.php:45, inc/meta-boxes/class-zakra-meta-box-page-settings.php:186, inc/meta-boxes/class-zakra-meta-box-page-settings.php:221, inc/meta-boxes/class-zakra-meta-box-page-settings.php:368
+#: inc/customizer/options/global/sidebar.php:46, inc/customizer/options/woocommerce/woocommerce.php:45, inc/meta-boxes/class-zakra-meta-box-page-settings.php:186, inc/meta-boxes/class-zakra-meta-box-page-settings.php:221, inc/meta-boxes/class-zakra-meta-box-page-settings.php:367
 msgid "Default"
 msgstr ""
 
@@ -1266,59 +1270,79 @@ msgstr ""
 msgid "Toggle Button"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:198
+#: inc/customizer/options/header-builder/header-builder.php:145
+msgid "Sticky header"
+msgstr ""
+
+#: inc/customizer/options/header-builder/header-builder.php:151
+msgid "Transparent header"
+msgstr ""
+
+#: inc/customizer/options/header-builder/header-builder.php:157
+msgid "Header Action"
+msgstr ""
+
+#: inc/customizer/options/header-builder/header-builder.php:166
+msgid "Drawer Menu"
+msgstr ""
+
+#: inc/customizer/options/header-builder/header-builder.php:171
+msgid "Button 2"
+msgstr ""
+
+#: inc/customizer/options/header-builder/header-builder.php:233
 msgid "Builder area top"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:203
+#: inc/customizer/options/header-builder/header-builder.php:238
 msgid "Builder area top left"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:208
+#: inc/customizer/options/header-builder/header-builder.php:243
 msgid "Builder area top middle"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:213
+#: inc/customizer/options/header-builder/header-builder.php:248
 msgid "Builder area top right"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:220
+#: inc/customizer/options/header-builder/header-builder.php:255
 msgid "Builder Main area"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:225
+#: inc/customizer/options/header-builder/header-builder.php:260
 msgid "Builder area middle left"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:230
+#: inc/customizer/options/header-builder/header-builder.php:265
 msgid "Main center"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:235
+#: inc/customizer/options/header-builder/header-builder.php:270
 msgid "Main right"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:242
+#: inc/customizer/options/header-builder/header-builder.php:277
 msgid "Bottom"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:247
+#: inc/customizer/options/header-builder/header-builder.php:282
 msgid "Bottom left"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:252
+#: inc/customizer/options/header-builder/header-builder.php:287
 msgid "Bottom center"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:257
+#: inc/customizer/options/header-builder/header-builder.php:292
 msgid "Bottom right"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:265, inc/customizer/options/header-builder/offset-area.php:6, inc/customizer/panels-sections/panels-sections.php:237
+#: inc/customizer/options/header-builder/header-builder.php:300, inc/customizer/options/header-builder/offset-area.php:6, inc/customizer/panels-sections/panels-sections.php:237
 msgid "Offset Area"
 msgstr ""
 
-#: inc/customizer/options/header-builder/header-builder.php:279
+#: inc/customizer/options/header-builder/header-builder.php:314
 msgid "Global Header"
 msgstr ""
 
@@ -1590,39 +1614,39 @@ msgstr ""
 msgid "Remove Logo"
 msgstr ""
 
-#: inc/meta-boxes/class-zakra-meta-box-page-settings.php:332
+#: inc/meta-boxes/class-zakra-meta-box-page-settings.php:331
 msgid "Menu Item Color"
 msgstr ""
 
-#: inc/meta-boxes/class-zakra-meta-box-page-settings.php:344
+#: inc/meta-boxes/class-zakra-meta-box-page-settings.php:343
 msgid "Menu Item Hover Color"
 msgstr ""
 
-#: inc/meta-boxes/class-zakra-meta-box-page-settings.php:354
+#: inc/meta-boxes/class-zakra-meta-box-page-settings.php:353
 msgid "Menu Item Active Color"
 msgstr ""
 
-#: inc/meta-boxes/class-zakra-meta-box-page-settings.php:364
+#: inc/meta-boxes/class-zakra-meta-box-page-settings.php:363
 msgid "Active Menu Item Style"
 msgstr ""
 
-#: inc/meta-boxes/class-zakra-meta-box-page-settings.php:377
+#: inc/meta-boxes/class-zakra-meta-box-page-settings.php:376
 msgid "Underline Border"
 msgstr ""
 
-#: inc/meta-boxes/class-zakra-meta-box-page-settings.php:385
+#: inc/meta-boxes/class-zakra-meta-box-page-settings.php:384
 msgid "Left Border"
 msgstr ""
 
-#: inc/meta-boxes/class-zakra-meta-box-page-settings.php:393
+#: inc/meta-boxes/class-zakra-meta-box-page-settings.php:392
 msgid "Right Border"
 msgstr ""
 
-#: inc/meta-boxes/class-zakra-meta-box-page-settings.php:413
+#: inc/meta-boxes/class-zakra-meta-box-page-settings.php:412
 msgid "Enable Page Header"
 msgstr ""
 
-#: inc/meta-boxes/class-zakra-meta-box.php:212
+#: inc/meta-boxes/class-zakra-meta-box.php:225
 msgid "Page Settings"
 msgstr ""
 
@@ -1665,34 +1689,40 @@ msgctxt "post date"
 msgid "Posted on %s"
 msgstr ""
 
+#. translators: %s: post modified date.
+#: inc/template-tags.php:129
+msgctxt "post date"
+msgid "Updated on %s"
+msgstr ""
+
 #. translators: %s: post author.
-#: inc/template-tags.php:162
+#: inc/template-tags.php:170
 msgctxt "post author"
 msgid "By %s"
 msgstr ""
 
 #. translators: 1: list of categories.
-#: inc/template-tags.php:183
+#: inc/template-tags.php:191
 msgid "Posted in %1$s"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:188
+#: inc/template-tags.php:196
 msgid ", "
 msgstr ""
 
 #. translators: %s: post title
-#: inc/template-tags.php:213
+#: inc/template-tags.php:221
 msgid "No Comments<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
 #. translators: 1: list of tags.
-#: inc/template-tags.php:238
+#: inc/template-tags.php:246
 msgid "Tagged %1$s"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:243
+#: inc/template-tags.php:251
 msgctxt "list item separator"
 msgid ", "
 msgstr ""
@@ -1710,6 +1740,10 @@ msgstr ""
 #: searchform.php:38
 msgctxt "submit button"
 msgid "Search"
+msgstr ""
+
+#: searchform.php:44
+msgid "Close"
 msgstr ""
 
 #: sidebar.php:44, sidebar.php:50

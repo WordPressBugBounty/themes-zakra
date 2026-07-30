@@ -1768,6 +1768,7 @@ body.demo-import-message-popup {
 .zakra-notice {
 	position: relative;
 	padding: 20px 20px 0 20px;
+	background-color: #fff;
 	border-left-color: #2563EB;
 }
 
@@ -2137,6 +2138,7 @@ a.zakra-message-close:before {
 .zakra-notice {
 	position: relative;
 	padding: 20px 20px 0 20px;
+	background-color: #fff;
 	border-left-color: #2563EB;
 }
 

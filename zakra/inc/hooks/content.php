@@ -16,9 +16,9 @@ if ( ! function_exists( 'zakra_post_readmore' ) ) :
 		?>
 		<div class="<?php zakra_css_class( 'zakra_read_more_wrapper_class' ); ?> zak-<?php echo esc_attr( $readmore_alignment ); ?>">
 
-			<a href="<?php the_permalink(); ?>" class="entry-button">
+			<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="entry-button">
 
-				<?php echo apply_filters( 'zakra_read_more_text', esc_html__( 'Read More', 'zakra' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				<?php echo esc_html( apply_filters( 'zakra_read_more_text', esc_html__( 'Read More', 'zakra' ) ) ); ?>
 				<?php zakra_get_icon( 'arrow-right-long' ); ?>
 
 			</a>

@@ -8,6 +8,10 @@
 
 defined( 'ABSPATH' ) || exit;
 
+function zakra_meta_auth_callback( $allowed, $meta_key, $post_id ) {
+	return current_user_can( 'edit_post', $post_id );
+}
+
 /**
  * Class Zakra_Meta_Box
  */
@@ -44,7 +48,7 @@ class Zakra_Meta_Box {
 				if ( file_exists( $meta_asset_file ) ) {
 					$meta_asset = require $meta_asset_file;
 					wp_enqueue_script( 'zakra-meta', get_template_directory_uri() . '/assets/build/meta.js', $meta_asset['dependencies'], $meta_asset['version'], true );
-					wp_enqueue_style( 'zakra-meta', get_template_directory_uri() . '/assets/build/meta.css', array(), time() );
+					wp_enqueue_style( 'zakra-meta', get_template_directory_uri() . '/assets/build/meta.css', array(), ZAKRA_THEME_VERSION );
 				}
 			}
 		);
@@ -70,77 +74,84 @@ class Zakra_Meta_Box {
 			'',
 			'zakra_page_container_layout',
 			[
-				'show_in_rest'  => true,
-				'single'        => true,
-				'default'       => 'customizer',
-				'type'          => 'string',
-				'auth_callback' => '__return_true',
+				'show_in_rest'      => true,
+				'single'            => true,
+				'default'           => 'customizer',
+				'type'              => 'string',
+				'sanitize_callback' => 'sanitize_text_field',
+				'auth_callback'     => 'zakra_meta_auth_callback',
 			]
 		);
 		register_post_meta(
 			'',
 			'zakra_page_sidebar_layout',
 			[
-				'show_in_rest'  => true,
-				'single'        => true,
-				'default'       => 'customizer',
-				'type'          => 'string',
-				'auth_callback' => '__return_true',
+				'show_in_rest'      => true,
+				'single'            => true,
+				'default'           => 'customizer',
+				'type'              => 'string',
+				'sanitize_callback' => 'sanitize_text_field',
+				'auth_callback'     => 'zakra_meta_auth_callback',
 			]
 		);
 		register_post_meta(
 			'',
 			'zakra_remove_content_margin',
 			array(
-				'show_in_rest'  => true,
-				'single'        => true,
-				'default'       => 0,
-				'type'          => 'boolean',
-				'auth_callback' => '__return_true',
+				'show_in_rest'      => true,
+				'single'            => true,
+				'default'           => 0,
+				'type'              => 'boolean',
+				'sanitize_callback' => 'rest_sanitize_boolean',
+				'auth_callback'     => 'zakra_meta_auth_callback',
 			)
 		);
 		register_post_meta(
 			'',
 			'zakra_sidebar',
 			array(
-				'show_in_rest'  => true,
-				'single'        => true,
-				'default'       => 'customizer',
-				'type'          => 'string',
-				'auth_callback' => '__return_true',
+				'show_in_rest'      => true,
+				'single'            => true,
+				'default'           => 'customizer',
+				'type'              => 'string',
+				'sanitize_callback' => 'sanitize_text_field',
+				'auth_callback'     => 'zakra_meta_auth_callback',
 			)
 		);
 		register_post_meta(
 			'',
 			'zakra_transparent_header',
 			array(
-				'show_in_rest'  => true,
-				'single'        => true,
-				'default'       => 'customizer',
-				'type'          => 'string',
-				'auth_callback' => '__return_true',
+				'show_in_rest'      => true,
+				'single'            => true,
+				'default'           => 'customizer',
+				'type'              => 'string',
+				'sanitize_callback' => 'sanitize_text_field',
+				'auth_callback'     => 'zakra_meta_auth_callback',
 			)
 		);
 		register_post_meta(
 			'',
 			'zakra_logo',
 			array(
-				'show_in_rest'  => true,
-				'single'        => true,
-				'default'       => 0,
-				'type'          => 'integer',
-				'auth_callback' => '__return_true',
+				'show_in_rest'      => true,
+				'single'            => true,
+				'default'           => 0,
+				'type'              => 'integer',
+				'sanitize_callback' => 'absint',
+				'auth_callback'     => 'zakra_meta_auth_callback',
 			)
 		);
 		register_post_meta(
 			'',
 			'zakra_main_header_style',
 			array(
-				'show_in_rest'  => true,
-				'single'        => true,
-				'default'       => 'default',
-				'type'          => 'string',
-				'auth_callback' => '__return_true',
+				'show_in_rest'      => true,
+				'single'            => true,
+				'default'           => 'default',
+				'type'              => 'string',
+				'sanitize_callback' => 'sanitize_text_field',
+				'auth_callback'     => 'zakra_meta_auth_callback',
 			)
 		);
 		register_post_meta(
@@ -152,7 +163,7 @@ class Zakra_Meta_Box {
 				'default'           => get_theme_mod( 'zakra_menu_item_color', '' ),
 				'type'              => 'string',
 				'sanitize_callback' => 'sanitize_hex_color',
-				'auth_callback'     => '__return_true',
+				'auth_callback'     => 'zakra_meta_auth_callback',
 			)
 		);
 		register_post_meta(
@@ -164,7 +175,7 @@ class Zakra_Meta_Box {
 				'default'           => get_theme_mod( 'zakra_menu_item_hover_color', '' ),
 				'type'              => 'string',
 				'sanitize_callback' => 'sanitize_hex_color',
-				'auth_callback'     => '__return_true',
+				'auth_callback'     => 'zakra_meta_auth_callback',
 			)
 		);
 		register_post_meta(
@@ -176,29 +187,31 @@ class Zakra_Meta_Box {
 				'default'           => get_theme_mod( 'zakra_menu_item_active_color', '' ),
 				'type'              => 'string',
 				'sanitize_callback' => 'sanitize_hex_color',
-				'auth_callback'     => '__return_true',
+				'auth_callback'     => 'zakra_meta_auth_callback',
 			)
 		);
 		register_post_meta(
 			'',
 			'zakra_menu_active_style',
 			array(
-				'show_in_rest'  => true,
-				'single'        => true,
-				'default'       => '',
-				'type'          => 'string',
-				'auth_callback' => '__return_true',
+				'show_in_rest'      => true,
+				'single'            => true,
+				'default'           => '',
+				'type'              => 'string',
+				'sanitize_callback' => 'sanitize_text_field',
+				'auth_callback'     => 'zakra_meta_auth_callback',
 			)
 		);
 		register_post_meta(
 			'',
 			'zakra_page_header',
 			array(
-				'show_in_rest'  => true,
-				'single'        => true,
-				'default'       => 1,
-				'type'          => 'boolean',
-				'auth_callback' => '__return_true',
+				'show_in_rest'      => true,
+				'single'            => true,
+				'default'           => 1,
+				'type'              => 'boolean',
+				'sanitize_callback' => 'rest_sanitize_boolean',
+				'auth_callback'     => 'zakra_meta_auth_callback',
 			)
 		);
 	}
@@ -270,10 +283,7 @@ class Zakra_Meta_Box {
 		self::$saved_meta_boxes = true;
 
 		// Trigger action.
-		$process_actions = array( 'page_settings' );
-		foreach ( $process_actions as $process_action ) {
-			do_action( 'zakra_process_' . $process_action . '_meta', $post_id, $post );
-		}
+		do_action( 'zakra_process_page_settings_meta', $post_id, $post );
 	}
 }
 

@@ -20,13 +20,13 @@ defined( 'ABSPATH' ) || exit;
 
 $markup = <<<'HTML'
 <!-- wp:group {"align":"full","layout":{"type":"constrained","contentSize":"1240px"}} -->
-<div class="wp-block-group alignfull"><!-- wp:group {"style":{"spacing":{"blockGap":"0","padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
-<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)"><!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
+<div class="wp-block-group alignfull"><!-- wp:group {"style":{"spacing":{"blockGap":"0","padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);flex-wrap:wrap"><!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
 <figure class="wp-block-image size-full"><img src="https://prajjwalzakra-xo08.1wp.site/wp-content/uploads/2026/06/logo.png" alt=""/></figure>
 <!-- /wp:image -->
 
-<!-- wp:group {"style":{"spacing":{"blockGap":"22px"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center","justifyContent":"right"}} -->
-<div class="wp-block-group"><!-- wp:navigation {"overlayMenu":"never","style":{"typography":{"fontSize":"15px","fontWeight":"500"},"color":{"text":"#2B2B2B"},"spacing":{"blockGap":"22px"}},"layout":{"type":"flex","orientation":"horizontal","justifyContent":"right","flexWrap":"nowrap"}} -->
+<!-- wp:group {"style":{"spacing":{"blockGap":"22px"}},"layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center","justifyContent":"right"}} -->
+<div class="wp-block-group" style="flex-wrap:wrap"><!-- wp:navigation {"overlayMenu":"never","style":{"typography":{"fontSize":"15px","fontWeight":"500"},"color":{"text":"#2B2B2B"},"spacing":{"blockGap":"22px"}},"layout":{"type":"flex","orientation":"horizontal","justifyContent":"right","flexWrap":"wrap"}} -->
 <!-- wp:navigation-link {"label":"Home","url":"#"} /-->
 
 <!-- wp:navigation-link {"label":"About","url":"#"} /-->

@@ -41,6 +41,6 @@ $product_search = get_theme_mod( 'zakra_enable_product_search_search', false );
 	<input type="hidden" name="post_type" value="product" />
 	<?php endif; ?>
 </form>
-<button class="zak-icon--close" role="button">
+<button class="zak-icon--close" role="button" aria-label="<?php esc_attr_e( 'Close', 'zakra' ); ?>">
 </button>
 </div>

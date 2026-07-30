@@ -131,6 +131,8 @@ function customind_get_header_components() {
 	);
 }
 
+$zakra_pro_active = is_plugin_active( 'zakra-pro/zakra-pro.php' );
+
 $options = array(
 	'zakra_header_builder_components'    => array(
 		'type'    => 'customind-builder-components',
@@ -138,7 +140,40 @@ $options = array(
 		'context' => 'header',
 		'group'   => 'zakra_header_builder',
 		'section' => 'zakra_header_builder_section',
-
+		'type_items' => array(
+			array(
+				'label'   => __( 'Sticky header', 'zakra' ),
+				'pro'     => ! $zakra_pro_active,
+				'section' => 'zakra_sticky_header',
+				'url'     => esc_url_raw( 'https://zakratheme.com/pricing/?utm_source=zakra-theme&utm_medium=dash-customizer-header&utm_campaign=ui-header-builder-3' ),
+			),
+			array(
+				'label'   => __( 'Transparent header', 'zakra' ),
+				'pro'     => ! $zakra_pro_active,
+				'section' => 'zakra_transparent_header',
+				'url'     => esc_url_raw( 'https://zakratheme.com/pricing/?utm_source=zakra-theme&utm_medium=dash-customizer-header&utm_campaign=ui-header-builder-4' ),
+			),
+			array(
+				'label'   => __( 'Header Action', 'zakra' ),
+				'pro'     => ! $zakra_pro_active,
+				'section' => 'zakra_header_action',
+				'url'     => esc_url_raw( 'https://zakratheme.com/pricing/?utm_source=zakra-theme&utm_medium=dash-customizer-header&utm_campaign=ui-header-builder-5' ),
+			),
+		),
+		'pro_items'  => array_filter(
+			array(
+				$zakra_pro_active ? false : array(
+					'label' => __( 'Drawer Menu', 'zakra' ),
+					'pro'   => true,
+					'url'   => esc_url_raw( 'https://zakratheme.com/pricing/?utm_source=zakra-theme&utm_medium=dash-customizer-header&utm_campaign=ui-header-builder-1' ),
+				),
+				$zakra_pro_active ? false : array(
+					'label' => __( 'Button 2', 'zakra' ),
+					'pro'   => true,
+					'url'   => esc_url_raw( 'https://zakratheme.com/pricing/?utm_source=zakra-theme&utm_medium=dash-customizer-header&utm_campaign=ui-header-builder-2' ),
+				),
+			)
+		),
 	),
 	'zakra_header_builder'               => array(
 		'section'     => 'zakra_header_builder_section',

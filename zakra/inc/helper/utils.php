@@ -554,12 +554,15 @@ if ( ! function_exists( 'zakra_parse_background_css' ) ) :
 
 		// For background color.
 		if ( isset( $output_value['background-color'] ) && ! empty( $output_value['background-color'] ) && ( $output_value['background-color'] !== $default_value['background-color'] ) ) {
-			$parse_css .= 'background-color:' . $output_value['background-color'] . ';';
+			$color = \Customind\Core\Sanitization::sanitize_color( $output_value['background-color'] );
+			if ( $color ) {
+				$parse_css .= 'background-color:' . $color . ';';
+			}
 		}
 
 		// For background image.
 		if ( isset( $output_value['background-image'] ) && ! empty( $output_value['background-image'] ) && ( $output_value['background-image'] !== $default_value['background-image'] ) ) {
-			$parse_css .= 'background-image:url(' . $output_value['background-image'] . ');';
+			$parse_css .= 'background-image:url(' . esc_url( $output_value['background-image'] ) . ');';
 		}
 
 		// For background position.
@@ -787,52 +790,52 @@ if ( ! function_exists( 'zakra_parse_dimension_css' ) ) :
 
 		if ( 'border-width' === $property ) {
 
-			if ( isset( $output_value['top'] ) && ( $output_value['top'] !== $default_value['top'] ) ) {
+			if ( isset( $output_value['top'] ) && '' !== $output_value['top'] && ( $output_value['top'] !== $default_value['top'] ) ) {
 				$parse_css .= 'border-top-width:' . $output_value['top'] . $unit . ';';
 			}
 
-			if ( isset( $output_value['right'] ) && ( $output_value['right'] !== $default_value['right'] ) ) {
+			if ( isset( $output_value['right'] ) && '' !== $output_value['right'] && ( $output_value['right'] !== $default_value['right'] ) ) {
 				$parse_css .= 'border-right-width:' . $output_value['right'] . $unit . ';';
 			}
 
-			if ( isset( $output_value['bottom'] ) && ( $output_value['bottom'] !== $default_value['bottom'] ) ) {
+			if ( isset( $output_value['bottom'] ) && '' !== $output_value['bottom'] && ( $output_value['bottom'] !== $default_value['bottom'] ) ) {
 				$parse_css .= 'border-bottom-width:' . $output_value['bottom'] . $unit . ';';
 			}
 
-			if ( isset( $output_value['left'] ) && ( $output_value['left'] !== $default_value['left'] ) ) {
+			if ( isset( $output_value['left'] ) && '' !== $output_value['left'] && ( $output_value['left'] !== $default_value['left'] ) ) {
 				$parse_css .= 'border-left-width:' . $output_value['left'] . $unit . ';';
 			}
 		} elseif ( 'border-radius' === $property ) {
 
-			if ( isset( $output_value['top'] ) && ( $output_value['top'] !== $default_value['top'] ) ) {
+			if ( isset( $output_value['top'] ) && '' !== $output_value['top'] && ( $output_value['top'] !== $default_value['top'] ) ) {
 				$parse_css .= 'border-top-left-radius:' . $output_value['top'] . $unit . ';';
 			}
 
-			if ( isset( $output_value['right'] ) && ( $output_value['right'] !== $default_value['right'] ) ) {
+			if ( isset( $output_value['right'] ) && '' !== $output_value['right'] && ( $output_value['right'] !== $default_value['right'] ) ) {
 				$parse_css .= 'border-top-right-radius:' . $output_value['right'] . $unit . ';';
 			}
 
-			if ( isset( $output_value['bottom'] ) && ( $output_value['bottom'] !== $default_value['bottom'] ) ) {
+			if ( isset( $output_value['bottom'] ) && '' !== $output_value['bottom'] && ( $output_value['bottom'] !== $default_value['bottom'] ) ) {
 				$parse_css .= 'border-bottom-right-radius:' . $output_value['bottom'] . $unit . ';';
 			}
 
-			if ( isset( $output_value['left'] ) && ( $output_value['left'] !== $default_value['left'] ) ) {
+			if ( isset( $output_value['left'] ) && '' !== $output_value['left'] && ( $output_value['left'] !== $default_value['left'] ) ) {
 				$parse_css .= 'border-bottom-left-radius:' . $output_value['left'] . $unit . ';';
 			}
 		} else {
-			if ( isset( $output_value['top'] ) && ( $output_value['top'] !== $default_value['top'] ) ) {
+			if ( isset( $output_value['top'] ) && '' !== $output_value['top'] && ( $output_value['top'] !== $default_value['top'] ) ) {
 				$parse_css .= $property . '-top:' . $output_value['top'] . $unit . ';';
 			}
 
-			if ( isset( $output_value['right'] ) && ( $output_value['right'] !== $default_value['right'] ) ) {
+			if ( isset( $output_value['right'] ) && '' !== $output_value['right'] && ( $output_value['right'] !== $default_value['right'] ) ) {
 				$parse_css .= $property . '-right:' . $output_value['right'] . $unit . ';';
 			}
 
-			if ( isset( $output_value['bottom'] ) && ( $output_value['bottom'] !== $default_value['bottom'] ) ) {
+			if ( isset( $output_value['bottom'] ) && '' !== $output_value['bottom'] && ( $output_value['bottom'] !== $default_value['bottom'] ) ) {
 				$parse_css .= $property . '-bottom:' . $output_value['bottom'] . $unit . ';';
 			}
 
-			if ( isset( $output_value['left'] ) && ( $output_value['left'] !== $default_value['left'] ) ) {
+			if ( isset( $output_value['left'] ) && '' !== $output_value['left'] && ( $output_value['left'] !== $default_value['left'] ) ) {
 				$parse_css .= $property . '-left:' . $output_value['left'] . $unit . ';';
 			}
 		}
@@ -864,7 +867,7 @@ if ( ! function_exists( 'zakra_parse_slider_css' ) ) :
 
 		$parse_css = '';
 
-		if ( isset( $output_value['size'] ) ) {
+		if ( isset( $output_value['size'] ) && '' !== $output_value['size'] ) {
 
 			if ( strpos( $selector, ',' ) !== false ) {
 

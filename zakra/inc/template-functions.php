@@ -456,7 +456,7 @@ if ( ! function_exists( 'zakra_insert_mod_hatom_data' ) ) :
 
 		if ( is_single() && 'page-header' === zakra_page_title_position() ) {
 
-			$content .= '<div class="extra-hatom"><span class="entry-title">' . $title . '</span></div>';
+			$content .= '<div class="extra-hatom"><span class="entry-title">' . esc_html( $title ) . '</span></div>';
 		}
 
 		return $content;

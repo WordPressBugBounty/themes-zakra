@@ -2,11 +2,11 @@
 
 Contributors: themegrill
 Author: ThemeGrill
-Version: 4.2.2
+Version: 4.3.0
 Tested up to: 7.0
 Requires PHP: 7.4
 Requires at least: 4.7
-Stable tag: 4.2.2
+Stable tag: 4.3.0
 
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -62,6 +62,31 @@ License: GNU GPL, Version 3, https://www.gnu.org/licenses/gpl-3.0.html
 Unless otherwise specified, all the theme files, scripts and images including the screenshot image are licensed under [GNU GPL] (http://www.gnu.org/licenses/gpl-3.0.txt), version 3 or later.
 
 == Changelog ==
+
+= Version 4.3.0 - 2026-07-30 =
+* Enhance - Smoother theme switching on sites with a large number of users.
+* Enhance - The search box now responds instantly when you click the search icon.
+* Enhance - Pages now load faster by reusing saved styles instead of rebuilding them on every visit.
+* Tweak - Added step increments to range slider controls in the Customizer.
+* Tweak - Clearer, less technical Customizer labels and refined info-text design.
+* Tweak - Used theme version instead of timestamp for dashboard and meta box stylesheet cache-busting.
+* Dev - Security audit of the codebase.
+* Fix - Mobile menu could not be closed using the Escape key.
+* Fix - Logo width slider was mislabeled "Height" in Header Builder.
+* Fix - Slider and dimension controls output invalid CSS for empty values.
+* Fix - Removed a broken Google Fonts request for the font-family "inherit".
+* Fix - Added a missing accessible label to the search overlay's close button.
+* Fix - Global color picker Hex field showed wrong value with a palette swatch.
+* Fix - WooCommerce extension styles broke when all WC stylesheets were dequeued.
+* Fix - Mobile menu toggle now announces its open/closed state to screen readers.
+* Fix - Social icons (X, Instagram) not displayed with their official brand icons.
+* Fix - Starter-content homepage layout overflowed horizontally on mobile devices.
+* Fix - Footer widget and social alignment settings output invalid CSS when left unset.
+* Fix - Typing a hex color code in the Customizer color picker didn't update the selected color.
+* Fix - Self-hosted web fonts now preload to prevent a layout shift (CLS) when text first renders.
+* Fix - Post Meta heading didn't render in Post Content > Meta due to an invalid section reference.
+* Fix - Header and Footer Builder Custom HTML fields lost embedded images, icons, and scripts after saving.
+* Fix - Color picker Hex field showed black instead of the actual color for swatches linked to the Global Palette.
 
 = Version 4.2.2 - 2026-06-24 =
 * Tweak - Added missing translation wrappers.

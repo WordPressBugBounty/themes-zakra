@@ -16,6 +16,10 @@ var ZakraFrontend = {
 		handleEl.addEventListener('click', function () {
 			this.classList.toggle('zak-mobile-toggle--opened');
 			targetEl.classList.toggle('zak-mobile-nav--opened');
+			this.setAttribute(
+				'aria-expanded',
+				this.classList.contains('zak-mobile-toggle--opened') ? 'true' : 'false',
+			);
 
 			if (overlayWrapper) {
 				overlayWrapper.classList.toggle('overlay-show');
@@ -34,6 +38,10 @@ var ZakraFrontend = {
 				this.classList.toggle('overlay-show');
 				toggleButton.classList.toggle('zak-mobile-toggle--opened');
 				targetEl.classList.toggle('zak-mobile-nav--opened');
+				toggleButton.setAttribute(
+					'aria-expanded',
+					toggleButton.classList.contains('zak-mobile-toggle--opened') ? 'true' : 'false',
+				);
 			});
 		}
 	},
@@ -113,6 +121,11 @@ document.addEventListener('DOMContentLoaded', function () {
 			 * Open mobile menu on clicking toggle button.
 			 */
 			toggleButton.addEventListener('click', function () {
+				// Skip the focus trap setup when the button click closed the menu.
+				if (!menu.classList.contains('zak-mobile-nav--opened')) {
+					return;
+				}
+
 				focusableSelectors = 'a, button, input[type="search"]';
 				focusableEl = menu.querySelectorAll(focusableSelectors);
 				focusableEl = Array.prototype.slice.call(focusableEl);
@@ -141,6 +154,17 @@ document.addEventListener('DOMContentLoaded', function () {
 						}
 					}
 				});
+			});
+
+			// Close mobile menu on pressing Escape key and return focus to the toggle button.
+			document.addEventListener('keyup', function (e) {
+				if (
+					menu.classList.contains('zak-mobile-nav--opened') &&
+					'Escape' === e.key
+				) {
+					toggleButton.click();
+					toggleButton.focus();
+				}
 			});
 		}
 
@@ -322,10 +346,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			// Autofocus.
 			if (searchBox.classList.contains('zak-header-search--opened')) {
-				setTimeout(function () {
-					console.log();
+				requestAnimationFrame(function () {
 					searchBox.getElementsByTagName('input')[0].focus();
-				}, 300);
+				});
 
 				document
 					.querySelector('.zak-search-container')

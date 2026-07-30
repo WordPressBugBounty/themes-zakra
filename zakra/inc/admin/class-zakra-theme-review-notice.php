@@ -185,7 +185,6 @@ class Zakra_Theme_Review_Notice {
 	 * Remove the data set after the theme has been switched to other theme.
 	 */
 	public function review_notice_data_remove() {
-		$get_all_users        = get_users();
 		$theme_installed_time = get_option( 'zakra_theme_installed_time' );
 
 		// Delete options data.
@@ -193,20 +192,31 @@ class Zakra_Theme_Review_Notice {
 			delete_option( 'zakra_theme_installed_time' );
 		}
 
-		// Delete user meta data for theme review notice.
-		foreach ( $get_all_users as $user ) {
-			$ignored_notice           = get_user_meta( $user->ID, 'zakra_ignore_theme_review_notice', true );
-			$ignored_notice_partially = get_user_meta( $user->ID, 'nag_zakra_ignore_theme_review_notice_partially', true );
+		// Delete only users who actually have the meta key, in batches of 200
+		// to avoid a full table scan on large user tables.
+		$meta_keys = array(
+			'zakra_ignore_theme_review_notice',
+			'nag_zakra_ignore_theme_review_notice_partially',
+		);
 
-			// Delete permanent notice remove data.
-			if ( $ignored_notice ) {
-				delete_user_meta( $user->ID, 'zakra_ignore_theme_review_notice' );
-			}
+		foreach ( $meta_keys as $meta_key ) {
+			do {
+				// Always fetch the first 200 matching users; deleting their meta
+				// removes them from the next query, so no pagination offset is needed.
+				$user_ids = get_users(
+					array(
+						'meta_key' => $meta_key, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+						'fields'   => 'ids',
+						'number'   => 200,
+					)
+				);
 
-			// Delete partial notice remove data.
-			if ( $ignored_notice_partially ) {
-				delete_user_meta( $user->ID, 'nag_zakra_ignore_theme_review_notice_partially' );
-			}
+				$found = count( $user_ids );
+
+				foreach ( $user_ids as $user_id ) {
+					delete_user_meta( $user_id, $meta_key );
+				}
+			} while ( 200 === $found );
 		}
 	}
 }

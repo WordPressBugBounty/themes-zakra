@@ -304,7 +304,33 @@ if ( ! class_exists( 'Zakra_WooCommerce' ) ) {
 	new Zakra_WooCommerce();
 }
 
-add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+/**
+ * Remove only the WooCommerce stylesheets that conflict with Zakra's own WC CSS.
+ * Keeping woocommerce-smallscreen and others intact ensures extension plugins
+ * (Subscriptions, Bookings, Product Bundles) that depend on those handles still work.
+ *
+ * @param array $styles WooCommerce style handles to be enqueued.
+ * @return array
+ */
+function zakra_filter_woocommerce_styles( $styles ) {
+	unset( $styles['woocommerce-general'] );
+	unset( $styles['woocommerce-layout'] );
+	return $styles;
+}
+add_filter( 'woocommerce_enqueue_styles', 'zakra_filter_woocommerce_styles' );
+
+/**
+ * Register stub handles for the two styles we removed so WC extension plugins
+ * that declare woocommerce-general or woocommerce-layout as a dependency resolve
+ * to zakra-woocommerce-style as their cascade base instead of nothing.
+ *
+ * @return void
+ */
+function zakra_register_wc_compat_handles() {
+	wp_register_style( 'woocommerce-general', false, array( 'zakra-woocommerce-style' ), ZAKRA_THEME_VERSION );
+	wp_register_style( 'woocommerce-layout', false, array( 'zakra-woocommerce-style' ), ZAKRA_THEME_VERSION );
+}
+add_action( 'wp_enqueue_scripts', 'zakra_register_wc_compat_handles', 20 );
 
 /**
  * Opening element for filter wrapper at the top of WC pages.
