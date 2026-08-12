@@ -2,10 +2,11 @@
 
 $options = array(
 	'zakra_load_google_fonts_locally' => array(
-		'default' => 0,
-		'title'   => esc_html__( 'Enable', 'zakra' ),
-		'type'    => 'customind-toggle',
-		'section' => 'zakra_optimization',
+		'default'     => 0,
+		'title'       => esc_html__( 'Load Google Fonts Locally', 'zakra' ),
+		'description' => esc_html__( 'Serves Google Fonts from your own server instead of from Google, improving privacy compliance and load performance. Since the fonts look identical either way, this has no visible effect in the preview.', 'zakra' ),
+		'type'        => 'customind-toggle',
+		'section'     => 'zakra_optimization',
 	),
 	'zakra_demo_migrated_heading'     => array(
 		'type'         => 'customind-accordion',

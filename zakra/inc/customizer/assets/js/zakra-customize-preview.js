@@ -365,6 +365,19 @@
 					);
 					break;
 
+				case 'zakra_content_area_padding_horizontal':
+					css = zakraGenerateSliderCSS(
+						'#page .zak-primary, #page .zak-secondary',
+						'padding-left',
+						value,
+					);
+					css += zakraGenerateSliderCSS(
+						'#page .zak-primary, #page .zak-secondary',
+						'padding-right',
+						value,
+					);
+					break;
+
 				case 'zakra_sidebar_width':
 					css = zakraGenerateSlidebarWidthCSS(
 						'.zak-secondary',
@@ -1254,15 +1267,20 @@
 
 				case 'zakra_header_search_icon_color':
 					css = zakraGenerateCommonCSS(
-						'.zak-header-builder .zak-header-search .zak-icon',
+						'.zak-header-builder .zak-header-search .zak-icon, .zak-no-results .zak-icon--search .zak-icon, .widget_search .zak-icon--search .zak-icon',
 						'fill',
 						value,
 					);
 					break;
 
 				case 'zakra_header_search_background':
+					// `.zak-header-search--opened` only ever gets toggled on for the
+					// classic click-to-open overlay search; the Full Search Form
+					// variant (Zakra Pro) never adds that class, so the background
+					// never applied there (ZAK-255). `.zak-search-container` covers
+					// that case too - keep in sync with class-zakra-dynamic-css.php.
 					css = zakraGenerateBackgroundCSS(
-						'.zak-header-builder .zak-main-header.zak-header-search--opened',
+						'.zak-header-builder .zak-main-header.zak-header-search--opened, .zak-header-builder .zak-header-search.zak-search-full .zak-search-container',
 						value,
 					);
 					break;
@@ -1278,11 +1296,10 @@
 						'background',
 						value,
 					);
-					css += zakraGenerateCommonCSS(
-						'.zak-header-builder .zak-header-search .zak-icon--search .zak-icon',
-						'fill',
-						value,
-					);
+					// Note: this used to also set `fill` on `.zak-icon--search .zak-icon`
+					// (the visible search icon in Full Search Form). That selector is
+					// more specific than the icon-color rule above, so Text Color
+					// always won and the icon never reflected Icon Color (ZAK-255).
 					break;
 
 				case 'zakra_header_button_color':

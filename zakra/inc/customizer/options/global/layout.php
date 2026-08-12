@@ -37,7 +37,7 @@ $sidebar_layout_choices = apply_filters(
 $options                = apply_filters(
 	'zakra_sidebar',
 	array(
-		'zakra_layout_heading_tab_group'    => array(
+		'zakra_layout_heading_tab_group'        => array(
 			'type'    => 'customind-tabs',
 			'title'   => esc_html__( 'Layouts', 'zakra' ),
 			'section' => 'zakra_container',
@@ -47,14 +47,14 @@ $options                = apply_filters(
 			),
 			'default' => 'general',
 		),
-		'zakra_layout_heading'              => array(
+		'zakra_layout_heading'                  => array(
 			'type'      => 'customind-heading',
 			'title'     => esc_html__( 'Container', 'zakra' ),
 			'section'   => 'zakra_container',
 			'tab_group' => 'zakra_layout_heading_tab_group',
 			'tab'       => 'general',
 		),
-		'zakra_global_container_layout'     => array(
+		'zakra_global_container_layout'         => array(
 			'default'   => 'contained',
 			'type'      => 'customind-radio-image',
 			'title'     => esc_html__( 'Layout', 'zakra' ),
@@ -64,7 +64,7 @@ $options                = apply_filters(
 			'tab_group' => 'zakra_layout_heading_tab_group',
 			'tab'       => 'general',
 		),
-		'zakra_container_width'             => array(
+		'zakra_container_width'                 => array(
 			'default'     => array(
 				'size' => 1170,
 				'unit' => 'px',
@@ -83,7 +83,7 @@ $options                = apply_filters(
 				'step' => 1,
 			),
 		),
-		'zakra_enable_container_box_style'  => array(
+		'zakra_enable_container_box_style'      => array(
 			'title'     => esc_html__( 'Box Style', 'zakra' ),
 			'default'   => false,
 			'type'      => 'customind-toggle',
@@ -91,14 +91,14 @@ $options                = apply_filters(
 			'tab_group' => 'zakra_layout_heading_tab_group',
 			'tab'       => 'general',
 		),
-		'zakra_content_area_layout_divider' => array(
+		'zakra_content_area_layout_divider'     => array(
 			'type'      => 'customind-divider',
 			'variant'   => 'dashed',
 			'section'   => 'zakra_container',
 			'tab_group' => 'zakra_layout_heading_tab_group',
 			'tab'       => 'general',
 		),
-		'zakra_content_area_layout'         => [
+		'zakra_content_area_layout'             => [
 			'type'      => 'customind-toggle-button',
 			'default'   => 'bordered',
 			'title'     => esc_html__( 'Content Area Layout', 'zakra' ),
@@ -110,13 +110,13 @@ $options                = apply_filters(
 				'boxed'    => esc_html__( 'Boxed', 'zakra' ),
 			],
 		],
-		'zakra_content_area_padding'        => array(
+		'zakra_content_area_padding'            => array(
 			'default'     => array(
-				'size'  => '',
-				'units' => 'px',
+				'size' => '',
+				'unit' => 'px',
 			),
 			'type'        => 'customind-slider',
-			'title'       => esc_html__( 'Content Area Padding', 'zakra' ),
+			'title'       => esc_html__( 'Content Area Padding (Top/Bottom)', 'zakra' ),
 			'section'     => 'zakra_container',
 			'transport'   => 'postMessage',
 			'units'       => array( 'px' ),
@@ -129,7 +129,26 @@ $options                = apply_filters(
 				'step' => 1,
 			),
 		),
-		'zakra_sidebar_heading'             => array(
+		'zakra_content_area_padding_horizontal' => array(
+			'default'     => array(
+				'size' => '',
+				'unit' => 'px',
+			),
+			'type'        => 'customind-slider',
+			'title'       => esc_html__( 'Content Area Padding (Left/Right)', 'zakra' ),
+			'section'     => 'zakra_container',
+			'transport'   => 'postMessage',
+			'units'       => array( 'px' ),
+			'defaultUnit' => 'px',
+			'tab_group'   => 'zakra_layout_heading_tab_group',
+			'tab'         => 'style',
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 500,
+				'step' => 1,
+			),
+		),
+		'zakra_sidebar_heading'                 => array(
 			'type'      => 'customind-heading',
 			'title'     => esc_html__( 'Sidebar', 'zakra' ),
 			'section'   => 'zakra_container',
@@ -139,7 +158,7 @@ $options                = apply_filters(
 				'zakra_global_container_layout' => 'contained',
 			),
 		),
-		'zakra_global_sidebar_layout'       => array(
+		'zakra_global_sidebar_layout'           => array(
 			'default'   => 'no_sidebar',
 			'type'      => 'customind-radio-image',
 			'title'     => esc_html__( 'Layout', 'zakra' ),
@@ -152,7 +171,7 @@ $options                = apply_filters(
 				'zakra_global_container_layout' => 'contained',
 			),
 		),
-		'zakra_sidebar_width'               => array(
+		'zakra_sidebar_width'                   => array(
 			'title'       => esc_html__( 'Width', 'zakra' ),
 			'default'     => array(
 				'size' => 30,

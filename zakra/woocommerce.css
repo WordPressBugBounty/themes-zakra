@@ -1796,6 +1796,48 @@ p.stars.selected a:not(.active)::before {
 .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-block .wc-block-components-product-name {
 	font-size: 14px;
 	font-weight: 600;
+	/* WooCommerce Blocks sets overflow-wrap: anywhere here, which lets the
+	   browser treat the product name as breakable at any character (not
+	   just at word boundaries) when computing this flex column's minimum
+	   width - so at in-between viewport widths (e.g. small tablets), the
+	   column collapses far narrower than a single word and the name gets
+	   shredded into unreadable 1-2 character fragments instead of wrapping
+	   cleanly. break-word keeps whole words as the minimum breakable unit,
+	   so the column can't be squeezed past that (ZAK-262). */
+	overflow-wrap: break-word;
+	word-break: normal;
+}
+
+/* WooCommerce's own checkout.css makes `.wc-block-components-order-summary__content`
+   `display: table`, which sizes to its content's natural width instead of
+   the card it's in - on a narrow Order Summary column (e.g. with a theme
+   sidebar also active) the row of [image, name+price, line total] doesn't
+   shrink to fit and spills out past the card into whatever sits next to it
+   (the widget sidebar, on this theme). `table-layout: fixed; width: 100%`
+   makes it respect the card's actual width instead of its content's.
+   Doing that alone still leaves `__description` unable to shrink below its
+   own content's width (flex's `min-width: auto` default) and forces
+   `__total-price` to razor-thin/garbled text rather than actually fitting,
+   so the line total and sale badge wrap onto their own line below the name
+   instead of competing for the same cramped row. */
+.wc-block-checkout .wc-block-components-order-summary .wc-block-components-order-summary__content {
+	table-layout: fixed;
+	width: 100%;
+}
+
+.wc-block-checkout .wc-block-components-order-summary-item {
+	flex-wrap: wrap;
+}
+
+.wc-block-checkout .wc-block-components-order-summary-item__description {
+	min-width: 0;
+	flex: 1 1 auto;
+}
+
+.wc-block-checkout .wc-block-components-order-summary-item__total-price {
+	flex: 0 0 100%;
+	margin-top: 4px;
+	text-align: left;
 }
 
 .wc-block-checkout .wc-block-checkout__form input {

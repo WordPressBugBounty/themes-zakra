@@ -135,17 +135,37 @@ if ( ! function_exists( 'zakra_header_builder_markup' ) ) {
 		 */
 		do_action( 'zakra_action_after_header' );
 		echo '</header>';
-
-		/**
-		 * Hook - zakra_page_header
-		 *
-		 * @hooked zakra_page_header - 10
-		 */
-		do_action( 'zakra_page_header' );
 	}
 	$enable_builder = get_theme_mod( 'zakra_enable_builder', false );
 	if ( $enable_builder || zakra_maybe_enable_builder() ) {
 		add_action( 'zakra_header', 'zakra_header_builder_markup' );
+
+		/**
+		 * `zakra_header_builder_markup()` is also used as-is for the Header
+		 * Builder's selective-refresh `render_callback` (see the `partial`
+		 * arg on the `zakra_header_builder` control), which replaces only
+		 * the `.zak-header-builder` element with that function's output.
+		 * Triggering `zakra_page_header` (the Page Header/Post Title
+		 * section, a sibling of the header, not part of it) from inside
+		 * that same function meant every selective refresh - i.e. every
+		 * time a component was added or moved in the builder - re-printed
+		 * a whole extra copy of it into the DOM. Firing it here instead,
+		 * from its own callback on the regular `zakra_header` hook, keeps
+		 * the normal render order identical while keeping it out of the
+		 * builder's partial output (ZAK-263).
+		 */
+		add_action(
+			'zakra_header',
+			function () {
+				/**
+				 * Hook - zakra_page_header
+				 *
+				 * @hooked zakra_page_header - 10
+				 */
+				do_action( 'zakra_page_header' );
+			},
+			11
+		);
 	}
 }
 

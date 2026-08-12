@@ -59,7 +59,7 @@ if ( ! class_exists( 'Zakra_Enqueue_Scripts' ) ) {
 			// font-swap layout shift that happens while the CSS-referenced font file downloads.
 			add_action( 'wp_head', array( $this, 'preload_web_fonts' ), 1 );
 
-			add_action( 'enqueue_block_editor_assets', array( $this, 'block_editor_styles' ), 1 );
+			add_action( 'enqueue_block_assets', array( $this, 'block_editor_styles' ), 1 );
 
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'zakra_inline_customizer_css' ) );
 
@@ -307,9 +307,20 @@ if ( ! class_exists( 'Zakra_Enqueue_Scripts' ) ) {
 		/**
 		 * Enqueue block editor styles.
 		 *
+		 * Hooked on `enqueue_block_assets` instead of `enqueue_block_editor_assets` because
+		 * only styles enqueued via the former are picked up inside the iframed block editor
+		 * canvas; the latter triggers Gutenberg's "was added to the iframe incorrectly"
+		 * console warning instead. `enqueue_block_assets` also fires on the frontend, but
+		 * this stylesheet only exists to compensate for editor-canvas-only spacing, so bail
+		 * out there to avoid enqueuing it twice on the front end.
+		 *
 		 * TODO: @since.
 		 */
 		public function block_editor_styles() {
+
+			if ( ! is_admin() ) {
+				return;
+			}
 
 			wp_enqueue_style( 'zakra-block-editor-styles', ZAKRA_PARENT_URI . '/style-editor-block.css', array(), ZAKRA_THEME_VERSION );
 		}

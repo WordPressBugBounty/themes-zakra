@@ -1,10 +1,11 @@
+@charset "UTF-8";
 /*!
 Theme Name: Zakra
 Theme URI: https://zakratheme.com/
 Author: ThemeGrill
 Author URI: https://themegrill.com
 Description: Zakra is a powerful and versatile multipurpose theme that makes it easy to create beautiful and professional websites. With over free 40 pre-designed starter demo sites to choose from, you can quickly build a unique and functional site that fits your specific needs. Whether you're launching a blog, news site, e-commerce store, showcasing your portfolio, building a business site, LMS, or niche-specific site (such as a cafe, spa, charity, yoga studio, wedding venue, dental practice, photography, restaurant, or educational institution), Zakra has everything you need to succeed. The theme integrates seamlessly with popular page builders like Elementor, Brizy, BlockArt, and the Gutenberg editor, giving you complete freedom to create any layout you can imagine. Importantly, Zakra is optimized for speed, features a mobile-first responsive design, is built with block-based technology, and is optimized for search engines. It is also compatible with a wide range of popular WordPress plugins, allowing you to extend its functionality as needed. Build your next project with Zakra today and see the difference for yourself. Check out all the starter sites at https://zakratheme.com/demos!
-Version: 4.3.0
+Version: 4.3.1
 Tested up to: 7.0
 Requires PHP: 7.4
 License: GPLv3 or later
@@ -965,7 +966,7 @@ table td,
 	list-style: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	.zak-header-builder .zak-desktop-row {
 		display: none;
 	}
@@ -2634,8 +2635,14 @@ hr,
 	display: block;
 	width: 100%;
 }
-.zak-search-form .zak-search-submit {
-	display: none;
+.zak-search-form .zak-icon--search {
+	background: transparent;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	font: inherit;
+	color: inherit;
 }
 .zak-search-form .zak-search-field-label {
 	display: flex;
@@ -2651,9 +2658,6 @@ hr,
 	background-color: #27272A;
 	color: var(--zakra-color-6, #3F3F46);
 	opacity: 0.9;
-}
-.zak-search-form .zak-search-field:focus {
-	color: #FFF;
 }
 .zak-search-form input:-webkit-autofill,
 .zak-search-form input:-webkit-autofill:focus {
@@ -2757,6 +2761,25 @@ hr,
 	box-shadow: 0 0 75px rgba(0, 0, 0, 0.8);
 }
 
+.zak-header-media-mobile {
+	display: none;
+}
+.zak-header-media-mobile img {
+	margin: 0 auto;
+	width: 100%;
+	vertical-align: middle;
+}
+
+@media (max-width: 767px) {
+	body.has-header-media-mobile-image .wp-custom-header img,
+	body.has-header-media-mobile-image .wp-custom-header iframe#wp-custom-header-video,
+	body.has-header-media-mobile-image .wp-custom-header video#wp-custom-header-video {
+		display: none;
+	}
+	body.has-header-media-mobile-image .zak-header-media-mobile {
+		display: block;
+	}
+}
 /* Page header.
 --------------------------------------------- */
 .zak-page-header {
@@ -3613,7 +3636,7 @@ textarea {
 	line-height: 1.8;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
 	.zak-secondary {
 		width: 30%;
 		padding-top: 3.75em;
@@ -3681,7 +3704,17 @@ body .zak-content {
 	background: rgba(82, 82, 91, 0.2);
 }
 
-@media screen and (min-width: 768px) {
+/*
+ * The primary/secondary side-by-side split used to kick in at "mdm" (768px),
+ * the same breakpoint the WooCommerce product grid uses to expand to its
+ * full configured column count (see _products.scss). At exactly 768px that
+ * combination squeezed a multi-column product grid and a widget sidebar into
+ * the same viewport, leaving the sidebar column too narrow for its widget
+ * headings to stay legible. Pushing the split to "lrg" (992px) keeps the
+ * layout stacked — primary full width, secondary full width below it — for
+ * the whole tablet range, where there's no room to share.
+ */
+@media screen and (min-width: 992px) {
 	.zak-content .zak-row {
 		flex-direction: row;
 		gap: 0;
@@ -4069,9 +4102,11 @@ body .zak-content {
 	max-width: 770px;
 	margin: 0 auto;
 }
-.zak-site-layout--centered.zak-container--boxed .zak-primary .entry-content > .alignfull {
+.zak-site-layout--centered .zak-primary .entry-content > .alignfull,
+.zak-site-layout--centered .zak-primary .entry-content > .alignwide {
 	margin-right: unset;
 	margin-left: unset;
+	max-width: unset;
 }
 .zak-site-layout--centered .zak-secondary {
 	display: none;
@@ -4093,7 +4128,7 @@ body .zak-content {
 	border-right: 0 none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
 	.zak-site-layout--left .zak-content .zak-row {
 		flex-direction: row-reverse;
 	}
@@ -4105,21 +4140,26 @@ body .zak-content {
 		border-left: 1px solid var(--zakra-color-9, #E4E4E7);
 	}
 }
-.zak-site-layout--centered .zak-primary {
+.zak-site-layout--no_sidebar .zak-primary {
 	width: 100%;
 	padding-left: 0;
 }
-.zak-site-layout--centered .zak-primary .entry-content > .alignfull {
+.zak-site-layout--no_sidebar .zak-primary .entry-content > .alignfull {
 	margin-right: calc(50% - 50vw);
 	margin-left: calc(50% - 50vw);
 	max-width: unset;
 }
-.zak-site-layout--centered .zak-primary .entry-content > .alignfull.wp-block-cover, .zak-site-layout--centered .zak-primary .entry-content > .alignfull.wp-block-cover-image {
+.zak-site-layout--no_sidebar .zak-primary .entry-content > .alignfull.wp-block-cover, .zak-site-layout--no_sidebar .zak-primary .entry-content > .alignfull.wp-block-cover-image {
 	width: unset;
 }
-.zak-site-layout--centered .zak-primary .entry-content > .alignwide {
-	margin-right: -100px;
-	margin-left: -100px;
+.zak-site-layout--no_sidebar .zak-primary .entry-content > .alignwide {
+	margin-right: max(-100px, 50% - 50vw);
+	margin-left: max(-100px, 50% - 50vw);
+	max-width: unset;
+}
+.zak-site-layout--no_sidebar.zak-site-layout--centered .zak-primary .entry-content > .alignfull, .zak-site-layout--no_sidebar.zak-site-layout--centered .zak-primary .entry-content > .alignwide {
+	margin-right: unset;
+	margin-left: unset;
 	max-width: unset;
 }
 
@@ -4200,5 +4240,53 @@ body.has-transparent-header.elementor-editor-active .zak-header {
 	}
 	.ehf-header .hfeed.site:has(.zak-secondary) .zak-primary {
 		width: 70%;
+	}
+}
+/**
+ * Masteriyo LMS compatibility.
+ *
+ * On the Single Course page, Masteriyo's own course-content/price-box
+ * columns sit side by side above 992px and stack into a single column at
+ * or below it. Masteriyo's fixed 60px + 60px stacked bottom margins
+ * (.masteriyo-container, .masteriyo-single-course) are sized for the
+ * two-column layout, where that space is absorbed into the taller content
+ * column and looks intentional. Once the columns stack at the same 992px
+ * breakpoint Masteriyo itself uses for the collapse, that same fixed space
+ * sits directly under the now much shorter price box, reading as an
+ * oversized, disconnected gap before the footer (ZAK-288).
+ */
+@media screen and (max-width: 992px) {
+	body.single-mto-course .masteriyo-container {
+		margin-bottom: 24px !important;
+	}
+	body.single-mto-course .masteriyo-container .masteriyo-single-course {
+		margin-bottom: 24px !important;
+	}
+}
+body.single-mto-course .zak-row > .masteriyo-container {
+	display: flex;
+	flex-direction: column !important;
+}
+@media screen and (min-width: 992px) {
+	body.single-mto-course .zak-row > .masteriyo-container {
+		flex-direction: row !important;
+	}
+}
+@media screen and (min-width: 992px) {
+	body.single-mto-course.zak-site-layout--left .zak-row > .masteriyo-container {
+		flex-direction: row-reverse !important;
+	}
+}
+@media screen and (min-width: 992px) {
+	body.single-mto-course.zak-site-layout--2-sidebars .zak-row > .masteriyo-container {
+		width: auto;
+		flex: 1 1 0%;
+		min-width: 0;
+	}
+	body.single-mto-course.zak-site-layout--2-sidebars .zak-row > .masteriyo-container .zak-primary {
+		width: 75%;
+	}
+	body.single-mto-course.zak-site-layout--2-sidebars .zak-row > .masteriyo-container .zak-secondary {
+		width: 25%;
 	}
 }

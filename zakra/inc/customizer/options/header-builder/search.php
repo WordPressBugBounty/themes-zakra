@@ -20,14 +20,14 @@ $options = array(
 					'type'      => 'customind-color',
 					'title'     => esc_html__( 'Color', 'zakra' ),
 					'transport' => 'postMessage',
-					'section'   => 'zakra_header_builder_primary_menu',
+					'section'   => 'zakra_header_builder_search',
 				),
 				'zakra_header_search_text_color'     => array(
 					'default'   => '',
 					'type'      => 'customind-color',
 					'title'     => esc_html__( 'Text Color', 'zakra' ),
 					'transport' => 'postMessage',
-					'section'   => 'zakra_header_builder_primary_menu',
+					'section'   => 'zakra_header_builder_search',
 				),
 				'zakra_header_search_background'     => array(
 					'default'   => array(

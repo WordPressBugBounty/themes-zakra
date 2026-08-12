@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: team@zakratheme.com\n"
-"POT-Creation-Date: 2026-07-30 03:03+0000\n"
+"POT-Creation-Date: 2026-08-12 07:54+0000\n"
 "Report-Msgid-Bugs-To: team@zakratheme.com\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -45,11 +45,11 @@ msgid "Comments are closed."
 msgstr ""
 
 #. translators: 1: Panel Title.
-#: functions.php:180
+#: functions.php:186
 msgid "Customizing ▶ %s"
 msgstr ""
 
-#: functions.php:181
+#: functions.php:187
 msgid "Customizing"
 msgstr ""
 
@@ -468,7 +468,7 @@ msgctxt "breadcrumbs aria label"
 msgid "Breadcrumbs"
 msgstr ""
 
-#: inc/class-breadcrumb-trail.php:269
+#: inc/class-breadcrumb-trail.php:269, inc/compatibility/starter-content/theme-mods.php:39
 msgid "Home"
 msgstr ""
 
@@ -540,23 +540,49 @@ msgctxt "weekly archives date format"
 msgid "W"
 msgstr ""
 
-#: inc/class-zakra-starter-content.php:83
+#: inc/class-zakra-starter-content.php:136
+msgctxt "Theme starter content"
+msgid "Primary Menu"
+msgstr ""
+
+#: inc/class-zakra-starter-content.php:149
+msgid "Latest Posts"
+msgstr ""
+
+#: inc/class-zakra-starter-content.php:158
+msgid "Contact Us"
+msgstr ""
+
+#: inc/class-zakra-starter-content.php:159
+msgid ""
+"Ph. : +(123) 456-7890\n"
+"Email : first.last@demos.com\n"
+"Loc : Moon Street , 446 Jupiter\n"
+"Open : 9AM – 6PM (Mon – Fri)"
+msgstr ""
+
+#: inc/class-zakra-starter-content.php:180
+msgctxt "Theme starter content"
+msgid "Logo"
+msgstr ""
+
+#: inc/class-zakra-starter-content.php:322
 msgid "Welcome to your new site!"
 msgstr ""
 
-#: inc/class-zakra-starter-content.php:84
+#: inc/class-zakra-starter-content.php:323
 msgid "We've added a starter homepage to help you get going quickly. It is only published if you keep it."
 msgstr ""
 
-#: inc/class-zakra-starter-content.php:85
+#: inc/class-zakra-starter-content.php:324
 msgid "Keep the starter homepage"
 msgstr ""
 
-#: inc/class-zakra-starter-content.php:86
+#: inc/class-zakra-starter-content.php:325
 msgid "Start with a clean slate"
 msgstr ""
 
-#: inc/class-zakra-starter-content.php:87
+#: inc/class-zakra-starter-content.php:326
 msgid "Don't worry — you can always change this later."
 msgstr ""
 
@@ -564,9 +590,22 @@ msgstr ""
 msgid "Load More"
 msgstr ""
 
-#: inc/compatibility/starter-content/home.php:873
+#: inc/compatibility/starter-content/home.php:764
 msgctxt "Theme starter content"
 msgid "Home"
+msgstr ""
+
+#: inc/compatibility/starter-content/theme-mods.php:31
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit feugiat sit purus varius. Non in turpis tincidunt nulla. Condimentum ultrices nunc odio ante."
+msgstr ""
+
+#: inc/compatibility/starter-content/theme-mods.php:55
+msgid "Quick Links"
+msgstr ""
+
+#: inc/compatibility/starter-content/theme-mods.php:142
+msgctxt "Theme starter content"
+msgid "Download"
 msgstr ""
 
 #: inc/compatibility/woocommerce/class-zakra-woocommerce.php:219
@@ -637,23 +676,27 @@ msgstr ""
 msgid "WooCommerce Right Sidebar"
 msgstr ""
 
-#: inc/customizer/options/additional/additional.php:6, inc/customizer/options/content/blog.php:354, inc/customizer/options/footer/footer-column.php:14, inc/customizer/options/footer/footer-column.php:223, inc/customizer/options/footer/scroll-to-top.php:7, inc/customizer/options/global/builder.php:13, inc/customizer/options/header-builder/logo.php:66, inc/customizer/options/header/breadcrumb.php:7, inc/customizer/options/header/header-button.php:20, inc/customizer/options/header/header-search.php:14, inc/customizer/options/header/page-header.php:4, inc/customizer/options/header/primary-menu.php:19, inc/customizer/options/header/site-identity.php:66, inc/customizer/options/header/top-bar.php:20, inc/meta-boxes/class-zakra-meta-box-page-settings.php:225
-msgid "Enable"
+#: inc/customizer/options/additional/additional.php:6
+msgid "Load Google Fonts Locally"
 msgstr ""
 
-#: inc/customizer/options/additional/additional.php:12
+#: inc/customizer/options/additional/additional.php:7
+msgid "Serves Google Fonts from your own server instead of from Google, improving privacy compliance and load performance. Since the fonts look identical either way, this has no visible effect in the preview."
+msgstr ""
+
+#: inc/customizer/options/additional/additional.php:13
 msgid "Demo Migrated"
 msgstr ""
 
-#: inc/customizer/options/additional/additional.php:19
+#: inc/customizer/options/additional/additional.php:20
 msgid "Demo migrated"
 msgstr ""
 
-#: inc/customizer/options/additional/additional.php:32, inc/customizer/options/content/blog-meta.php:34, inc/customizer/options/content/blog-sidebar.php:119, inc/customizer/options/content/blog.php:416, inc/customizer/options/content/page.php:138, inc/customizer/options/content/single-post.php:175, inc/customizer/options/footer-builder/copyright.php:145, inc/customizer/options/footer-builder/footer-menu-2.php:109, inc/customizer/options/footer-builder/footer-menu.php:109, inc/customizer/options/footer-builder/html-1.php:107, inc/customizer/options/footer-builder/html-2.php:107, inc/customizer/options/footer-builder/socials.php:62, inc/customizer/options/footer-builder/widget-1.php:148, inc/customizer/options/footer-builder/widget-2.php:148, inc/customizer/options/footer-builder/widget-3.php:148, inc/customizer/options/footer-builder/widget-4.php:148, inc/customizer/options/footer-builder/widget-5.php:148, inc/customizer/options/footer-builder/widget-6.php:148, inc/customizer/options/footer/footer-bar.php:318, inc/customizer/options/footer/footer-column.php:304, inc/customizer/options/footer/scroll-to-top.php:77, inc/customizer/options/global/button.php:138, inc/customizer/options/global/colors.php:245, inc/customizer/options/global/content-area.php:44, inc/customizer/options/global/layout.php:184, inc/customizer/options/global/sidebar.php:108, inc/customizer/options/global/typography.php:908, inc/customizer/options/header-builder/bottom-area.php:130, inc/customizer/options/header-builder/cart.php:26, inc/customizer/options/header-builder/header-button.php:177, inc/customizer/options/header-builder/html-1.php:90, inc/customizer/options/header-builder/html-2.php:90, inc/customizer/options/header-builder/logo.php:221, inc/customizer/options/header-builder/main-area.php:130, inc/customizer/options/header-builder/mobile-menu.php:53, inc/customizer/options/header-builder/offset-area.php:27, inc/customizer/options/header-builder/primary-menu.php:248, inc/customizer/options/header-builder/quaternary-menu.php:107, inc/customizer/options/header-builder/search.php:58, inc/customizer/options/header-builder/secondary-menu.php:194, inc/customizer/options/header-builder/socials.php:45, inc/customizer/options/header-builder/tertiary-menu.php:195, inc/customizer/options/header-builder/toggle-button.php:8, inc/customizer/options/header-builder/top-area.php:116, inc/customizer/options/header-builder/widget-1.php:131, inc/customizer/options/header-builder/widget-2.php:131, inc/customizer/options/header/breadcrumb.php:96, inc/customizer/options/header/header-button.php:178, inc/customizer/options/header/header-media.php:18, inc/customizer/options/header/header-search.php:35, inc/customizer/options/header/main-header.php:190, inc/customizer/options/header/page-header.php:196, inc/customizer/options/header/primary-menu.php:354, inc/customizer/options/header/site-identity.php:222, inc/customizer/options/header/top-bar.php:215, inc/customizer/options/woocommerce/woocommerce.php:103
+#: inc/customizer/options/additional/additional.php:33, inc/customizer/options/content/blog-meta.php:34, inc/customizer/options/content/blog-sidebar.php:119, inc/customizer/options/content/blog.php:416, inc/customizer/options/content/page.php:138, inc/customizer/options/content/single-post.php:175, inc/customizer/options/footer-builder/copyright.php:145, inc/customizer/options/footer-builder/footer-menu-2.php:109, inc/customizer/options/footer-builder/footer-menu.php:109, inc/customizer/options/footer-builder/html-1.php:107, inc/customizer/options/footer-builder/html-2.php:107, inc/customizer/options/footer-builder/socials.php:62, inc/customizer/options/footer-builder/widget-1.php:148, inc/customizer/options/footer-builder/widget-2.php:148, inc/customizer/options/footer-builder/widget-3.php:148, inc/customizer/options/footer-builder/widget-4.php:148, inc/customizer/options/footer-builder/widget-5.php:148, inc/customizer/options/footer-builder/widget-6.php:148, inc/customizer/options/footer/footer-bar.php:318, inc/customizer/options/footer/footer-column.php:304, inc/customizer/options/footer/scroll-to-top.php:77, inc/customizer/options/global/button.php:138, inc/customizer/options/global/colors.php:245, inc/customizer/options/global/content-area.php:44, inc/customizer/options/global/layout.php:203, inc/customizer/options/global/sidebar.php:108, inc/customizer/options/global/typography.php:908, inc/customizer/options/header-builder/bottom-area.php:130, inc/customizer/options/header-builder/cart.php:26, inc/customizer/options/header-builder/header-button.php:177, inc/customizer/options/header-builder/html-1.php:90, inc/customizer/options/header-builder/html-2.php:90, inc/customizer/options/header-builder/logo.php:221, inc/customizer/options/header-builder/main-area.php:130, inc/customizer/options/header-builder/mobile-menu.php:53, inc/customizer/options/header-builder/offset-area.php:27, inc/customizer/options/header-builder/primary-menu.php:248, inc/customizer/options/header-builder/quaternary-menu.php:107, inc/customizer/options/header-builder/search.php:58, inc/customizer/options/header-builder/secondary-menu.php:194, inc/customizer/options/header-builder/socials.php:45, inc/customizer/options/header-builder/tertiary-menu.php:195, inc/customizer/options/header-builder/toggle-button.php:8, inc/customizer/options/header-builder/top-area.php:116, inc/customizer/options/header-builder/widget-1.php:131, inc/customizer/options/header-builder/widget-2.php:131, inc/customizer/options/header/breadcrumb.php:96, inc/customizer/options/header/header-button.php:178, inc/customizer/options/header/header-media.php:26, inc/customizer/options/header/header-search.php:35, inc/customizer/options/header/main-header.php:190, inc/customizer/options/header/page-header.php:196, inc/customizer/options/header/primary-menu.php:354, inc/customizer/options/header/site-identity.php:222, inc/customizer/options/header/top-bar.php:215, inc/customizer/options/woocommerce/woocommerce.php:103
 msgid "Unlock more features available in the Pro version."
 msgstr ""
 
-#: inc/customizer/options/additional/additional.php:33, inc/customizer/options/content/blog-meta.php:35, inc/customizer/options/content/blog-sidebar.php:120, inc/customizer/options/content/blog.php:417, inc/customizer/options/content/page.php:139, inc/customizer/options/content/single-post.php:176, inc/customizer/options/footer-builder/copyright.php:146, inc/customizer/options/footer-builder/footer-menu-2.php:110, inc/customizer/options/footer-builder/footer-menu.php:110, inc/customizer/options/footer-builder/html-1.php:108, inc/customizer/options/footer-builder/html-2.php:108, inc/customizer/options/footer-builder/socials.php:63, inc/customizer/options/footer-builder/widget-1.php:149, inc/customizer/options/footer-builder/widget-2.php:149, inc/customizer/options/footer-builder/widget-3.php:149, inc/customizer/options/footer-builder/widget-4.php:149, inc/customizer/options/footer-builder/widget-5.php:149, inc/customizer/options/footer-builder/widget-6.php:149, inc/customizer/options/footer/footer-bar.php:319, inc/customizer/options/footer/footer-column.php:305, inc/customizer/options/footer/scroll-to-top.php:78, inc/customizer/options/global/button.php:139, inc/customizer/options/global/colors.php:246, inc/customizer/options/global/content-area.php:45, inc/customizer/options/global/layout.php:185, inc/customizer/options/global/sidebar.php:109, inc/customizer/options/global/typography.php:909, inc/customizer/options/header-builder/bottom-area.php:131, inc/customizer/options/header-builder/cart.php:27, inc/customizer/options/header-builder/header-button.php:178, inc/customizer/options/header-builder/html-1.php:91, inc/customizer/options/header-builder/html-2.php:91, inc/customizer/options/header-builder/logo.php:222, inc/customizer/options/header-builder/main-area.php:131, inc/customizer/options/header-builder/mobile-menu.php:54, inc/customizer/options/header-builder/offset-area.php:28, inc/customizer/options/header-builder/primary-menu.php:249, inc/customizer/options/header-builder/quaternary-menu.php:108, inc/customizer/options/header-builder/search.php:56, inc/customizer/options/header-builder/secondary-menu.php:195, inc/customizer/options/header-builder/socials.php:46, inc/customizer/options/header-builder/tertiary-menu.php:196, inc/customizer/options/header-builder/toggle-button.php:9, inc/customizer/options/header-builder/top-area.php:117, inc/customizer/options/header-builder/widget-1.php:132, inc/customizer/options/header-builder/widget-2.php:132, inc/customizer/options/header/breadcrumb.php:97, inc/customizer/options/header/header-button.php:179, inc/customizer/options/header/header-media.php:19, inc/customizer/options/header/header-search.php:36, inc/customizer/options/header/main-header.php:191, inc/customizer/options/header/page-header.php:197, inc/customizer/options/header/primary-menu.php:355, inc/customizer/options/header/site-identity.php:223, inc/customizer/options/header/top-bar.php:216, inc/customizer/options/woocommerce/woocommerce.php:104
+#: inc/customizer/options/additional/additional.php:34, inc/customizer/options/content/blog-meta.php:35, inc/customizer/options/content/blog-sidebar.php:120, inc/customizer/options/content/blog.php:417, inc/customizer/options/content/page.php:139, inc/customizer/options/content/single-post.php:176, inc/customizer/options/footer-builder/copyright.php:146, inc/customizer/options/footer-builder/footer-menu-2.php:110, inc/customizer/options/footer-builder/footer-menu.php:110, inc/customizer/options/footer-builder/html-1.php:108, inc/customizer/options/footer-builder/html-2.php:108, inc/customizer/options/footer-builder/socials.php:63, inc/customizer/options/footer-builder/widget-1.php:149, inc/customizer/options/footer-builder/widget-2.php:149, inc/customizer/options/footer-builder/widget-3.php:149, inc/customizer/options/footer-builder/widget-4.php:149, inc/customizer/options/footer-builder/widget-5.php:149, inc/customizer/options/footer-builder/widget-6.php:149, inc/customizer/options/footer/footer-bar.php:319, inc/customizer/options/footer/footer-column.php:305, inc/customizer/options/footer/scroll-to-top.php:78, inc/customizer/options/global/button.php:139, inc/customizer/options/global/colors.php:246, inc/customizer/options/global/content-area.php:45, inc/customizer/options/global/layout.php:204, inc/customizer/options/global/sidebar.php:109, inc/customizer/options/global/typography.php:909, inc/customizer/options/header-builder/bottom-area.php:131, inc/customizer/options/header-builder/cart.php:27, inc/customizer/options/header-builder/header-button.php:178, inc/customizer/options/header-builder/html-1.php:91, inc/customizer/options/header-builder/html-2.php:91, inc/customizer/options/header-builder/logo.php:222, inc/customizer/options/header-builder/main-area.php:131, inc/customizer/options/header-builder/mobile-menu.php:54, inc/customizer/options/header-builder/offset-area.php:28, inc/customizer/options/header-builder/primary-menu.php:249, inc/customizer/options/header-builder/quaternary-menu.php:108, inc/customizer/options/header-builder/search.php:56, inc/customizer/options/header-builder/secondary-menu.php:195, inc/customizer/options/header-builder/socials.php:46, inc/customizer/options/header-builder/tertiary-menu.php:196, inc/customizer/options/header-builder/toggle-button.php:9, inc/customizer/options/header-builder/top-area.php:117, inc/customizer/options/header-builder/widget-1.php:132, inc/customizer/options/header-builder/widget-2.php:132, inc/customizer/options/header/breadcrumb.php:97, inc/customizer/options/header/header-button.php:179, inc/customizer/options/header/header-media.php:27, inc/customizer/options/header/header-search.php:36, inc/customizer/options/header/main-header.php:191, inc/customizer/options/header/page-header.php:197, inc/customizer/options/header/primary-menu.php:355, inc/customizer/options/header/site-identity.php:223, inc/customizer/options/header/top-bar.php:216, inc/customizer/options/woocommerce/woocommerce.php:104
 msgid "Learn more"
 msgstr ""
 
@@ -661,7 +704,7 @@ msgstr ""
 msgid "Meta"
 msgstr ""
 
-#: inc/customizer/options/content/blog-meta.php:14, inc/customizer/options/footer-builder/bottom-area.php:145, inc/customizer/options/footer-builder/main-area.php:216, inc/customizer/options/footer-builder/top-area.php:146, inc/customizer/options/global/content-area.php:14, inc/customizer/options/global/layout.php:60, inc/customizer/options/global/layout.php:145, inc/customizer/options/global/sidebar.php:38, inc/customizer/options/header/main-header.php:17, inc/customizer/options/header/page-header.php:12, inc/customizer/options/woocommerce/woocommerce.php:37, inc/meta-boxes/class-zakra-meta-box-page-settings.php:118
+#: inc/customizer/options/content/blog-meta.php:14, inc/customizer/options/footer-builder/bottom-area.php:145, inc/customizer/options/footer-builder/main-area.php:216, inc/customizer/options/footer-builder/top-area.php:146, inc/customizer/options/global/content-area.php:14, inc/customizer/options/global/layout.php:60, inc/customizer/options/global/layout.php:164, inc/customizer/options/global/sidebar.php:38, inc/customizer/options/header/main-header.php:17, inc/customizer/options/header/page-header.php:12, inc/customizer/options/woocommerce/woocommerce.php:37, inc/meta-boxes/class-zakra-meta-box-page-settings.php:118
 msgid "Layout"
 msgstr ""
 
@@ -769,7 +812,7 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
-#: inc/customizer/options/content/blog.php:252, inc/customizer/options/footer-builder/bottom-area.php:57, inc/customizer/options/footer-builder/copyright.php:34, inc/customizer/options/footer-builder/html-1.php:19, inc/customizer/options/footer-builder/html-2.php:19, inc/customizer/options/footer-builder/main-area.php:57, inc/customizer/options/footer-builder/top-area.php:57, inc/customizer/options/footer/footer-bar.php:100, inc/customizer/options/footer/footer-bar.php:270, inc/customizer/options/footer/footer-bar.php:290, inc/customizer/options/footer/footer-column.php:131, inc/customizer/options/footer/footer-column.php:153, inc/customizer/options/footer/footer-column.php:178, inc/customizer/options/footer/footer-column.php:233, inc/customizer/options/footer/scroll-to-top.php:50, inc/customizer/options/global/button.php:8, inc/customizer/options/header-builder/bottom-area.php:45, inc/customizer/options/header-builder/cart.php:14, inc/customizer/options/header-builder/header-button.php:34, inc/customizer/options/header-builder/html-1.php:19, inc/customizer/options/header-builder/html-2.php:19, inc/customizer/options/header-builder/logo.php:74, inc/customizer/options/header-builder/logo.php:157, inc/customizer/options/header-builder/main-area.php:45, inc/customizer/options/header-builder/search.php:21, inc/customizer/options/header-builder/top-area.php:47, inc/customizer/options/header/breadcrumb.php:67, inc/customizer/options/header/header-button.php:71, inc/customizer/options/header/main-header.php:155, inc/customizer/options/header/page-header.php:135, inc/customizer/options/header/primary-menu.php:73, inc/customizer/options/header/site-identity.php:74, inc/customizer/options/header/site-identity.php:157, inc/customizer/options/header/top-bar.php:45
+#: inc/customizer/options/content/blog.php:252, inc/customizer/options/footer-builder/bottom-area.php:57, inc/customizer/options/footer-builder/copyright.php:34, inc/customizer/options/footer-builder/html-1.php:19, inc/customizer/options/footer-builder/html-2.php:19, inc/customizer/options/footer-builder/main-area.php:57, inc/customizer/options/footer-builder/top-area.php:57, inc/customizer/options/footer/footer-bar.php:100, inc/customizer/options/footer/footer-bar.php:270, inc/customizer/options/footer/footer-bar.php:290, inc/customizer/options/footer/footer-column.php:131, inc/customizer/options/footer/footer-column.php:153, inc/customizer/options/footer/footer-column.php:178, inc/customizer/options/footer/footer-column.php:233, inc/customizer/options/footer/scroll-to-top.php:50, inc/customizer/options/global/button.php:8, inc/customizer/options/header-builder/bottom-area.php:45, inc/customizer/options/header-builder/cart.php:14, inc/customizer/options/header-builder/header-button.php:34, inc/customizer/options/header-builder/html-1.php:19, inc/customizer/options/header-builder/html-2.php:19, inc/customizer/options/header-builder/logo.php:74, inc/customizer/options/header-builder/logo.php:157, inc/customizer/options/header-builder/main-area.php:45, inc/customizer/options/header-builder/search.php:21, inc/customizer/options/header-builder/top-area.php:47, inc/customizer/options/header/header-button.php:71, inc/customizer/options/header/main-header.php:155, inc/customizer/options/header/page-header.php:135, inc/customizer/options/header/primary-menu.php:73, inc/customizer/options/header/site-identity.php:74, inc/customizer/options/header/site-identity.php:157, inc/customizer/options/header/top-bar.php:45
 msgid "Color"
 msgstr ""
 
@@ -795,6 +838,10 @@ msgstr ""
 
 #: inc/customizer/options/content/blog.php:344, inc/customizer/options/header-builder/header-builder.php:92, inc/customizer/panels-sections/panels-sections.php:72
 msgid "Button"
+msgstr ""
+
+#: inc/customizer/options/content/blog.php:354, inc/customizer/options/footer/footer-column.php:14, inc/customizer/options/footer/footer-column.php:223, inc/customizer/options/footer/scroll-to-top.php:7, inc/customizer/options/global/builder.php:13, inc/customizer/options/header-builder/logo.php:66, inc/customizer/options/header/breadcrumb.php:7, inc/customizer/options/header/header-button.php:20, inc/customizer/options/header/header-search.php:14, inc/customizer/options/header/page-header.php:4, inc/customizer/options/header/primary-menu.php:19, inc/customizer/options/header/site-identity.php:66, inc/customizer/options/header/top-bar.php:20, inc/meta-boxes/class-zakra-meta-box-page-settings.php:225
+msgid "Enable"
 msgstr ""
 
 #: inc/customizer/options/content/blog.php:368, inc/customizer/options/footer-builder/copyright.php:127, inc/customizer/options/footer-builder/footer-menu-2.php:92, inc/customizer/options/footer-builder/footer-menu.php:92, inc/customizer/options/footer-builder/html-1.php:89, inc/customizer/options/footer-builder/html-2.php:89, inc/customizer/options/footer-builder/socials.php:44, inc/customizer/options/footer-builder/widget-1.php:130, inc/customizer/options/footer-builder/widget-2.php:130, inc/customizer/options/footer-builder/widget-3.php:130, inc/customizer/options/footer-builder/widget-4.php:130, inc/customizer/options/footer-builder/widget-5.php:130, inc/customizer/options/footer-builder/widget-6.php:130
@@ -970,7 +1017,7 @@ msgstr ""
 msgid "Main row columns"
 msgstr ""
 
-#: inc/customizer/options/footer-builder/main-area.php:65
+#: inc/customizer/options/footer-builder/main-area.php:65, inc/customizer/options/header/breadcrumb.php:67
 msgid "Link Color"
 msgstr ""
 
@@ -1030,7 +1077,7 @@ msgstr ""
 msgid "Border Top"
 msgstr ""
 
-#: inc/customizer/options/footer/footer-bar.php:87, inc/customizer/options/global/layout.php:73, inc/customizer/options/global/layout.php:156, inc/customizer/options/header-builder/logo.php:42, inc/customizer/options/header/main-header.php:143, inc/customizer/options/header/primary-menu.php:57
+#: inc/customizer/options/footer/footer-bar.php:87, inc/customizer/options/global/layout.php:73, inc/customizer/options/global/layout.php:175, inc/customizer/options/header-builder/logo.php:42, inc/customizer/options/header/main-header.php:143, inc/customizer/options/header/primary-menu.php:57
 msgid "Width"
 msgstr ""
 
@@ -1171,10 +1218,14 @@ msgid "Bordered"
 msgstr ""
 
 #: inc/customizer/options/global/layout.php:119
-msgid "Content Area Padding"
+msgid "Content Area Padding (Top/Bottom)"
 msgstr ""
 
-#: inc/customizer/options/global/layout.php:134, inc/customizer/panels-sections/panels-sections.php:67, inc/meta-boxes/class-zakra-meta-box-page-settings.php:180
+#: inc/customizer/options/global/layout.php:138
+msgid "Content Area Padding (Left/Right)"
+msgstr ""
+
+#: inc/customizer/options/global/layout.php:153, inc/customizer/panels-sections/panels-sections.php:67, inc/meta-boxes/class-zakra-meta-box-page-settings.php:180
 msgid "Sidebar"
 msgstr ""
 
@@ -1420,6 +1471,14 @@ msgstr ""
 
 #: inc/customizer/options/header/header-media.php:8, inc/customizer/panels-sections/panels-sections.php:32
 msgid "Header Media"
+msgstr ""
+
+#: inc/customizer/options/header/header-media.php:15
+msgid "Mobile Image"
+msgstr ""
+
+#: inc/customizer/options/header/header-media.php:16
+msgid "Optional. Shown instead of the Header Image/Video above on mobile devices. Leave empty to use the same header media on mobile."
 msgstr ""
 
 #: inc/customizer/options/header/main-header.php:8, inc/customizer/panels-sections/panels-sections.php:92
@@ -1727,6 +1786,11 @@ msgctxt "list item separator"
 msgid ", "
 msgstr ""
 
+#: searchform.php:20
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
 #: searchform.php:26, searchform.php:33
 msgctxt "label"
 msgid "Search for:"
@@ -1737,24 +1801,19 @@ msgctxt "placeholder"
 msgid "Type & hit Enter &hellip;"
 msgstr ""
 
-#: searchform.php:38
-msgctxt "submit button"
-msgid "Search"
-msgstr ""
-
-#: searchform.php:44
+#: searchform.php:41
 msgid "Close"
 msgstr ""
 
-#: sidebar.php:44, sidebar.php:50
+#: sidebar.php:59, sidebar.php:65
 msgid "Example Widget"
 msgstr ""
 
 #. translators: 1. Label for Contact Page or Right sidebar area, 2. Opening of the link for widgets.php WordPress section, 3. Closing of the link for widgets.php WordPress section
-#: sidebar.php:47
+#: sidebar.php:62
 msgid "This is an example widget to show how the %1$s Sidebar looks by default. You can add custom widgets from the %2$swidgets screen%3$s in the admin. If custom widgets are added, then they will replace this."
 msgstr ""
 
-#: sidebar.php:36
+#: sidebar.php:51
 msgid "Click here to add widgets for this area"
 msgstr ""

@@ -3,7 +3,7 @@
         'name' => 'root/zakra',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'b94d5ebae2569becce93d44e2cf7f95a71c1864f',
+        'reference' => 'f6ddb9d986bde713f4bb39aa290b6509e90b4d96',
         'type' => 'theme',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'root/zakra' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'b94d5ebae2569becce93d44e2cf7f95a71c1864f',
+            'reference' => 'f6ddb9d986bde713f4bb39aa290b6509e90b4d96',
             'type' => 'theme',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

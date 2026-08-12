@@ -39,7 +39,7 @@ $options = array(
 					'section' => 'zakra_footer_builder_socials',
 				),
 				'zakra_socials_alignment'         => array(
-					'default'   => '',
+					'default'   => 'left',
 					'type'      => 'customind-toggle-button',
 					'title'     => esc_html__( 'Alignment', 'zakra' ),
 					'section'   => 'zakra_footer_builder_socials',

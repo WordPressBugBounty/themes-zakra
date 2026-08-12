@@ -145,7 +145,7 @@ if ( ! function_exists( 'zakra_posted_on' ) ) :
 		if ( 'both-date' === $date_type ) {
 			$time_string = sprintf( $date_text, $published_time ) . ' | ' . sprintf( $updated_text, $modified_time );
 		} elseif ( 'modified-date' === $date_type ) {
-			$time_string = sprintf( $date_text, $modified_time );
+			$time_string = sprintf( $updated_text, $modified_time );
 		} else {
 			$time_string = sprintf( $date_text, $published_time );
 		}

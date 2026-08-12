@@ -313,6 +313,15 @@ class Zakra_Contribution {
 	/**
 	 * Log SDK tracking payload to debug.log when WP_DEBUG is on.
 	 *
+	 * Zakra_Pro_Contribution::augment_logger_data() injects the site's real
+	 * Freemius license secret key into this same payload's `data.license_key`
+	 * (see that class) - logging the decoded body as-is would write that key
+	 * to disk in plaintext every time this fires (ZAK-333). Masking it here,
+	 * right before it's ever handed to `error_log()`, means the raw secret
+	 * never reaches the log line in the first place - not just redacted
+	 * after the fact, which would still leave a window where the full value
+	 * existed on disk.
+	 *
 	 * @param bool|array $pre  Whether to preempt the request.
 	 * @param array      $args Request arguments.
 	 * @param string     $url  Request URL.
@@ -320,12 +329,36 @@ class Zakra_Contribution {
 	 */
 	public function debug_log_payload( $pre, $args, $url ) {
 		if ( false !== strpos( $url, 'api.themegrill.com/tracking/log' ) ) {
+			$body = json_decode( $args['body'], true );
+
+			if ( is_array( $body ) && isset( $body['data']['license_key'] ) && is_string( $body['data']['license_key'] ) ) {
+				$body['data']['license_key'] = $this->mask_secret( $body['data']['license_key'] );
+			}
+
 			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 			error_log( 'Zakra SDK payload sent to: ' . $url );
 			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
-			error_log( 'Zakra SDK body: ' . print_r( json_decode( $args['body'], true ), true ) );
+			error_log( 'Zakra SDK body: ' . print_r( $body, true ) );
 		}
 		return $pre;
+	}
+
+	/**
+	 * Mask a secret value for logging, keeping just enough of each end to be
+	 * recognizable in support/debugging contexts without exposing the full
+	 * value - e.g. `sk_w;***...agu9`.
+	 *
+	 * @param string $secret Full secret value.
+	 * @return string Masked value.
+	 */
+	private function mask_secret( $secret ) {
+		$length = strlen( $secret );
+
+		if ( $length <= 8 ) {
+			return str_repeat( '*', $length );
+		}
+
+		return substr( $secret, 0, 4 ) . '***...' . substr( $secret, -4 );
 	}
 
 	/**

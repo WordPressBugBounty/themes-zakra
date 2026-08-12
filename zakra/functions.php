@@ -143,6 +143,12 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require ZAKRA_PARENT_INC_DIR . '/compatibility/woocommerce/class-zakra-woocommerce.php';
 }
 
+// Masteriyo.
+if ( defined( 'MASTERIYO_VERSION' ) ) {
+
+	require ZAKRA_PARENT_INC_DIR . '/compatibility/masteriyo/class-zakra-masteriyo.php';
+}
+
 // Elementor Pro.
 require_once ZAKRA_PARENT_INC_DIR . '/compatibility/elementor/class-zakra-elementor-pro.php';
 

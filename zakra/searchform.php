@@ -17,11 +17,11 @@ $product_search = get_theme_mod( 'zakra_enable_product_search_search', false );
 <div class="zak-search-container">
 <form role="search" method="get" class="zak-search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<label class="zak-search-field-label">
-		<div class="zak-icon--search">
+		<button type="submit" class="zak-icon--search" aria-label="<?php echo esc_attr_x( 'Search', 'submit button', 'zakra' ); ?>">
 
 			<?php zakra_get_icon( 'magnifying-glass' ); ?>
 
-		</div>
+		</button>
 
 		<span class="screen-reader-text"><?php echo esc_attr_x( 'Search for:', 'label', 'zakra' ); ?></span>
 
@@ -33,9 +33,6 @@ $product_search = get_theme_mod( 'zakra_enable_product_search_search', false );
 				title="<?php echo esc_attr_x( 'Search for:', 'label', 'zakra' ); ?>"
 		>
 	</label>
-
-	<input type="submit" class="zak-search-submit"
-			value="<?php echo esc_attr_x( 'Search', 'submit button', 'zakra' ); ?>" />
 
 	<?php if ( $product_search ) : ?>
 	<input type="hidden" name="post_type" value="product" />

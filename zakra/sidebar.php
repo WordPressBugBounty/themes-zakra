@@ -12,8 +12,23 @@ defined( 'ABSPATH' ) || exit;
 
 $sidebar = apply_filters( 'zakra_get_sidebar', 'sidebar-right' );
 
-// Hide sidebar when sidebar is not present.
-if ( in_array( zakra_get_current_sidebar_layout(), array( 'zak-site-layout--no_sidebar', 'zak-site-layout--centered', 'zak-site-layout--default', 'zak-site-layout--stretched' ), true ) ) {
+/*
+ * Skip rendering the sidebar server-side whenever it will end up hidden via
+ * CSS anyway. `zakra_get_current_sidebar_layout()` only ever returns the
+ * sidebar-specific class (no_sidebar|left|right|both, see its regex), so
+ * checking it alone can never catch the Container Layout being Narrow
+ * (`zak-site-layout--centered`) or Stretched (`zak-site-layout--stretched`)
+ * — both of which force `.zak-secondary { display: none; }` regardless of
+ * the Sidebar Layout setting. Check the full current layout for those two
+ * container states instead of relying on the sidebar-only getter for them.
+ */
+$current_layout = zakra_get_current_layout();
+
+if (
+	'zak-site-layout--no_sidebar' === zakra_get_current_sidebar_layout() ||
+	str_contains( $current_layout, 'zak-site-layout--centered' ) ||
+	str_contains( $current_layout, 'zak-site-layout--stretched' )
+) {
 	return '';
 }
 ?>

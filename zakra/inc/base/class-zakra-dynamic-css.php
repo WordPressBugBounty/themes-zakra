@@ -68,21 +68,6 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 				''
 			) );
 
-			// Breakpoint media.
-			$breakpoint_media_default = array(
-				'size' => 768,
-				'unit' => 'px',
-			);
-			$breakpoint_media = get_theme_mod( 'zakra_mobile_menu_breakpoint', $breakpoint_media_default );
-
-			if ( is_string($breakpoint_media)) {
-
-				$breakpoint_media = array(
-					'size' => $breakpoint_media,
-					'unit' => 'px',
-				);
-			}
-
 			// Content margin.
 			$content_padding_default = array(
 				'size' => '',
@@ -96,6 +81,21 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 				$content_padding,
 				'.zak-primary, .zak-secondary',
 				'padding-top, padding-bottom'
+			);
+
+			// Content padding (left/right).
+			$content_padding_horizontal_default = array(
+				'size' => '',
+				'unit' => 'px',
+			);
+
+			$content_padding_horizontal = get_theme_mod( 'zakra_content_area_padding_horizontal', $content_padding_horizontal_default );
+
+			$parse_css .= zakra_parse_slider_css(
+				$content_padding_horizontal_default,
+				$content_padding_horizontal,
+				'#page .zak-primary, #page .zak-secondary',
+				'padding-left, padding-right'
 			);
 
 			/**
@@ -131,7 +131,19 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 				),
 			);
 
-			$parse_css .= '@media screen and (min-width: ' . $breakpoint_media['size'] . 'px) {';
+			// This width media query used to reuse `$breakpoint_media`
+			// (`zakra_mobile_menu_breakpoint`, default 768px) - an unrelated
+			// setting for the mobile-nav toggle that just happened to share
+			// the primary/secondary split's old breakpoint by coincidence.
+			// `.zak-row`'s side-by-side `flex-direction` switches at "lrg"
+			// (992px, see `layouts/site/primary/_content.scss`), so a fixed
+			// 70/30 width kicking in earlier at 768px left `.zak-primary`
+			// and `.zak-secondary` confined to that split's percentages for
+			// an entire 768-991px band where they'd already wrapped onto
+			// separate rows - stranding dead space next to the now-stacked,
+			// still-70%-wide content column (ZAK-331). Hardcoded to match
+			// "lrg" directly instead.
+			$parse_css .= '@media screen and (min-width: 992px) {';
 			$parse_css .= zakra_parse_css( 70, ( 100 - (float) $sidebar_width['size'] ), $content_width_css );
 			$parse_css .= zakra_parse_slider_css(
 				$sidebar_width_default,
@@ -172,7 +184,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 				'.zak-post-content .entry-button:hover .zak-icon,
 				.zak-error-404 .zak-button:hover svg,
 				.zak-style-2 .zak-entry-meta span .zak-icon,
-				.entry-button .zak-icon' => array(
+				.entry-button .zak-icon'                 => array(
 					'fill' => esc_html( $primary_color ),
 				),
 				'blockquote, .wp-block-quote,
@@ -223,7 +235,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 				input[type="reset"],
 				input[type="submit"],
 				.wp-block-button .wp-block-button__link,
-				.zak-button' => array(
+				.zak-button'                             => array(
 					'border-color'     => esc_html( $primary_color ),
 					'background-color' => esc_html( $primary_color ),
 				),
@@ -255,7 +267,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 					'border-color' => esc_html( $border_color ),
 				),
 
-				'hr .zak-container--separate, '                                                                                                                                                                   => array(
+				'hr .zak-container--separate, ' => array(
 					'background-color' => esc_html( $border_color ),
 				),
 			);
@@ -280,7 +292,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 				.pagebuilder-content a:hover, .pagebuilder-content a:hover' => array(
 					'color' => esc_html( $link_color_hover ),
 				),
-				'.entry-button:hover .zak-icon'                                                                                                => array(
+				'.entry-button:hover .zak-icon' => array(
 					'fill' => esc_html( $link_color_hover ),
 				),
 			);
@@ -1857,10 +1869,10 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			$scroll_to_top_normal_color     = get_theme_mod( 'zakra_scroll_to_top_icon_color', '#ffffff' );
 			$scroll_to_top_normal_color_css = array(
-				'.zak-scroll-to-top' => array(
+				'.zak-scroll-to-top'           => array(
 					'color' => esc_html( $scroll_to_top_normal_color ),
 				),
-				'.zak-scroll-to-top .zak-icon'                                                                                                => array(
+				'.zak-scroll-to-top .zak-icon' => array(
 					'fill' => esc_html( $scroll_to_top_normal_color ),
 				),
 			);
@@ -1868,7 +1880,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			$scroll_to_top_hover_color     = get_theme_mod( 'zakra_scroll_to_top_icon_hover_color', '#ffffff' );
 			$scroll_to_top_hover_color_css = array(
-				'.zak-scroll-to-top:hover' => array(
+				'.zak-scroll-to-top:hover'           => array(
 					'color' => esc_html( $scroll_to_top_hover_color ),
 				),
 				'.zak-scroll-to-top:hover .zak-icon' => array(
@@ -1970,7 +1982,16 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			$button_wc_text_color     = get_theme_mod( 'zakra_button_color', '' );
 			$button_wc_text_color_css = array(
-				'.woocommerce a.button, .woocommerce a.button.alt, .woocommerce button.button, .woocommerce button.button.alt, .woocommerce ul.products a.button, .woocommerce div.product form.cart .button, .wp-block-button .wp-block-button__link, .woocommerce button.button:disabled[disabled], .tg-sticky-panel .tg-checkout-btn a' => array(
+				// `.woocommerce-MyAccount-navigation ul .is-active a` matches the
+				// shape (and specificity) of the static rule in woocommerce.css,
+				// which otherwise always wins over the flatter
+				// `.woocommerce-MyAccount-navigation-link.is-active a` selector
+				// and keeps the active tab on the default color (ZAK-326). The
+				// static rule reasserts the same color again on :hover/:focus
+				// (rather than a distinct hover color - the current tab isn't
+				// meant to visually change on hover), so this uses the base
+				// Button color here too instead of the Button Hover color.
+				'.woocommerce a.button, .woocommerce a.button.alt, .woocommerce button.button, .woocommerce button.button.alt, .woocommerce ul.products a.button, .woocommerce div.product form.cart .button, .wp-block-button .wp-block-button__link, .woocommerce button.button:disabled[disabled], .tg-sticky-panel .tg-checkout-btn a, .woocommerce-MyAccount-navigation ul .is-active a, .woocommerce-MyAccount-navigation ul .is-active a:hover, .woocommerce-MyAccount-navigation ul .is-active a:focus' => array(
 					'color' => esc_html( $button_wc_text_color ),
 				),
 			);
@@ -1986,7 +2007,8 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 
 			$button_wc_bg_color     = get_theme_mod( 'zakra_button_background_color', 'var(--zakra-color-1,#027abb)' );
 			$button_wc_bg_color_css = array(
-				'.woocommerce a.button.alt, .woocommerce button.button, .woocommerce button.button.alt, .woocommerce ul.products a.button, .woocommerce div.product form.cart .button, .wp-block-button .wp-block-button__link, .tg-sticky-panel .tg-checkout-btn a' => array(
+				// See the matching note on `$button_wc_text_color_css` above (ZAK-326).
+				'.woocommerce a.button.alt, .woocommerce button.button, .woocommerce button.button.alt, .woocommerce ul.products a.button, .woocommerce div.product form.cart .button, .wp-block-button .wp-block-button__link, .tg-sticky-panel .tg-checkout-btn a, .woocommerce-MyAccount-navigation ul .is-active a, .woocommerce-MyAccount-navigation ul .is-active a:hover, .woocommerce-MyAccount-navigation ul .is-active a:focus' => array(
 					'background-color' => esc_html( $button_wc_bg_color ),
 				),
 			);
@@ -2885,7 +2907,11 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			// Header builder search icon color.
 			$header_search_icon_color = get_theme_mod( 'zakra_header_search_icon_color', '' );
 			$header_search_icon_color_css = array(
-				'.zak-header-builder .zak-header-search .zak-icon' => array(
+				// `.zak-no-results` (search results page) and `.widget_search`
+				// (search widget) reuse the same `searchform.php` markup as the
+				// header search, so without these the icon there stayed the
+				// default color regardless of the Icon Color setting.
+				'.zak-header-builder .zak-header-search .zak-icon, .zak-no-results .zak-icon--search .zak-icon, .widget_search .zak-icon--search .zak-icon' => array(
 					'fill' => esc_html( $header_search_icon_color ),
 				),
 			);
@@ -2901,7 +2927,11 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 				'background-attachment' => 'scroll',
 			);
 			$header_search_background         = get_theme_mod( 'zakra_header_search_background', $header_search_background_default );
-			$parse_builder_css                           .= zakra_parse_background_css( $header_search_background_default, $header_search_background, '.zak-header-builder .zak-main-header.zak-header-search--opened' );
+			// `.zak-header-search--opened` only ever gets toggled on for the classic
+			// click-to-open overlay search; the Full Search Form variant (Zakra Pro)
+			// never adds that class, so the background never applied there (ZAK-255).
+			// The `.zak-search-container` selector covers that case too.
+			$parse_builder_css                           .= zakra_parse_background_css( $header_search_background_default, $header_search_background, '.zak-header-builder .zak-main-header.zak-header-search--opened, .zak-header-builder .zak-header-search.zak-search-full .zak-search-container' );
 
 			// Header builder search text color.
 			$header_search_text_color = get_theme_mod( 'zakra_header_search_text_color', '' );
@@ -2912,9 +2942,12 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 				'.zak-header-builder .zak-header-search .zak-icon--close::after , .zak-header-builder .zak-header-search .zak-icon--close::before' => array(
 					'background' => esc_html( $header_search_text_color ),
 				),
-				'.zak-header-builder .zak-header-search .zak-icon--search .zak-icon' => array(
-					'fill' => esc_html( $header_search_text_color ),
-				),
+				// Note: this used to also set `fill` on `.zak-icon--search .zak-icon`
+				// (the visible search icon in Full Search Form). That selector is
+				// more specific than the dedicated icon-color rule above, so the
+				// Text Color setting always won and the icon never reflected the
+				// actual Icon Color setting (ZAK-255). The icon's fill is already
+				// handled by `zakra_header_search_icon_color` above.
 			);
 			$parse_builder_css                            .= zakra_parse_css( '', $header_search_text_color, $header_search_text_color_css );
 
@@ -5264,7 +5297,7 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$parse_builder_css .= ".zak-footer-builder .zak-html-2{text-align: $html_alignment_2;}";
 
 			// Social alignment.
-			$social_alignment = get_theme_mod('zakra_socials_alignment', '');
+			$social_alignment = get_theme_mod('zakra_socials_alignment', 'left');
 
 			if ( ! empty( $social_alignment ) ) {
 				$parse_builder_css .= ".zak-footer-builder .footer-social-icons{text-align: $social_alignment;}";

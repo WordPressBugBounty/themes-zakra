@@ -64,7 +64,7 @@ $options = apply_filters(
 		),
 		'zakra_breadcrumbs_link_color_group' => array(
 			'type'         => 'customind-color-group',
-			'title'        => esc_html__( 'Color', 'zakra' ),
+			'title'        => esc_html__( 'Link Color', 'zakra' ),
 			'section'      => 'zakra_breadcrumb',
 			'priority'     => 15,
 			'sub_controls' => array(

@@ -2,11 +2,11 @@
 
 Contributors: themegrill
 Author: ThemeGrill
-Version: 4.3.0
+Version: 4.3.1
 Tested up to: 7.0
 Requires PHP: 7.4
 Requires at least: 4.7
-Stable tag: 4.3.0
+Stable tag: 4.3.1
 
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -62,6 +62,27 @@ License: GNU GPL, Version 3, https://www.gnu.org/licenses/gpl-3.0.html
 Unless otherwise specified, all the theme files, scripts and images including the screenshot image are licensed under [GNU GPL] (http://www.gnu.org/licenses/gpl-3.0.txt), version 3 or later.
 
 == Changelog ==
+
+= Version 4.3.1 - 2026-08-12 =
+* Added - Mobile Image option under Header Image, shown instead of the Header Image/Video on mobile devices.
+* Fix - Optimization section's "Enable" toggle had no description.
+* Fix - Site navigation disappeared at exactly 768px viewport width.
+* Fix - "Modified Date" post date type showed the "Posted on" label instead of "Updated on".
+* Fix - Large empty gap below the price box on Masteriyo's Single Course page at tablet and mobile widths.
+* Fix - Page Header/Post Title section got duplicated in the Customizer preview when editing Header Builder.
+* Fix - Block editor styles failed to load in Gutenberg's iframed editor, triggering a console deprecation warning.
+* Fix - Checkout Order Summary product names broke into unreadable character fragments at tablet-range viewport widths.
+* Fix - Container Layout and Sidebar Layout Customizer controls had no effect on Masteriyo Single Course pages.
+* Fix - Footer Builder Social element's Alignment control showed no default selection, unlike the Copyright element's.
+* Fix - My Account active tab kept the default button color instead of updating with the Customizer's Button color setting.
+* Fix - Breadcrumb's Link Color control was labeled simply "Color", unlike the adjacent Text Color and Separator Color controls.
+* Fix - Mobile off-canvas menu listed every page on the site instead of falling back to the Primary Menu when no Mobile Menu was assigned.
+* Fix - Customizer icons and the Zakra Dashboard logged React "Invalid DOM property" console warnings due to un-camelCased SVG attributes.
+* Fix - Sidebar widgets were still rendered and shipped to the browser, then hidden via CSS, whenever Container Layout was Narrow or Stretched.
+* Fix - At tablet width (768px), the WooCommerce sidebar column was squeezed too narrow alongside the multi-column product grid, wrapping widget headings awkwardly.
+* Fix - Full Width/Wide Gutenberg blocks didn't break out to full viewport width with No Sidebar layout, and incorrectly broke out of the Narrow layout's centered column.
+* Fix - Header Builder, Footer Builder, and Customizer settings had no effect on the Starter Content homepage; also fixed a stray content gap and an unwanted page title bar on that same page.
+* Fix - Header Builder Search color controls had several issues: Background Color had no effect, Icon Color and Text Color appeared under the wrong section, and Icon Color was overridden by Text Color.
 
 = Version 4.3.0 - 2026-07-30 =
 * Enhance - Smoother theme switching on sites with a large number of users.

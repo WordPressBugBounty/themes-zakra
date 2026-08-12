@@ -2,13 +2,22 @@
 /**
  * Home page starter content for Zakra.
  *
- * Self-contained block markup recreating the Zakra "Agency 03" demo homepage,
- * including its own header and footer. Rendered through the chrome-less "Canvas"
- * page template so the WordPress.org theme preview shows this design exactly.
+ * Block markup recreating the content sections of the Zakra "Agency 03" demo
+ * homepage (hero, features, portfolio, pricing, team, reviews, etc). Rendered
+ * through the theme's normal page template, so the site's actual header.php /
+ * footer.php run as usual — Header Builder, Footer Builder, and every
+ * Customizer theme-mod apply to this page exactly like any other page.
+ *
+ * Earlier revisions duplicated a header and footer directly into this markup
+ * and rendered the page through a chrome-less "Canvas" template instead, so
+ * the WordPress.org theme preview would show that bespoke design verbatim.
+ * That left Header Builder's Toggle Menu element (and every other
+ * Customizer-driven setting) with no effect on real new sites, since the
+ * theme's own header/footer never ran on this page — see ZAK-259.
  *
  * The block markup is kept verbatim from the design export, except:
- *  - the header navigation is inlined ( the export referenced a site-specific
- *    menu id that does not exist in the preview );
+ *  - the header and footer sections of the export are dropped, since the
+ *    theme's own header.php / footer.php now provide them;
  *  - image URLs and spacing/color presets are swapped at runtime for bundled
  *    assets and explicit values, so nothing depends on external files, the
  *    site's media library, or theme/theme.json presets.
@@ -19,44 +28,6 @@
 defined( 'ABSPATH' ) || exit;
 
 $markup = <<<'HTML'
-<!-- wp:group {"align":"full","layout":{"type":"constrained","contentSize":"1240px"}} -->
-<div class="wp-block-group alignfull"><!-- wp:group {"style":{"spacing":{"blockGap":"0","padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
-<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);flex-wrap:wrap"><!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="https://prajjwalzakra-xo08.1wp.site/wp-content/uploads/2026/06/logo.png" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:group {"style":{"spacing":{"blockGap":"22px"}},"layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center","justifyContent":"right"}} -->
-<div class="wp-block-group" style="flex-wrap:wrap"><!-- wp:navigation {"overlayMenu":"never","style":{"typography":{"fontSize":"15px","fontWeight":"500"},"color":{"text":"#2B2B2B"},"spacing":{"blockGap":"22px"}},"layout":{"type":"flex","orientation":"horizontal","justifyContent":"right","flexWrap":"wrap"}} -->
-<!-- wp:navigation-link {"label":"Home","url":"#"} /-->
-
-<!-- wp:navigation-link {"label":"About","url":"#"} /-->
-
-<!-- wp:navigation-link {"label":"Shop","url":"#"} /-->
-
-<!-- wp:navigation-link {"label":"Blog","url":"#"} /-->
-
-<!-- wp:navigation-link {"label":"Contact","url":"#"} /-->
-<!-- /wp:navigation -->
-
-<!-- wp:html -->
-<div style="display:flex;align-items:center;gap:22px;">
-	<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" aria-label="Search"><circle cx="11" cy="11" r="7"></circle><line x1="20" y1="20" x2="16.5" y2="16.5"></line></svg>
-	<span style="position:relative;display:inline-flex;align-items:center;">
-		<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"></path></svg>
-		<span style="position:absolute;top:-8px;right:-10px;background:#118b57;color:#fff;font-size:10px;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Manrope,system-ui,sans-serif;">0</span>
-	</span>
-</div>
-<!-- /wp:html -->
-
-<!-- wp:buttons {"style":{"spacing":{"blockGap":"0px"}},"layout":{"type":"flex","justifyContent":"right"}} -->
-<div class="wp-block-buttons"><!-- wp:button {"textColor":"base","style":{"color":{"background":"#118b57"},"border":{"radius":"4px"},"typography":{"fontSize":"12px","fontWeight":"600","letterSpacing":"0.08em","textTransform":"uppercase"},"spacing":{"padding":{"top":"11px","bottom":"11px","left":"22px","right":"22px"}}}} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-base-color has-text-color has-background has-custom-font-size wp-element-button" style="border-radius:4px;background-color:#118b57;padding-top:11px;padding-right:22px;padding-bottom:11px;padding-left:22px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase">Download</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
-
 <!-- wp:group {"align":"full","style":{"color":{"background":"#ececec"}},"layout":{"type":"constrained","contentSize":"1240px"}} -->
 <div class="wp-block-group alignfull has-background" style="background-color:#ececec"><!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|60"}}}} -->
 <div class="wp-block-columns are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center","width":"60%"} -->
@@ -746,87 +717,7 @@ $markup .= <<<'HTML'
 <!-- wp:social-link {"url":"#","service":"linkedin"} /--></ul>
 <!-- /wp:social-links --></div>
 <!-- /wp:group -->
-
-<!-- wp:group {"tagName":"footer","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"top":{"color":"#ECECEC","style":"solid","width":"1px"}},"color":{"background":"#FFFFFF"}},"layout":{"type":"constrained","contentSize":"1240px"}} -->
-<footer class="wp-block-group alignfull has-background" style="border-top-color:#ECECEC;border-top-style:solid;border-top-width:1px;background-color:#FFFFFF;padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|60"},"margin":{"bottom":"var:preset|spacing|60"}}}} -->
-<div class="wp-block-columns" style="margin-bottom:var(--wp--preset--spacing--60)"><!-- wp:column {"width":"34%"} -->
-<div class="wp-block-column" style="flex-basis:34%"><!-- wp:html -->
-<div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
-	<span style="width:34px;height:34px;border-radius:50%;background:#118b57;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;font-family:Manrope,system-ui,sans-serif;">Z</span>
-	<span style="font-family:Manrope,system-ui,sans-serif;font-weight:700;font-size:22px;color:#1A1A1A;letter-spacing:-0.01em;">Zakra</span>
-</div>
-<!-- /wp:html -->
-
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"14px","lineHeight":"1.8"},"color":{"text":"#888888"},"spacing":{"margin":{"top":"0px","bottom":"0px"}}}} -->
-<p class="has-text-color" style="color:#888888;margin-top:0px;margin-bottom:0px;font-size:14px;line-height:1.8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit feugiat sit purus varius. Non in turpis tincidunt nulla. Condimentum ultrices nunc odio ante.</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:column -->
-
-<!-- wp:column {"width":"22%"} -->
-<div class="wp-block-column" style="flex-basis:22%"><!-- wp:paragraph {"style":{"typography":{"fontSize":"16px","fontWeight":"700"},"color":{"text":"#1A1A1A"},"spacing":{"margin":{"top":"0px","bottom":"18px"}}}} -->
-<p class="has-text-color" style="color:#1A1A1A;margin-top:0px;margin-bottom:18px;font-size:16px;font-weight:700">Quick Links</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:navigation {"overlayMenu":"never","style":{"typography":{"fontSize":"14px"},"color":{"text":"#888888"},"spacing":{"blockGap":"12px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
-<!-- wp:navigation-link {"label":"Home","url":"#"} /-->
-
-<!-- wp:navigation-link {"label":"About","url":"#"} /-->
-
-<!-- wp:navigation-link {"label":"Shop","url":"#"} /-->
-
-<!-- wp:navigation-link {"label":"Blog","url":"#"} /-->
-
-<!-- wp:navigation-link {"label":"Contact","url":"#"} /-->
-<!-- /wp:navigation --></div>
-<!-- /wp:column -->
-
-<!-- wp:column {"width":"22%"} -->
-<div class="wp-block-column" style="flex-basis:22%"><!-- wp:paragraph {"style":{"typography":{"fontSize":"16px","fontWeight":"700"},"color":{"text":"#1A1A1A"},"spacing":{"margin":{"top":"0px","bottom":"18px"}}}} -->
-<p class="has-text-color" style="color:#1A1A1A;margin-top:0px;margin-bottom:18px;font-size:16px;font-weight:700">Latest Posts</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:navigation {"overlayMenu":"never","style":{"typography":{"fontSize":"14px","lineHeight":"1.5"},"color":{"text":"#888888"},"spacing":{"blockGap":"14px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
-<!-- wp:navigation-link {"label":"The Big Seminar for Your Right Investment","url":"#"} /-->
-
-<!-- wp:navigation-link {"label":"The Best Place to Invest Your Money","url":"#"} /-->
-
-<!-- wp:navigation-link {"label":"Let's Build Your Business from Scratch","url":"#"} /-->
-<!-- /wp:navigation --></div>
-<!-- /wp:column -->
-
-<!-- wp:column {"width":"22%"} -->
-<div class="wp-block-column" style="flex-basis:22%"><!-- wp:paragraph {"style":{"typography":{"fontSize":"16px","fontWeight":"700"},"color":{"text":"#1A1A1A"},"spacing":{"margin":{"top":"0px","bottom":"18px"}}}} -->
-<p class="has-text-color" style="color:#1A1A1A;margin-top:0px;margin-bottom:18px;font-size:16px;font-weight:700">Contact Us</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"14px","lineHeight":"1.6"},"color":{"text":"#888888"},"spacing":{"margin":{"top":"0px","bottom":"12px"}}}} -->
-<p class="has-text-color" style="color:#888888;margin-top:0px;margin-bottom:12px;font-size:14px;line-height:1.6">Ph. : +(123) 456-7890</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"14px","lineHeight":"1.6"},"color":{"text":"#888888"},"spacing":{"margin":{"top":"0px","bottom":"12px"}}}} -->
-<p class="has-text-color" style="color:#888888;margin-top:0px;margin-bottom:12px;font-size:14px;line-height:1.6">Email : first.last@demos.com</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"14px","lineHeight":"1.6"},"color":{"text":"#888888"},"spacing":{"margin":{"top":"0px","bottom":"12px"}}}} -->
-<p class="has-text-color" style="color:#888888;margin-top:0px;margin-bottom:12px;font-size:14px;line-height:1.6">Loc : Moon Street , 446 Jupiter</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"14px","lineHeight":"1.6"},"color":{"text":"#888888"},"spacing":{"margin":{"top":"0px","bottom":"0px"}}}} -->
-<p class="has-text-color" style="color:#888888;margin-top:0px;margin-bottom:0px;font-size:14px;line-height:1.6">Open : 9AM &ndash; 6PM (Mon &ndash; Fri)</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:column --></div>
-<!-- /wp:columns -->
-
-<!-- wp:separator {"style":{"color":{"background":"#ECECEC"},"spacing":{"margin":{"top":"0px","bottom":"var:preset|spacing|40"}}}} -->
-<hr class="wp-block-separator has-text-color has-alpha-channel-opacity has-background" style="margin-top:0px;margin-bottom:var(--wp--preset--spacing--40);background-color:#ECECEC;color:#ECECEC"/>
-<!-- /wp:separator -->
-
-<!-- wp:paragraph {"className":"has-text-color","style":{"typography":{"fontSize":"13px","textAlign":"center"},"color":{"text":"#999999"},"spacing":{"margin":{"top":"0px","bottom":"0px"}}}} -->
-<p class="has-text-align-center has-text-color" style="color:#999999;margin-top:0px;margin-bottom:0px;font-size:13px">Copyright &copy; 2026 Zakra Agency. Powered by Zakra and BlockArt</p>
-<!-- /wp:paragraph --></footer>
-<!-- /wp:group -->
 HTML;
-
 
 /*
  * Swap the design export's live URLs and theme/spacing presets for bundled
@@ -872,5 +763,12 @@ return array(
 	'post_type'    => 'page',
 	'post_title'   => _x( 'Home', 'Theme starter content', 'zakra' ),
 	'post_content' => $markup,
-	'template'     => 'page-templates/canvas.php',
+	// No 'meta_input' here for the Page Header/breadcrumb-hiding and CSS-
+	// scoping meta this page needs ( zakra_page_header, and the internal
+	// marker print_home_page_styles() checks ) — WordPress core's own
+	// get_theme_starter_content() keeps only a fixed allowlist of fields
+	// for starter-content 'posts' entries, and meta_input isn't one of
+	// them, so it would be silently dropped before it ever reached the
+	// page. Zakra_Starter_Content::set_home_page_meta() sets both directly
+	// once the page's real ID is known — see its docblock.
 );
