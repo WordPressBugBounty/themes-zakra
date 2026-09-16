@@ -1,0 +1,31 @@
+/**
+ * RTL-only Customizer control fixes layered on top of Customind's compiled
+ * output (not edited directly) — see zakra-pro#215.
+ */
+
+/*
+ * Color-palette popover: Customind sets an inline `left: 0` (from its
+ * JS-computed position/transform) together with a CSS `right: -2px
+ * !important` that rtlcss mirrored from the LTR file's `left: -2px`. With
+ * both sides constrained at once the drawer stretches to the width of its
+ * positioned ancestor instead of sizing to its content, and covers the
+ * preview. Releasing `right` lets it size to content again, matching LTR.
+ */
+.customind-popover-drawer {
+	right: auto !important;
+}
+
+/*
+ * Toggle knob: the knob's on/off position is a Tailwind `translateX()`
+ * transform, which rtlcss cannot mirror (it only flips physical
+ * left/right-style properties). The track around the knob is correctly
+ * mirrored, so the knob's un-mirrored offset pushes it outside the track
+ * on the "checked" state. Only the transform's sign needs flipping.
+ */
+[dir="rtl"] .data-\[state\=checked\]\:translate-x-3[data-state="checked"] {
+	--tw-translate-x: -12px;
+}
+
+[dir="rtl"] .data-\[state\=unchecked\]\:translate-x-0[data-state="unchecked"] {
+	--tw-translate-x: 0px;
+}

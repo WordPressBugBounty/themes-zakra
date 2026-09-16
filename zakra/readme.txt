@@ -2,11 +2,11 @@
 
 Contributors: themegrill
 Author: ThemeGrill
-Version: 4.3.1
+Version: 4.3.3
 Tested up to: 7.0
 Requires PHP: 7.4
 Requires at least: 4.7
-Stable tag: 4.3.1
+Stable tag: 4.3.3
 
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -62,6 +62,25 @@ License: GNU GPL, Version 3, https://www.gnu.org/licenses/gpl-3.0.html
 Unless otherwise specified, all the theme files, scripts and images including the screenshot image are licensed under [GNU GPL] (http://www.gnu.org/licenses/gpl-3.0.txt), version 3 or later.
 
 == Changelog ==
+
+= Version 4.3.3 - 2026-09-16 =
+* Fix - A translatable string in the Customizer used the wrong text domain, so it couldn't be translated via the theme's own language files.
+* Fix - Corrected an icon label and a social network identifier that had incorrect WordPress capitalization.
+* Added - Copyright notice to the theme stylesheet header.
+
+= Version 4.3.2 - 2026-09-15 =
+* Fix - Header Builder crashed when a saved layout contained a component ID that no longer exists, e.g. after Zakra Pro or WooCommerce is deactivated. (#346)
+* Fix - Menu dropdowns in the Secondary, Tertiary, and Quaternary menus, and the Primary menu on touch-capable Windows devices, ran off the right edge of the screen instead of flipping inward. (#350)
+* Fix - Header search Text Color setting had no effect on the search input text. (#347)
+* Fix - WooCommerce shop grid showed 1 column instead of 2 on mobile.
+* Fix - Header and footer chrome (logo, menus, builder areas) did not appear when previewing Zakra via the WordPress.org theme preview or Appearance > Themes' Live Preview.
+* Fix - Live Preview crashed with a fatal error when WooCommerce was active and Zakra wasn't the active theme.
+* Fix - Submenu overflow detection stopped working for a nav menu edited live in the Customizer.
+* Fix - Header Builder rows sometimes failed to appear when the Customizer was opened while still loading.
+* Fix - Header, footer, and other background/color settings didn't update live in the Customizer preview and required a page refresh to show changes.
+* Fix - Mobile search overlay broke in several placements - narrow box over the site title, wrong layout in the Top/Bottom row, and issues combined with the mobile menu drawer.
+* Fix - Search Background Color didn't apply consistently on mobile/tablet or when Search was placed outside the Main header row.
+* Fix - Live Preview showed a JavaScript error and broke the Customizer panel when WooCommerce was active and another theme was active.
 
 = Version 4.3.1 - 2026-08-12 =
 * Added - Mobile Image option under Header Image, shown instead of the Header Image/Video on mobile devices.

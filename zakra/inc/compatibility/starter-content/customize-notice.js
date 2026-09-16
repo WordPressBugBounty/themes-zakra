@@ -109,12 +109,24 @@
 			// widgets, still need the AJAX call — they involve creating new
 			// nav-menu-item and widget settings, not just setting the value
 			// of ones that already exist.
+			//
+			// 'theme' has to be sent explicitly whenever this theme isn't the
+			// active one ( the wordpress.org preview, and Appearance > Themes'
+			// "Live Preview", both preview an inactive theme ): without it,
+			// WordPress core's _wp_customize_include() has nothing in this
+			// standalone admin-ajax.php request to tell it which theme to
+			// preview, so it falls back to the currently active theme instead
+			// — loading that theme's functions.php rather than this one's,
+			// which means the wp_ajax_zakra_apply_starter_chrome handler below
+			// was never even registered, and every one of these calls silently
+			// 400'd before ever reaching ajax_apply_chrome().
 			chromeApplied = $.post(
 				window.ajaxurl,
 				{
 					action: 'zakra_apply_starter_chrome',
 					nonce: data.chromeNonce,
 					wp_customize: 'on',
+					theme: api.settings.theme.stylesheet,
 					customize_changeset_uuid: api.settings.changeset.uuid,
 				}
 			);

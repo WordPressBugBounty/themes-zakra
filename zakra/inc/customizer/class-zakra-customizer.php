@@ -27,6 +27,7 @@ if ( ! class_exists( 'Zakra_Customizer' ) ) :
 			add_action( 'customize_preview_init', array( $this, 'customize_preview_js' ), 11 );
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'customize_js' ), 11 );
 			add_filter( 'customize_controls_enqueue_scripts', [ $this, 'customize_controls_enqueue_scripts' ], 10, 3 );
+			add_action( 'customize_controls_enqueue_scripts', array( $this, 'rtl_customize_controls_style' ) );
 
 			$enable_builder = get_theme_mod( 'zakra_enable_builder', false );
 			if ( $enable_builder || zakra_maybe_enable_builder() ) {
@@ -55,6 +56,26 @@ if ( ! class_exists( 'Zakra_Customizer' ) ) :
 		protected function includes() {
 			require_once __DIR__ . '/panels-sections/panels-sections.php';
 			require_once __DIR__ . '/options/options.php';
+		}
+
+		/**
+		 * Patches two Customind RTL rendering bugs without touching Customind's
+		 * own compiled output: the color-palette popover expanding to fill its
+		 * positioned ancestor, and the toggle knob's transform not mirroring.
+		 *
+		 * @return void
+		 */
+		public function rtl_customize_controls_style() {
+			if ( ! is_rtl() ) {
+				return;
+			}
+
+			wp_enqueue_style(
+				'zakra-customizer-rtl',
+				ZAKRA_PARENT_CUSTOMIZER_URI . '/assets/css/customize-controls-rtl.css',
+				array( 'customind' ),
+				ZAKRA_THEME_VERSION
+			);
 		}
 
 		public function customize_js() {

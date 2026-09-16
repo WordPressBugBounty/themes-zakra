@@ -770,6 +770,10 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 				'button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span, .wp-block-button .wp-block-button__link' => array(
 					'color' => esc_html( $button_color ),
 				),
+				// Header buttons keep their own dedicated color settings, so excluded here.
+				'.zak-button:not(.zak-header-buttons .zak-button)' => array(
+					'color' => esc_html( $button_color ),
+				),
 			);
 			$parse_css        .= zakra_parse_css( '', $button_color, $button_color_css );
 
@@ -777,6 +781,9 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$button_hover_color     = get_theme_mod( 'zakra_button_hover_color', '' );
 			$button_hover_color_css = array(
 				'button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover, .wp-block-button .wp-block-button__link:hover' => array(
+					'color' => esc_html( $button_hover_color ),
+				),
+				'.zak-button:hover:not(.zak-header-buttons .zak-button)' => array(
 					'color' => esc_html( $button_hover_color ),
 				),
 			);
@@ -788,6 +795,9 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 				'button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span, .wp-block-button .wp-block-button__link' => array(
 					'background-color' => esc_html( $button_background_color ),
 				),
+				'.zak-button:not(.zak-header-buttons .zak-button)' => array(
+					'background-color' => esc_html( $button_background_color ),
+				),
 			);
 			$parse_css                   .= zakra_parse_css( 'var(--zakra-color-1,#027abb)', $button_background_color, $button_background_color_css );
 
@@ -795,6 +805,9 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			$button_background_hover_color     = get_theme_mod( 'zakra_button_background_hover_color', '#ffffff' );
 			$button_background_hover_color_css = array(
 				'button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover, .wp-block-button .wp-block-button__link:hover' => array(
+					'background-color' => esc_html( $button_background_hover_color ),
+				),
+				'.zak-button:hover:not(.zak-header-buttons .zak-button)' => array(
 					'background-color' => esc_html( $button_background_hover_color ),
 				),
 			);
@@ -2931,12 +2944,19 @@ if ( ! class_exists( 'Zakra_Dynamic_CSS' ) ) {
 			// click-to-open overlay search; the Full Search Form variant (Zakra Pro)
 			// never adds that class, so the background never applied there (ZAK-255).
 			// The `.zak-search-container` selector covers that case too.
-			$parse_builder_css                           .= zakra_parse_background_css( $header_search_background_default, $header_search_background, '.zak-header-builder .zak-main-header.zak-header-search--opened, .zak-header-builder .zak-header-search.zak-search-full .zak-search-container' );
+			// `.zak-main-header` is only the desktop row's outer wrapper; `.zak-mobile-row` is its mobile equivalent.
+			// Top/Main/Bottom row selectors are needed too - each row has its own opaque
+			// background-color that otherwise paints over the wrapper's background
+			// wherever Search is placed outside the Main row. `#zak-mobile-nav` is
+			// needed for the same reason when Search is placed in the drawer's
+			// Offset Area - the drawer has its own opaque background too.
+			$parse_builder_css                           .= zakra_parse_background_css( $header_search_background_default, $header_search_background, '.zak-header-builder .zak-main-header.zak-header-search--opened, .zak-header-builder .zak-mobile-row.zak-header-search--opened, .zak-header-builder .zak-main-header.zak-header-search--opened .zak-header-top-row, .zak-header-builder .zak-main-header.zak-header-search--opened .zak-header-main-row, .zak-header-builder .zak-main-header.zak-header-search--opened .zak-header-bottom-row, .zak-header-builder .zak-mobile-row.zak-header-search--opened .zak-header-top-row, .zak-header-builder .zak-mobile-row.zak-header-search--opened .zak-header-main-row, .zak-header-builder .zak-mobile-row.zak-header-search--opened .zak-header-bottom-row, .zak-header-builder .zak-mobile-row.zak-header-search--opened #zak-mobile-nav, .zak-header-builder .zak-header-search.zak-search-full .zak-search-container' );
 
 			// Header builder search text color.
 			$header_search_text_color = get_theme_mod( 'zakra_header_search_text_color', '' );
 			$header_search_text_color_css = array(
-				'.zak-header-builder .zak-header-search .zak-search-field, .zak-header-builder .zak-header-search .zak-search-field:focus' => array(
+				// Extra specificity needed to beat `_header_builder.scss`'s overlay input rule.
+				'.zak-header-builder .zak-header-search .zak-search-field-label .zak-search-field, .zak-header-builder .zak-header-search .zak-search-field-label .zak-search-field:focus' => array(
 					'color' => esc_html( $header_search_text_color ),
 				),
 				'.zak-header-builder .zak-header-search .zak-icon--close::after , .zak-header-builder .zak-header-search .zak-icon--close::before' => array(

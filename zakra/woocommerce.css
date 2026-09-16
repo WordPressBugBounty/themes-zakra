@@ -60,10 +60,26 @@
 
 .woocommerce .products {
 	display: grid;
-	grid-template-columns: repeat(var(--products-column, 1), 1fr);
+	/* Below 600px nothing sets --products-column (see the 600px/768px media
+	   queries further down, driven by WooCommerce's own "Products per row"
+	   setting via .columns-N), so it always fell back to this value - 1
+	   collapsed the shop grid to a single column on every phone regardless
+	   of that setting, when the native/expected mobile default is 2 (ZAK-338). */
+	grid-template-columns: repeat(var(--products-column, 2), 1fr);
 	gap: 30px;
 	margin: 0;
 	padding: 0;
+}
+
+/* WooCommerce's own woocommerce-smallscreen.css still sets width: 48% on
+   each product for a pre-Grid, float-based 2-up mobile fallback. With the
+   grid above already sizing the columns correctly, that leftover width
+   made each item render at half its own grid cell, so titles and the Add
+   to Cart button broke down to single characters per line (ZAK-360).
+   Reset it and let the grid size items on its own. */
+.woocommerce ul.products[class*="columns-"] li.product,
+.woocommerce-page ul.products[class*="columns-"] li.product {
+	width: auto;
 }
 
 .woocommerce .products .product img {

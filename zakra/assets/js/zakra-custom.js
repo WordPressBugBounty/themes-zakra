@@ -78,7 +78,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		document
 			.querySelector('.zak-mobile-nav')
 			.addEventListener('click', function (e) {
-				if (e.target.tagName === 'A') {
+				// The Search element's toggle/close controls are also `<a>` tags but
+				// must not close the whole drawer when opening/using search.
+				if (e.target.tagName === 'A' && !e.target.closest('.zak-header-search')) {
 					toggleButton.click();
 				}
 			});
@@ -280,18 +282,12 @@ document.addEventListener('DOMContentLoaded', function () {
 	 * Search form.
 	 */
 	(function () {
-		let searchIcon,
-			searchBox,
-			getClosest,
-			closeIcon,
+		let getClosest,
 			contentBackDrop,
 			footerBackDrop;
 
-		searchIcon = document.querySelector('.zak-header-search__toggle');
-		searchBox = document.querySelector('.zak-main-header');
 		contentBackDrop = document.querySelector('.zak-content');
 		footerBackDrop = document.querySelector('.zak-footer');
-		closeIcon = document.querySelector('.zak-header-search .zak-icon--close');
 
 		getClosest = function (elem, selector) {
 			// Element.matches() polyfill
@@ -327,9 +323,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		};
 
 		/**
-		 * Show hide search form.
+		 * Show hide search form. Row is resolved per click, since search can exist on both header rows at once (#220).
 		 */
-		function showHideSearchForm(action) {
+		function showHideSearchForm(searchBox, action) {
+			if (!searchBox) {
+				return;
+			}
+
 			// Hide search form.
 			if ('hide' === action) {
 				searchBox.classList.remove('zak-header-search--opened');
@@ -346,16 +346,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			// Autofocus.
 			if (searchBox.classList.contains('zak-header-search--opened')) {
+				// Scoped to .zak-header-search, since the mobile row can also contain an unrelated search form nested in the hamburger drawer (#220).
+				let wrapper = searchBox.querySelector('.zak-header-search') || searchBox,
+					container = wrapper.querySelector('.zak-search-container');
+
 				requestAnimationFrame(function () {
-					searchBox.getElementsByTagName('input')[0].focus();
+					wrapper.getElementsByTagName('input')[0].focus();
 				});
 
-				document
-					.querySelector('.zak-search-container')
-					.addEventListener('keydown', function (e) {
-						let element = document
-								.querySelector('.zak-search-container')
-								.querySelectorAll('input[type="search"],button'),
+				if (container) {
+					container.addEventListener('keydown', function (e) {
+						let element = container.querySelectorAll(
+								'input[type="search"],button'
+							),
 							firstElement = element[0],
 							lastElement = element[element.length - 1],
 							tab = e.keyCode === 9 || e.key === 'Tab';
@@ -374,48 +377,60 @@ document.addEventListener('DOMContentLoaded', function () {
 							firstElement.focus();
 						}
 					});
+				}
 			}
 		}
 
-		// If icon exists.
-		if (null !== searchIcon) {
-			// On search icon click.
-			searchIcon.addEventListener('click', function (ev) {
-				ev.preventDefault();
-
-				showHideSearchForm();
-			});
-
-			// On close icon click.
-			closeIcon.addEventListener('click', function (e) {
-				searchBox.classList.remove('zak-header-search--opened');
-				contentBackDrop.classList.remove('backdrop');
-				footerBackDrop.classList.remove('backdrop');
-
-				return;
-			});
-
-			// on click outside form.
+		// If a search toggle exists anywhere on the page.
+		if (null !== document.querySelector('.zak-header-search__toggle')) {
 			document.addEventListener('click', function (ev) {
-				var closest = typeof ev.target.closest;
+				let toggle = ev.target.closest('.zak-header-search__toggle');
 
+				// On search icon click.
+				if (toggle) {
+					ev.preventDefault();
+
+					showHideSearchForm(toggle.closest('.zak-row'));
+
+					return;
+				}
+
+				// On close icon click.
+				let closeIcon = ev.target.closest(
+					'.zak-header-search .zak-icon--close'
+				);
+
+				if (closeIcon) {
+					showHideSearchForm(
+						closeIcon.closest('.zak-header-search--opened'),
+						'hide'
+					);
+
+					return;
+				}
+
+				// on click outside form.
 				if (
 					ev.target.closest('.zak-main-header') ||
+					ev.target.closest('.zak-mobile-row') ||
 					ev.target.closest('.zak-icon-search')
 				) {
 					return;
 				}
 
-				showHideSearchForm('hide');
+				showHideSearchForm(
+					document.querySelector('.zak-header-search--opened'),
+					'hide'
+				);
 			});
 
 			// on esc key.
 			document.addEventListener('keyup', function (e) {
-				if (
-					searchBox.classList.contains('zak-header-search--opened') &&
-					'Escape' === e.key
-				) {
-					showHideSearchForm('hide');
+				if ('Escape' === e.key) {
+					showHideSearchForm(
+						document.querySelector('.zak-header-search--opened'),
+						'hide'
+					);
 				}
 			});
 		}

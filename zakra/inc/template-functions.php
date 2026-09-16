@@ -546,3 +546,23 @@ if ( ! function_exists( 'zakra_change_search_field_placeholder' ) ) :
 endif;
 
 add_filter( 'get_search_form', 'zakra_change_search_field_placeholder' );
+
+if ( ! function_exists( 'zakra_mobile_menu_fallback' ) ) :
+
+	/**
+	 * Fallback for the mobile drawer's menu when no menu is assigned to the Mobile or Primary Menu location.
+	 *
+	 * @return void
+	 */
+	function zakra_mobile_menu_fallback() {
+		echo '<ul id="zak-mobile-menu" class="zak-mobile-menu">';
+		wp_list_pages(
+			array(
+				'title_li'    => '',
+				'number'      => 10,
+				'sort_column' => 'menu_order,post_title',
+			)
+		);
+		echo '</ul>';
+	}
+endif;

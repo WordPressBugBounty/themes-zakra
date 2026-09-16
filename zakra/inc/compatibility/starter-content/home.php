@@ -760,9 +760,15 @@ $markup = strtr(
 );
 
 return array(
-	'post_type'    => 'page',
-	'post_title'   => _x( 'Home', 'Theme starter content', 'zakra' ),
-	'post_content' => $markup,
+	'post_type'      => 'page',
+	'post_title'     => _x( 'Home', 'Theme starter content', 'zakra' ),
+	'post_content'   => $markup,
+	// This is a designed landing page, not a blog post — comments are never
+	// meant to appear here, regardless of what the site's default_comment_status
+	// option happens to be at creation time ( see page.php's comments_open()
+	// gate ). 'comment_status' is on WordPress core's starter-content post
+	// field allowlist, so it isn't dropped like meta_input below is.
+	'comment_status' => 'closed',
 	// No 'meta_input' here for the Page Header/breadcrumb-hiding and CSS-
 	// scoping meta this page needs ( zakra_page_header, and the internal
 	// marker print_home_page_styles() checks ) — WordPress core's own

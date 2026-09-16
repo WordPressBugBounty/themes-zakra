@@ -188,6 +188,14 @@ if ( ! class_exists( 'Zakra_Starter_Content' ) ) {
 		 * tags every attachment it sideloads ( see
 		 * WP_Customize_Manager::import_theme_starter_content() ).
 		 *
+		 * Every abandoned preview session ( Customizer or Live Preview closed
+		 * without publishing ) leaves its own auto-draft behind untouched —
+		 * WordPress only garbage-collects those after 7 days — so more than
+		 * one can easily exist at once, all tagged the same 'logo' slug.
+		 * Explicit 'orderby' => 'ID', 'order' => 'DESC' is required to reliably
+		 * land on the one THIS request's get() call just (re)staged a moment
+		 * ago, rather than an arbitrary older one from a past session.
+		 *
 		 * @return int
 		 */
 		private static function logo_attachment_id() {
@@ -197,6 +205,8 @@ if ( ! class_exists( 'Zakra_Starter_Content' ) ) {
 					'post_type'      => 'attachment',
 					'post_status'    => 'auto-draft',
 					'posts_per_page' => 1,
+					'orderby'        => 'ID',
+					'order'          => 'DESC',
 					'fields'         => 'ids',
 					'meta_key'       => '_customize_draft_post_name',
 					'meta_value'     => self::LOGO_SLUG,
@@ -211,6 +221,13 @@ if ( ! class_exists( 'Zakra_Starter_Content' ) ) {
 		 * same way WordPress core's own starter-content importer tags every
 		 * post it stages ( see WP_Customize_Manager::insert_auto_draft_post() ).
 		 *
+		 * Same staleness risk as logo_attachment_id() above, and the same fix:
+		 * without an explicit order, this could resolve to a leftover Home
+		 * auto-draft from an earlier, abandoned preview session instead of the
+		 * one actually being viewed right now — leaving set_home_page_meta()
+		 * silently updating the wrong post, and the Page Header/breadcrumb bar
+		 * still showing on the page the user is actually looking at.
+		 *
 		 * @return int
 		 */
 		private static function home_page_id() {
@@ -220,6 +237,8 @@ if ( ! class_exists( 'Zakra_Starter_Content' ) ) {
 					'post_type'      => 'page',
 					'post_status'    => 'auto-draft',
 					'posts_per_page' => 1,
+					'orderby'        => 'ID',
+					'order'          => 'DESC',
 					'fields'         => 'ids',
 					'meta_key'       => '_customize_draft_post_name',
 					'meta_value'     => self::HOME_SLUG,
@@ -266,21 +285,39 @@ if ( ! class_exists( 'Zakra_Starter_Content' ) ) {
 		/**
 		 * Enqueue the "fresh site" Customizer notice.
 		 *
-		 * Shown only on a fresh site ( the same condition WordPress uses to import
-		 * starter content ). Lets the user keep the starter homepage — chrome and
-		 * all, already staged by the time this notice appears — or start with a
-		 * clean slate instead.
+		 * Shown on a fresh site ( the same condition WordPress uses to import
+		 * starter content ), OR whenever the Customizer is previewing a theme
+		 * that isn't active yet — the WordPress.org theme-preview iframe, and
+		 * Appearance > Themes' "Live Preview", both fall in the latter bucket.
+		 * That second condition matters because get_chrome()'s header/footer
+		 * chrome is only ever staged by this notice's AJAX call — gating it on
+		 * 'fresh_site' alone left it never firing there, since neither of those
+		 * two contexts touches a real site's fresh_site option: the org preview
+		 * runs against a long-lived, already-published-to sandbox, and a Live
+		 * Preview runs against a real site's own (already non-fresh) install.
+		 * Without the AJAX call, only the Home page's body content shows
+		 * ( staged unconditionally by WordPress core's own starter-content
+		 * import ) — the logo, primary menu, search, and header/footer
+		 * builder chrome around it never appear at all — see the discrepancy
+		 * reported for the wordpress.org theme preview.
+		 *
+		 * Lets the user keep the starter homepage — chrome and all, already
+		 * staged by the time this notice appears — or start with a clean
+		 * slate instead.
 		 *
 		 * @return void
 		 */
 		public static function enqueue_fresh_site_notice() {
 
-			// Only when the site is still fresh ( no published content yet ).
-			if ( ! get_option( 'fresh_site' ) ) {
+			global $wp_customize;
+
+			$is_theme_preview = ( $wp_customize instanceof WP_Customize_Manager ) && ! $wp_customize->is_theme_active();
+
+			// Only when the site is still fresh ( no published content yet ),
+			// or when previewing a theme that isn't active — see docblock above.
+			if ( ! get_option( 'fresh_site' ) && ! $is_theme_preview ) {
 				return;
 			}
-
-			global $wp_customize;
 
 			wp_enqueue_script(
 				'zakra-starter-content-notice',

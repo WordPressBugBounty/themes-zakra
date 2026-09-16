@@ -72,5 +72,11 @@ $wp_customize->get_control( 'external_header_video' )->label = esc_html__( 'Head
 
 // Modify WooCommerce default section priorities.
 if ( class_exists( 'WooCommerce' ) ) {
-	$wp_customize->get_panel( 'woocommerce' )->priority = 36;
+	$woocommerce_panel = $wp_customize->get_panel( 'woocommerce' );
+
+	// Absent during Live Preview of an inactive theme — WooCommerce's own
+	// customize_register callback hasn't registered it in that context yet.
+	if ( $woocommerce_panel ) {
+		$woocommerce_panel->priority = 36;
+	}
 }

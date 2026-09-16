@@ -123,7 +123,7 @@ class WebFontLoader {
 		if ( ! isset( $schedules['monthly'] ) ) {
 			$schedules['monthly'] = array(
 				'interval' => 30 * DAY_IN_SECONDS,
-				'display'  => __( 'Once Monthly', 'customind' ),
+				'display'  => __( 'Once Monthly', 'zakra' ),
 			);
 		}
 		return $schedules;

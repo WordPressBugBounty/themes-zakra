@@ -71,29 +71,47 @@ window.zakraNavHelper = ZakraNavHelper;
 
 (
 	function() {
-		var container, menu, links, i, len;
 
-		container = document.getElementById( 'zak-primary-nav' );
+		// Every header nav needs the same keyboard/touch handling, not just the primary one.
+		var navIds = ['zak-primary-nav', 'zak-secondary-nav', 'zak-tertiary-nav', 'zak-quaternary-nav'],
+			i;
 
-		if ( ! container ) {
-			return;
+		for ( i = 0; i < navIds.length; i++ ) {
+			setUpNav( document.getElementById( navIds[i] ) );
 		}
 
-		menu = container.getElementsByTagName( 'ul' )[0];
+		/**
+		 * Wires up focus/blur toggling and the touch fallback for one nav container.
+		 */
+		function setUpNav( container ) {
+			var menu, links, j, len;
 
-		menu.setAttribute( 'aria-expanded', 'false' );
+			if ( ! container ) {
+				return;
+			}
 
-		if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
-			menu.className += ' nav-menu';
-		}
+			menu = container.getElementsByTagName( 'ul' )[0];
 
-		// Get all the link elements within the menu.
-		links = menu.getElementsByTagName( 'a' );
+			if ( ! menu ) {
+				return;
+			}
 
-		// Each time a menu link is focused or blurred, toggle focus.
-		for ( i = 0, len = links.length; i < len; i++ ) {
-			links[i].addEventListener( 'focus', toggleFocus, true );
-			links[i].addEventListener( 'blur', toggleFocus, true );
+			menu.setAttribute( 'aria-expanded', 'false' );
+
+			if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
+				menu.className += ' nav-menu';
+			}
+
+			// Get all the link elements within the menu.
+			links = menu.getElementsByTagName( 'a' );
+
+			// Each time a menu link is focused or blurred, toggle focus.
+			for ( j = 0, len = links.length; j < len; j++ ) {
+				links[j].addEventListener( 'focus', toggleFocus, true );
+				links[j].addEventListener( 'blur', toggleFocus, true );
+			}
+
+			addTouchFallback( container );
 		}
 
 		/**
@@ -121,118 +139,233 @@ window.zakraNavHelper = ZakraNavHelper;
 		/**
 		 * Toggles `focus` class to allow submenu access on tablets.
 		 */
-		(
-			function( container ) {
-				var touchStartFn, i,
-					parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' ),
-					supportsPassive = false;;
-				try {
-					var opts = Object.defineProperty( {}, 'passive', {
-						get: function() {
-							supportsPassive = true;
-						}
-					} );
-					window.addEventListener( 'testPassive', null, opts );
-					window.removeEventListener( 'testPassive', null, opts );
-				} catch ( e ) {}
+		function addTouchFallback( container ) {
+			var touchStartFn, k,
+				parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' ),
+				supportsPassive = false;
 
-				if ( 'ontouchstart' in window ) {
-					touchStartFn = function( e ) {
-						var i,
-							menuItem = this.parentNode;
-
-						if ( ! menuItem.classList.contains( 'focus' ) ) {
-							e.preventDefault();
-
-							for ( i = 0; i < menuItem.parentNode.children.length; ++i ) {
-								if ( menuItem === menuItem.parentNode.children[i] ) {
-									continue;
-								}
-
-								menuItem.parentNode.children[i].classList.remove( 'focus' );
-							}
-							menuItem.classList.add( 'focus' );
-						} else {
-							menuItem.classList.remove( 'focus' );
-						}
-					};
-
-					for ( i = 0; i < parentLink.length; ++i ) {
-						parentLink[i].addEventListener( 'touchstart', touchStartFn, supportsPassive ? { passive: true } : false );
+			try {
+				var opts = Object.defineProperty( {}, 'passive', {
+					get: function() {
+						supportsPassive = true;
 					}
+				} );
+				window.addEventListener( 'testPassive', null, opts );
+				window.removeEventListener( 'testPassive', null, opts );
+			} catch ( e ) {}
+
+			if ( 'ontouchstart' in window ) {
+				touchStartFn = function( e ) {
+					var k,
+						menuItem = this.parentNode;
+
+					if ( ! menuItem.classList.contains( 'focus' ) ) {
+						e.preventDefault();
+
+						for ( k = 0; k < menuItem.parentNode.children.length; ++k ) {
+							if ( menuItem === menuItem.parentNode.children[k] ) {
+								continue;
+							}
+
+							menuItem.parentNode.children[k].classList.remove( 'focus' );
+						}
+						menuItem.classList.add( 'focus' );
+					} else {
+						menuItem.classList.remove( 'focus' );
+					}
+				};
+
+				for ( k = 0; k < parentLink.length; ++k ) {
+					parentLink[k].addEventListener( 'touchstart', touchStartFn, supportsPassive ? { passive: true } : false );
 				}
-			}( container )
-		);
+			}
+		}
 	}()
 );
 
 
 /**
- * Fixes menu out of viewport
+ * Fixes menu out of viewport.
+ *
+ * Adds `zak-edge` to a sub menu that would otherwise open past the edge of the
+ * viewport, so the CSS can flip it back inwards.
  */
 (
 	function() {
-		var i, elEvent;
+		var resizeTimer,
 
-		var elWithChildren = document.querySelectorAll( '.zak-primary-nav li.menu-item-has-children, .zak-primary-nav li.page_item_has_children' ),
-			elCount        = elWithChildren.length,
-			elEvent        = isTouchDevice() ? 'touchstart' : 'mouseenter';
+			// Every nav that has `zak-edge` rules in the stylesheet, not just the primary one.
+			navSelectors = [
+				'.zak-primary-nav',
+				'.zak-secondary-nav',
+				'.zak-tertiary-nav',
+				'.zak-quaternary-nav'
+			],
 
-		/**
-		 * @see https://stackoverflow.com/questions/123999/how-can-i-tell-if-a-dom-element-is-visible-in-the-current-viewport/7557433#7557433
-		 */
-		function isElementInViewport( el ) {
-			var rect = el.getBoundingClientRect();
+			// Breathing room kept between the sub menu and the edge of the viewport.
+			edgeGap = 10,
 
-			return (
-				0 <= rect.left &&
-				rect.right <= (
-					( window.innerWidth - 10 ) || ( document.documentElement.clientWidth - 10 )
+			itemSelector = navSelectors.map( function( nav ) {
+				return nav + ' li.menu-item-has-children, ' + nav + ' li.page_item_has_children';
+			} ).join( ', ' ),
+
+			// A device can be both touch and mouse, so listen for both rather than picking one.
+			openEvents = ['mouseenter', 'touchstart', 'focusin'];
+
+		function isRtl() {
+			return 'rtl' === (
+				document.documentElement.getAttribute( 'dir' ) || ''
+			).toLowerCase();
+		}
+
+		// The sub menu belonging to this item, ignoring any deeper ones.
+		function directSubMenu( li ) {
+			var children = li.children,
+				k;
+
+			for ( k = 0; k < children.length; k++ ) {
+				if ( children[k].classList && (
+					children[k].classList.contains( 'sub-menu' ) ||
+					children[k].classList.contains( 'children' )
+				) ) {
+					return children[k];
+				}
+			}
+
+			return null;
+		}
+
+		// Second level and deeper open beside their parent, top level opens below it.
+		function isNested( li ) {
+			var parentUl = li.parentNode;
+
+			return !! (
+				parentUl && parentUl.classList && (
+					parentUl.classList.contains( 'sub-menu' ) ||
+					parentUl.classList.contains( 'children' )
 				)
 			);
 		}
 
-		// Checks whether user uses touch device or not.
-		function isTouchDevice() {
-			return 'ontouchstart' in window || navigator.maxTouchPoints;
-		};
+		/**
+		 * Works out where the sub menu *would* land before it is shown.
+		 *
+		 * Measured from the parent item plus the sub menu's own width, because the
+		 * sub menu itself may still be parked at `left: -999999px` at this point and
+		 * its own rect would be meaningless. `clientWidth` already excludes the
+		 * scrollbar, so classic vs overlay scrollbars make no difference.
+		 */
+		function needsFlip( li, subMenu ) {
+			var liRect        = li.getBoundingClientRect(),
+				subWidth      = subMenu.offsetWidth,
+				viewportWidth = document.documentElement.clientWidth || window.innerWidth;
 
-		// Loop through li having sub menu.
-		for ( i = 0; i < elCount; i++ ) {
+			if ( ! subWidth ) {
+				return false;
+			}
 
-			// On mouse enter.
-			elWithChildren[i].addEventListener( elEvent, function( ev ) {
-				var li = ev.currentTarget,
-					subMenu;
+			if ( isRtl() ) {
+				return (
+					( isNested( li ) ? liRect.left : liRect.right ) - subWidth
+				) < edgeGap;
+			}
 
-				if ( li ) {
+			return (
+				( isNested( li ) ? liRect.right : liRect.left ) + subWidth
+			) > ( viewportWidth - edgeGap );
+		}
 
-					subMenu = li.querySelectorAll( '.sub-menu, .children' )[0];
+		function updateEdge( ev ) {
+			var li = ev.currentTarget,
+				subMenu;
 
-					if ( subMenu ) {
-						if ( ! isElementInViewport( subMenu ) ) {
-							subMenu.classList.add( 'zak-edge' );
-						}
-					}
+			if ( ! li ) {
+				return;
+			}
+
+			subMenu = directSubMenu( li );
+
+			if ( ! subMenu ) {
+				return;
+			}
+
+			if ( needsFlip( li, subMenu ) ) {
+				subMenu.classList.add( 'zak-edge' );
+			} else {
+				subMenu.classList.remove( 'zak-edge' );
+			}
+		}
+
+		// Clears this item and anything nested inside it.
+		function clearEdge( el ) {
+			var edged = el.querySelectorAll( '.zak-edge' ),
+				k;
+
+			for ( k = 0; k < edged.length; k++ ) {
+				edged[k].classList.remove( 'zak-edge' );
+			}
+		}
+
+		function onLeave( ev ) {
+			if ( ev.currentTarget ) {
+				clearEdge( ev.currentTarget );
+			}
+		}
+
+		function onFocusOut( ev ) {
+			var li = ev.currentTarget;
+
+			// Keep the flip while focus is still somewhere inside this item.
+			if ( li && ! li.contains( ev.relatedTarget ) ) {
+				clearEdge( li );
+			}
+		}
+
+		/**
+		 * Binds the flip-detection listeners to every item with a sub menu
+		 * currently in the document. Callable more than once, so a nav menu
+		 * swapped in later - not just the one present at page load - still
+		 * gets covered; old listeners on now-detached elements are simply
+		 * garbage collected, never double-bound.
+		 */
+		function bindEdgeDetection() {
+			var elWithChildren = document.querySelectorAll( itemSelector ),
+				elCount        = elWithChildren.length,
+				k, m;
+
+			for ( k = 0; k < elCount; k++ ) {
+				for ( m = 0; m < openEvents.length; m++ ) {
+					elWithChildren[k].addEventListener(
+						openEvents[m],
+						updateEdge,
+						'touchstart' === openEvents[m] ? { passive: true } : false
+					);
 				}
-			}, false );
 
-			// On mouse leave.
-			elWithChildren[i].addEventListener( 'mouseleave', function( ev ) {
-				var li = ev.currentTarget,
-					sub;
+				elWithChildren[k].addEventListener( 'mouseleave', onLeave, false );
+				elWithChildren[k].addEventListener( 'focusout', onFocusOut, false );
+			}
+		}
 
-				if ( li ) {
-					sub = li.querySelectorAll( '.sub-menu, .children' )[0];
+		bindEdgeDetection();
 
-					sub.classList.remove( 'zak-edge' );
+		// A resize can move a sub menu in or out of the edge, so start clean.
+		window.addEventListener( 'resize', function() {
+			clearTimeout( resizeTimer );
 
-					if ( sub.classList.contains( 'zak-edge' ) ) {
-						sub.classList.remove( 'zak-edge' );
-					}
-				}
-			}, false );
-		} // End: for ( i in elWithChildren ) {
+			resizeTimer = setTimeout( function() {
+				clearEdge( document );
+			}, 150 );
+		}, false );
+
+		// The Customizer preview replaces a nav menu's markup via selective
+		// refresh whenever its location/content is edited live, and WP core
+		// fires this event on the new markup afterwards - the one-time scan
+		// above never saw those replacement items, so the flip silently
+		// stopped working for any menu edited in the Customizer (zakra-pro#228).
+		if ( window.jQuery ) {
+			window.jQuery( document ).on( 'customize-preview-menu-refreshed', bindEdgeDetection );
+		}
 
 	}
 	() );

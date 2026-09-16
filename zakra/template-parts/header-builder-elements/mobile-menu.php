@@ -21,6 +21,8 @@ wp_nav_menu(
 		'menu_id'        => 'zak-mobile-menu',
 		'menu_class'     => 'zak-mobile-menu',
 		'container'      => '',
-		'fallback_cb'    => false,
+		// Only reached when neither the Mobile nor the Primary Menu location
+		// has a menu assigned at all - see zakra_mobile_menu_fallback().
+		'fallback_cb'    => 'zakra_mobile_menu_fallback',
 	)
 );

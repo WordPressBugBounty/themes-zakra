@@ -55,11 +55,29 @@ $enable_search          = get_theme_mod( 'zakra_enable_header_search', true );
 		<div class="zak-mobile-nav__header">
 			<?php
 			if ( $enable_builder || zakra_maybe_enable_builder() ) {
-				foreach ( $builder['desktop'] as $area => $cols ) {
-					foreach ( $cols as $element => $value ) {
-						foreach ( $value as $key ) {
-							if ( 'search' === $key ) {
-								get_search_form();
+				// Skip the desktop-config auto-inject below when the user has
+				// already explicitly placed Search in a mobile row or the
+				// drawer's Offset Area themselves, to avoid showing it twice.
+				$search_placed_in_mobile = in_array( 'search', $builder['offset'], true );
+
+				if ( ! $search_placed_in_mobile ) {
+					foreach ( $builder['mobile'] as $cols ) {
+						foreach ( $cols as $value ) {
+							if ( in_array( 'search', $value, true ) ) {
+								$search_placed_in_mobile = true;
+								break 2;
+							}
+						}
+					}
+				}
+
+				if ( ! $search_placed_in_mobile ) {
+					foreach ( $builder['desktop'] as $area => $cols ) {
+						foreach ( $cols as $element => $value ) {
+							foreach ( $value as $key ) {
+								if ( 'search' === $key ) {
+									get_search_form();
+								}
 							}
 						}
 					}

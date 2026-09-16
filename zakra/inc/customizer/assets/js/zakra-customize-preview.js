@@ -1277,17 +1277,25 @@
 					// `.zak-header-search--opened` only ever gets toggled on for the
 					// classic click-to-open overlay search; the Full Search Form
 					// variant (Zakra Pro) never adds that class, so the background
-					// never applied there (ZAK-255). `.zak-search-container` covers
-					// that case too - keep in sync with class-zakra-dynamic-css.php.
+					// never applied there. `.zak-search-container` covers that case
+					// too. `.zak-main-header` is the desktop row's outer wrapper;
+					// `.zak-mobile-row` is its mobile equivalent. The Top/Main/Bottom
+					// row selectors are needed too - each row has its own opaque
+					// background-color that otherwise paints over the wrapper's
+					// background wherever Search is placed outside the Main row.
+					// `#zak-mobile-nav` is needed for the same reason when Search is
+					// placed in the drawer's Offset Area - the drawer has its own
+					// opaque background too - keep in sync with class-zakra-dynamic-css.php.
 					css = zakraGenerateBackgroundCSS(
-						'.zak-header-builder .zak-main-header.zak-header-search--opened, .zak-header-builder .zak-header-search.zak-search-full .zak-search-container',
+						'.zak-header-builder .zak-main-header.zak-header-search--opened, .zak-header-builder .zak-mobile-row.zak-header-search--opened, .zak-header-builder .zak-main-header.zak-header-search--opened .zak-header-top-row, .zak-header-builder .zak-main-header.zak-header-search--opened .zak-header-main-row, .zak-header-builder .zak-main-header.zak-header-search--opened .zak-header-bottom-row, .zak-header-builder .zak-mobile-row.zak-header-search--opened .zak-header-top-row, .zak-header-builder .zak-mobile-row.zak-header-search--opened .zak-header-main-row, .zak-header-builder .zak-mobile-row.zak-header-search--opened .zak-header-bottom-row, .zak-header-builder .zak-mobile-row.zak-header-search--opened #zak-mobile-nav, .zak-header-builder .zak-header-search.zak-search-full .zak-search-container',
 						value,
 					);
 					break;
 
 				case 'zakra_header_search_text_color':
+					// Extra specificity needed to beat _header_builder.scss's overlay input rule.
 					css = zakraGenerateCommonCSS(
-						'.zak-header-builder .zak-header-search .zak-search-field, .zak-header-builder .zak-header-search .zak-search-field:focus',
+						'.zak-header-builder .zak-header-search .zak-search-field-label .zak-search-field, .zak-header-builder .zak-header-search .zak-search-field-label .zak-search-field:focus',
 						'color',
 						value,
 					);

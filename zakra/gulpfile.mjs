@@ -164,6 +164,19 @@ let paths = {
 			'!phpcs.xml',
 			'!.gitlab',
 			'!.gitlab/**',
+
+			// QA infrastructure. None of it is theme code and none of it may
+			// reach a user's site. `.themegrill-qa` and `.github` are dotfiles,
+			// which `gulp.src` already skips without `dot: true`, but they are
+			// listed anyway so this stays correct if that option is ever added.
+			'!playwright.config.ts',
+			'!pnpm-lock.yaml',
+			'!tests',
+			'!tests/**',
+			'!.themegrill-qa',
+			'!.themegrill-qa/**',
+			'!.github',
+			'!.github/**',
 		],
 		dest: './dist',
 	},

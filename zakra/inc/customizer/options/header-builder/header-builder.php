@@ -131,6 +131,94 @@ function customind_get_header_components() {
 	);
 }
 
+if ( ! function_exists( 'zakra_sanitize_header_builder_value' ) ) {
+
+	/**
+	 * Sanitize a header builder layout by dropping component IDs that no
+	 * longer exist in the current components list, e.g. left over after a
+	 * plugin such as WooCommerce or Zakra Pro is deactivated.
+	 *
+	 * @param mixed $value Raw saved/incoming builder value.
+	 * @return array Sanitized builder value.
+	 */
+	function zakra_sanitize_header_builder_value( $value ) {
+		if ( ! is_array( $value ) ) {
+			return zakra_header_default_builder();
+		}
+
+		$components = customind_get_header_components();
+		$valid_ids  = array(
+			'desktop' => wp_list_pluck( $components['desktop'] ?? array(), 'id' ),
+			'mobile'  => wp_list_pluck( $components['mobile'] ?? array(), 'id' ),
+		);
+
+		foreach ( array( 'desktop', 'mobile' ) as $device ) {
+			if ( empty( $value[ $device ] ) || ! is_array( $value[ $device ] ) ) {
+				continue;
+			}
+
+			foreach ( $value[ $device ] as $row => $cols ) {
+				$value[ $device ][ $row ] = zakra_sanitize_header_builder_columns( $cols, $valid_ids[ $device ] );
+			}
+		}
+
+		if ( isset( $value['offset'] ) ) {
+			$value['offset'] = is_array( $value['offset'] )
+				? array_values( array_intersect( $value['offset'], $valid_ids['mobile'] ) )
+				: array();
+		}
+
+		return $value;
+	}
+}
+
+if ( ! function_exists( 'zakra_sanitize_header_builder_columns' ) ) {
+
+	/**
+	 * Sanitize one builder row's left/center/right columns against a list of
+	 * valid component IDs.
+	 *
+	 * @param mixed $cols      Row columns, e.g. array( 'left' => [], 'center' => [], 'right' => [] ).
+	 * @param array $valid_ids Component IDs allowed for this device.
+	 * @return array Sanitized columns.
+	 */
+	function zakra_sanitize_header_builder_columns( $cols, $valid_ids ) {
+		if ( ! is_array( $cols ) ) {
+			return array();
+		}
+
+		foreach ( $cols as $col => $ids ) {
+			$cols[ $col ] = is_array( $ids ) ? array_values( array_intersect( $ids, $valid_ids ) ) : array();
+		}
+
+		return $cols;
+	}
+}
+
+if ( ! function_exists( 'zakra_header_builder_sanitization_callbacks' ) ) {
+
+	/**
+	 * Register a sanitize callback for the header builder control, which has
+	 * none in Customind\Core\Sanitization::get_sanitization_callback().
+	 *
+	 * @param array $callbacks Control type => sanitize callback map.
+	 * @return array
+	 */
+	function zakra_header_builder_sanitization_callbacks( $callbacks ) {
+		$callbacks['customind-header-builder'] = 'zakra_sanitize_header_builder_value';
+		return $callbacks;
+	}
+}
+add_filter( 'customind:sanitization:callbacks', 'zakra_header_builder_sanitization_callbacks' );
+
+/**
+ * Also sanitize the setting's value on the way out to JS via the
+ * WP_Customize_Setting::js_value() hook, since sanitize_callback only runs on
+ * save and a layout already corrupted in the database would otherwise keep
+ * crashing the builder on every load.
+ */
+add_filter( 'customize_sanitize_js_zakra_header_builder', 'zakra_sanitize_header_builder_value' );
+
 $zakra_pro_active = is_plugin_active( 'zakra-pro/zakra-pro.php' );
 
 $options = array(
